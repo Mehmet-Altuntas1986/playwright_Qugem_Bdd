@@ -1,0 +1,28 @@
+{
+  "name": "playwright-bdd",
+  "version": "1.0.0",
+  "description": "",
+  "main": "playwright.config.js",
+  "scripts": {
+    "test": "npx bddgen && npx playwright test --headed --browser=chromium",
+    "debug": "npx bddgen && npx playwright test --debug",
+    "codegen": "npx bddgen && npx playwright codegen ",
+    "report": "npx bddgen && npx playwright test --headed --browser=chromium --reporter=html"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "playwright": "^1.43.1"
+  },
+  "playwrightBdd": {
+    "importTestFrom": ".cucumber/fixtures.js"
+  },
+  "devDependencies": {
+    "@cucumber/cucumber": "^11.0.1",
+    "@playwright/test": "^1.47.2",
+    "@types/node": "^22.5.5",
+    "playwright-bdd": "^7.4.0"
+  }
+}
