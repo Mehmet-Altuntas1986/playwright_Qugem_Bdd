@@ -30,6 +30,9 @@ export class LoginPage extends BasePage {
   
   //to call this method , use english translation of the languages as STRING parameter.  (turkish. english or german)
   async languageToChoose(languageName) {
+
+    await this.page.locator(this.languages_btn).waitFor({ state: 'visible' });
+
     await this.page.locator(this.languages_btn).click();
     await this.page.waitForTimeout(1000)
 
@@ -49,18 +52,21 @@ export class LoginPage extends BasePage {
   }
 
 //use türkish , english or german as parameter to use this method
-  async clickLoginButton_withLanguage(choosenLanguage) {
+async clickLoginButton_withLanguage(choosenLanguage) {
+  await this.languageToChoose(choosenLanguage);
 
-    await this.languageToChoose(choosenLanguage)
-
-    if (choosenLanguage == 'german') {
-
+  switch (choosenLanguage) {
+    case 'german':
       await this.page.getByRole('button', { name: 'Einloggen' }).click();
-    } else if (choosenLanguage == 'english') {
+      break;
+    case 'english':
       await this.page.getByRole('button', { name: 'Login' }).click();
-    } else if (choosenLanguage == 'türkish')
+      break;
+    case 'türkish':
       await this.page.getByRole('button', { name: 'Giriş Yapın' }).click();
+      break;
   }
+}
 
 
 
@@ -82,7 +88,7 @@ export class LoginPage extends BasePage {
   }
 
   async navigateToDashboardWithChoosenLanguage(language) {
-    this.languageToChoose(language)
+    await this.languageToChoose(language)
     await page.locator(this.emailBox).fill(process.env.email)
     await page.locator(this.password).fill(process.env.password).press('enter');
     await page.waitForURL("https://qugem-staging.netlify.app/")

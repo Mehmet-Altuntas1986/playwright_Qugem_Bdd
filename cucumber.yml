@@ -1,3 +1,0 @@
-default:
-    features: [".cucumber/features/*.feature"]
-    require: ["features/**/*.{js,ts}"]

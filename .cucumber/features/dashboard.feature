@@ -4,7 +4,7 @@ Feature:Main Page Modules and their functionality
 
   Background:
     
-  Given Navigate to Dashboard "english"
+  Given Navigate to Dashboard with "english" language
   Then verify that dashboard page tab name contains QUGEM
 
   Scenario:navigation to Dashboard Module
@@ -83,3 +83,7 @@ Scenario:navigation to Kinesis GPS module
     Then click the Kinesis GPS Module
     And verify new opened Tab contains "Radius Velocity"
     And verify the URL should be "https://www.velocityfleet.com/accounts/login/"
+
+
+Scenario: click module
+Then click module "admin_btn"

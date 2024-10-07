@@ -70,7 +70,7 @@ Then('Click the login button with {string} language', async ({ page }, arg) => {
 
 
 //expect asekron degil ama page asekron
-Then('Verify that user is not on the Dasboard Page after clicking login button', async ({ page }) => {
+Then('Verify that user is not on the Dasboard Page because login is not successfull', async ({ page }) => {
   expect(page.url()).not.toBe("https://qugem-staging.netlify.app/")
 
 });
@@ -84,13 +84,13 @@ Then('verify user gets right alert warning if invalid password and valid email u
 
 });
 
-Then('click login button is functional', async ({ page }) => {
+Then('verify login button is functional', async ({ page }) => {
   const Loginbtn_element = page.locator(loginPage.loginBtn);
   expect(await Loginbtn_element.isEnabled()).toBe(true);
 
 });
 
-Then('press enter keyboard button', async ({ page }) => {
+Then('press enter button on keyboard', async ({ page }) => {
   await page.keyboard.press('Enter')
 });
 

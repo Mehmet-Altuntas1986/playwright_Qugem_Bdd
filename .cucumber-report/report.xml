@@ -1,17 +1,291 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite failures="2" skipped="0" name="my suite" time="93.384" tests="18">
-  <testcase classname="Playwright site" name="chromium › Playwright site › User logins the web application" time="1.501">
-    <system-out><![CDATA[Given Navigate to Login Page..............................................passed]]></system-out>
+<testsuite failures="6" skipped="0" name="my suite" time="644.3860000000001" tests="30">
+  <testcase classname="Main Page Modules and their functionality" name="chromium › Main Page Modules and their functionality › navigation to Payroll module" time="9.55">
+    <system-out><![CDATA[Given Navigate to Dashboard with "english" language.......................passed
+Then verify that dashboard page tab name contains QUGEM...................passed
+Then verify Payroll Module Button is visible and is clickable.............passed
+Then click the Payroll module.............................................passed
+And verify the URL of the Employee_Master_data module module should be ...passed]]></system-out>
   </testcase>
-  <testcase classname="Main Page Modules and their functionality" name="chromium › Main Page Modules and their functionality › navigation to Dashboard Module" time="10.000999999999998">
-    <system-out><![CDATA[Given Navigate to Dashboard "english".....................................passed
+  <testcase classname="Main Page Modules and their functionality" name="chromium › Main Page Modules and their functionality › navigation to Vehicles module" time="8.696">
+    <system-out><![CDATA[Given Navigate to Dashboard with "english" language.......................passed
+Then verify that dashboard page tab name contains QUGEM...................passed
+Then verify Vehicles Module Button is visible and is clickable............passed
+Then click the Vehicles module............................................passed
+And verify the URL of the Employee_Master_data module module should be ...passed]]></system-out>
+  </testcase>
+  <testcase classname="Main Page Modules and their functionality" name="chromium › Main Page Modules and their functionality › navigation to Employee_Master_data module" time="9.389000000000001">
+    <system-out><![CDATA[Given Navigate to Dashboard with "english" language.......................passed
+Then verify that dashboard page tab name contains QUGEM...................passed
+Then verify Employee_Master_Data module button is visible and is Clicka...passed
+Then click the Employee_Master_data module................................passed
+And verify the URL of the Employee_Master_data module should be "https:...passed]]></system-out>
+  </testcase>
+  <testcase classname="Main Page Modules and their functionality" name="chromium › Main Page Modules and their functionality › navigation to Employee_Attendance module" time="13.422">
+    <system-out><![CDATA[Given Navigate to Dashboard with "english" language.......................passed
+Then verify that dashboard page tab name contains QUGEM...................passed
+Then verify Employee_Attendance Module Button is visible and is Clickab...passed
+Then click the Employee_Attendance module.................................passed
+And verify the URL of the Employee_Master_data module module should be ...passed]]></system-out>
+  </testcase>
+  <testcase classname="Main Page Modules and their functionality" name="chromium › Main Page Modules and their functionality › navigation to Admin_Options module" time="13.774000000000003">
+    <system-out><![CDATA[Given Navigate to Dashboard with "english" language.......................passed
+Then verify that dashboard page tab name contains QUGEM...................passed
+And verify Admin Module Button is visible and is clickable................passed
+Then click the Admin Module...............................................passed
+Then verify Options module button is visible and clickable................passed
+And click the Options Module..............................................passed
+And verify the URL of the Options module should be "https://qugem-stagi...passed]]></system-out>
+  </testcase>
+  <testcase classname="Main Page Modules and their functionality" name="chromium › Main Page Modules and their functionality › navigation to Admin_Users module" time="14.955999999999998">
+    <system-out><![CDATA[Given Navigate to Dashboard with "english" language.......................passed
+Then verify that dashboard page tab name contains QUGEM...................passed
+Then verify Admin Module Button is visible and is clickable...............passed
+Then click the Admin Module...............................................passed
+Then verify Users module button is visible and clickable..................passed
+And click the Users Module................................................passed
+And verify the URL of the Users module should be "https://qugem-staging...passed]]></system-out>
+  </testcase>
+  <testcase classname="Main Page Modules and their functionality" name="chromium › Main Page Modules and their functionality › navigation to Admin_Holidays module" time="15.190000000000001">
+    <system-out><![CDATA[Given Navigate to Dashboard with "english" language.......................passed
+Then verify that dashboard page tab name contains QUGEM...................passed
+And verify Admin Module Button is visible and is clickable................passed
+Then click the Admin Module...............................................passed
+Then verify Holidays module button is visible and clickable...............passed
+And click the Holidays Module.............................................passed
+And verify the URL of the Holidays module should be "https://qugem-stag...passed]]></system-out>
+  </testcase>
+  <testcase classname="Main Page Modules and their functionality" name="chromium › Main Page Modules and their functionality › navigation to Dashboard Module" time="22.533">
+    <system-out><![CDATA[Given Navigate to Dashboard with "english" language.......................passed
 Then verify that dashboard page tab name contains QUGEM...................passed
 And verify DashBoard Module Button is visible and is Clickable............passed
 Then click the Dashboard module...........................................passed
 And verify the URL of the dashboard should be "https://qugem-staging.ne...passed
 And I should see the message "Hello, welcome to the QUGEM homepage."......passed]]></system-out>
   </testcase>
-  <testcase classname="Testing Navigation Success with valid and invalid credentials" name="chromium › Testing Navigation Success with valid and invalid credentials › 1-User Logs In, Navigates to Dashboard, and Logs Out" time="10.528999999999998">
+  <testcase classname="Main Page Modules and their functionality" name="chromium › Main Page Modules and their functionality › click module" time="9.504">
+    <system-out><![CDATA[Given Navigate to Dashboard with "english" language.......................passed
+Then verify that dashboard page tab name contains QUGEM...................passed
+Then click module "admin_btn".............................................passed]]></system-out>
+  </testcase>
+  <testcase classname="Main Page Modules and their functionality" name="chromium › Main Page Modules and their functionality › navigation to Admin_Payout_amounts module" time="15.585">
+    <system-out><![CDATA[Given Navigate to Dashboard with "english" language.......................passed
+Then verify that dashboard page tab name contains QUGEM...................passed
+And verify Admin Module Button is visible and is clickable................passed
+Then click the Admin Module...............................................passed
+Then verify Payout_amounts module button is visible and clickable.........passed
+And click the Payout_amounts Module.......................................passed
+And verify the URL of Payout_amounts module should be "https://qugem-st...passed]]></system-out>
+  </testcase>
+  <testcase classname="Main Page Modules and their functionality" name="chromium › Main Page Modules and their functionality › navigation to Kinesis GPS module" time="19.75">
+    <system-out><![CDATA[Given Navigate to Dashboard with "english" language.......................passed
+Then verify that dashboard page tab name contains QUGEM...................passed
+Then verify Kinesis GPS Module Button is visible and is clickable.........passed
+Then click the Kinesis GPS Module.........................................passed
+And verify new opened Tab contains "Radius Velocity"......................passed
+And verify the URL should be "https://www.velocityfleet.com/accounts/lo...passed]]></system-out>
+  </testcase>
+  <testcase classname="Main Page Modules and their functionality" name="chromium › Main Page Modules and their functionality › navigation to Quickly_Gmbh module" time="22.41">
+    <system-out><![CDATA[Given Navigate to Dashboard with "english" language.......................passed
+Then verify that dashboard page tab name contains QUGEM...................passed
+Then verify Quickly_Gmbh Module Button is visible and is clickable........passed
+Then click the Quickly_Gmbh Module........................................passed
+And verify new opened Tab title contains "Quickly Transporte GmbH"........passed
+And verify the Quickly_Gmbh URL should be "https://quicklygmbh.de/".......passed]]></system-out>
+  </testcase>
+  <testcase classname="Employee Master Data Module functionality" name="chromium › Employee Master Data Module functionality › Filter employee by first name in Employee Master Data and verify it is in the first row" time="33.47500000000001">
+    <system-out><![CDATA[Given Navigate to Dashboard with "english" language.......................passed
+Then verify that dashboard page tab name contains QUGEM...................passed
+Then I click the Employee_Master_data module..............................passed
+Then I select "GESAMT FIRMEN" using the company selection button, and c...passed
+Then I delete if in any row, surname column text is tester or developer...passed
+Then verify if you write tester or developer in filter surname, row1 is...passed
+Then I delete all filter sections to start every test Scenario with a c...passed
+And I verify that the Employees table title is visible....................passed
+And I verify that the "company" and "client" selection buttons are visi...passed
+And I enter "Gyulyustan" in the employee search field.....................passed
+Then verify the employee name "Gyulyustan" should be visible in the fir...passed
+Then I delete the Filter input............................................passed
+And verify "Gyulyustan" should not be in the first row....................passed]]></system-out>
+  </testcase>
+  <testcase classname="Employee Master Data Module functionality" name="chromium › Employee Master Data Module functionality › testing visibilty and clickably of the all dropdown elements of client companies with a loop" time="35.655">
+    <system-out><![CDATA[Given Navigate to Dashboard with "english" language.......................passed
+Then verify that dashboard page tab name contains QUGEM...................passed
+Then I click the Employee_Master_data module..............................passed
+Then I select "GESAMT FIRMEN" using the company selection button, and c...passed
+Then I delete if in any row, surname column text is tester or developer...passed
+Then verify if you write tester or developer in filter surname, row1 is...passed
+Then I delete all filter sections to start every test Scenario with a c...passed
+When I click the client companies dropdown button.........................passed
+Then I see client companies are visible and clickable.....................passed]]></system-out>
+  </testcase>
+  <testcase classname="Employee Master Data Module functionality" name="chromium › Employee Master Data Module functionality › testing visibilty and clickably of the all dropdown elements of company with a loop" time="35.386">
+    <system-out><![CDATA[Given Navigate to Dashboard with "english" language.......................passed
+Then verify that dashboard page tab name contains QUGEM...................passed
+Then I click the Employee_Master_data module..............................passed
+Then I select "GESAMT FIRMEN" using the company selection button, and c...passed
+Then I delete if in any row, surname column text is tester or developer...passed
+Then verify if you write tester or developer in filter surname, row1 is...passed
+Then I delete all filter sections to start every test Scenario with a c...passed
+When I click the company dropdown.........................................passed
+Then all companies in dropdown are visible and clickable..................passed]]></system-out>
+  </testcase>
+  <testcase classname="Employee Master Data Module functionality" name="chromium › Employee Master Data Module functionality › Adding personals with acceptable data and deleting them" time="52.260999999999996">
+    <system-out><![CDATA[Given Navigate to Dashboard with "english" language.......................passed
+Then verify that dashboard page tab name contains QUGEM...................passed
+Then I click the Employee_Master_data module..............................passed
+Then I select "GESAMT FIRMEN" using the company selection button, and c...passed
+Then I delete if in any row, surname column text is tester or developer...passed
+Then verify if you write tester or developer in filter surname, row1 is...passed
+Then I delete all filter sections to start every test Scenario with a c...passed
+Then I click the employee add button......................................passed
+And I click active check button...........................................passed
+When I fill "Ersan" "tester" "4321"  "12324"  "3000"......................passed
+And I fill soc_no "123456789123" _postcode "71254" _holidayNumYearly "2...passed
+Then I see exit date input box is not functional because personal activ...passed
+Then I see netSalary input box is still empty.............................passed
+Then I click company and choose option quickly transporte gmbh............passed
+Then I click Role and choose option LKW Fahrer............................passed
+Then I click Client and choose option Hermes..............................passed
+Then I click Wage Type and choose option Full_Time........................passed
+Then I click Tax Class and choose option 3................................passed
+Then I click Health insurance choose Ikk Classic..........................passed
+Then I click Child allowance and choose 2.................................passed
+Then I click Chirch Tax and choose evangelishe kirchensteuer..............passed
+Then I check buttons of meal allowance taxed_night surcharge_hourly Tem...passed
+Then I choose payment Type................................................passed
+Then I see if I filled correctly , calculate salary button becomes func...passed
+Then I click save changes.................................................passed
+Then I verify the alert says "Employee was added successfully"............passed
+Then I wait for the Url "https://qugem-staging.netlify.app/employee/".....passed
+Then I use no filter and write "4321" and verify it brings to the first...passed
+Then I find the added employee delete button and click it.................passed
+Then I verify the alert text "Are you sure you want to permanently dele...passed
+Then I see an alert info message "Employee was deleted successfully"......passed]]></system-out>
+  </testcase>
+  <testcase classname="Employee Master Data Module functionality" name="chromium › Employee Master Data Module functionality › Adding one personal with acceptable data and verifying employee saved and employee data is seen in employee master data page" time="51.569">
+    <system-out><![CDATA[Given Navigate to Dashboard with "english" language.......................passed
+Then verify that dashboard page tab name contains QUGEM...................passed
+Then I click the Employee_Master_data module..............................passed
+Then I select "GESAMT FIRMEN" using the company selection button, and c...passed
+Then I delete if in any row, surname column text is tester or developer...passed
+Then verify if you write tester or developer in filter surname, row1 is...passed
+Then I delete all filter sections to start every test Scenario with a c...passed
+Then I click the employee add button......................................passed
+And I click active check button...........................................passed
+When I fill "Mehmet" "tester" "200"  "12323"  "3000"......................passed
+And I fill soc_no "123456789123" _postcode "71254" _holidayNumYearly "2...passed
+Then I see exit date input box is not functional because personal activ...passed
+Then I see netSalary input box is still empty.............................passed
+Then I click company and choose option quickly transporte gmbh............passed
+Then I click Role and choose option LKW Fahrer............................passed
+Then I click Client and choose option Hermes..............................passed
+Then I click Wage Type and choose option Full_Time........................passed
+Then I click Tax Class and choose option 3................................passed
+Then I click Health insurance choose Ikk Classic..........................passed
+Then I click Child allowance and choose 2.................................passed
+Then I click Chirch Tax and choose evangelishe kirchensteuer..............passed
+Then I check buttons of meal allowance taxed_night surcharge_hourly Tem...passed
+Then I choose payment Type................................................passed
+Then I see if I filled correctly , calculate salary button becomes func...passed
+Then I click save changes.................................................passed
+Then I verify the alert says "Employee was added successfully"............passed
+Then I wait for the Url "https://qugem-staging.netlify.app/employee/".....passed
+Then I use no filter and write "200" and verify it brings to the first ...passed
+Then I verify client firma shoud be "Hermes"..............................passed
+Then I verify company should be "QUICKLY TRANSPORTE GMBH".................passed
+Then I verify role is "LKW Fahrer"........................................passed
+Then I verify employee status is "Active".................................passed
+Then I verify new added emnployee edit button is visible and clickable....passed
+Then I click edit button..................................................passed
+When I click the calculate salary button..................................passed
+Then I can see netSalary of the new employee..............................passed
+Then I click save changes again after edition of the employee.............passed
+Then I see an alert with text : name surname "was updated successfully"...passed]]></system-out>
+  </testcase>
+  <testcase classname="Employee Master Data Module functionality" name="chromium › Employee Master Data Module functionality › Adding personals with acceptable data and deleting them [1]" time="54.81099999999999">
+    <system-out><![CDATA[Given Navigate to Dashboard with "english" language.......................passed
+Then verify that dashboard page tab name contains QUGEM...................passed
+Then I click the Employee_Master_data module..............................passed
+Then I select "GESAMT FIRMEN" using the company selection button, and c...passed
+Then I delete if in any row, surname column text is tester or developer...passed
+Then verify if you write tester or developer in filter surname, row1 is...passed
+Then I delete all filter sections to start every test Scenario with a c...passed
+Then I click the employee add button......................................passed
+And I click active check button...........................................passed
+When I fill "Mehmet" "tester" "1234"  "12323"  "3000".....................passed
+And I fill soc_no "123456789123" _postcode "71254" _holidayNumYearly "2...passed
+Then I see exit date input box is not functional because personal activ...passed
+Then I see netSalary input box is still empty.............................passed
+Then I click company and choose option quickly transporte gmbh............passed
+Then I click Role and choose option LKW Fahrer............................passed
+Then I click Client and choose option Hermes..............................passed
+Then I click Wage Type and choose option Full_Time........................passed
+Then I click Tax Class and choose option 3................................passed
+Then I click Health insurance choose Ikk Classic..........................passed
+Then I click Child allowance and choose 2.................................passed
+Then I click Chirch Tax and choose evangelishe kirchensteuer..............passed
+Then I check buttons of meal allowance taxed_night surcharge_hourly Tem...passed
+Then I choose payment Type................................................passed
+Then I see if I filled correctly , calculate salary button becomes func...passed
+Then I click save changes.................................................passed
+Then I verify the alert says "Employee was added successfully"............passed
+Then I wait for the Url "https://qugem-staging.netlify.app/employee/".....passed
+Then I use no filter and write "1234" and verify it brings to the first...passed
+Then I find the added employee delete button and click it.................passed
+Then I verify the alert text "Are you sure you want to permanently dele...passed
+Then I see an alert info message "Employee was deleted successfully"......passed]]></system-out>
+  </testcase>
+  <testcase classname="Employee Master Data Module functionality" name="chromium › Employee Master Data Module functionality › Adding one personal with acceptable data and verifying employee saved and employee data is seen in employee master data page [1]" time="52.28099999999999">
+    <system-out><![CDATA[Given Navigate to Dashboard with "english" language.......................passed
+Then verify that dashboard page tab name contains QUGEM...................passed
+Then I click the Employee_Master_data module..............................passed
+Then I select "GESAMT FIRMEN" using the company selection button, and c...passed
+Then I delete if in any row, surname column text is tester or developer...passed
+Then verify if you write tester or developer in filter surname, row1 is...passed
+Then I delete all filter sections to start every test Scenario with a c...passed
+Then I click the employee add button......................................passed
+And I click active check button...........................................passed
+When I fill "Ersan" "tester" "201"  "12324"  "3000".......................passed
+And I fill soc_no "123456789123" _postcode "71254" _holidayNumYearly "2...passed
+Then I see exit date input box is not functional because personal activ...passed
+Then I see netSalary input box is still empty.............................passed
+Then I click company and choose option quickly transporte gmbh............passed
+Then I click Role and choose option LKW Fahrer............................passed
+Then I click Client and choose option Hermes..............................passed
+Then I click Wage Type and choose option Full_Time........................passed
+Then I click Tax Class and choose option 3................................passed
+Then I click Health insurance choose Ikk Classic..........................passed
+Then I click Child allowance and choose 2.................................passed
+Then I click Chirch Tax and choose evangelishe kirchensteuer..............passed
+Then I check buttons of meal allowance taxed_night surcharge_hourly Tem...passed
+Then I choose payment Type................................................passed
+Then I see if I filled correctly , calculate salary button becomes func...passed
+Then I click save changes.................................................passed
+Then I verify the alert says "Employee was added successfully"............passed
+Then I wait for the Url "https://qugem-staging.netlify.app/employee/".....passed
+Then I use no filter and write "201" and verify it brings to the first ...passed
+Then I verify client firma shoud be "Hermes"..............................passed
+Then I verify company should be "QUICKLY TRANSPORTE GMBH".................passed
+Then I verify role is "LKW Fahrer"........................................passed
+Then I verify employee status is "Active".................................passed
+Then I verify new added emnployee edit button is visible and clickable....passed
+Then I click edit button..................................................passed
+When I click the calculate salary button..................................passed
+Then I can see netSalary of the new employee..............................passed
+Then I click save changes again after edition of the employee.............passed
+Then I see an alert with text : name surname "was updated successfully"...passed]]></system-out>
+  </testcase>
+  <testcase classname="Testing Navigation Success with valid and invalid credentials" name="chromium › Testing Navigation Success with valid and invalid credentials › 3- User cannot login with a short password less than 6 characters" time="5.066">
+    <system-out><![CDATA[Given Navigate to Login Page..............................................passed
+Then Enter a valid email..................................................passed
+Then Enter an invalid "wd32"..............................................passed
+Then choose the "english" in loginPage....................................passed
+Then verify login button is functional....................................passed
+Then press enter button on keyboard.......................................passed
+And verify that user gets an alert for pasword and alert is in right la...passed]]></system-out>
+  </testcase>
+  <testcase classname="Testing Navigation Success with valid and invalid credentials" name="chromium › Testing Navigation Success with valid and invalid credentials › 1-User Logs In, Navigates to Dashboard, and Logs Out" time="12.122999999999998">
     <system-out><![CDATA[Given Navigate to Login Page..............................................passed
 Then Enter a valid email..................................................passed
 Then Enter a valid password...............................................passed
@@ -20,48 +294,28 @@ And Verify that user is now on the Dasboard Page url after clicking log...passed
 Then verify that dashboard page tab name contains QUGEM...................passed
 Then Click the sign out button and verify you are in sign in page again...passed]]></system-out>
   </testcase>
-  <testcase classname="Main Page Modules and their functionality" name="chromium › Main Page Modules and their functionality › navigation to Employee_Master_data module" time="3.547">
-    <system-out><![CDATA[Given Navigate to Dashboard "english".....................................passed
-Then verify that dashboard page tab name contains QUGEM...................passed
-Then verify Employee_Master_Data module button is visible and is Clicka...passed
-Then click the Employee_Master_data module................................passed
-And verify the URL of the Employee_Master_data module should be "https:...passed]]></system-out>
-  </testcase>
-  <testcase classname="Testing Navigation Success with valid and invalid credentials" name="chromium › Testing Navigation Success with valid and invalid credentials › 2- User cannot login with invalid passwords and valid email" time="5.657">
-    <failure type="Error" message="Error: expect(received).not.toBe(expected) // Object.is equality&#xA;&#xA;Expected: not &quot;Bitte geben Sie eine korrekte E-Mail-Adresse ein.&quot;&#xA;   at ../.cucumber/stepDefinitions/steps_LoginPage.js:83&#xA;&#xA;  81 |   console.log(&quot;Bug report :in english language ,warning is in deutsch language and other problem warning is not for password&quot;)&#xA;  82 |&#xA;> 83 |   expect(popupText).not.toBe(&quot;Bitte geben Sie eine korrekte E-Mail-Adresse ein.&quot;)&#xA;     |                         ^&#xA;  84 |&#xA;  85 | });&#xA;  86 |"><![CDATA[Error: expect(received).not.toBe(expected) // Object.is equality
-
-Expected: not "Bitte geben Sie eine korrekte E-Mail-Adresse ein."
-   at ../.cucumber/stepDefinitions/steps_LoginPage.js:83
-
-  81 |   console.log("Bug report :in english language ,warning is in deutsch language and other problem warning is not for password")
-  82 |
-> 83 |   expect(popupText).not.toBe("Bitte geben Sie eine korrekte E-Mail-Adresse ein.")
-     |                         ^
-  84 |
-  85 | });
-  86 |]]></failure>
+  <testcase classname="Testing Navigation Success with valid and invalid credentials" name="chromium › Testing Navigation Success with valid and invalid credentials › 3- User cannot login with a short password less than 6 characters [1]" time="5.3340000000000005">
     <system-out><![CDATA[Given Navigate to Login Page..............................................passed
 Then Enter a valid email..................................................passed
-Then Enter an invalid "123txt_"...........................................passed
-Then Click the login button with "english" language.......................passed
-And Verify that user is not on the Dasboard Page after clicking login b...passed
-And verify user gets right alert warning if invalid password and valid ...failed]]></system-out>
+Then Enter an invalid "12345".............................................passed
+Then choose the "türkish" in loginPage....................................passed
+Then verify login button is functional....................................passed
+Then press enter button on keyboard.......................................passed
+And verify that user gets an alert for pasword and alert is in right la...passed]]></system-out>
   </testcase>
-  <testcase classname="Main Page Modules and their functionality" name="chromium › Main Page Modules and their functionality › navigation to Employee_Attendance module" time="3.4879999999999995">
-    <system-out><![CDATA[Given Navigate to Dashboard "english".....................................passed
-Then verify that dashboard page tab name contains QUGEM...................passed
-Then verify Employee_Attendance Module Button is visible and is Clickab...passed
-Then click the Employee_Attendance module.................................passed
-And verify the URL of the Employee_Master_data module module should be ...passed]]></system-out>
+  <testcase classname="Playwright site" name="chromium › Playwright site › User logins the web application" time="1.481">
+    <system-out><![CDATA[Given Navigate to Login Page..............................................passed]]></system-out>
   </testcase>
-  <testcase classname="Main Page Modules and their functionality" name="chromium › Main Page Modules and their functionality › navigation to Payroll module" time="3.7009999999999996">
-    <system-out><![CDATA[Given Navigate to Dashboard "english".....................................passed
-Then verify that dashboard page tab name contains QUGEM...................passed
-Then verify Payroll Module Button is visible and is clickable.............passed
-Then click the Payroll module.............................................passed
-And verify the URL of the Employee_Master_data module module should be ...passed]]></system-out>
+  <testcase classname="Testing Navigation Success with valid and invalid credentials" name="chromium › Testing Navigation Success with valid and invalid credentials › 3- User cannot login with a short password less than 6 characters [2]" time="6.582999999999999">
+    <system-out><![CDATA[Given Navigate to Login Page..............................................passed
+Then Enter a valid email..................................................passed
+Then Enter an invalid "abc"...............................................passed
+Then choose the "german" in loginPage.....................................passed
+Then verify login button is functional....................................passed
+Then press enter button on keyboard.......................................passed
+And verify that user gets an alert for pasword and alert is in right la...passed]]></system-out>
   </testcase>
-  <testcase classname="Testing Navigation Success with valid and invalid credentials" name="chromium › Testing Navigation Success with valid and invalid credentials › 2- User cannot login with invalid passwords and valid email [1]" time="5.921999999999999">
+  <testcase classname="Testing Navigation Success with valid and invalid credentials" name="chromium › Testing Navigation Success with valid and invalid credentials › 2- User cannot login with invalid passwords and valid email" time="7.290000000000001">
     <failure type="Error" message="Error: expect(received).not.toBe(expected) // Object.is equality&#xA;&#xA;Expected: not &quot;Bitte geben Sie eine korrekte E-Mail-Adresse ein.&quot;&#xA;   at ../.cucumber/stepDefinitions/steps_LoginPage.js:83&#xA;&#xA;  81 |   console.log(&quot;Bug report :in english language ,warning is in deutsch language and other problem warning is not for password&quot;)&#xA;  82 |&#xA;> 83 |   expect(popupText).not.toBe(&quot;Bitte geben Sie eine korrekte E-Mail-Adresse ein.&quot;)&#xA;     |                         ^&#xA;  84 |&#xA;  85 | });&#xA;  86 |"><![CDATA[Error: expect(received).not.toBe(expected) // Object.is equality
 
 Expected: not "Bitte geben Sie eine korrekte E-Mail-Adresse ein."
@@ -78,93 +332,187 @@ Expected: not "Bitte geben Sie eine korrekte E-Mail-Adresse ein."
 Then Enter a valid email..................................................passed
 Then Enter an invalid "1234567"...........................................passed
 Then Click the login button with "english" language.......................passed
-And Verify that user is not on the Dasboard Page after clicking login b...passed
+And Verify that user is not on the Dasboard Page because login is not s...passed
 And verify user gets right alert warning if invalid password and valid ...failed]]></system-out>
   </testcase>
-  <testcase classname="Main Page Modules and their functionality" name="chromium › Main Page Modules and their functionality › navigation to Vehicles module" time="3.694">
-    <system-out><![CDATA[Given Navigate to Dashboard "english".....................................passed
-Then verify that dashboard page tab name contains QUGEM...................passed
-Then verify Vehicles Module Button is visible and is clickable............passed
-Then click the Vehicles module............................................passed
-And verify the URL of the Employee_Master_data module module should be ...passed]]></system-out>
-  </testcase>
-  <testcase classname="Main Page Modules and their functionality" name="chromium › Main Page Modules and their functionality › navigation to Admin_Users module" time="3.9240000000000004">
-    <system-out><![CDATA[Given Navigate to Dashboard "english".....................................passed
-Then verify that dashboard page tab name contains QUGEM...................passed
-Then verify Admin Module Button is visible and is clickable...............passed
-Then click the Admin Module...............................................passed
-Then verify Users module button is visible and clickable..................passed
-And click the Users Module................................................passed
-And verify the URL of the Users module should be "https://qugem-staging...passed]]></system-out>
-  </testcase>
-  <testcase classname="Testing Navigation Success with valid and invalid credentials" name="chromium › Testing Navigation Success with valid and invalid credentials › 3- User cannot login with a short password less than 6 characters" time="4.785">
+  <testcase classname="Testing Navigation Success with valid and invalid credentials" name="chromium › Testing Navigation Success with valid and invalid credentials › 2- User cannot login with invalid passwords and valid email [1]" time="7.593999999999999">
+    <failure type="Error" message="Error: expect(received).not.toBe(expected) // Object.is equality&#xA;&#xA;Expected: not &quot;Bitte geben Sie eine korrekte E-Mail-Adresse ein.&quot;&#xA;   at ../.cucumber/stepDefinitions/steps_LoginPage.js:83&#xA;&#xA;  81 |   console.log(&quot;Bug report :in english language ,warning is in deutsch language and other problem warning is not for password&quot;)&#xA;  82 |&#xA;> 83 |   expect(popupText).not.toBe(&quot;Bitte geben Sie eine korrekte E-Mail-Adresse ein.&quot;)&#xA;     |                         ^&#xA;  84 |&#xA;  85 | });&#xA;  86 |"><![CDATA[Error: expect(received).not.toBe(expected) // Object.is equality
+
+Expected: not "Bitte geben Sie eine korrekte E-Mail-Adresse ein."
+   at ../.cucumber/stepDefinitions/steps_LoginPage.js:83
+
+  81 |   console.log("Bug report :in english language ,warning is in deutsch language and other problem warning is not for password")
+  82 |
+> 83 |   expect(popupText).not.toBe("Bitte geben Sie eine korrekte E-Mail-Adresse ein.")
+     |                         ^
+  84 |
+  85 | });
+  86 |]]></failure>
     <system-out><![CDATA[Given Navigate to Login Page..............................................passed
 Then Enter a valid email..................................................passed
-Then Enter an invalid "wd32"..............................................passed
-Then click login button is functional.....................................passed
-Then press enter keyboard button..........................................passed
-Then choose the "english" in loginPage....................................passed
-And verify that user gets an alert for pasword and alert is in right la...passed]]></system-out>
+Then Enter an invalid "123txt_"...........................................passed
+Then Click the login button with "english" language.......................passed
+And Verify that user is not on the Dasboard Page because login is not s...passed
+And verify user gets right alert warning if invalid password and valid ...failed]]></system-out>
   </testcase>
-  <testcase classname="Main Page Modules and their functionality" name="chromium › Main Page Modules and their functionality › navigation to Admin_Options module" time="3.6239999999999997">
-    <system-out><![CDATA[Given Navigate to Dashboard "english".....................................passed
+  <testcase classname="Employee Master Data Module functionality" name="chromium › Employee Master Data Module functionality › Try to add a new employee with an employee id , another employee has it already" time="28.3">
+    <failure type="Error" message="ReferenceError: employeeRows is not defined&#xA;   at ../.cucumber/stepDefinitions/steps_EmployeeMasterData.js:478&#xA;&#xA;  476 |&#xA;  477 |   // Count the number of rows found&#xA;> 478 |   const rowCount = await employeeRows.count();&#xA;      |                    ^&#xA;  479 |&#xA;  480 |   // If more than one row is found, fail the test&#xA;  481 |   if (rowCount > 1) {"><![CDATA[ReferenceError: employeeRows is not defined
+   at ../.cucumber/stepDefinitions/steps_EmployeeMasterData.js:478
+
+  476 |
+  477 |   // Count the number of rows found
+> 478 |   const rowCount = await employeeRows.count();
+      |                    ^
+  479 |
+  480 |   // If more than one row is found, fail the test
+  481 |   if (rowCount > 1) {]]></failure>
+    <system-out><![CDATA[Given Navigate to Dashboard with "english" language.......................passed
 Then verify that dashboard page tab name contains QUGEM...................passed
-And verify Admin Module Button is visible and is clickable................passed
-Then click the Admin Module...............................................passed
-Then verify Options module button is visible and clickable................passed
-And click the Options Module..............................................passed
-And verify the URL of the Options module should be "https://qugem-stagi...passed]]></system-out>
+Then I click the Employee_Master_data module..............................passed
+Then I select "GESAMT FIRMEN" using the company selection button, and c...passed
+Then I delete if in any row, surname column text is tester or developer...passed
+Then verify if you write tester or developer in filter surname, row1 is...passed
+Then I delete all filter sections to start every test Scenario with a c...passed
+Then I click the employee add button......................................passed
+And I click active check button...........................................passed
+When I fill "Kenan" "withId" "123"  "12345"  "3000".......................passed
+And I fill soc_no "123456789123" _postcode "71254" _holidayNumYearly "2...passed
+Then I see exit date input box is not functional because personal activ...passed
+Then I see netSalary input box is still empty.............................passed
+Then I click company and choose option quickly transporte gmbh............passed
+Then I click Role and choose option LKW Fahrer............................passed
+Then I click Client and choose option Hermes..............................passed
+Then I click Wage Type and choose option Full_Time........................passed
+Then I click Tax Class and choose option 3................................passed
+Then I click Health insurance choose Ikk Classic..........................passed
+Then I click Child allowance and choose 2.................................passed
+Then I click Chirch Tax and choose evangelishe kirchensteuer..............passed
+Then I check buttons of meal allowance taxed_night surcharge_hourly Tem...passed
+Then I choose payment Type................................................passed
+Then I see if I filled correctly , calculate salary button becomes func...passed
+Then I click save changes.................................................passed
+Then I verify the alert warns "Es existiert bereits ein Mitarbeiter mit...passed
+Then I navigate to "https://qugem-staging.netlify.app/employee"...........passed
+Then verify that with same "123" new employee cannot be added.............failed]]></system-out>
   </testcase>
-  <testcase classname="Testing Navigation Success with valid and invalid credentials" name="chromium › Testing Navigation Success with valid and invalid credentials › 3- User cannot login with a short password less than 6 characters [1]" time="4.667999999999999">
-    <system-out><![CDATA[Given Navigate to Login Page..............................................passed
-Then Enter a valid email..................................................passed
-Then Enter an invalid "12345".............................................passed
-Then click login button is functional.....................................passed
-Then press enter keyboard button..........................................passed
-Then choose the "türkish" in loginPage....................................passed
-And verify that user gets an alert for pasword and alert is in right la...passed]]></system-out>
-  </testcase>
-  <testcase classname="Main Page Modules and their functionality" name="chromium › Main Page Modules and their functionality › navigation to Admin_Holidays module" time="3.8119999999999994">
-    <system-out><![CDATA[Given Navigate to Dashboard "english".....................................passed
+  <testcase classname="Employee Master Data Module functionality" name="chromium › Employee Master Data Module functionality › Try to add a new employee with an tax Id which another employee has it already" time="26.359">
+    <failure type="Error" message="TypeError: Cannot read properties of undefined (reading 'textContent')&#xA;   at ../.cucumber/stepDefinitions/steps_EmployeeMasterData.js:543&#xA;&#xA;  541 |   // İlk satırdaki isim ve soyisim bilgilerini al&#xA;  542 |   const addedFirstName = await employeeMasterData.firstRow_secondColumn_firstName.textContent();&#xA;> 543 |   const addedLastName = await employeeMasterData.firstRow_thirdColumn_lastname.textContent();&#xA;      |                                                                                ^&#xA;  544 |&#xA;  545 |   const isSameEmployee = (addedFirstName === firstName) &amp;&amp; (addedLastName === lastName);&#xA;  546 |"><![CDATA[TypeError: Cannot read properties of undefined (reading 'textContent')
+   at ../.cucumber/stepDefinitions/steps_EmployeeMasterData.js:543
+
+  541 |   // İlk satırdaki isim ve soyisim bilgilerini al
+  542 |   const addedFirstName = await employeeMasterData.firstRow_secondColumn_firstName.textContent();
+> 543 |   const addedLastName = await employeeMasterData.firstRow_thirdColumn_lastname.textContent();
+      |                                                                                ^
+  544 |
+  545 |   const isSameEmployee = (addedFirstName === firstName) && (addedLastName === lastName);
+  546 |]]></failure>
+    <system-out><![CDATA[Given Navigate to Dashboard with "english" language.......................passed
 Then verify that dashboard page tab name contains QUGEM...................passed
-And verify Admin Module Button is visible and is clickable................passed
-Then click the Admin Module...............................................passed
-Then verify Holidays module button is visible and clickable...............passed
-And click the Holidays Module.............................................passed
-And verify the URL of the Holidays module should be "https://qugem-stag...passed]]></system-out>
+Then I click the Employee_Master_data module..............................passed
+Then I select "GESAMT FIRMEN" using the company selection button, and c...passed
+Then I delete if in any row, surname column text is tester or developer...passed
+Then verify if you write tester or developer in filter surname, row1 is...passed
+Then I delete all filter sections to start every test Scenario with a c...passed
+Then I click the employee add button......................................passed
+And I click active check button...........................................passed
+When I fill "Mehmet" "tester" "52"  "12345"  "3000".......................passed
+And I fill soc_no "123456789123" _postcode "71254" _holidayNumYearly "2...passed
+Then I see exit date input box is not functional because personal activ...passed
+Then I see netSalary input box is still empty.............................passed
+Then I click company and choose option quickly transporte gmbh............passed
+Then I click Role and choose option LKW Fahrer............................passed
+Then I click Client and choose option Hermes..............................passed
+Then I click Wage Type and choose option Full_Time........................passed
+Then I click Tax Class and choose option 3................................passed
+Then I click Health insurance choose Ikk Classic..........................passed
+Then I click Child allowance and choose 2.................................passed
+Then I click Chirch Tax and choose evangelishe kirchensteuer..............passed
+Then I check buttons of meal allowance taxed_night surcharge_hourly Tem...passed
+Then I choose payment Type................................................passed
+Then I see if I filled correctly , calculate salary button becomes func...passed
+Then I click save changes.................................................passed
+Then I navigate to "https://qugem-staging.netlify.app/employee"...........passed
+Then I use no filter and write "52" and verify it brings to the first r...passed
+Then I should not see the new employee added using another employee tax...failed]]></system-out>
   </testcase>
-  <testcase classname="Testing Navigation Success with valid and invalid credentials" name="chromium › Testing Navigation Success with valid and invalid credentials › 3- User cannot login with a short password less than 6 characters [2]" time="4.4670000000000005">
-    <system-out><![CDATA[Given Navigate to Login Page..............................................passed
-Then Enter a valid email..................................................passed
-Then Enter an invalid "abc"...............................................passed
-Then click login button is functional.....................................passed
-Then press enter keyboard button..........................................passed
-Then choose the "german" in loginPage.....................................passed
-And verify that user gets an alert for pasword and alert is in right la...passed]]></system-out>
-  </testcase>
-  <testcase classname="Main Page Modules and their functionality" name="chromium › Main Page Modules and their functionality › navigation to Admin_Payout_amounts module" time="3.844">
-    <system-out><![CDATA[Given Navigate to Dashboard "english".....................................passed
+  <testcase classname="Employee Master Data Module functionality" name="chromium › Employee Master Data Module functionality › Try to add a new employee with an employee id , another employee has it already [1]" time="27.421999999999997">
+    <failure type="Error" message="ReferenceError: employeeRows is not defined&#xA;   at ../.cucumber/stepDefinitions/steps_EmployeeMasterData.js:478&#xA;&#xA;  476 |&#xA;  477 |   // Count the number of rows found&#xA;> 478 |   const rowCount = await employeeRows.count();&#xA;      |                    ^&#xA;  479 |&#xA;  480 |   // If more than one row is found, fail the test&#xA;  481 |   if (rowCount > 1) {"><![CDATA[ReferenceError: employeeRows is not defined
+   at ../.cucumber/stepDefinitions/steps_EmployeeMasterData.js:478
+
+  476 |
+  477 |   // Count the number of rows found
+> 478 |   const rowCount = await employeeRows.count();
+      |                    ^
+  479 |
+  480 |   // If more than one row is found, fail the test
+  481 |   if (rowCount > 1) {]]></failure>
+    <system-out><![CDATA[Given Navigate to Dashboard with "english" language.......................passed
 Then verify that dashboard page tab name contains QUGEM...................passed
-And verify Admin Module Button is visible and is clickable................passed
-Then click the Admin Module...............................................passed
-Then verify Payout_amounts module button is visible and clickable.........passed
-And click the Payout_amounts Module.......................................passed
-And verify the URL of Payout_amounts module should be "https://qugem-st...passed]]></system-out>
+Then I click the Employee_Master_data module..............................passed
+Then I select "GESAMT FIRMEN" using the company selection button, and c...passed
+Then I delete if in any row, surname column text is tester or developer...passed
+Then verify if you write tester or developer in filter surname, row1 is...passed
+Then I delete all filter sections to start every test Scenario with a c...passed
+Then I click the employee add button......................................passed
+And I click active check button...........................................passed
+When I fill "Mehmet" "tester" "123"  "23454"  "3000"......................passed
+And I fill soc_no "123456789123" _postcode "71254" _holidayNumYearly "2...passed
+Then I see exit date input box is not functional because personal activ...passed
+Then I see netSalary input box is still empty.............................passed
+Then I click company and choose option quickly transporte gmbh............passed
+Then I click Role and choose option LKW Fahrer............................passed
+Then I click Client and choose option Hermes..............................passed
+Then I click Wage Type and choose option Full_Time........................passed
+Then I click Tax Class and choose option 3................................passed
+Then I click Health insurance choose Ikk Classic..........................passed
+Then I click Child allowance and choose 2.................................passed
+Then I click Chirch Tax and choose evangelishe kirchensteuer..............passed
+Then I check buttons of meal allowance taxed_night surcharge_hourly Tem...passed
+Then I choose payment Type................................................passed
+Then I see if I filled correctly , calculate salary button becomes func...passed
+Then I click save changes.................................................passed
+Then I verify the alert warns "Es existiert bereits ein Mitarbeiter mit...passed
+Then I navigate to "https://qugem-staging.netlify.app/employee"...........passed
+Then verify that with same "123" new employee cannot be added.............failed]]></system-out>
   </testcase>
-  <testcase classname="Main Page Modules and their functionality" name="chromium › Main Page Modules and their functionality › navigation to Quickly_Gmbh module" time="10.061">
-    <system-out><![CDATA[Given Navigate to Dashboard "english".....................................passed
+  <testcase classname="Employee Master Data Module functionality" name="chromium › Employee Master Data Module functionality › Try to add a new employee with an employee id , another employee has it already [2]" time="26.637000000000004">
+    <failure type="Error" message="ReferenceError: employeeRows is not defined&#xA;   at ../.cucumber/stepDefinitions/steps_EmployeeMasterData.js:478&#xA;&#xA;  476 |&#xA;  477 |   // Count the number of rows found&#xA;> 478 |   const rowCount = await employeeRows.count();&#xA;      |                    ^&#xA;  479 |&#xA;  480 |   // If more than one row is found, fail the test&#xA;  481 |   if (rowCount > 1) {"><![CDATA[ReferenceError: employeeRows is not defined
+   at ../.cucumber/stepDefinitions/steps_EmployeeMasterData.js:478
+
+  476 |
+  477 |   // Count the number of rows found
+> 478 |   const rowCount = await employeeRows.count();
+      |                    ^
+  479 |
+  480 |   // If more than one row is found, fail the test
+  481 |   if (rowCount > 1) {]]></failure>
+    <system-out><![CDATA[Given Navigate to Dashboard with "english" language.......................passed
 Then verify that dashboard page tab name contains QUGEM...................passed
-Then verify Quickly_Gmbh Module Button is visible and is clickable........passed
-Then click the Quickly_Gmbh Module........................................passed
-And verify new opened Tab title contains "Quickly Transporte GmbH"........passed
-And verify the Quickly_Gmbh URL should be "https://quicklygmbh.de/".......passed]]></system-out>
-  </testcase>
-  <testcase classname="Main Page Modules and their functionality" name="chromium › Main Page Modules and their functionality › navigation to Kinesis GPS module" time="6.159000000000001">
-    <system-out><![CDATA[Given Navigate to Dashboard "english".....................................passed
-Then verify that dashboard page tab name contains QUGEM...................passed
-Then verify Kinesis GPS Module Button is visible and is clickable.........passed
-Then click the Kinesis GPS Module.........................................passed
-And verify new opened Tab contains "Radius Velocity"......................passed
-And verify the URL should be "https://www.velocityfleet.com/accounts/lo...passed]]></system-out>
+Then I click the Employee_Master_data module..............................passed
+Then I select "GESAMT FIRMEN" using the company selection button, and c...passed
+Then I delete if in any row, surname column text is tester or developer...passed
+Then verify if you write tester or developer in filter surname, row1 is...passed
+Then I delete all filter sections to start every test Scenario with a c...passed
+Then I click the employee add button......................................passed
+And I click active check button...........................................passed
+When I fill "Ersan" "tester" "123"  "34356"  "3000".......................passed
+And I fill soc_no "123456789123" _postcode "71254" _holidayNumYearly "2...passed
+Then I see exit date input box is not functional because personal activ...passed
+Then I see netSalary input box is still empty.............................passed
+Then I click company and choose option quickly transporte gmbh............passed
+Then I click Role and choose option LKW Fahrer............................passed
+Then I click Client and choose option Hermes..............................passed
+Then I click Wage Type and choose option Full_Time........................passed
+Then I click Tax Class and choose option 3................................passed
+Then I click Health insurance choose Ikk Classic..........................passed
+Then I click Child allowance and choose 2.................................passed
+Then I click Chirch Tax and choose evangelishe kirchensteuer..............passed
+Then I check buttons of meal allowance taxed_night surcharge_hourly Tem...passed
+Then I choose payment Type................................................passed
+Then I see if I filled correctly , calculate salary button becomes func...passed
+Then I click save changes.................................................passed
+Then I verify the alert warns "Es existiert bereits ein Mitarbeiter mit...passed
+Then I navigate to "https://qugem-staging.netlify.app/employee"...........passed
+Then verify that with same "123" new employee cannot be added.............failed]]></system-out>
   </testcase>
 </testsuite>

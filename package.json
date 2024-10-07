@@ -4,17 +4,21 @@
   "description": "",
   "main": "playwright.config.js",
   "scripts": {
-    "test": "npx bddgen && npx playwright test --headed --browser=chromium",
+    "smoke": "npx bddgen && npx playwright test --headed  --browser=chromium --grep '@smoke'",
+    "regression": "npx bddgen && npx playwright test --headed  --browser=chromium --grep '@reg'",
+    "test": "npx bddgen && npx playwright test --headed --browser=chromium && open /.cucumber-report/report.html",
     "debug": "npx bddgen && npx playwright test --debug",
     "codegen": "npx bddgen && npx playwright codegen ",
-    "report": "npx bddgen && npx playwright test --headed --browser=chromium --reporter=html"
+    "report": "npx bddgen && npx playwright test --headed --reporter=html",
+    "test:ci": "npx bddgen && npx playwright test --headed  --browser=chromium --reporter=html"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "dotenv": "^16.4.5",
-    "playwright": "^1.43.1"
+    "playwright": "^1.43.1",
+    "ts-node": "^10.9.2"
   },
   "playwrightBdd": {
     "importTestFrom": ".cucumber/fixtures.js"
@@ -23,6 +27,6 @@
     "@cucumber/cucumber": "^11.0.1",
     "@playwright/test": "^1.47.2",
     "@types/node": "^22.5.5",
-    "playwright-bdd": "^7.4.0"
+    "playwright-bdd": "^7.5.0"
   }
 }

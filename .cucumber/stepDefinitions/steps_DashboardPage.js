@@ -2,7 +2,7 @@ import { expect } from '@playwright/test';
 import { createBdd } from 'playwright-bdd';
 import { LoginPage } from '../pages/LoginPage.js';
 import { BasePage } from '../pages/BasePage.js';
-import { DasboardPage } from '../pages/DashboardPage.js';
+import { DashboardPage } from '../pages/DashboardPage.js';
 
 const { Given, When, Then, Before } = createBdd();
 
@@ -18,10 +18,10 @@ let newPage;
 Before(async ({ page }) => {
   basePage = new BasePage(page);
   loginPage = new LoginPage(page);
-  dashboard = new DasboardPage(page)
+  dashboard = new DashboardPage(page)
 });
 
-Given('Navigate to Dashboard {string}', async ({ page }, language) => {
+Given('Navigate to Dashboard with {string} language', async ({ page }, language) => {
   await basePage.navigateToDashboard(language)
 
 });
@@ -224,16 +224,21 @@ Then('verify Kinesis GPS Module Button is visible and is clickable', async ({pag
 
 
 Then('click the Kinesis GPS Module', async ({ page }) => {
- 
-  // Yeni sayfanın açılmasını bekle ve yakala
-  [newPage] = await Promise.all([
-    page.context().waitForEvent('page'), // Yeni sekmenin açılmasını bekliyoruz
-    dashboard.kinesis_gps.click() // Butona tıklıyoruz
+
+  //const [newPage] yerine globalde let newPage dedim 
+   [newPage] = await Promise.all([
+    page.context().waitForEvent('page'), // 90 saniye yeni sekmenin açılmasını bekle
+    await page.getByRole('link', { name: 'Kinesis GPS' }).click()
+
   ]);
 
-  // Yeni sekmeyi bekle ve hazır olmasını sağla
-  await newPage.waitForLoadState('load');
+  
+  // Yeni sekmeyi yüklenene kadar bekle
+  await newPage.waitForLoadState()
+
+  console.log('Yeni Kinesis GPS sayfası yüklendi ve kullanıma hazır.');
 });
+
 
 Then('verify new opened Tab contains {string}', async ({page }, TextTitle) => {
   
@@ -247,6 +252,7 @@ Then('verify new opened Tab contains {string}', async ({page }, TextTitle) => {
 })
 
 Then('verify the URL should be {string}', async ({ page}, expectedUrl) => {
+  //new page i global ayarladim
   if (!newPage) {
     throw new Error('Yeni sekme açılmadı.');
   }
@@ -255,3 +261,9 @@ Then('verify the URL should be {string}', async ({ page}, expectedUrl) => {
   const actualUrl = await newPage.url();
   expect(actualUrl).toBe(expectedUrl); // Beklenen URL'ye eşit olup olmadığını kontrol et
 })
+
+
+// 1. Missing step definition for ".cucumber/features/dashboard.feature:89:1"
+Then('click module {string}', async ({page}, module) => {
+  dashboard.clickModule(module)
+});

@@ -1,0 +1,33 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Install Dependencies') {
+            steps {
+                // Bağımlılıkları yükle
+                sh 'npm install'
+            }
+        }
+
+        stage('Run Playwright Tests') {
+            steps {
+                // Testleri çalıştır
+                sh 'npm run test:ci'
+            }
+        }
+    }
+
+    post {
+        always {
+            // HTML raporunu yayınla
+            publishHTML(target: [
+                allowMissing: false,
+                alwaysLinkToLastBuild: true,
+                keepAll: true,
+                reportDir: '/Users/mehmetaltuntas/Documents/playwright-bdd_Qugem/.cucumber-report',  // Raporun bulunduğu klasör
+                reportFiles: 'report.html',      // Ana rapor dosyası
+                reportName: 'Playwright Test Report'
+            ])
+        }
+    }
+}

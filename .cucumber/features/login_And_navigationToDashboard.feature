@@ -12,12 +12,12 @@ Feature:Testing Navigation Success with valid and invalid credentials
     Then verify that dashboard page tab name contains QUGEM
     Then Click the sign out button and verify you are in sign in page again
 
+
   Scenario Outline:2- User cannot login with invalid passwords and valid email
     Then Enter a valid email
     Then Enter an invalid "<password>"
     Then Click the login button with "english" language
-    And  Verify that user is not on the Dasboard Page after clicking login button
-      #!'Bitte geben Sie eine korrekte E-Mail-Adresse ein.'   2 tane bug --it had to be english  and  warning should be for password , not for email
+    And  Verify that user is not on the Dasboard Page because login is not successfull
     And  verify user gets right alert warning if invalid password and valid email used in right language
 
     Examples:
@@ -25,14 +25,13 @@ Feature:Testing Navigation Success with valid and invalid credentials
       | 123txt_  |
       | 1234567  |
 
-  
+
   Scenario Outline:3- User cannot login with a short password less than 6 characters
     Then Enter a valid email
     Then Enter an invalid "<shortpassword>"
-    Then click login button is functional
-    Then press enter keyboard button
-    # "parametre icin"          "<examples icin>"clear
     Then choose the "<langauge>" in loginPage
+    Then verify login button is functional
+    Then press enter button on keyboard
     And verify that user gets an alert for pasword and alert is in right language "<alert>"
 
 
