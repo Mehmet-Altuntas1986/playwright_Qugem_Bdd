@@ -71,8 +71,14 @@ export class EmployeeMasterDataPage extends BasePage {
     this.current_vehicle = this.page.getByRole('button', { name: 'Current Vehicle' })
     this.status = this.page.getByRole('button', { name: 'Status' })
     this.lines_per_page = this.page.getByText('Lines per page:')
+    this.page_employee_number_10=this.page.locator("//li[normalize-space()='10']")
+    this.page_employee_number_25=this.page.locator("//li[normalize-space()='25']")
+    this.page_employee_number_50=this.page.locator("//li[normalize-space()='50']")
+    this.page_rows = this.page.locator('//tbody//tr');
+
     this.nextpage_arrow = this.page.getByLabel('Next page')
     this.previous_page_arrow = this.page.getByLabel('Previous page')
+
 
     //after clicking add employee button
     this.first_Name_in = this.page.locator('input[name="firstName"]')

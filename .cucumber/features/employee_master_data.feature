@@ -35,7 +35,7 @@ Feature:Employee Master Data Module functionality
         When I click the client companies dropdown button
         Then I see client companies are visible and clickable
 
-  
+
     Scenario Outline: Adding personals with acceptable data and deleting them
         Then I click the employee add button
             And I click active check button
@@ -188,6 +188,20 @@ Feature:Employee Master Data Module functionality
             | Mehmet    | tester   | 52     | 12345  | 3000       |
 
 
+    @only
+    Scenario Outline: Scenario Outline name:As a user , if I click Lines per page "<number_chosen>" 10, 25 and 50 , number of the rows in employee table it should bring correctly
+        When I check if Lines per page select button is functional and visible
+        Then I click "<number_chosen>" employee choose in Lines Per Page
+            And I verify the number of rows in employee table is not more than the "<number_chosen>"
+        Then I verify next page button is visible and clickable
+        Then I click employee table next page button , and verify number of rows are not more than "<number_chosen>"
+        Then I click previous page button is visible and clickable
+        Then I click employee table previous page button , and verify number of rows are not more than "<number_chosen>"
 
 
 
+        Examples:the numbers in line per page in employee master data table
+            | number_chosen |
+            | 10            |
+            | 25            |
+            | 50            |
