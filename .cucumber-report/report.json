@@ -4,10 +4,10 @@
     "elements": [
       {
         "description": "",
-        "id": "employee-master-data-module-functionality;scenario-outline-name:as-a-user-,-if-i-click-lines-per-page-\"10\"-10,-25-and-50-,-number-of-the-rows-in-employee-table-it-should-bring-correctly",
+        "id": "employee-master-data-module-functionality;add-an-employee-,-name-and-surname-has-numbers",
         "keyword": "Scenario Outline",
-        "line": 205,
-        "name": "Scenario Outline name:As a user , if I click Lines per page \"10\" 10, 25 and 50 , number of the rows in employee table it should bring correctly",
+        "line": 236,
+        "name": "add an employee , name and surname has numbers",
         "steps": [
           {
             "arguments": [],
@@ -16,170 +16,7 @@
             "name": "Navigate to Dashboard with \"english\" language",
             "result": {
               "status": "passed",
-              "duration": 3851000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 7,
-            "name": "verify that dashboard page tab name contains QUGEM",
-            "result": {
-              "status": "passed",
-              "duration": 16000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 8,
-            "name": "I click the Employee_Master_data module",
-            "result": {
-              "status": "passed",
-              "duration": 168000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 9,
-            "name": "I select \"GESAMT FIRMEN\" using the company selection button, and choose \"All\" using the client selection button\"",
-            "result": {
-              "status": "passed",
-              "duration": 1008000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 10,
-            "name": "I delete if in any row, surname column text is tester or developer",
-            "result": {
-              "status": "passed",
-              "duration": 4205000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 11,
-            "name": "verify if you write tester or developer in filter surname, row1 is invisible",
-            "result": {
-              "status": "passed",
-              "duration": 131000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 12,
-            "name": "I delete all filter sections to start every test Scenario with a clear filter",
-            "result": {
-              "status": "passed",
-              "duration": 65000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "When ",
-            "line": 193,
-            "name": "I check if Lines per page select button is functional and visible",
-            "result": {
-              "status": "passed",
-              "duration": 27000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 194,
-            "name": "I click \"10\" employee choose in Lines Per Page",
-            "result": {
-              "status": "passed",
-              "duration": 0
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "line": 195,
-            "name": "I verify the number of rows in employee table is not more than the \"10\"",
-            "result": {
-              "status": "passed",
-              "duration": 3000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 196,
-            "name": "I verify next page button is visible and clickable",
-            "result": {
-              "status": "passed",
-              "duration": 891000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 197,
-            "name": "I click employee table next page button , and verify number of rows are not more than \"10\"",
-            "result": {
-              "status": "passed",
-              "duration": 109000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 198,
-            "name": "I click previous page button is visible and clickable",
-            "result": {
-              "status": "passed",
-              "duration": 35000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 199,
-            "name": "I click employee table previous page button , and verify number of rows are not more than \"10\"",
-            "result": {
-              "status": "passed",
-              "duration": 63000000
-            }
-          },
-          {
-            "keyword": "After",
-            "hidden": true,
-            "result": {
-              "status": "passed",
-              "duration": 459000000
-            }
-          }
-        ],
-        "tags": [
-          {
-            "name": "@only"
-          }
-        ],
-        "type": "scenario"
-      },
-      {
-        "description": "",
-        "id": "employee-master-data-module-functionality;scenario-outline-name:as-a-user-,-if-i-click-lines-per-page-\"25\"-10,-25-and-50-,-number-of-the-rows-in-employee-table-it-should-bring-correctly",
-        "keyword": "Scenario Outline",
-        "line": 206,
-        "name": "Scenario Outline name:As a user , if I click Lines per page \"25\" 10, 25 and 50 , number of the rows in employee table it should bring correctly",
-        "steps": [
-          {
-            "arguments": [],
-            "keyword": "Given ",
-            "line": 6,
-            "name": "Navigate to Dashboard with \"english\" language",
-            "result": {
-              "status": "passed",
-              "duration": 3828000000
+              "duration": 3792000000
             }
           },
           {
@@ -199,7 +36,7 @@
             "name": "I click the Employee_Master_data module",
             "result": {
               "status": "passed",
-              "duration": 194000000
+              "duration": 295000000
             }
           },
           {
@@ -209,7 +46,7 @@
             "name": "I select \"GESAMT FIRMEN\" using the company selection button, and choose \"All\" using the client selection button\"",
             "result": {
               "status": "passed",
-              "duration": 1071000000
+              "duration": 1986000000
             }
           },
           {
@@ -219,7 +56,7 @@
             "name": "I delete if in any row, surname column text is tester or developer",
             "result": {
               "status": "passed",
-              "duration": 4245000000
+              "duration": 17327000000
             }
           },
           {
@@ -229,7 +66,7 @@
             "name": "verify if you write tester or developer in filter surname, row1 is invisible",
             "result": {
               "status": "passed",
-              "duration": 135000000
+              "duration": 65000000
             }
           },
           {
@@ -239,34 +76,64 @@
             "name": "I delete all filter sections to start every test Scenario with a clear filter",
             "result": {
               "status": "passed",
-              "duration": 62000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "When ",
-            "line": 193,
-            "name": "I check if Lines per page select button is functional and visible",
-            "result": {
-              "status": "passed",
-              "duration": 33000000
+              "duration": 29000000
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 194,
-            "name": "I click \"25\" employee choose in Lines Per Page",
+            "line": 209,
+            "name": "I click the employee add button",
             "result": {
               "status": "passed",
-              "duration": 0
+              "duration": 1109000000
             }
           },
           {
             "arguments": [],
             "keyword": "And ",
-            "line": 195,
-            "name": "I verify the number of rows in employee table is not more than the \"25\"",
+            "line": 210,
+            "name": "I click active check button",
+            "result": {
+              "status": "passed",
+              "duration": 9000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 211,
+            "name": "I fill \"Mehmet1235\" \"tester\" \"300\"  \"7345\"  \"3000\"",
+            "result": {
+              "status": "passed",
+              "duration": 116000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 212,
+            "name": "I fill soc_no \"123456789123\" _postcode \"71254\" _holidayNumYearly \"20\" _travelFare \"120\" _fixed_allowance \"100\" _dispacher \"ali sorumlu\" _adress \"musik str 10\"",
+            "result": {
+              "status": "passed",
+              "duration": 168000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 214,
+            "name": "I see exit date input box is not functional because personal active button is checked",
+            "result": {
+              "status": "passed",
+              "duration": 5000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 215,
+            "name": "I see netSalary input box is still empty",
             "result": {
               "status": "passed",
               "duration": 7000000
@@ -275,41 +142,152 @@
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 196,
-            "name": "I verify next page button is visible and clickable",
+            "line": 216,
+            "name": "I click company and choose option quickly transporte gmbh",
             "result": {
               "status": "passed",
-              "duration": 895000000
+              "duration": 375000000
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 197,
-            "name": "I click employee table next page button , and verify number of rows are not more than \"25\"",
+            "line": 217,
+            "name": "I click Role and choose option LKW Fahrer",
             "result": {
               "status": "passed",
-              "duration": 108000000
+              "duration": 698000000
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 198,
-            "name": "I click previous page button is visible and clickable",
+            "line": 218,
+            "name": "I click Client and choose option Hermes",
             "result": {
               "status": "passed",
-              "duration": 34000000
+              "duration": 698000000
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 199,
-            "name": "I click employee table previous page button , and verify number of rows are not more than \"25\"",
+            "line": 219,
+            "name": "I click Wage Type and choose option Full_Time",
             "result": {
               "status": "passed",
-              "duration": 67000000
+              "duration": 665000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 220,
+            "name": "I click Tax Class and choose option 3",
+            "result": {
+              "status": "passed",
+              "duration": 686000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 221,
+            "name": "I click Health insurance choose Ikk Classic",
+            "result": {
+              "status": "passed",
+              "duration": 485000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 222,
+            "name": "I click Child allowance and choose 2",
+            "result": {
+              "status": "passed",
+              "duration": 522000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 223,
+            "name": "I click Chirch Tax and choose evangelishe kirchensteuer",
+            "result": {
+              "status": "passed",
+              "duration": 859000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 224,
+            "name": "I check buttons of meal allowance taxed_night surcharge_hourly Temp_meal allowance_night surcharge 40_ travel Fahre",
+            "result": {
+              "status": "passed",
+              "duration": 450000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 225,
+            "name": "I choose payment Type",
+            "result": {
+              "status": "passed",
+              "duration": 52000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 226,
+            "name": "I see if I filled correctly , calculate salary button becomes functional",
+            "result": {
+              "status": "passed",
+              "duration": 8000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 227,
+            "name": "I click save changes",
+            "result": {
+              "status": "passed",
+              "duration": 3141000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 228,
+            "name": "I verify the alert says \"Employee was added successfully\"",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 229,
+            "name": "I wait for the Url \"https://qugem-staging.netlify.app/employee/\"",
+            "result": {
+              "status": "passed",
+              "duration": 1031000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 230,
+            "name": "I dont see , if  \"Mehmet1235\" \"tester\" appears in the employee table with numbers",
+            "result": {
+              "status": "failed",
+              "duration": 3111000000,
+              "error_message": "Error: expect(received).not.toBeGreaterThanOrEqual(expected)\n\nMatcher error: received value must be a number or bigint\n\nReceived has type:  object\nReceived has value: {Symbol(async_id_symbol): 174904, Symbol(trigger_async_id_symbol): 174503, Symbol(kResourceStore): {\"data\": {\"box\": undefined, \"boxedStack\": undefined, \"category\": \"test.step\", \"complete\": [Function complete], \"location\": {\"column\": 13, \"file\": \"/Users/mehmetaltuntas/Documents/playwright-bdd_Qugem/.features-gen/.cucumber/features/employee_master_data.feature.spec.js\", \"line\": 330}, \"stepId\": \"test.step@171\", \"steps\": [{\"apiName\": \"locator.fill\", \"boxedStack\": undefined, \"category\": \"pw:api\", \"complete\": [Function complete], \"endWallTime\": 1728370280251, \"location\": {\"column\": 46, \"file\": \"/Users/mehmetaltuntas/Documents/playwright-bdd_Qugem/.cucumber/stepDefinitions/steps_EmployeeMasterData.js\", \"function\": \"Object.<anonymous>\", \"line\": 630}, \"params\": {\"selector\": \"internal:role=columnheader[name=\\\"First Name\\\"i] >> internal:attr=[placeholder=\\\"Filter\\\"i]\", \"strict\": true, \"value\": \"Mehmet1235\"}, \"stepId\": \"pw:api@172\", \"steps\": [], \"title\": \"locator.getByRole('columnheader', { name: 'First Name' }).getByPlaceholder('Filter').fill\"}, {\"apiName\": \"locator.fill\", \"boxedStack\": undefined, \"category\": \"pw:api\", \"complete\": [Function complete], \"endWallTime\": 1728370280301, \"location\": {\"column\": 45, \"file\": \"/Users/mehmetaltuntas/Documents/playwright-bdd_Qugem/.cucumber/stepDefinitions/steps_EmployeeMasterData.js\", \"function\": \"Object.<anonymous>\", \"line\": 631}, \"params\": {\"selector\": \"internal:role=columnheader[name=\\\"Last Name\\\"i] >> internal:attr=[placeholder=\\\"Filter\\\"i]\", \"strict\": true, \"value\": \"tester\"}, \"stepId\": \"pw:api@173\", \"steps\": [], \"title\": \"locator.getByRole('columnheader', { name: 'Last Name' }).getByPlaceholder('Filter').fill\"}, {\"apiName\": \"page.waitForTimeout\", \"boxedStack\": undefined, \"category\": \"pw:api\", \"complete\": [Function complete], \"endWallTime\": 1728370283317, \"location\": {\"column\": 14, \"file\": \"/Users/mehmetaltuntas/Documents/playwright-bdd_Qugem/.cucumber/stepDefinitions/steps_EmployeeMasterData.js\", \"function\": \"Object.<anonymous>\", \"line\": 632}, \"params\": {\"timeout\": 3000}, \"stepId\": \"pw:api@174\", \"steps\": [], \"title\": \"page.waitForTimeout\"}, {\"apiName\": \"locator.waitFor\", \"boxedStack\": undefined, \"category\": \"pw:api\", \"complete\": [Function complete], \"endWallTime\": 1728370283322, \"location\": {\"column\": 38, \"file\": \"/Users/mehmetaltuntas/Documents/playwright-bdd_Qugem/.cucumber/stepDefinitions/steps_EmployeeMasterData.js\", \"function\": \"Object.<anonymous>\", \"line\": 633}, \"params\": {\"omitReturnValue\": true, \"selector\": \"//tbody//tr\", \"strict\": true}, \"stepId\": \"pw:api@175\", \"steps\": [], \"title\": \"locator.waitFor(//tbody//tr)\"}, {\"apiName\": \"locator.count\", \"boxedStack\": undefined, \"category\": \"pw:api\", \"complete\": [Function complete], \"location\": {\"column\": 47, \"file\": \"/Users/mehmetaltuntas/Documents/playwright-bdd_Qugem/.cucumber/stepDefinitions/steps_EmployeeMasterData.js\", \"function\": \"Object.<anonymous>\", \"line\": 634}, \"params\": {\"selector\": \"//tbody//tr\"}, \"stepId\": \"pw:api@176\", \"steps\": [], \"title\": \"locator.count(//tbody//tr)\"}, {\"boxedStack\": undefined, \"category\": \"expect\", \"complete\": [Function complete], \"infectParentStepsWithError\": undefined, \"location\": {\"column\": 24, \"file\": \"/Users/mehmetaltuntas/Documents/playwright-bdd_Qugem/.cucumber/stepDefinitions/steps_EmployeeMasterData.js\", \"function\": \"Object.<anonymous>\", \"line\": 637}, \"params\": {\"expected\": 1}, \"stepId\": \"expect@177\", \"steps\": [], \"title\": \"expect.not.toBeGreaterThanOrEqual\"}], \"title\": \"Then I dont see , if  \\\"Mehmet1235\\\" \\\"tester\\\" appears in the employee table with numbers\"}, \"previous\": undefined, \"type\": \"stepZone\"}}\n   at ../.cucumber/stepDefinitions/steps_EmployeeMasterData.js:637\n\n  635 |   console.log(\"the number of row appeeared after filling name filter :\",rowCount)\n  636 |\n> 637 |   expect(rowCount).not.toBeGreaterThanOrEqual(1)\n      |                        ^\n  638 |   console.log(\"new employee name : ${name} ${lastname} added\")\n  639 |\n  640 |"
             }
           },
           {
@@ -317,7 +295,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 462000000
+              "duration": 843000000
             }
           }
         ],
@@ -330,10 +308,10 @@
       },
       {
         "description": "",
-        "id": "employee-master-data-module-functionality;scenario-outline-name:as-a-user-,-if-i-click-lines-per-page-\"50\"-10,-25-and-50-,-number-of-the-rows-in-employee-table-it-should-bring-correctly",
+        "id": "employee-master-data-module-functionality;add-an-employee-,-name-and-surname-has-numbers",
         "keyword": "Scenario Outline",
-        "line": 207,
-        "name": "Scenario Outline name:As a user , if I click Lines per page \"50\" 10, 25 and 50 , number of the rows in employee table it should bring correctly",
+        "line": 238,
+        "name": "add an employee , name and surname has numbers",
         "steps": [
           {
             "arguments": [],
@@ -342,7 +320,7 @@
             "name": "Navigate to Dashboard with \"english\" language",
             "result": {
               "status": "passed",
-              "duration": 3757000000
+              "duration": 3796000000
             }
           },
           {
@@ -362,7 +340,7 @@
             "name": "I click the Employee_Master_data module",
             "result": {
               "status": "passed",
-              "duration": 210000000
+              "duration": 249000000
             }
           },
           {
@@ -372,7 +350,7 @@
             "name": "I select \"GESAMT FIRMEN\" using the company selection button, and choose \"All\" using the client selection button\"",
             "result": {
               "status": "passed",
-              "duration": 1013000000
+              "duration": 1890000000
             }
           },
           {
@@ -382,7 +360,7 @@
             "name": "I delete if in any row, surname column text is tester or developer",
             "result": {
               "status": "passed",
-              "duration": 4299000000
+              "duration": 17938000000
             }
           },
           {
@@ -392,7 +370,7 @@
             "name": "verify if you write tester or developer in filter surname, row1 is invisible",
             "result": {
               "status": "passed",
-              "duration": 117000000
+              "duration": 92000000
             }
           },
           {
@@ -402,34 +380,174 @@
             "name": "I delete all filter sections to start every test Scenario with a clear filter",
             "result": {
               "status": "passed",
-              "duration": 62000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "When ",
-            "line": 193,
-            "name": "I check if Lines per page select button is functional and visible",
-            "result": {
-              "status": "passed",
-              "duration": 21000000
+              "duration": 46000000
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 194,
-            "name": "I click \"50\" employee choose in Lines Per Page",
+            "line": 209,
+            "name": "I click the employee add button",
             "result": {
               "status": "passed",
-              "duration": 0
+              "duration": 1268000000
             }
           },
           {
             "arguments": [],
             "keyword": "And ",
-            "line": 195,
-            "name": "I verify the number of rows in employee table is not more than the \"50\"",
+            "line": 210,
+            "name": "I click active check button",
+            "result": {
+              "status": "passed",
+              "duration": 12000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 211,
+            "name": "I fill \"1234567\" \"tester\" \"302\"  \"98564\"  \"3000\"",
+            "result": {
+              "status": "passed",
+              "duration": 295000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 212,
+            "name": "I fill soc_no \"123456789123\" _postcode \"71254\" _holidayNumYearly \"20\" _travelFare \"120\" _fixed_allowance \"100\" _dispacher \"ali sorumlu\" _adress \"musik str 10\"",
+            "result": {
+              "status": "passed",
+              "duration": 407000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 214,
+            "name": "I see exit date input box is not functional because personal active button is checked",
+            "result": {
+              "status": "passed",
+              "duration": 26000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 215,
+            "name": "I see netSalary input box is still empty",
+            "result": {
+              "status": "passed",
+              "duration": 13000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 216,
+            "name": "I click company and choose option quickly transporte gmbh",
+            "result": {
+              "status": "passed",
+              "duration": 384000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 217,
+            "name": "I click Role and choose option LKW Fahrer",
+            "result": {
+              "status": "passed",
+              "duration": 712000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 218,
+            "name": "I click Client and choose option Hermes",
+            "result": {
+              "status": "passed",
+              "duration": 793000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 219,
+            "name": "I click Wage Type and choose option Full_Time",
+            "result": {
+              "status": "passed",
+              "duration": 715000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 220,
+            "name": "I click Tax Class and choose option 3",
+            "result": {
+              "status": "passed",
+              "duration": 605000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 221,
+            "name": "I click Health insurance choose Ikk Classic",
+            "result": {
+              "status": "passed",
+              "duration": 461000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 222,
+            "name": "I click Child allowance and choose 2",
+            "result": {
+              "status": "passed",
+              "duration": 426000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 223,
+            "name": "I click Chirch Tax and choose evangelishe kirchensteuer",
+            "result": {
+              "status": "passed",
+              "duration": 776000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 224,
+            "name": "I check buttons of meal allowance taxed_night surcharge_hourly Temp_meal allowance_night surcharge 40_ travel Fahre",
+            "result": {
+              "status": "passed",
+              "duration": 484000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 225,
+            "name": "I choose payment Type",
+            "result": {
+              "status": "passed",
+              "duration": 47000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 226,
+            "name": "I see if I filled correctly , calculate salary button becomes functional",
             "result": {
               "status": "passed",
               "duration": 9000000
@@ -438,41 +556,42 @@
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 196,
-            "name": "I verify next page button is visible and clickable",
+            "line": 227,
+            "name": "I click save changes",
             "result": {
               "status": "passed",
-              "duration": 899000000
+              "duration": 3124000000
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 197,
-            "name": "I click employee table next page button , and verify number of rows are not more than \"50\"",
+            "line": 228,
+            "name": "I verify the alert says \"Employee was added successfully\"",
             "result": {
               "status": "passed",
-              "duration": 67000000
+              "duration": 2000000
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 198,
-            "name": "I click previous page button is visible and clickable",
+            "line": 229,
+            "name": "I wait for the Url \"https://qugem-staging.netlify.app/employee/\"",
             "result": {
               "status": "passed",
-              "duration": 19000000
+              "duration": 1033000000
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 199,
-            "name": "I click employee table previous page button , and verify number of rows are not more than \"50\"",
+            "line": 230,
+            "name": "I dont see , if  \"1234567\" \"tester\" appears in the employee table with numbers",
             "result": {
-              "status": "passed",
-              "duration": 113000000
+              "status": "failed",
+              "duration": 3103000000,
+              "error_message": "Error: expect(received).not.toBeGreaterThanOrEqual(expected)\n\nMatcher error: received value must be a number or bigint\n\nReceived has type:  object\nReceived has value: {Symbol(async_id_symbol): 174796, Symbol(trigger_async_id_symbol): 174497, Symbol(kResourceStore): {\"data\": {\"box\": undefined, \"boxedStack\": undefined, \"category\": \"test.step\", \"complete\": [Function complete], \"location\": {\"column\": 13, \"file\": \"/Users/mehmetaltuntas/Documents/playwright-bdd_Qugem/.features-gen/.cucumber/features/employee_master_data.feature.spec.js\", \"line\": 378}, \"stepId\": \"test.step@171\", \"steps\": [{\"apiName\": \"locator.fill\", \"boxedStack\": undefined, \"category\": \"pw:api\", \"complete\": [Function complete], \"endWallTime\": 1728370281180, \"location\": {\"column\": 46, \"file\": \"/Users/mehmetaltuntas/Documents/playwright-bdd_Qugem/.cucumber/stepDefinitions/steps_EmployeeMasterData.js\", \"function\": \"Object.<anonymous>\", \"line\": 630}, \"params\": {\"selector\": \"internal:role=columnheader[name=\\\"First Name\\\"i] >> internal:attr=[placeholder=\\\"Filter\\\"i]\", \"strict\": true, \"value\": \"1234567\"}, \"stepId\": \"pw:api@172\", \"steps\": [], \"title\": \"locator.getByRole('columnheader', { name: 'First Name' }).getByPlaceholder('Filter').fill\"}, {\"apiName\": \"locator.fill\", \"boxedStack\": undefined, \"category\": \"pw:api\", \"complete\": [Function complete], \"endWallTime\": 1728370281222, \"location\": {\"column\": 45, \"file\": \"/Users/mehmetaltuntas/Documents/playwright-bdd_Qugem/.cucumber/stepDefinitions/steps_EmployeeMasterData.js\", \"function\": \"Object.<anonymous>\", \"line\": 631}, \"params\": {\"selector\": \"internal:role=columnheader[name=\\\"Last Name\\\"i] >> internal:attr=[placeholder=\\\"Filter\\\"i]\", \"strict\": true, \"value\": \"tester\"}, \"stepId\": \"pw:api@173\", \"steps\": [], \"title\": \"locator.getByRole('columnheader', { name: 'Last Name' }).getByPlaceholder('Filter').fill\"}, {\"apiName\": \"page.waitForTimeout\", \"boxedStack\": undefined, \"category\": \"pw:api\", \"complete\": [Function complete], \"endWallTime\": 1728370284234, \"location\": {\"column\": 14, \"file\": \"/Users/mehmetaltuntas/Documents/playwright-bdd_Qugem/.cucumber/stepDefinitions/steps_EmployeeMasterData.js\", \"function\": \"Object.<anonymous>\", \"line\": 632}, \"params\": {\"timeout\": 3000}, \"stepId\": \"pw:api@174\", \"steps\": [], \"title\": \"page.waitForTimeout\"}, {\"apiName\": \"locator.waitFor\", \"boxedStack\": undefined, \"category\": \"pw:api\", \"complete\": [Function complete], \"endWallTime\": 1728370284238, \"location\": {\"column\": 38, \"file\": \"/Users/mehmetaltuntas/Documents/playwright-bdd_Qugem/.cucumber/stepDefinitions/steps_EmployeeMasterData.js\", \"function\": \"Object.<anonymous>\", \"line\": 633}, \"params\": {\"omitReturnValue\": true, \"selector\": \"//tbody//tr\", \"strict\": true}, \"stepId\": \"pw:api@175\", \"steps\": [], \"title\": \"locator.waitFor(//tbody//tr)\"}, {\"apiName\": \"locator.count\", \"boxedStack\": undefined, \"category\": \"pw:api\", \"complete\": [Function complete], \"location\": {\"column\": 47, \"file\": \"/Users/mehmetaltuntas/Documents/playwright-bdd_Qugem/.cucumber/stepDefinitions/steps_EmployeeMasterData.js\", \"function\": \"Object.<anonymous>\", \"line\": 634}, \"params\": {\"selector\": \"//tbody//tr\"}, \"stepId\": \"pw:api@176\", \"steps\": [], \"title\": \"locator.count(//tbody//tr)\"}, {\"boxedStack\": undefined, \"category\": \"expect\", \"complete\": [Function complete], \"infectParentStepsWithError\": undefined, \"location\": {\"column\": 24, \"file\": \"/Users/mehmetaltuntas/Documents/playwright-bdd_Qugem/.cucumber/stepDefinitions/steps_EmployeeMasterData.js\", \"function\": \"Object.<anonymous>\", \"line\": 637}, \"params\": {\"expected\": 1}, \"stepId\": \"expect@177\", \"steps\": [], \"title\": \"expect.not.toBeGreaterThanOrEqual\"}], \"title\": \"Then I dont see , if  \\\"1234567\\\" \\\"tester\\\" appears in the employee table with numbers\"}, \"previous\": undefined, \"type\": \"stepZone\"}}\n   at ../.cucumber/stepDefinitions/steps_EmployeeMasterData.js:637\n\n  635 |   console.log(\"the number of row appeeared after filling name filter :\",rowCount)\n  636 |\n> 637 |   expect(rowCount).not.toBeGreaterThanOrEqual(1)\n      |                        ^\n  638 |   console.log(\"new employee name : ${name} ${lastname} added\")\n  639 |\n  640 |"
             }
           },
           {
@@ -480,7 +599,311 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 530000000
+              "duration": 1162000000
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@only"
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "employee-master-data-module-functionality;add-an-employee-,-name-and-surname-has-numbers",
+        "keyword": "Scenario Outline",
+        "line": 237,
+        "name": "add an employee , name and surname has numbers",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 6,
+            "name": "Navigate to Dashboard with \"english\" language",
+            "result": {
+              "status": "passed",
+              "duration": 3960000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 7,
+            "name": "verify that dashboard page tab name contains QUGEM",
+            "result": {
+              "status": "passed",
+              "duration": 16000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 8,
+            "name": "I click the Employee_Master_data module",
+            "result": {
+              "status": "passed",
+              "duration": 153000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 9,
+            "name": "I select \"GESAMT FIRMEN\" using the company selection button, and choose \"All\" using the client selection button\"",
+            "result": {
+              "status": "passed",
+              "duration": 1916000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 10,
+            "name": "I delete if in any row, surname column text is tester or developer",
+            "result": {
+              "status": "passed",
+              "duration": 17653000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 11,
+            "name": "verify if you write tester or developer in filter surname, row1 is invisible",
+            "result": {
+              "status": "passed",
+              "duration": 98000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 12,
+            "name": "I delete all filter sections to start every test Scenario with a clear filter",
+            "result": {
+              "status": "passed",
+              "duration": 50000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 209,
+            "name": "I click the employee add button",
+            "result": {
+              "status": "passed",
+              "duration": 1235000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 210,
+            "name": "I click active check button",
+            "result": {
+              "status": "passed",
+              "duration": 12000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 211,
+            "name": "I fill \"Ersan1234\" \"tester\" \"301\"  \"86573\"  \"3000\"",
+            "result": {
+              "status": "passed",
+              "duration": 297000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 212,
+            "name": "I fill soc_no \"123456789123\" _postcode \"71254\" _holidayNumYearly \"20\" _travelFare \"120\" _fixed_allowance \"100\" _dispacher \"ali sorumlu\" _adress \"musik str 10\"",
+            "result": {
+              "status": "passed",
+              "duration": 364000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 214,
+            "name": "I see exit date input box is not functional because personal active button is checked",
+            "result": {
+              "status": "passed",
+              "duration": 44000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 215,
+            "name": "I see netSalary input box is still empty",
+            "result": {
+              "status": "passed",
+              "duration": 11000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 216,
+            "name": "I click company and choose option quickly transporte gmbh",
+            "result": {
+              "status": "passed",
+              "duration": 419000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 217,
+            "name": "I click Role and choose option LKW Fahrer",
+            "result": {
+              "status": "passed",
+              "duration": 665000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 218,
+            "name": "I click Client and choose option Hermes",
+            "result": {
+              "status": "passed",
+              "duration": 797000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 219,
+            "name": "I click Wage Type and choose option Full_Time",
+            "result": {
+              "status": "passed",
+              "duration": 686000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 220,
+            "name": "I click Tax Class and choose option 3",
+            "result": {
+              "status": "passed",
+              "duration": 714000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 221,
+            "name": "I click Health insurance choose Ikk Classic",
+            "result": {
+              "status": "passed",
+              "duration": 521000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 222,
+            "name": "I click Child allowance and choose 2",
+            "result": {
+              "status": "passed",
+              "duration": 505000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 223,
+            "name": "I click Chirch Tax and choose evangelishe kirchensteuer",
+            "result": {
+              "status": "passed",
+              "duration": 857000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 224,
+            "name": "I check buttons of meal allowance taxed_night surcharge_hourly Temp_meal allowance_night surcharge 40_ travel Fahre",
+            "result": {
+              "status": "passed",
+              "duration": 475000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 225,
+            "name": "I choose payment Type",
+            "result": {
+              "status": "passed",
+              "duration": 59000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 226,
+            "name": "I see if I filled correctly , calculate salary button becomes functional",
+            "result": {
+              "status": "passed",
+              "duration": 8000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 227,
+            "name": "I click save changes",
+            "result": {
+              "status": "passed",
+              "duration": 3144000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 228,
+            "name": "I verify the alert says \"Employee was added successfully\"",
+            "result": {
+              "status": "passed",
+              "duration": 4000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 229,
+            "name": "I wait for the Url \"https://qugem-staging.netlify.app/employee/\"",
+            "result": {
+              "status": "passed",
+              "duration": 1038000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 230,
+            "name": "I dont see , if  \"Ersan1234\" \"tester\" appears in the employee table with numbers",
+            "result": {
+              "status": "failed",
+              "duration": 3117000000,
+              "error_message": "Error: expect(received).not.toBeGreaterThanOrEqual(expected)\n\nMatcher error: received value must be a number or bigint\n\nReceived has type:  object\nReceived has value: {Symbol(async_id_symbol): 176284, Symbol(trigger_async_id_symbol): 175883, Symbol(kResourceStore): {\"data\": {\"box\": undefined, \"boxedStack\": undefined, \"category\": \"test.step\", \"complete\": [Function complete], \"location\": {\"column\": 13, \"file\": \"/Users/mehmetaltuntas/Documents/playwright-bdd_Qugem/.features-gen/.cucumber/features/employee_master_data.feature.spec.js\", \"line\": 354}, \"stepId\": \"test.step@171\", \"steps\": [{\"apiName\": \"locator.fill\", \"boxedStack\": undefined, \"category\": \"pw:api\", \"complete\": [Function complete], \"endWallTime\": 1728370281495, \"location\": {\"column\": 46, \"file\": \"/Users/mehmetaltuntas/Documents/playwright-bdd_Qugem/.cucumber/stepDefinitions/steps_EmployeeMasterData.js\", \"function\": \"Object.<anonymous>\", \"line\": 630}, \"params\": {\"selector\": \"internal:role=columnheader[name=\\\"First Name\\\"i] >> internal:attr=[placeholder=\\\"Filter\\\"i]\", \"strict\": true, \"value\": \"Ersan1234\"}, \"stepId\": \"pw:api@172\", \"steps\": [], \"title\": \"locator.getByRole('columnheader', { name: 'First Name' }).getByPlaceholder('Filter').fill\"}, {\"apiName\": \"locator.fill\", \"boxedStack\": undefined, \"category\": \"pw:api\", \"complete\": [Function complete], \"endWallTime\": 1728370281534, \"location\": {\"column\": 45, \"file\": \"/Users/mehmetaltuntas/Documents/playwright-bdd_Qugem/.cucumber/stepDefinitions/steps_EmployeeMasterData.js\", \"function\": \"Object.<anonymous>\", \"line\": 631}, \"params\": {\"selector\": \"internal:role=columnheader[name=\\\"Last Name\\\"i] >> internal:attr=[placeholder=\\\"Filter\\\"i]\", \"strict\": true, \"value\": \"tester\"}, \"stepId\": \"pw:api@173\", \"steps\": [], \"title\": \"locator.getByRole('columnheader', { name: 'Last Name' }).getByPlaceholder('Filter').fill\"}, {\"apiName\": \"page.waitForTimeout\", \"boxedStack\": undefined, \"category\": \"pw:api\", \"complete\": [Function complete], \"endWallTime\": 1728370284543, \"location\": {\"column\": 14, \"file\": \"/Users/mehmetaltuntas/Documents/playwright-bdd_Qugem/.cucumber/stepDefinitions/steps_EmployeeMasterData.js\", \"function\": \"Object.<anonymous>\", \"line\": 632}, \"params\": {\"timeout\": 3000}, \"stepId\": \"pw:api@174\", \"steps\": [], \"title\": \"page.waitForTimeout\"}, {\"apiName\": \"locator.waitFor\", \"boxedStack\": undefined, \"category\": \"pw:api\", \"complete\": [Function complete], \"endWallTime\": 1728370284547, \"location\": {\"column\": 38, \"file\": \"/Users/mehmetaltuntas/Documents/playwright-bdd_Qugem/.cucumber/stepDefinitions/steps_EmployeeMasterData.js\", \"function\": \"Object.<anonymous>\", \"line\": 633}, \"params\": {\"omitReturnValue\": true, \"selector\": \"//tbody//tr\", \"strict\": true}, \"stepId\": \"pw:api@175\", \"steps\": [], \"title\": \"locator.waitFor(//tbody//tr)\"}, {\"apiName\": \"locator.count\", \"boxedStack\": undefined, \"category\": \"pw:api\", \"complete\": [Function complete], \"location\": {\"column\": 47, \"file\": \"/Users/mehmetaltuntas/Documents/playwright-bdd_Qugem/.cucumber/stepDefinitions/steps_EmployeeMasterData.js\", \"function\": \"Object.<anonymous>\", \"line\": 634}, \"params\": {\"selector\": \"//tbody//tr\"}, \"stepId\": \"pw:api@176\", \"steps\": [], \"title\": \"locator.count(//tbody//tr)\"}, {\"boxedStack\": undefined, \"category\": \"expect\", \"complete\": [Function complete], \"infectParentStepsWithError\": undefined, \"location\": {\"column\": 24, \"file\": \"/Users/mehmetaltuntas/Documents/playwright-bdd_Qugem/.cucumber/stepDefinitions/steps_EmployeeMasterData.js\", \"function\": \"Object.<anonymous>\", \"line\": 637}, \"params\": {\"expected\": 1}, \"stepId\": \"expect@177\", \"steps\": [], \"title\": \"expect.not.toBeGreaterThanOrEqual\"}], \"title\": \"Then I dont see , if  \\\"Ersan1234\\\" \\\"tester\\\" appears in the employee table with numbers\"}, \"previous\": undefined, \"type\": \"stepZone\"}}\n   at ../.cucumber/stepDefinitions/steps_EmployeeMasterData.js:637\n\n  635 |   console.log(\"the number of row appeeared after filling name filter :\",rowCount)\n  636 |\n> 637 |   expect(rowCount).not.toBeGreaterThanOrEqual(1)\n      |                        ^\n  638 |   console.log(\"new employee name : ${name} ${lastname} added\")\n  639 |\n  640 |"
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 1167000000
             }
           }
         ],
