@@ -188,7 +188,7 @@ Feature:Employee Master Data Module functionality
             | Mehmet    | tester   | 52     | 12345  | 3000       |
 
 
-    @only
+
     Scenario Outline: Scenario Outline name:As a user , if I click Lines per page "<number_chosen>" 10, 25 and 50 , number of the rows in employee table it should bring correctly
         When I check if Lines per page select button is functional and visible
         Then I click "<number_chosen>" employee choose in Lines Per Page
@@ -198,10 +198,41 @@ Feature:Employee Master Data Module functionality
         Then I click previous page button is visible and clickable
         Then I click employee table previous page button , and verify number of rows are not more than "<number_chosen>"
 
-
-
         Examples:the numbers in line per page in employee master data table
             | number_chosen |
             | 10            |
             | 25            |
             | 50            |
+
+    @only
+    Scenario Outline: add an employee , name and surname has numbers
+        Then I click the employee add button
+            And I click active check button
+        When I fill "<firstName>" "<LastName>" "<Emp_Id>"  "<tax_id>"  "<grosSalary>"
+            And I fill soc_no "123456789123" _postcode "71254" _holidayNumYearly "20" _travelFare "120" _fixed_allowance "100" _dispacher "ali sorumlu" _adress "musik str 10"
+        #Then I see there is current date visible in entry date input box before I edit
+        Then I see exit date input box is not functional because personal active button is checked
+        Then I see netSalary input box is still empty
+        Then I click company and choose option quickly transporte gmbh
+        Then I click Role and choose option LKW Fahrer
+        Then I click Client and choose option Hermes
+        Then I click Wage Type and choose option Full_Time
+        Then I click Tax Class and choose option 3
+        Then I click Health insurance choose Ikk Classic
+        Then I click Child allowance and choose 2
+        Then I click Chirch Tax and choose evangelishe kirchensteuer
+        Then I check buttons of meal allowance taxed_night surcharge_hourly Temp_meal allowance_night surcharge 40_ travel Fahre
+        Then I choose payment Type
+        Then I see if I filled correctly , calculate salary button becomes functional
+        Then I click save changes
+        Then I verify the alert says "Employee was added successfully"
+        Then I wait for the Url "https://qugem-staging.netlify.app/employee/"
+        Then I dont see , if  "<firstName>" "<LastName>" appears in the employee table with numbers
+
+
+        Examples:
+
+            | firstName  | LastName | Emp_Id | tax_id | grosSalary |
+            | Mehmet1235 | tester   | 300    | 7345   | 3000       |
+            | Ersan1234  | tester   | 301    | 86573  | 3000       |
+            | 1234567    | tester   | 302    | 98564  | 3000       |

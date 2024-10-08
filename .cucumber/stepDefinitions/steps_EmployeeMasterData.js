@@ -625,3 +625,17 @@ Then('I click employee table previous page button , and verify number of rows ar
  // Verify the row count is not more than the chosen number
  expect(rowCount).toBeLessThanOrEqual(parseInt(number_chosen));
 });
+
+Then('I dont see , if  {string} {string} appears in the employee table with numbers', async ({page}, name, lastname) => {
+  await employeeMasterData.first_name_filter.fill(name)
+  await employeeMasterData.last_name_filter.fill(lastname)
+  await page.waitForTimeout(3000)
+  await employeeMasterData.page_rows.waitFor()
+  const rowCount=employeeMasterData.page_rows.count()
+  console.log("the number of row appeeared after filling name filter :",rowCount)
+
+  expect(rowCount).not.toBeGreaterThanOrEqual(1)
+  console.log("new employee name : ${name} ${lastname} added")
+
+
+});
