@@ -36,8 +36,8 @@ export class BasePage {
       await this.page.locator(loginPage.emailBox).fill(process.env.email);
       await this.page.locator(loginPage.password).fill(process.env.password);
       await loginPage.clickLoginButton_withLanguage(language);
-      await this.page.waitForTimeout(1000);
       await this.page.waitForURL("https://qugem-staging.netlify.app/");
+      await this.page.waitForLoadState('load')
     } catch (error) {
       console.error("Error navigating to the dashboard:", error);
     }

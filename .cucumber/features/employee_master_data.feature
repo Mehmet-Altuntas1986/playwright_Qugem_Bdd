@@ -5,43 +5,43 @@ Feature:Employee Master Data Module functionality
     Background: Navigation to the Employee Master Data module and the removal of employees with the surname 'tester' or 'developer' were added for testing purposes.
         Given Navigate to Dashboard with "english" language
         Then verify that dashboard page tab name contains QUGEM
-        Then I click the Employee_Master_data module
-        Then I select "GESAMT FIRMEN" using the company selection button, and choose "All" using the client selection button"
-        Then I delete if in any row, surname column text is tester or developer
+        When I click the Employee_Master_data module
+        When I select "GESAMT FIRMEN" using the company selection button, and choose "All" using the client selection button"
+        When I delete if in any row, surname column text is tester or developer
         Then verify if you write tester or developer in filter surname, row1 is invisible
         Then I delete all filter sections to start every test Scenario with a clear filter
 
 
 
-    Scenario Outline: Filter employee by first name in Employee Master Data and verify it is in the first row
-            And I verify that the Employees table title is visible
-            And I verify that the "company" and "client" selection buttons are visible and functional
-            And I enter "<firstNameInFilter>" in the employee search field
-        Then verify the employee name "<firstNameInFilter>" should be visible in the first row of the table
+    Scenario Outline: Verify Employee First Name Filter Functionality
+        Given I verify that the Employees table title is visible
+        Then I verify that the "company" and "client" selection buttons are visible and functional
+        Then I enter "<firstNameInFilter>" in the employee search field
+        When verify the employee name "<firstNameInFilter>" should be visible in the first row of the table
         Then I delete the Filter input
-            And verify "<firstNameInFilter>" should not be in the first row
+        Then verify "<firstNameInFilter>" should not be in the first row
 
         Examples:
             | firstNameInFilter |
             | Gyulyustan        |
 
 
-    Scenario: testing visibilty and clickably of the all dropdown elements of company with a loop
+    Scenario: Verify Visibility and Clickability of Company Dropdown Elements
         When I click the company dropdown
         Then all companies in dropdown are visible and clickable
 
 
-    Scenario: testing visibilty and clickably of the all dropdown elements of client companies with a loop
+    Scenario: Verify Visibility and Clickability of Client Companies Dropdown Elements
         When I click the client companies dropdown button
         Then I see client companies are visible and clickable
 
 
-    Scenario Outline: Adding personals with acceptable data and deleting them
-        Then I click the employee add button
-            And I click active check button
-        When I fill "<firstName>" "<LastName>" "<Emp_Id>"  "<tax_id>"  "<grosSalary>"
-            And I fill soc_no "123456789123" _postcode "71254" _holidayNumYearly "20" _travelFare "120" _fixed_allowance "100" _dispacher "ali sorumlu" _adress "musik str 10"
-        #Then I see there is current date visible in entry date input box before I edit
+    Scenario Outline: Add and Delete Employees with Valid Data
+        When I click the employee add button
+        Then I click active check button
+        Then I fill "<firstName>" "<LastName>" "<Emp_Id>"  "<tax_id>"  "<grosSalary>"
+        When I fill soc_no "123456789123" _postcode "71254" _holidayNumYearly "20" _travelFare "120" _fixed_allowance "100" _dispacher "ali sorumlu" _adress "musik str 10"
+        Then I see there is current date visible in entry date input box before I edit
         Then I see exit date input box is not functional because personal active button is checked
         Then I see netSalary input box is still empty
         Then I click company and choose option quickly transporte gmbh
@@ -72,13 +72,14 @@ Feature:Employee Master Data Module functionality
             | Ersan     | tester   | 4321   | 12324  | 3000       |
 
 
+
     Scenario Outline: Adding one personal with acceptable data and verifying employee saved and employee data is seen in employee master data page
 
-        Then I click the employee add button
-            And I click active check button
-        When I fill "<firstName>" "<LastName>" "<Emp_Id>"  "<tax_id>"  "<grosSalary>"
-            And I fill soc_no "123456789123" _postcode "71254" _holidayNumYearly "20" _travelFare "120" _fixed_allowance "100" _dispacher "ali sorumlu" _adress "musik str 10"
-        #Then I see there is current date visible in entry date input box before I edit
+        When I click the employee add button
+        Then I click active check button
+        Then I fill "<firstName>" "<LastName>" "<Emp_Id>"  "<tax_id>"  "<grosSalary>"
+        When I fill soc_no "123456789123" _postcode "71254" _holidayNumYearly "20" _travelFare "120" _fixed_allowance "100" _dispacher "ali sorumlu" _adress "musik str 10"
+        Then I see there is current date visible in entry date input box before I edit
         Then I see exit date input box is not functional because personal active button is checked
         Then I see netSalary input box is still empty
         Then I click company and choose option quickly transporte gmbh
@@ -116,13 +117,13 @@ Feature:Employee Master Data Module functionality
             | Ersan     | tester   | 201    | 12324  | 3000       |
 
 
-    Scenario Outline:Try to add a new employee with an employee id , another employee has it already
+    Scenario Outline: Attempt to Add an Employee with a Duplicate Employee ID
 
-        Then I click the employee add button
-            And I click active check button
-        When I fill "<firstName>" "<LastName>" "<Emp_Id>"  "<tax_id>"  "<grosSalary>"
-            And I fill soc_no "123456789123" _postcode "71254" _holidayNumYearly "20" _travelFare "120" _fixed_allowance "100" _dispacher "ali sorumlu" _adress "musik str 10"
-        #Then I see there is current date visible in entry date input box before I edit
+        When I click the employee add button
+        Then I click active check button
+        Then I fill "<firstName>" "<LastName>" "<Emp_Id>"  "<tax_id>"  "<grosSalary>"
+        When I fill soc_no "123456789123" _postcode "71254" _holidayNumYearly "20" _travelFare "120" _fixed_allowance "100" _dispacher "ali sorumlu" _adress "musik str 10"
+        Then I see there is current date visible in entry date input box before I edit
         Then I see exit date input box is not functional because personal active button is checked
         Then I see netSalary input box is still empty
         Then I click company and choose option quickly transporte gmbh
@@ -145,10 +146,9 @@ Feature:Employee Master Data Module functionality
 
 
 
-        Examples: Kenan withId 123 added to system before this test , try to add again with the same id again
+        Examples: Kenan with ID 123 added to the system prior to this test, attempt to add again with the same ID.
 
             | firstName | LastName | Emp_Id | tax_id | grosSalary |
-            | Kenan     | withId   | 123    | 12345  | 3000       |
             | Mehmet    | tester   | 123    | 23454  | 3000       |
             | Ersan     | tester   | 123    | 34356  | 3000       |
 
@@ -156,13 +156,13 @@ Feature:Employee Master Data Module functionality
 
 
 
-    Scenario Outline: Try to add a new employee with an tax Id which another employee has it already
+    Scenario Outline: Attempt to Add an Employee with a Duplicate Tax ID
 
-        Then I click the employee add button
-            And I click active check button
-        When I fill "<firstName>" "<LastName>" "<Emp_Id>"  "<tax_id>"  "<grosSalary>"
-            And I fill soc_no "123456789123" _postcode "71254" _holidayNumYearly "20" _travelFare "120" _fixed_allowance "100" _dispacher "ali sorumlu" _adress "musik str 10"
-        #Then I see there is current date visible in entry date input box before I edit
+        When I click the employee add button
+        Then I click active check button
+        Then I fill "<firstName>" "<LastName>" "<Emp_Id>"  "<tax_id>"  "<grosSalary>"
+        When I fill soc_no "123456789123" _postcode "71254" _holidayNumYearly "20" _travelFare "120" _fixed_allowance "100" _dispacher "ali sorumlu" _adress "musik str 10"
+        Then I see there is current date visible in entry date input box before I edit
         Then I see exit date input box is not functional because personal active button is checked
         Then I see netSalary input box is still empty
         Then I click company and choose option quickly transporte gmbh
@@ -189,10 +189,10 @@ Feature:Employee Master Data Module functionality
 
 
 
-    Scenario Outline: Scenario Outline name:As a user , if I click Lines per page "<number_chosen>" 10, 25 and 50 , number of the rows in employee table it should bring correctly
+    Scenario Outline: As a user, if I click Lines per page "<number_chosen>", the number of rows in the employee table should reflect the correct count.
         When I check if Lines per page select button is functional and visible
         Then I click "<number_chosen>" employee choose in Lines Per Page
-            And I verify the number of rows in employee table is not more than the "<number_chosen>"
+        Then I verify the number of rows in employee table is not more than the "<number_chosen>"
         Then I verify next page button is visible and clickable
         Then I click employee table next page button , and verify number of rows are not more than "<number_chosen>"
         Then I click previous page button is visible and clickable
@@ -204,13 +204,11 @@ Feature:Employee Master Data Module functionality
             | 25            |
             | 50            |
 
-    @only
-    Scenario Outline: add an employee , name and surname has numbers
-        Then I click the employee add button
-            And I click active check button
-        When I fill "<firstName>" "<LastName>" "<Emp_Id>"  "<tax_id>"  "<grosSalary>"
-            And I fill soc_no "123456789123" _postcode "71254" _holidayNumYearly "20" _travelFare "120" _fixed_allowance "100" _dispacher "ali sorumlu" _adress "musik str 10"
-        #Then I see there is current date visible in entry date input box before I edit
+    Scenario Outline: Add an employee with name contain numbers
+        When I click the employee add button
+        Then I click active check button
+        Then I fill "<firstName>" "<LastName>" "<Emp_Id>"  "<tax_id>"  "<grosSalary>"
+        When I fill soc_no "123456789123" _postcode "71254" _holidayNumYearly "20" _travelFare "120" _fixed_allowance "100" _dispacher "ali sorumlu" _adress "musik str 10"
         Then I see exit date input box is not functional because personal active button is checked
         Then I see netSalary input box is still empty
         Then I click company and choose option quickly transporte gmbh
@@ -230,9 +228,92 @@ Feature:Employee Master Data Module functionality
         Then I dont see , if  "<firstName>" "<LastName>" appears in the employee table with numbers
 
 
-        Examples:
+        Examples: Names with numbers or completely numeric values representing names
 
             | firstName  | LastName | Emp_Id | tax_id | grosSalary |
             | Mehmet1235 | tester   | 300    | 7345   | 3000       |
             | Ersan1234  | tester   | 301    | 86573  | 3000       |
             | 1234567    | tester   | 302    | 98564  | 3000       |
+
+   
+    Scenario Outline: verify employee id cant have alphabetic characters
+
+        When I click the employee add button
+        Then I verify employee id input does not accept alphabetic values: "<id_no>" and "<warning_message>"
+
+
+        Examples:if employee id is alphabetic
+
+            | id_no  | warning_message                        |
+            | abc    | employeeNumber must be a `number` type |
+            | 123abc | employeeNumber must be a `number` type |
+
+   
+    Scenario: verify employee id can be a so long number
+        Then I navigate to "https://qugem-staging.netlify.app/employee"
+        Then I find an existing employee with filter , name is "mehmet" and lastname is "Abusoglu"
+        Then I click edit button
+        Then I fill employee id with a very long numeric value "123456789098765432181234"
+        Then I click save changes
+        Then verify we dont see an alert employee "was updated successfully"
+
+# Scenario:
+#    When I click the employee add button
+#   Then verify if adress is not filled , warning message is "This field is required"
+
+
+#Scenario Outline:
+#   When I click the employee add button
+#    Then I verify social security number is not less or more than 12 characters : "<values>" and "<warning_message>"
+
+# Examples:
+#   | value   | warning_message                       |
+#  | 1234567 | Cannot be more than 5 characters long |
+#   | 123     | Must be at least 5 characters long    |
+
+
+
+
+
+#Scenario Outline:
+#  When I click the employee add button
+#   Then I verify tax id can be less than 11 characters long :"<values>" and "<warning_message>"
+#  Then I verify tax id cannot be more than 11 characters long :"<values>" and "<warning_message>"
+#  Then I verify it doesnt accept alphabetic characters :"<values>" and "<warning_message>"
+
+# Examples:
+# | values                      |
+# | 123456789123456789123456789 |
+# | 1234abcd                    |
+
+# Scenario: If you enter a valid Postal code into the system
+#     When I click the employee add button
+#     Then I enter a valid "<postcode>"
+#     Then verify state value appeared "<state>" : is true
+#     Then verify city value appeared "<city>" : is true
+
+#     Examples:
+#         | postcode | city      | state             |
+#         | 71254    | Ditzingen | Baden-Württemberg |
+
+# Scenario: If you enter a invalid Postal code into the Employee addd system
+#     When I click the employee add button
+#     Then I verify postal code is a required, "<warning_message>" is "This field is required
+#     Then I verify input "<value>" cannot be more than_5_characters long
+#     Then I verify input "<value>" cannot be less than_5_characters long
+#     Then I verify , in case a wrong postal code , alert warns us like "Unknown ZipCode"
+
+#     Examples:
+
+#         | value   | warning_message                       |
+#         | 1234567 | Cannot be more than 5 characters long |
+#         | 123     | Must be at least 5 characters long    |
+
+
+
+
+
+
+
+
+

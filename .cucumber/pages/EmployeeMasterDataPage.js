@@ -191,8 +191,8 @@ export class EmployeeMasterDataPage extends BasePage {
       // Clear the existing filter and apply the new one
       await this.last_name_filter.fill(''); // Clear existing filter
       await this.last_name_filter.fill(filterText); // Apply new filter
-      await this.page.waitForLoadState()
-      await this.page.waitForTimeout(2000) //bu codu burda cikarirsan asagidaki count methodu otomatik bekler ve hata atar
+    
+      await this.page.waitForTimeout(3000) //bu codu burda cikarirsan asagidaki count methodu otomatik bekler ve hata atar
       
       // Check if the first row exists
       const firstRowExists = await this.page.locator('//tbody//tr[1]').count();  //countun 30 sn bekleyecekti eger koymasaydik

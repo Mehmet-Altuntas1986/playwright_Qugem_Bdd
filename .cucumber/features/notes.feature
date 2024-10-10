@@ -7,7 +7,7 @@ Feature: Playwright site
 
    
 
-
+# # tagslar icin --grep '@smoke'     --grep '@regression'
 
 
 # Use @only tag to run a single feature / scenario:
