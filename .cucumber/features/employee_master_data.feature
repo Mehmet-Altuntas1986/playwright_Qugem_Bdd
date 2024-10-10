@@ -235,7 +235,7 @@ Feature:Employee Master Data Module functionality
             | Ersan1234  | tester   | 301    | 86573  | 3000       |
             | 1234567    | tester   | 302    | 98564  | 3000       |
 
-   
+
     Scenario Outline: verify employee id cant have alphabetic characters
 
         When I click the employee add button
@@ -248,7 +248,7 @@ Feature:Employee Master Data Module functionality
             | abc    | employeeNumber must be a `number` type |
             | 123abc | employeeNumber must be a `number` type |
 
-   
+
     Scenario: verify employee id can be a so long number
         Then I navigate to "https://qugem-staging.netlify.app/employee"
         Then I find an existing employee with filter , name is "mehmet" and lastname is "Abusoglu"
@@ -257,19 +257,30 @@ Feature:Employee Master Data Module functionality
         Then I click save changes
         Then verify we dont see an alert employee "was updated successfully"
 
-# Scenario:
-#    When I click the employee add button
-#   Then verify if adress is not filled , warning message is "This field is required"
 
+    
+    Scenario: verify necessary input box fields warns you if you dont fill and click save
+        When I click the employee add button
+        Then I click save changes
+        Then verify if adress is not filled , warning message is "This field is required"
+        Then verify if Postal Code is not filled , warning message is "This field is required"
+        Then verify if First Name is not filled , warning message is "This field is required"
+        Then verify if Last Name is not filled , warning message is "This field is required"
+        Then verify if adress is not filled , warning message is "This field is required"
 
-#Scenario Outline:
-#   When I click the employee add button
-#    Then I verify social security number is not less or more than 12 characters : "<values>" and "<warning_message>"
+@only
+    Scenario Outline: verify social security number cannot be less or more than _12_ characters 
+        When I click the employee add button
+        Then I fill social security number "<values>"
+        Then I click save changes
+        Then I verify social security number cannot be less or more than _12_ characters :"<warning_message>"
 
-# Examples:
-#   | value   | warning_message                       |
-#  | 1234567 | Cannot be more than 5 characters long |
-#   | 123     | Must be at least 5 characters long    |
+        Examples:
+            | values                  | warning_message                        |
+            | 1234567                 | Must be at least 12 characters long    |
+            | 123sdfsadfsdgfsdgdgsedg | Cannot be more than 12 characters long |
+
+            
 
 
 

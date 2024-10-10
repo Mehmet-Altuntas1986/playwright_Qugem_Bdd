@@ -175,26 +175,26 @@ When('I fill soc_no {string} _postcode {string} _holidayNumYearly {string} _trav
 
 
 Then('I see there is current date visible in entry date input box before I edit', async ({ page }) => {
-  try{
+  try {
     // Stuttgart, Almanya saat dilimine göre mevcut tarihi alın
-  const currentDate = new Date();
-  const options = { timeZone: 'Europe/Berlin', day: '2-digit', month: '2-digit', year: 'numeric' };
-  const formattedDate = new Intl.DateTimeFormat('de-DE', options).format(currentDate);  // GG.AA.YYYY formatı
+    const currentDate = new Date();
+    const options = { timeZone: 'Europe/Berlin', day: '2-digit', month: '2-digit', year: 'numeric' };
+    const formattedDate = new Intl.DateTimeFormat('de-DE', options).format(currentDate);  // GG.AA.YYYY formatı
 
-  // Input alanındaki değeri alın (YYYY-MM-DD formatı)
-  const inputValue = await employeeMasterData.entry_date_calender.inputValue();
+    // Input alanındaki değeri alın (YYYY-MM-DD formatı)
+    const inputValue = await employeeMasterData.entry_date_calender.inputValue();
 
-  // Input alanındaki tarihi GG.AA.YYYY formatına çevirin
-  const [inputYear, inputMonth, inputDay] = inputValue.split('-');  // YYYY-MM-DD formatını parçala
-  const formattedInputDate = `${inputDay}.${inputMonth}.${inputYear}`;  // GG.AA.YYYY formatına dönüştür
+    // Input alanındaki tarihi GG.AA.YYYY formatına çevirin
+    const [inputYear, inputMonth, inputDay] = inputValue.split('-');  // YYYY-MM-DD formatını parçala
+    const formattedInputDate = `${inputDay}.${inputMonth}.${inputYear}`;  // GG.AA.YYYY formatına dönüştür
 
-  // Log ile input değerini göster
-  console.log('Input Date:', formattedInputDate);  // Örn: "28.09.2024" veya "29.09.2024"
+    // Log ile input değerini göster
+    console.log('Input Date:', formattedInputDate);  // Örn: "28.09.2024" veya "29.09.2024"
 
-  // Beklenen tarih ile karşılaştır
-  expect(formattedInputDate).toBe(formattedDate);
+    // Beklenen tarih ile karşılaştır
+    expect(formattedInputDate).toBe(formattedDate);
 
-  }catch(error){
+  } catch (error) {
     console.warn("this date doesnt match if it is being tested between 12:00 -01:00 uhr")
 
   }
@@ -304,7 +304,7 @@ Then('I can see netSalary of the new employee', async ({ page }) => {
   expect(employeeMasterData.net_Salary).not.toBe(null);
 
   // Net maaşı konsola yazdırın
-  console.log("Net salary now has a value but its value is not logeable" )
+  console.log("Net salary now has a value but its value is not logeable")
 
 });
 
@@ -313,7 +313,7 @@ Then('I click save changes', async ({ page }) => {
 
   await page.getByRole('button', { name: 'Save Changes' }).nth(1).click();
   await page.waitForTimeout(2000) //bunu kaldirma
-  
+
 
 });
 
@@ -475,10 +475,10 @@ Then('verify that with same {string} new employee cannot be added', async ({ pag
   await employeeMasterData.no_filter.fill('');
   await employeeMasterData.no_filter.fill(emp_id);
   await page.waitForTimeout(3000)
-  const rowCount=await employeeMasterData.page_rows.count()
+  const rowCount = await employeeMasterData.page_rows.count()
 
   // If more than one row is found, fail the test
-  if (rowCount >1) {
+  if (rowCount > 1) {
     throw new Error(`More than one employee found with the same ID (${emp_id}). Test failed.`);
   } else {
     console.log(`Employee with ID ${emp_id} is unique. Test passed.`);
@@ -616,26 +616,26 @@ Then('I click previous page button is visible and clickable', async ({ page }) =
 });
 
 Then('I click employee table previous page button , and verify number of rows are not more than {string}', async ({ page }, number_chosen) => {
- // Click the previous page button
- await employeeMasterData.previous_page_arrow.click();
+  // Click the previous page button
+  await employeeMasterData.previous_page_arrow.click();
 
- // Wait for the table to load the previous page
- await employeeMasterData.page_rows.waitFor();
+  // Wait for the table to load the previous page
+  await employeeMasterData.page_rows.waitFor();
 
- // Get the row count in the employee table
- const rowCount = await employeeMasterData.page_rows.count();
+  // Get the row count in the employee table
+  const rowCount = await employeeMasterData.page_rows.count();
 
- // Verify the row count is not more than the chosen number
- expect(rowCount).toBeLessThanOrEqual(parseInt(number_chosen));
+  // Verify the row count is not more than the chosen number
+  expect(rowCount).toBeLessThanOrEqual(parseInt(number_chosen));
 });
 
-Then('I dont see , if  {string} {string} appears in the employee table with numbers', async ({page}, name, lastname) => {
+Then('I dont see , if  {string} {string} appears in the employee table with numbers', async ({ page }, name, lastname) => {
   await employeeMasterData.first_name_filter.fill(name)
   await employeeMasterData.last_name_filter.fill(lastname)
   await page.waitForTimeout(3000)
 
-  const rowCount=await employeeMasterData.page_rows.count()
-  console.log("the number of row appeeared after filling name filter :",rowCount)
+  const rowCount = await employeeMasterData.page_rows.count()
+  console.log("the number of row appeeared after filling name filter :", rowCount)
 
   expect(rowCount).not.toBeGreaterThanOrEqual(2)
   console.log("new employee name : ${name} ${lastname} added")
@@ -643,59 +643,101 @@ Then('I dont see , if  {string} {string} appears in the employee table with numb
 
 });
 
-Then('I enter a valid {string}', async ({page}, postCode) => {
+Then('I enter a valid {string}', async ({ page }, postCode) => {
   await employeeMasterData.postal_code.fill(postCode)
   await page.waitForTimeout(3000)
 
 
-  
+
 });
 
-Then('verify state value appeared {string} : is true', async ({page}, state) => {
-  const isVisible=await employeeMasterData.state_select.isVisible()
+Then('verify state value appeared {string} : is true', async ({ page }, state) => {
+  const isVisible = await employeeMasterData.state_select.isVisible()
   expect(isVisible).toBe(true)
-  console.log(state, "appears correctly after writting postal code" )
+  console.log(state, "appears correctly after writting postal code")
 
 });
 
-Then('verify city value appeared {string} : is true', async ({page}, city) => {
-  const isVisible=await employeeMasterData.city.isVisible()
+Then('verify city value appeared {string} : is true', async ({ page }, city) => {
+  const isVisible = await employeeMasterData.city.isVisible()
 
   expect(isVisible).toBe(true)
-  console.log(city, "appears correctly after writting postal code" )
+  console.log(city, "appears correctly after writting postal code")
 
 });
 
-Then('I verify employee id input does not accept alphabetic values: {string} and {string}', async ({page}, id, warning) => {
+Then('I verify employee id input does not accept alphabetic values: {string} and {string}', async ({ page }, id, warning) => {
   await employeeMasterData.employee_id.fill(id)
   await page.keyboard.press('Enter')
-  const actualWarningMessage=await page.locator("//p[contains(text(),'employeeNumber must be a `number` type, but the fi')]").textContent()
+  const actualWarningMessage = await page.locator("//p[contains(text(),'employeeNumber must be a `number` type, but the fi')]").textContent()
   expect(actualWarningMessage).toContain(warning)
 
 });
 
 
-Then('I find an existing employee with filter , name is {string} and lastname is {string}', async ({page}, name, lastname) => {
- await employeeMasterData.first_name_filter.fill(name)
- await employeeMasterData.last_name_filter.fill(lastname)
- await page.waitForTimeout(2000)
+Then('I find an existing employee with filter , name is {string} and lastname is {string}', async ({ page }, name, lastname) => {
+  await employeeMasterData.first_name_filter.fill(name)
+  await employeeMasterData.last_name_filter.fill(lastname)
+  await page.waitForTimeout(2000)
 });
 
-Then('I fill employee id with a very long numeric value {string}', async ({page}, id) => {
+Then('I fill employee id with a very long numeric value {string}', async ({ page }, id) => {
   await employeeMasterData.employee_id.fill(id)
- 
+
 
 });
 
 
 
 
-Then('verify we dont see an alert employee {string}', async ({page}, alertText) => {
-  const actualAlertText=await page.getByRole('alert').textContent()
-  console.log("actual alert text is :",actualAlertText)
+Then('verify we dont see an alert employee {string}', async ({ page }, alertText) => {
+  const actualAlertText = await page.getByRole('alert').textContent()
+  console.log("actual alert text is :", actualAlertText)
   await expect(actualAlertText).not.toContain(alertText)
-   
+
 });
 
 
+Then('verify if adress is not filled , warning message is {string}', async ({ page }, textInAlert) => {
+  const alert = await page.getByText('This field is required').nth(2)
+  await expect(await alert.textContent()).toBe(textInAlert)
 
+});
+
+Then('verify if Postal Code is not filled , warning message is {string}', async ({ page }, textInAlert) => {
+  const alert = await page.getByText('This field is required').nth(3)
+  await expect(await alert.textContent()).toBe(textInAlert)
+});
+
+Then('verify if First Name is not filled , warning message is {string}', async ({ page }, textInAlert) => {
+  const alert = await page.getByText('This field is required').first()
+  await expect(await alert.textContent()).toBe(textInAlert)
+});
+
+Then('verify if Last Name is not filled , warning message is {string}', async ({ page }, textInAlert) => {
+  const alert = await page.getByText('This field is required').nth(1)
+  await expect(await alert.textContent()).toBe(textInAlert)
+});
+
+
+Then('I fill social security number {string}', async ({ page }, input) => {
+  await employeeMasterData.social_Security_Number.fill('')
+  await employeeMasterData.social_Security_Number.fill(input)
+  await page.waitForTimeout(1000)
+});
+
+Then('I verify social security number cannot be less or more than _12_ characters :{string}', async ({ page }, expextedWarning) => {
+  const inputValue = await employeeMasterData.social_Security_Number.inputValue();
+  const inputLength = inputValue.length;  // Get the length of the input string
+  
+  if (inputLength < 12) {
+    const shortValue = await page.getByText('Must be at least 12').textContent()
+    expect(shortValue).toBe(expextedWarning)
+
+  } else if (inputLength >12) {
+
+    const LongValue = await page.getByText('Cannot be more than 12').textContent()
+    expect(LongValue).toBe(expextedWarning)
+  }
+
+});

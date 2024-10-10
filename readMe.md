@@ -610,4 +610,6 @@ When('I try to click on the button', async function () {
 
 # If the button cannot be clicked, it logs the error and continues to the next step, allowing you to perform other checks or assertions.
 
-
+# string length bulma 
+ const inputValue = await employeeMasterData.social_Security_Number.inputValue();
+  const inputLength = inputValue.length;  // Get the length of the input string
