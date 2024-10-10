@@ -366,3 +366,6 @@ Then I verify the alert says "Employee was added successfully"
 
 }
 
+---------------
+# once git add .  git commit -m "commit message"   sonra main e git checkout yap , maine checkout yapmis olman codu oraya direkt aktarmaz , sonra merge islemi yap  ex: git merge mehmet
+#Değişiklikleri Kaydet (Commit Et): mehmet branşında yaptığınız değişiklikleri git add . ve git commit -m "Commit mesajı" komutlarıyla kaydetmelisiniz. Aksi takdirde, commit yapmadığınız değişiklikler git dalları arasında taşınmaz ve kaybolabilir.

@@ -1,0 +1,38 @@
+Error navigating to the dashboard: page.waitForURL: Test timeout of 60000ms exceeded.
+=========================== logs ===========================
+waiting for navigation to "https://qugem-staging.netlify.app/" until "load"
+============================================================
+    at BasePage.navigateToDashboard (/Users/mehmetaltuntas/Documents/playwright-bdd_Qugem/.cucumber/pages/BasePage.js:39:23)
+    at Object.<anonymous> (/Users/mehmetaltuntas/Documents/playwright-bdd_Qugem/.cucumber/stepDefinitions/steps_DashboardPage.js:25:3)
+    at /Users/mehmetaltuntas/Documents/playwright-bdd_Qugem/.features-gen/.cucumber/features/employee_master_data.feature.spec.js:7:5 {
+  [Symbol(step)]: {
+    stepId: 'pw:api@21',
+    location: {
+      file: '/Users/mehmetaltuntas/Documents/playwright-bdd_Qugem/.cucumber/pages/BasePage.js',
+      line: 39,
+      column: 23,
+      function: 'BasePage.navigateToDashboard'
+    },
+    category: 'pw:api',
+    title: 'page.waitForURL',
+    apiName: 'page.waitForURL',
+    params: { info: [Object] },
+    boxedStack: undefined,
+    steps: [],
+    complete: [Function: complete],
+    endWallTime: 1728555879847,
+    error: {
+      message: 'Error: page.waitForURL: Test timeout of 60000ms exceeded.\n' +
+        '=========================== logs ===========================\n' +
+        'waiting for navigation to "https://qugem-staging.netlify.app/" until "load"\n' +
+        '============================================================',
+      stack: 'Error: page.waitForURL: Test timeout of 60000ms exceeded.\n' +
+        '=========================== logs ===========================\n' +
+        'waiting for navigation to "https://qugem-staging.netlify.app/" until "load"\n' +
+        '============================================================\n' +
+        '    at BasePage.navigateToDashboard (/Users/mehmetaltuntas/Documents/playwright-bdd_Qugem/.cucumber/pages/BasePage.js:39:23)\n' +
+        '    at Object.<anonymous> (/Users/mehmetaltuntas/Documents/playwright-bdd_Qugem/.cucumber/stepDefinitions/steps_DashboardPage.js:25:3)\n' +
+        '    at /Users/mehmetaltuntas/Documents/playwright-bdd_Qugem/.features-gen/.cucumber/features/employee_master_data.feature.spec.js:7:5'
+    }
+  }
+}

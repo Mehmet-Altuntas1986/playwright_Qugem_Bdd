@@ -1,0 +1,21 @@
+QUGEM - Quickly Gehaltsmanagement
+Dashboard page tab name contains "QUGEM"
+Row with "tester" found and deleted.
+No rows found with tester or developer last name before each test scenario is tested.
+No rows found with tester or developer last name before each test scenario is tested.
+There are 15 elements.
+Element 1 with text "All" is visible and clickable.
+Element 2 with text "Gebr. Weiss" is visible and clickable.
+Element 3 with text "Hermes" is visible and clickable.
+Element 4 with text "OTLG" is visible and clickable.
+Element 5 with text "OTLG Köln" is visible and clickable.
+Element 6 with text "OTLG Südbayern" is visible and clickable.
+Element 7 with text "Schenker" is visible and clickable.
+Element 8 with text "TNT" is visible and clickable.
+Element 9 with text "TOF Koblenz" is visible and clickable.
+Element 10 with text "TOF Stuttgart 70" is visible and clickable.
+Element 11 with text "TOF Stuttgart 71" is visible and clickable.
+Element 12 with text "TOF Stuttgart 72" is visible and clickable.
+Element 13 with text "TOF Stuttgart 73" is visible and clickable.
+Element 14 with text "TestClient25" is visible and clickable.
+Element 15 with text "TestClient66" is visible and clickable.

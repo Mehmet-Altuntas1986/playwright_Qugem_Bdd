@@ -1,0 +1,7 @@
+QUGEM - Quickly Gehaltsmanagement
+Dashboard page tab name contains "QUGEM"
+Row with "tester" found and deleted.
+No rows found with tester or developer last name before each test scenario is tested.
+No rows found with tester or developer last name before each test scenario is tested.
+There are 5 elements.
+Element 1 with text "GESAMT FIRMEN" is visible and clickable.
