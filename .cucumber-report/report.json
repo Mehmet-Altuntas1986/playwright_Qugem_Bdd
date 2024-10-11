@@ -4,10 +4,10 @@
     "elements": [
       {
         "description": "",
-        "id": "employee-master-data-module-functionality;verify-social-security-number-cannot-be-less-or-more-than-_12_-characters",
+        "id": "employee-master-data-module-functionality;verify-tax_id-field-cannot-be-more-than-11-characters-long-and-only-accepts-numeric-value",
         "keyword": "Scenario Outline",
-        "line": 280,
-        "name": "verify social security number cannot be less or more than _12_ characters",
+        "line": 293,
+        "name": "verify Tax_id field cannot be more than 11 characters long and only accepts numeric value",
         "steps": [
           {
             "arguments": [],
@@ -16,7 +16,7 @@
             "name": "Navigate to Dashboard with \"english\" language",
             "result": {
               "status": "passed",
-              "duration": 3990000000
+              "duration": 3506000000
             }
           },
           {
@@ -26,7 +26,7 @@
             "name": "verify that dashboard page tab name contains QUGEM",
             "result": {
               "status": "passed",
-              "duration": 1062000000
+              "duration": 1068000000
             }
           },
           {
@@ -36,7 +36,7 @@
             "name": "I click the Employee_Master_data module",
             "result": {
               "status": "passed",
-              "duration": 105000000
+              "duration": 111000000
             }
           },
           {
@@ -46,7 +46,7 @@
             "name": "I select \"GESAMT FIRMEN\" using the company selection button, and choose \"All\" using the client selection button\"",
             "result": {
               "status": "passed",
-              "duration": 536000000
+              "duration": 1034000000
             }
           },
           {
@@ -56,7 +56,7 @@
             "name": "I delete if in any row, surname column text is tester or developer",
             "result": {
               "status": "passed",
-              "duration": 6136000000
+              "duration": 6151000000
             }
           },
           {
@@ -66,7 +66,7 @@
             "name": "verify if you write tester or developer in filter surname, row1 is invisible",
             "result": {
               "status": "passed",
-              "duration": 58000000
+              "duration": 92000000
             }
           },
           {
@@ -76,47 +76,47 @@
             "name": "I delete all filter sections to start every test Scenario with a clear filter",
             "result": {
               "status": "passed",
-              "duration": 22000000
+              "duration": 55000000
             }
           },
           {
             "arguments": [],
             "keyword": "When ",
-            "line": 273,
+            "line": 286,
             "name": "I click the employee add button",
             "result": {
               "status": "passed",
-              "duration": 1101000000
+              "duration": 1170000000
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 274,
-            "name": "I fill social security number \"1234567\"",
+            "line": 287,
+            "name": "I fill tax_id input box with :\"123456789123456789123456789\"",
             "result": {
               "status": "passed",
-              "duration": 1029000000
+              "duration": 1058000000
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 275,
+            "line": 288,
             "name": "I click save changes",
             "result": {
               "status": "passed",
-              "duration": 2083000000
+              "duration": 2091000000
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 276,
-            "name": "I verify social security number cannot be less or more than _12_ characters :\"Must be at least 12 characters long\"",
+            "line": 289,
+            "name": "I verify tax cannot be more than _11_ characters long or accepts alphaphetic characters : \"Cannot be more than 11 characters long\"",
             "result": {
               "status": "passed",
-              "duration": 9000000
+              "duration": 21000000
             }
           },
           {
@@ -124,7 +124,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 123000000
+              "duration": 427000000
             }
           }
         ],
@@ -137,10 +137,10 @@
       },
       {
         "description": "",
-        "id": "employee-master-data-module-functionality;verify-social-security-number-cannot-be-less-or-more-than-_12_-characters",
+        "id": "employee-master-data-module-functionality;verify-tax_id-field-cannot-be-more-than-11-characters-long-and-only-accepts-numeric-value",
         "keyword": "Scenario Outline",
-        "line": 281,
-        "name": "verify social security number cannot be less or more than _12_ characters",
+        "line": 294,
+        "name": "verify Tax_id field cannot be more than 11 characters long and only accepts numeric value",
         "steps": [
           {
             "arguments": [],
@@ -149,7 +149,7 @@
             "name": "Navigate to Dashboard with \"english\" language",
             "result": {
               "status": "passed",
-              "duration": 4130000000
+              "duration": 3537000000
             }
           },
           {
@@ -159,7 +159,7 @@
             "name": "verify that dashboard page tab name contains QUGEM",
             "result": {
               "status": "passed",
-              "duration": 1046000000
+              "duration": 1048000000
             }
           },
           {
@@ -169,7 +169,7 @@
             "name": "I click the Employee_Master_data module",
             "result": {
               "status": "passed",
-              "duration": 117000000
+              "duration": 111000000
             }
           },
           {
@@ -179,7 +179,7 @@
             "name": "I select \"GESAMT FIRMEN\" using the company selection button, and choose \"All\" using the client selection button\"",
             "result": {
               "status": "passed",
-              "duration": 1054000000
+              "duration": 1035000000
             }
           },
           {
@@ -189,7 +189,7 @@
             "name": "I delete if in any row, surname column text is tester or developer",
             "result": {
               "status": "passed",
-              "duration": 6085000000
+              "duration": 6115000000
             }
           },
           {
@@ -199,7 +199,7 @@
             "name": "verify if you write tester or developer in filter surname, row1 is invisible",
             "result": {
               "status": "passed",
-              "duration": 50000000
+              "duration": 102000000
             }
           },
           {
@@ -209,33 +209,33 @@
             "name": "I delete all filter sections to start every test Scenario with a clear filter",
             "result": {
               "status": "passed",
-              "duration": 25000000
+              "duration": 44000000
             }
           },
           {
             "arguments": [],
             "keyword": "When ",
-            "line": 273,
+            "line": 286,
             "name": "I click the employee add button",
             "result": {
               "status": "passed",
-              "duration": 1090000000
+              "duration": 1148000000
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 274,
-            "name": "I fill social security number \"123sdfsadfsdgfsdgdgsedg\"",
+            "line": 287,
+            "name": "I fill tax_id input box with :\"1234abcd\"",
             "result": {
               "status": "passed",
-              "duration": 1044000000
+              "duration": 1048000000
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 275,
+            "line": 288,
             "name": "I click save changes",
             "result": {
               "status": "passed",
@@ -245,11 +245,11 @@
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 276,
-            "name": "I verify social security number cannot be less or more than _12_ characters :\"Cannot be more than 12 characters long\"",
+            "line": 289,
+            "name": "I verify tax cannot be more than _11_ characters long or accepts alphaphetic characters : \"Cast to Number failed for value\"",
             "result": {
               "status": "passed",
-              "duration": 10000000
+              "duration": 9000000
             }
           },
           {
@@ -257,7 +257,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 120000000
+              "duration": 427000000
             }
           }
         ],

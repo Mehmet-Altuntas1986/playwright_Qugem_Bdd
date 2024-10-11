@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite failures="0" skipped="0" name="my suite" time="33.11200000000001" tests="2">
-  <testcase classname="Employee Master Data Module functionality" name="chromium › Employee Master Data Module functionality › verify social security number cannot be less or more than _12_ characters" time="16.254">
+<testsuite failures="0" skipped="0" name="my suite" time="33.495000000000005" tests="2">
+  <testcase classname="Employee Master Data Module functionality" name="chromium › Employee Master Data Module functionality › verify Tax_id field cannot be more than 11 characters long and only accepts numeric value" time="16.784">
     <system-out><![CDATA[Given Navigate to Dashboard with "english" language.......................passed
 Then verify that dashboard page tab name contains QUGEM...................passed
 When I click the Employee_Master_data module..............................passed
@@ -9,11 +9,11 @@ When I delete if in any row, surname column text is tester or developer...passed
 Then verify if you write tester or developer in filter surname, row1 is...passed
 Then I delete all filter sections to start every test Scenario with a c...passed
 When I click the employee add button......................................passed
-Then I fill social security number "1234567"..............................passed
+Then I fill tax_id input box with :"123456789123456789123456789"..........passed
 Then I click save changes.................................................passed
-Then I verify social security number cannot be less or more than _12_ c...passed]]></system-out>
+Then I verify tax cannot be more than _11_ characters long or accepts a...passed]]></system-out>
   </testcase>
-  <testcase classname="Employee Master Data Module functionality" name="chromium › Employee Master Data Module functionality › verify social security number cannot be less or more than _12_ characters [1]" time="16.858000000000004">
+  <testcase classname="Employee Master Data Module functionality" name="chromium › Employee Master Data Module functionality › verify Tax_id field cannot be more than 11 characters long and only accepts numeric value [1]" time="16.711000000000002">
     <system-out><![CDATA[Given Navigate to Dashboard with "english" language.......................passed
 Then verify that dashboard page tab name contains QUGEM...................passed
 When I click the Employee_Master_data module..............................passed
@@ -22,8 +22,8 @@ When I delete if in any row, surname column text is tester or developer...passed
 Then verify if you write tester or developer in filter surname, row1 is...passed
 Then I delete all filter sections to start every test Scenario with a c...passed
 When I click the employee add button......................................passed
-Then I fill social security number "123sdfsadfsdgfsdgdgsedg"..............passed
+Then I fill tax_id input box with :"1234abcd".............................passed
 Then I click save changes.................................................passed
-Then I verify social security number cannot be less or more than _12_ c...passed]]></system-out>
+Then I verify tax cannot be more than _11_ characters long or accepts a...passed]]></system-out>
   </testcase>
 </testsuite>

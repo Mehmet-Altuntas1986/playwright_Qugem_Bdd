@@ -729,15 +729,46 @@ Then('I fill social security number {string}', async ({ page }, input) => {
 Then('I verify social security number cannot be less or more than _12_ characters :{string}', async ({ page }, expextedWarning) => {
   const inputValue = await employeeMasterData.social_Security_Number.inputValue();
   const inputLength = inputValue.length;  // Get the length of the input string
-  
+
   if (inputLength < 12) {
     const shortValue = await page.getByText('Must be at least 12').textContent()
     expect(shortValue).toBe(expextedWarning)
 
-  } else if (inputLength >12) {
+  } else if (inputLength > 12) {
 
     const LongValue = await page.getByText('Cannot be more than 12').textContent()
     expect(LongValue).toBe(expextedWarning)
+  }
+
+});
+
+Then('I fill tax_id input box with :{string}', async ({ page }, value) => {
+  await employeeMasterData.tax_id.fill('')
+  await employeeMasterData.tax_id.fill(value)
+  await page.waitForTimeout(1000)
+
+
+});
+
+Then('I verify tax cannot be more than _11_ characters long or accepts alphaphetic characters : {string}', async ({ page }, expextedWarning) => {
+  const inputText = await employeeMasterData.tax_id.inputValue();
+  console.log(`Input type is: ${typeof inputText}`);  // typeof ile input verisinin tipini bul ve konsola yazdır
+
+  const textLength = await inputText.length;
+
+  // onluk (decimal) sistemde bir tam sayıya dönüştürmeye çalışır.
+  if (isNaN(parseInt(inputText, 10))) {                 //isNaN (is Not a Number) fonksiyonu or // if (typeof inputText !== 'number')
+
+    page.on('dialog', async dialog => {    // Pop-up veya uyarı mesajı olduğunda yakalamak için event listener ekle
+      const dialogMessage = dialog.message();  // Pop-up mesajını al
+      expect(dialogMessage).not.toContain(expextedWarning);
+      await dialog.dismiss();  // Uyarıyı kapat
+    });
+
+    // Sayfada bir etkileşim tetikle :onceden tetiklendi , save button clicked
+  } else if (!isNaN(parseInt(inputText, 10)) && textLength > 11) {
+    const lengthError = await page.getByText('Cannot be more than 11 characters long').textContent();
+    expect(lengthError).toBe(expextedWarning);
   }
 
 });

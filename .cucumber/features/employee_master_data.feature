@@ -258,7 +258,7 @@ Feature:Employee Master Data Module functionality
         Then verify we dont see an alert employee "was updated successfully"
 
 
-    
+
     Scenario: verify necessary input box fields warns you if you dont fill and click save
         When I click the employee add button
         Then I click save changes
@@ -268,8 +268,8 @@ Feature:Employee Master Data Module functionality
         Then verify if Last Name is not filled , warning message is "This field is required"
         Then verify if adress is not filled , warning message is "This field is required"
 
-@only
-    Scenario Outline: verify social security number cannot be less or more than _12_ characters 
+
+    Scenario Outline: verify social security number cannot be less or more than _12_ characters
         When I click the employee add button
         Then I fill social security number "<values>"
         Then I click save changes
@@ -280,45 +280,21 @@ Feature:Employee Master Data Module functionality
             | 1234567                 | Must be at least 12 characters long    |
             | 123sdfsadfsdgfsdgdgsedg | Cannot be more than 12 characters long |
 
-            
+
+
+    Scenario Outline:verify Tax_id field cannot be more than 11 characters long and only accepts numeric value
+        When I click the employee add button
+        Then I fill tax_id input box with :"<values>"
+        Then I click save changes
+        Then I verify tax cannot be more than _11_ characters long or accepts alphaphetic characters : "<warning_message>"
+
+        Examples:
+            | values                      | warning_message                        |
+            | 123456789123456789123456789 | Cannot be more than 11 characters long |
+            | 1234abcd                    | Cast to Number failed for value        |
 
 
 
-
-
-#Scenario Outline:
-#  When I click the employee add button
-#   Then I verify tax id can be less than 11 characters long :"<values>" and "<warning_message>"
-#  Then I verify tax id cannot be more than 11 characters long :"<values>" and "<warning_message>"
-#  Then I verify it doesnt accept alphabetic characters :"<values>" and "<warning_message>"
-
-# Examples:
-# | values                      |
-# | 123456789123456789123456789 |
-# | 1234abcd                    |
-
-# Scenario: If you enter a valid Postal code into the system
-#     When I click the employee add button
-#     Then I enter a valid "<postcode>"
-#     Then verify state value appeared "<state>" : is true
-#     Then verify city value appeared "<city>" : is true
-
-#     Examples:
-#         | postcode | city      | state             |
-#         | 71254    | Ditzingen | Baden-Württemberg |
-
-# Scenario: If you enter a invalid Postal code into the Employee addd system
-#     When I click the employee add button
-#     Then I verify postal code is a required, "<warning_message>" is "This field is required
-#     Then I verify input "<value>" cannot be more than_5_characters long
-#     Then I verify input "<value>" cannot be less than_5_characters long
-#     Then I verify , in case a wrong postal code , alert warns us like "Unknown ZipCode"
-
-#     Examples:
-
-#         | value   | warning_message                       |
-#         | 1234567 | Cannot be more than 5 characters long |
-#         | 123     | Must be at least 5 characters long    |
 
 
 
