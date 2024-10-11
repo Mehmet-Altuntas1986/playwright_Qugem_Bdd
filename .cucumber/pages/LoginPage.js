@@ -58,12 +58,15 @@ async clickLoginButton_withLanguage(choosenLanguage) {
   switch (choosenLanguage) {
     case 'german':
       await this.page.getByRole('button', { name: 'Einloggen' }).click();
+      await this.page.waitForTimeout(1000)
       break;
     case 'english':
       await this.page.getByRole('button', { name: 'Login' }).click();
+      await this.page.waitForTimeout(1000)
       break;
     case 'türkish':
       await this.page.getByRole('button', { name: 'Giriş Yapın' }).click();
+      await this.page.waitForTimeout(1000)
       break;
   }
 }

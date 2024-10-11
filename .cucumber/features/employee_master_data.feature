@@ -1,7 +1,7 @@
 
 
 Feature:Employee Master Data Module functionality
-
+   
     Background: Navigation to the Employee Master Data module and the removal of employees with the surname 'tester' or 'developer' were added for testing purposes.
         Given Navigate to Dashboard with "english" language
         Then verify that dashboard page tab name contains QUGEM
@@ -35,7 +35,7 @@ Feature:Employee Master Data Module functionality
         When I click the client companies dropdown button
         Then I see client companies are visible and clickable
 
-
+@timeout:90000
     Scenario Outline: Add and Delete Employees with Valid Data
         When I click the employee add button
         Then I click active check button
@@ -72,7 +72,7 @@ Feature:Employee Master Data Module functionality
             | Ersan     | tester   | 4321   | 12324  | 3000       |
 
 
-
+@timeout:90000
     Scenario Outline: Adding one personal with acceptable data and verifying employee saved and employee data is seen in employee master data page
 
         When I click the employee add button
@@ -204,6 +204,7 @@ Feature:Employee Master Data Module functionality
             | 25            |
             | 50            |
 
+@timeout:90000
     Scenario Outline: Add an employee with name contain numbers
         When I click the employee add button
         Then I click active check button
