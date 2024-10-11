@@ -19,9 +19,9 @@ export default defineConfig({
  //workers:6,
   timeout: 60000, // Sets the maximum wait time for each test to 60 seconds (60000ms) -- important setting
 
- workers: process.env.CI ? 4 : 6,// workers: process.env.CI ? 2 : 8,   Use 2 workers in CI,  but 8 workers in your local enviroment ayarlandi
-  retries:1,  //if test fails , runs one more time 
-  fullyParallel: true, // Enable full parallel execution in local or CI Enviroment  (butun testler birbirinden bagimsiz olmali )
+ workers: process.env.CI ? 4 : 8,// workers: process.env.CI ? 2 : 8,   Use 2 workers in CI,  but 8 workers in your local enviroment ayarlandi
+ //retries:1,  //if test fails , runs one more time 
+ fullyParallel: true, // Enable full parallel execution in local or CI Enviroment  (butun testler birbirinden bagimsiz olmali )
 
 
   reporter: [
@@ -40,7 +40,7 @@ export default defineConfig({
 
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    trace: 'only-on-failure',
+    trace: 'retain-on-failure',
     screenshot: 'only-on-failure',    //screenshot: 'on',  ekle screenshot: 'of', screenshot: 'only-on-failure',   
     video: "retain-on-failure",
     //headless:true,
@@ -66,11 +66,11 @@ export default defineConfig({
   //   {
   //     name: 'iphone 15',
   //     use: {
-  //       ...devices['iPhone 15 Pro Max'],
+  //       ...devices['iPhone 8 Plus'],
   //     },
   //   },
    
-  // ],
+  //],
 
 
 
