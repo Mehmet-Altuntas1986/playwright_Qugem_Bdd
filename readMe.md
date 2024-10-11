@@ -330,19 +330,20 @@ await employeeMasterData.calculate_salary_btn.click({ force: true ,timeout: 5000
 
 ----------------
 
-alert 
+# alert 
 
 Then I click save changes
         
 Then I verify the alert says "Employee was added successfully"
 # Then('I verify the alert says {string}', async ({ page }, textInAlert) => {
-       // Dialog (alert) olayını dinleyin
- #        page.on('dialog', async dialog => {
-  #       const alertText = dialog.message();  // Alert mesajını alır
-   #      console.log('Alert Text:', alertText);
+       # Dialog (alert) olayını dinleyin
+      page.on('dialog', async dialog => {
+      const alertText = dialog.message();  // 
+      Alert mesajını alır
+      console.log('Alert Text:', alertText);
 
         // Alert'i kapat
-   #      await dialog.accept();  // Alert penceresini 
+     await dialog.accept();  // Alert penceresini 
   });
 
   ---------------------------
@@ -366,6 +367,59 @@ Then I verify the alert says "Employee was added successfully"
 
 }
 
+<<<<<<< HEAD
 ---------------
 # once git add .  git commit -m "commit message"   sonra main e git checkout yap , maine checkout yapmis olman codu oraya direkt aktarmaz , sonra merge islemi yap  ex: git merge mehmet
 #Değişiklikleri Kaydet (Commit Et): mehmet branşında yaptığınız değişiklikleri git add . ve git commit -m "Commit mesajı" komutlarıyla kaydetmelisiniz. Aksi takdirde, commit yapmadığınız değişiklikler git dalları arasında taşınmaz ve kaybolabilir.
+=======
+
+# option da sadece ay ismi ile tiklama yapabiliyorsun ama hangi ay oldugunu bilmiyorsun, nasil click edecegiz , regex. --asagidakini tek satirda yaz ve tikla
+await page.getByRole('option', { name:/^(January|February|March|April|May|June|July|August|September|October|November|December)$/ }).click();
+---------------
+# once git add .  git commit -m "commit message"   sonra main e git checkout yap , maine checkout yapmis olman codu oraya direkt aktarmaz , sonra merge islemi yap  ex: git merge mehmet
+#Değişiklikleri Kaydet (Commit Et): mehmet branşında yaptığınız değişiklikleri git add . ve git commit -m "Commit mesajı" komutlarıyla kaydetmelisiniz. Aksi takdirde, commit yapmadığınız değişiklikler git dalları arasında taşınmaz ve kaybolabilir.
+
+# git stash
+git stash apply: Değişiklikleri uygular, ancak stash'teki değişiklikler silinmez.
+git stash pop: Değişiklikleri uygular ve stash'teki değişiklikleri siler.
+
+# git stash apply:
+
+Stash'teki değişiklikleri çalışma alanınıza uygular, ancak stash'teki değişiklikler silinmez.
+Değişiklikleri uyguladıktan sonra stash'teki kayıt hala durur ve gerektiğinde tekrar kullanılabilir.
+ # git stash pop:
+
+Stash'teki değişiklikleri çalışma alanınıza uygular ve uyguladıktan sonra stash'teki kayıt silinir.
+Yani, değişiklikler geri alındıktan sonra stash kaydı otomatik olarak temizlenir.
+
+# senaryo
+
+"mehmet"
+Değişiklik Yapma: "mehmet is tester" eklediniz, dosyanızın içeriği şimdi:
+
+"mehmet is tester"
+*Değişiklikleri Stash Etme:
+ git stash komutunu kullandınız. Bu, yaptığınız değişiklikleri geçici olarak saklar ve çalışma alanınızı temizler. Şu anki durum:
+
+branch-mehmet branch'ında içerik: "mehmet"
+Başka Branch'a Geçiş: git checkout branch-b komutunu kullanarak başka bir branch'a geçtiniz.
+
+Tekrar Geri Dönme: git checkout branch-mehmet komutuyla geri döndünüz. Şu an yine branch-mehmet branch'ındasınız ve dosyanızda içerik:
+
+"mehmet"
+Commit Yapma: git commit -m "Some changes" komutunu çalıştırdınız. Bu işlem, o anki çalışma alanınızdaki değişiklikleri kaydetti.
+
+Değişiklikleri Geri Alma:
+
+Eğer git stash apply veya git stash pop komutlarını kullanmazsanız, stash'te sakladığınız "mehmet is tester" değişikliğini geri alamazsınız.
+Sonuç: Değişiklikleri geri almak için stash komutlarını kullanmanız gerekecek.
+Özet: git stash ile saklanan değişiklikler, başka bir branch'a geçtikten sonra ve geri döndükten sonra git commit yaptıysanız, stash'teki değişiklikleri geri alabilmeniz için git stash apply veya git stash pop komutlarını kullanmanız gerekecek. Aksi takdirde, stash'te sakladığınız değişiklikler kaybolur.
+ 
+ --------------------------
+
+ 
+
+
+
+
+>>>>>>> mehmet

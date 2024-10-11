@@ -44,6 +44,8 @@ Then('verify that dashboard page tab name contains QUGEM', async ({ page }) => {
   console.log(title)
   if (title.includes('QUGEM')) {
     console.log('Dashboard page tab name contains "QUGEM"');
+    await page.waitForTimeout(1000)
+    
   } else {
     throw new Error('Dashboard page tab name does not contain "QUGEM"');
   }
