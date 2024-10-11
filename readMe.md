@@ -23,208 +23,7 @@ package.json Oluşturma: Terminalde
 
 npm init -y         komutunu çalıştırarak bir package.json dosyası oluşturun.
 
---------------------------------------------------------------------------------------------------
-# Jenkins acilmazsa 
-terminalde tekrar jenkins.war file ini ac  , kurulum icin bu file i indirmis ve terminal ile acmistik , tekrar ac bu sekilde kendiliginden kapanirsa
-# 1 -  java -jar /Users/mehmetaltuntas/Documents/jenkins.war
-
-# sonra sildim ve jenkins i homebrew ile kurdum , suanda daha stabil calisiyor
-1) for mac
-brew services stop jenkins-lts
-brew services restart jenkins-lts
-brew services start jenkins-lts
-2) for linux (e)
-sudo systemctl stop jenkins
-sudo systemctl restart jenkins
-sudo systemctl start jenkins
-
-3) windows
-net stop jenkins
-net start jenkins
-
-
-
-
-2- jenkins settings --> plugins--> nodejs indir , html report , cucumber report indir
- 
-
-1. step - kurulum -- project --> advanced --> custom workspace 
-
-/Users/mehmetaltuntas/Documents/playwright-bdd_Qugem
-
-2. step-  Source Code Management
-  none
-
-3. step- Build Steps
-for mac choose  --> execute shell
-for windows  --> Execute Windows batch command
-
-then write for mac    npm run ${testRun}
-for windows           npm run %testRun%
-
-
-4. Build enviroment --> click Provide Node & npm bin/ folder to PATH -->
-
-5. step- general--> choose This project is parameterised --> add parameters ---> choice parameters 
-
-name :  testRun                   3.asamadaki isim ile ayni isimde olmaliki algilasin
-choices 
-
-test
-report
-smoke
-regression
-debug
-codegen
-
-bu isimler package.json file indaki scripts alanindan aldim, cunku 
-testleri run ederken bu terminal scriptleri kullaniyorum
-
-example to run smoke tests in terminal
-# npm run smoke
-
-  "scripts": {
-    "smoke": "npx bddgen && npx playwright test --headed  --browser=chromium --grep '@smoke'",
-    "regression": "npx bddgen && npx playwright test --headed  --browser=chromium --grep '@reg'",
-    "test": "npx bddgen && npx playwright test --headed --browser=chromium && open /.cucumber- report/report.html",
-    "debug": "npx bddgen && npx playwright test --debug",
-    "codegen": "npx bddgen && npx playwright codegen ",
-    "report": "npx bddgen && npx playwright test --headed && allure generate allure-results --clean -o allure-report && allure open allure-report",
-    "test:ci": "npx bddgen && npx playwright test --headed  --browser=chromium --reporter=html"
-  },
-
-
-5.step -- rapor lar icin plugin indirmek gerekli --indirince bunlar post build action kismina gelir -- orda ayarlama yapmak gerekir
-
-2- jenkins settings --> plugins--> nodejs indir , html report , cucumber report indir ,allure(istersen indir)
-# *** nodejs indirdikten sonra --> jenkins settings --> tool --> Nodejs ayarlarini yap
-# *** sonra nodejs --> proje settings -->build enviroment-->
-sonra-->Provide Node & npm bin/ folder to PATH --> bu path e tool da ekledigin nodejs i sec 
-
-# bazi pluginleri indirdigimizde -jenkins settings -->tool --> sonra gerekli ayarlar yapilir
-ex: nodejs  , allure
-
-# html reporter indir. -- post build action --> path of folder (report.html is in it , folder path  girilmeli)
-
-example 
-/Users/mehmetaltuntas/Documents/playwright-bdd_Qugem/.cucumber-report
-
-
-# allure report indir  -- post build action --> path of allure-results --> ama global configuration da path girilir Allure Commandline kisminda #which allure ile path i bul
-  brew install allure.         -- in your computer , use terminal 
-  From the Jenkins dashboard-->.  click on Manage Jenkins -->Click on Global Tool Configuration.
-  Scroll down until you see the Allure Commandline section.
-
-  which allure   for mac,linux                 where allure   for windows    ile path i bul
-  commandline da path girilecek      
-
-ornek 
-➜  playwright-bdd_Qugem git:(mehmet) ✗ which allure
-/Users/mehmetaltuntas/.nvm/versions/node/v20.17.0/bin/allure
-➜  playwright-bdd_Qugem git:(mehmet) ✗ 
-  
-
-# cucumber report indir --> post build action --> path of folder 
-
-
-6. step jenkins ile testleri run et , console u incele , raporlari al 
-
-
-Allure rapor kullanim adimlari local bilgisayarda 
-Allure Reports for Playwright (Steps) 
-==============================
-1) Installation of "allure-playwright"  module  
-	npm i -D @playwright/test allure-playwright
-
-2) Installing Allure command line
-	For Windows:   npm install -g allure-commandline --save-dev
-			(or)
-	For Mac:     sudo npm install -g allure-commandline --save-dev
-
-3) add entry in "playwright.config.js" file
-	reporter= ['allure-playwright',{outputFolder: 'my-allure-results'}]
-
-4) Run the tests
- 	npx playwright test tests/Reporters.spec.js
-
-5) Generate Allure Report:
-	allure generate my-allure-results -o allure-report --clean
-
-6) Open Allure Report:
-	allure open allure-report
-
-7) terminal 
-npm run report            from package.json
-or
-npx bddgen && npx playwright test --headed && allure generate allure-results --clean -o allure-report && allure open allure-report
-
-------------------------------------------------------------------------
-# html report ve allure report icin playright.config.js file ici gorunum
-
-import { defineConfig, devices } from '@playwright/test';
-import { defineBddConfig, cucumberReporter } from 'playwright-bdd';
-
-
-const testDir = defineBddConfig({
- 
-  features: '.cucumber/features/*.feature',
-  steps: '.cucumber/stepDefinitions/*.js',
-
-  //importTestFrom:'.cucumber/fixtures.js'            //documentasyonu oku , fixtures.js file indaki bir yapiyi kullanmak icin 
-
-});
-
-
-export default defineConfig({
-
-  testDir,
-
-  workers:6,
-  timeout: 60000, // Sets the maximum wait time for each test to 60 seconds (60000ms) -- important setting
-
-  //workers: process.env.CI ? 2 : 8 // Use 2 workers in CI,  but 8 workers in your local enviroment
-  retries:1,  //if test fails , runs one more time 
-  fullyParallel: true, // Enable full parallel execution in local or CI Enviroment  (butun testler birbirinden bagimsiz olmali )
-
-
-  reporter: [
-    cucumberReporter('html', { outputFile: '.cucumber-report/report.html', skipAttachments: ['video/webm', 'application/zip'], }), 
-
-    cucumberReporter('json', { outputFile: '.cucumber-report/report.json', skipAttachments: true }),
-    cucumberReporter('junit', { outputFile: '.cucumber-report/report.xml', suiteName: 'my suite' }),
-    ['allure-playwright', { outputDir: 'allure-results' }]
-
-    
-  ],
-
-
-  use: {
-
-
-  /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-  trace: 'retain-on-failure',
-  screenshot: 'only-on-failure',    //screenshot: 'on',  ekle screenshot: 'of', screenshot: 'only-on- 
-   failure',   
-    video: "on",
-    //headless:true,
-  },
-
-
-
-
-});
-
-
-
-
-//npx bddgen && npx playwright test     test icin
-//npm init -y   package.json olusturur , script kismina npx bddgen && npx playwright test      yapistir
-
-
-
-  
-------------------------------------------------------------------------
-
+-------------------------------------------------------------------------------------------------------
 
 # tagslar icin --grep '@smoke'     --grep '@regression'
 
@@ -531,19 +330,19 @@ await employeeMasterData.calculate_salary_btn.click({ force: true ,timeout: 5000
 
 ----------------
 
-alert 
+# alert 
 
 Then I click save changes
         
 Then I verify the alert says "Employee was added successfully"
 # Then('I verify the alert says {string}', async ({ page }, textInAlert) => {
-       // Dialog (alert) olayını dinleyin
- #        page.on('dialog', async dialog => {
-  #       const alertText = dialog.message();  // Alert mesajını alır
-   #      console.log('Alert Text:', alertText);
+       # Dialog (alert) olayını dinleyin
+      page.on('dialog', async dialog => {
+      const alertText = dialog.message();  // Alert mesajını alır
+      console.log('Alert Text:', alertText);
 
         // Alert'i kapat
-   #      await dialog.accept();  // Alert penceresini 
+     await dialog.accept();  // Alert penceresini 
   });
 
   ---------------------------
@@ -568,48 +367,52 @@ Then I verify the alert says "Employee was added successfully"
 }
 
 
+# option da sadece ay ismi ile tiklama yapabiliyorsun ama hangi ay oldugunu bilmiyorsun, nasil click edecegiz , regex. --asagidakini tek satirda yaz ve tikla
+await page.getByRole('option', { name:/^(January|February|March|April|May|June|July|August|September|October|November|December)$/ }).click();
+---------------
+# once git add .  git commit -m "commit message"   sonra main e git checkout yap , maine checkout yapmis olman codu oraya direkt aktarmaz , sonra merge islemi yap  ex: git merge mehmet
+#Değişiklikleri Kaydet (Commit Et): mehmet branşında yaptığınız değişiklikleri git add . ve git commit -m "Commit mesajı" komutlarıyla kaydetmelisiniz. Aksi takdirde, commit yapmadığınız değişiklikler git dalları arasında taşınmaz ve kaybolabilir.
 
----------
-# Without Try-Catch Block
-If you don’t use a try-catch block in your step definition, any error that occurs during the execution of that step will cause the entire scenario to fail immediately. Here's what happens:
-1) Test Execution Halts:
- Once an error is thrown (e.g., if the button is not found or the click fails), the execution of that step is halted, and control is passed back to the Cucumber framework.
-2) Scenario Failure:
- The scenario is marked as failed, and subsequent steps in the scenario (including the Then steps) are not executed. This means you won't get to verify any subsequent assertions or actions.
+# git stash
+git stash apply: Değişiklikleri uygular, ancak stash'teki değişiklikler silinmez.
+git stash pop: Değişiklikleri uygular ve stash'teki değişiklikleri siler.
 
-3) Error Reporting: 
-The error is reported in the test output, providing information about the failure, including the line number and the error message.
+# git stash apply:
 
-# Example Without Try-Catch:
+Stash'teki değişiklikleri çalışma alanınıza uygular, ancak stash'teki değişiklikler silinmez.
+Değişiklikleri uyguladıktan sonra stash'teki kayıt hala durur ve gerektiğinde tekrar kullanılabilir.
+ # git stash pop:
 
-javascript
-Copy code
-When('I try to click on the button', async function () {
-    const buttonSelector = 'button#my-button'; // Replace with your button's selector
-    // No try-catch block
-    await this.page.click(buttonSelector); // If this fails, the scenario fails immediately
-});
+Stash'teki değişiklikleri çalışma alanınıza uygular ve uyguladıktan sonra stash'teki kayıt silinir.
+Yani, değişiklikler geri alındıktan sonra stash kaydı otomatik olarak temizlenir.
 
-Effect:
+# senaryo
 
-# If the button cannot be found or clicked, the test will fail, and the next steps won't execute.
--------------------------------------
-# Example With Try-Catch:
+"mehmet"
+Değişiklik Yapma: "mehmet is tester" eklediniz, dosyanızın içeriği şimdi:
 
-When('I try to click on the button', async function () {
-    const buttonSelector = 'button#my-button'; // Replace with your button's selector
+"mehmet is tester"
+*Değişiklikleri Stash Etme:
+ git stash komutunu kullandınız. Bu, yaptığınız değişiklikleri geçici olarak saklar ve çalışma alanınızı temizler. Şu anki durum:
 
-    try {
-        await this.page.click(buttonSelector); // Attempt to click the button
-        console.log('Button clicked successfully!');
-    } catch (error) {
-        console.error(`Failed to click the button: ${error.message}`);
-        console.log('Skipping this step due to the error.');
-    }
-});
+branch-mehmet branch'ında içerik: "mehmet"
+Başka Branch'a Geçiş: git checkout branch-b komutunu kullanarak başka bir branch'a geçtiniz.
 
-# If the button cannot be clicked, it logs the error and continues to the next step, allowing you to perform other checks or assertions.
+Tekrar Geri Dönme: git checkout branch-mehmet komutuyla geri döndünüz. Şu an yine branch-mehmet branch'ındasınız ve dosyanızda içerik:
 
-# string length bulma 
- const inputValue = await employeeMasterData.social_Security_Number.inputValue();
-  const inputLength = inputValue.length;  // Get the length of the input string
+"mehmet"
+Commit Yapma: git commit -m "Some changes" komutunu çalıştırdınız. Bu işlem, o anki çalışma alanınızdaki değişiklikleri kaydetti.
+
+Değişiklikleri Geri Alma:
+
+Eğer git stash apply veya git stash pop komutlarını kullanmazsanız, stash'te sakladığınız "mehmet is tester" değişikliğini geri alamazsınız.
+Sonuç: Değişiklikleri geri almak için stash komutlarını kullanmanız gerekecek.
+Özet: git stash ile saklanan değişiklikler, başka bir branch'a geçtikten sonra ve geri döndükten sonra git commit yaptıysanız, stash'teki değişiklikleri geri alabilmeniz için git stash apply veya git stash pop komutlarını kullanmanız gerekecek. Aksi takdirde, stash'te sakladığınız değişiklikler kaybolur.
+ 
+ --------------------------
+
+ 
+
+
+
+
