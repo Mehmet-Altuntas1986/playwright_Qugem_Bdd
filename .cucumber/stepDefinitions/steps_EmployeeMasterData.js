@@ -637,7 +637,7 @@ Then('I dont see , if  {string} {string} appears in the employee table with numb
   const rowCount = await employeeMasterData.page_rows.count()
   console.log("the number of row appeeared after filling name filter :", rowCount)
 
-  expect(rowCount).not.toBeGreaterThanOrEqual(2)
+  expect(rowCount).not.toBeGreaterThanOrEqual(1)
   console.log("new employee name : ${name} ${lastname} added")
 
 

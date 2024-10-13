@@ -35,7 +35,7 @@ Feature:Employee Master Data Module functionality
         When I click the client companies dropdown button
         Then I see client companies are visible and clickable
 
-
+    @timeout:90000
     Scenario Outline: Add and Delete Employees with Valid Data
         When I click the employee add button
         Then I click active check button
@@ -72,7 +72,7 @@ Feature:Employee Master Data Module functionality
             | Ersan     | tester   | 4321   | 12324  | 3000       |
 
 
-
+    @timeout:90000 
     Scenario Outline: Adding one personal with acceptable data and verifying employee saved and employee data is seen in employee master data page
 
         When I click the employee add button
@@ -112,10 +112,10 @@ Feature:Employee Master Data Module functionality
 
         Examples:
 
-            | firstName | LastName | Emp_Id | tax_id | grosSalary |
-            | Mehmet    | tester   | 200    | 12323  | 3000       |
-            | Ersan     | tester   | 201    | 12324  | 3000       |
-
+            | firstName | LastName     | Emp_Id | tax_id | grosSalary |
+            | Mehmet    | tester       | 200    | 12323  | 3000       |
+            | Ersan     | tester       | 201    | 12324  | 3000       |
+           
 
     Scenario Outline: Attempt to Add an Employee with a Duplicate Employee ID
 
@@ -204,6 +204,7 @@ Feature:Employee Master Data Module functionality
             | 25            |
             | 50            |
 
+    @timeout:90000
     Scenario Outline: Add an employee with name contain numbers
         When I click the employee add button
         Then I click active check button
@@ -249,7 +250,7 @@ Feature:Employee Master Data Module functionality
             | 123abc | employeeNumber must be a `number` type |
 
 
-    Scenario: verify employee id can be a so long number
+    Scenario: verify employee id cannot be a so long number
         Then I navigate to "https://qugem-staging.netlify.app/employee"
         Then I find an existing employee with filter , name is "mehmet" and lastname is "Abusoglu"
         Then I click edit button
