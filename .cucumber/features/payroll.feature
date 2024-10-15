@@ -1,7 +1,7 @@
 
 Feature:Testing Payroll module functionality
 
-    Background:gsd
+    Background:Navigate to Payroll Module before every Scenario
         Given Navigate to Dashboard with "english" language
         Then verify that dashboard page tab name contains QUGEM
         When I click the Payroll module button
