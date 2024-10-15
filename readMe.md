@@ -492,4 +492,19 @@ Then('I add an employee with details:', async ({ page }, dataTable) => {
   }
 });
 
+
+----------------
+# BasePage deki alert handle methodlarinin kullanimi
+
+// 1. Adım: Pop-up'ı tetikleyin (örneğin, bir butona tıklayarak)
+await basePage.triggerPopup('button#trigger-alert');
+
+// 2. Adım: Pop-up'ı yakalayın ve 'accept' işlemi ile kabul edin
+await basePage.handleAllPopups('accept');
+
+// 3. Adım: Pop-up mesajını alın ve konsola yazdırın
+const dialogMessage = await basePage.getDialogMessage();
+console.log(`Captured pop-up message: ${dialogMessage}`);
+
+-----------------------------------
  

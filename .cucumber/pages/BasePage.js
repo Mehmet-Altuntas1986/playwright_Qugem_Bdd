@@ -11,6 +11,8 @@ dotenv.config();
 export class BasePage {
   constructor(page) {
     this.page = page;
+    this.dialogMessage = '';  // Variable to store the pop-up message
+
 
     //list of elements --this locater represents more than one element
 
@@ -136,6 +138,87 @@ export class BasePage {
 }
 
 
+/**
+     * Handles all types of pop-ups (alert, confirm, prompt) and logs their messages.
+     * @param {string} action - Determines whether to 'accept' or 'dismiss' the pop-up. Default is 'accept'.
+     * @param {string} promptText - (Optional) Text to input if the dialog is a prompt. Default is empty string.
+     * 
+     * Usage:
+     *  Handle pop-up and accept it:
+     * await basePage.handleAllPopups('accept');
+     * 
+     *  Handle pop-up and dismiss it:
+     * await basePage.handleAllPopups('dismiss');
+     * 
+     *  Handle prompt pop-up and provide text:
+     * await basePage.handleAllPopups('accept', 'Your input text');
+     */
+async handleAllPopups(action = 'accept', promptText = '') {
+  // Listen for the dialog event
+  this.page.on('dialog', async (dialog) => {
+      // Get the pop-up message and log it to the console
+      this.dialogMessage = dialog.message();
+      console.log(`Pop-up type: ${dialog.type()}`);
+      console.log(`Pop-up message: ${this.dialogMessage}`);
+
+      // Handle the pop-up based on its type
+      switch (dialog.type()) {
+          case 'alert':
+              // For alert dialog, simply accept it
+              await dialog.accept();
+              console.log("Alert accepted.");
+              break;
+          case 'confirm':
+              // For confirm dialog, either accept or dismiss
+              if (action === 'accept') {
+                  await dialog.accept();
+                  console.log("Confirm accepted.");
+              } else {
+                  await dialog.dismiss();
+                  console.log("Confirm dismissed.");
+              }
+              break;
+          case 'prompt':
+              // For prompt dialog, input text or dismiss
+              if (action === 'accept') {
+                  await dialog.accept(promptText);  // Provide input to the prompt
+                  console.log(`Prompt input provided: ${promptText}`);
+              } else {
+                  await dialog.dismiss();
+                  console.log("Prompt dismissed.");
+              }
+              break;
+          default:
+              console.log("Unknown dialog type.");
+      }
+  });
+}
+
+/**
+* Returns the message of the last captured dialog.
+* @returns {string} - The message of the last dialog.
+* 
+* Usage:
+* Get the message of the last pop-up:
+* const dialogMessage = basePage.getDialogMessage();
+* console.log(`Captured pop-up message: ${dialogMessage}`);
+*/
+getDialogMessage() {
+  // Ensure the dialog message is always a string
+  return String(this.dialogMessage); // Convert the dialog message to string if not already
+}
+
+/**
+* Triggers a pop-up by clicking a specified element.
+* @param {string} triggerSelector - CSS selector of the element that triggers the pop-up.
+* 
+* Usage:
+* Trigger a pop-up by clicking a button:
+* await basePage.triggerPopup('button#trigger-popup');
+*/
+async triggerPopup(triggerSelector) {
+  await this.page.click(triggerSelector);
+}
 
 
 
