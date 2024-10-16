@@ -418,8 +418,103 @@ Sonuç: Değişiklikleri geri almak için stash komutlarını kullanmanız gerek
  --------------------------
 
  
+#  this.months_all=this.page.locator("//ul[@role='listbox']/li")   //12 elements li[1] , li[2]
+
+ boyle sona ekleyebilirsin
+
+// Tüm ayların metinlerini al
+const months = await this.months_all.allTextContents();
+console.log(months);  // ["January", "February", ..., "December"]
+
+// İlk ayı (January) seç
+await this.months_all.nth(0).click();
+
+<<<<<<< HEAD
+>>>>>>> mehmet
+=======
+// Üçüncü ayı (March) seç
+await this.months_all.nth(2).click();
+
+const monthCount = await this.months_all.count();
+# Tüm Öğeler Üzerinde Döngü
+
+for (let i = 0; i < monthCount; i++) {
+  const month = await this.months_all.nth(i).textContent();
+  console.log(`Month ${i + 1}: ${month}`);
+  // Belirli bir işlem yap
+  await this.months_all.nth(i).click();  // Her ayı tıklamak gibi
+}
+
+---------------------------
+// 1. Dropdown'u açmak için input kutusuna tıklayın
+await this.page.click('#dropdownInput'); // Dropdown'un inputunun locator'ı
+
+// 2. Ay seçeneğini bul ve tıkla
+const monthOption = this.page.getByRole('option', { name: /^(January|February|March|April|May|June|July|August|September|October|November|December)$/ });
+await monthOption.click(); // Bulunan ay seçeneğine tıklayın
+
+// 3. Yıl seçeneğini bul ve tıkla
+const yearOption = this.page.getByRole('option', { name: /^(2022|2023|2024|2025)$/ });
+await yearOption.click(); // Bulunan yıl seçeneğine tıklayın
 
 
+-------------
+
+# dataTable usage 
+
+@only
+    Scenario: Verify that if an employee added in the employee master data , that data comes correctly to payroll module
+  #  Then I navigate to "https://qugem-staging.netlify.app/employee"
+  #  Then I add an employee with details:
+    | Name  | ID Number | Company                 | Gross Salary |
+    | Kenan | 124       | QUICKLY TRANSPORTE GMBH | 4.000,00     |
 
 
+ # Then('I add an employee with details:', async ({ page }, dataTable) => {
+  // Get all rows from the data table
+  const employees = dataTable.rows(); //array of arrays
+
+  // Log the first row's first column (Name)
+  console.log(employees[0][0]); // This accesses the "Name" in the first row
+
+  // Optional: You can loop through the rows and log each employee's details
+  for (const [name, idNumber, company, grossSalary] of employees) {
+    console.log(`Name: ${name}, ID Number: ${idNumber}, Company: ${company}, Gross Salary: ${grossSalary}`);
+  }
+});
+
+# usages 
+Then('I add an employee with details:', async ({ page }, dataTable) => {
+  const employees = dataTable.rows(); // Retrieve all rows from the DataTable
+
+  // Iterate through all employee details
+  for (let i = 0; i < employees.length; i++) { //kac row var , herbirini ayir
+    const employee = employees[i];
+    console.log(`Adding employee: Name: ${employee.Name}, ID: ${employee['ID Number']}, Company: ${employee.Company}, Salary: ${employee['Gross Salary']}`);
+    
+    // Use the data in your automation logic (e.g., form filling)
+    await page.fill('#employeeName', employee.Name);
+    await page.fill('#employeeId', employee['ID Number']);
+    await page.fill('#employeeCompany', employee.Company);
+    await page.fill('#employeeSalary', employee['Gross Salary']);
+    await page.click('#submitButton');
+  }
+});
+
+
+----------------
+# BasePage deki alert handle methodlarinin kullanimi
+
+// 1. Adım: Pop-up'ı tetikleyin (örneğin, bir butona tıklayarak)
+await basePage.triggerPopup('button#trigger-alert');
+
+// 2. Adım: Pop-up'ı yakalayın ve 'accept' işlemi ile kabul edin
+await basePage.handleAllPopups('accept');
+
+// 3. Adım: Pop-up mesajını alın ve konsola yazdırın
+const dialogMessage = await basePage.getDialogMessage();
+console.log(`Captured pop-up message: ${dialogMessage}`);
+
+-----------------------------------
+ 
 >>>>>>> mehmet
