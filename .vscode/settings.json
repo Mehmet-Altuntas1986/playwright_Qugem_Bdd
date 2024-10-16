@@ -28,5 +28,9 @@
     "cucumberautocomplete.gherkinDefinitionPart": "(Given|When|Then)\\(",
     "cucumberautocomplete.stepRegExSymbol": "'",
 
-   
+
+
+
+    
 }
+
