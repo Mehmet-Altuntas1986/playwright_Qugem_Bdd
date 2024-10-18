@@ -4,10 +4,10 @@
     "elements": [
       {
         "description": "",
-        "id": "main-page-modules-and-their-functionality;navigation-to-dashboard-module",
-        "keyword": "Scenario",
-        "line": 10,
-        "name": "navigation to Dashboard Module",
+        "id": "vehicles-module-functionality;verify-if-you-click-usage-after-adding-a-vehicle-,-you-see-plate,-name-of-vehicle-and-model-of-the-vehicle",
+        "keyword": "Scenario Outline",
+        "line": 85,
+        "name": "verify if you click usage after adding a vehicle , you see plate, name of vehicle and model of the vehicle",
         "steps": [
           {
             "arguments": [],
@@ -16,7 +16,7 @@
             "name": "Navigate to Dashboard with \"english\" language",
             "result": {
               "status": "passed",
-              "duration": 3849000000
+              "duration": 3583000000
             }
           },
           {
@@ -26,610 +26,107 @@
             "name": "verify that dashboard page tab name contains QUGEM",
             "result": {
               "status": "passed",
-              "duration": 1012000000
+              "duration": 1010000000
             }
           },
           {
             "arguments": [],
-            "keyword": "And ",
-            "line": 12,
-            "name": "verify DashBoard Module Button is visible and is Clickable",
+            "keyword": "When ",
+            "line": 9,
+            "name": "click to Vehicles module",
             "result": {
               "status": "passed",
-              "duration": 32000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 13,
-            "name": "click the Dashboard module",
-            "result": {
-              "status": "passed",
-              "duration": 51000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "line": 14,
-            "name": "verify the URL of the dashboard should be \"https://qugem-staging.netlify.app/\"",
-            "result": {
-              "status": "passed",
-              "duration": 1000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "line": 15,
-            "name": "I should see the message \"Hello, welcome to the QUGEM homepage.\"",
-            "result": {
-              "status": "failed",
-              "duration": 30000000,
-              "error_message": "Error: locator.textContent: Target page, context or browser has been closed\nCall log:\n  - waiting for locator('//h5[contains(text(),\\'Hello, welcome to the QUGEM homepage.\\')]')\n\n   at ../.cucumber/stepDefinitions/steps_DashboardPage.js:50\n\n  48 | Then('I should see the message {string}', async ({ page }, expectedText) => {  //expected text is coming from feature file with a parameter value\n  49 |   const textLocator = page.locator(dashboard.helloToHomePageText);\n> 50 |   const actualText = await textLocator.textContent()\n     |                                        ^\n  51 |   expect(actualText.trim()).toBe(expectedText);\n  52 | });\n  53 |"
-            }
-          },
-          {
-            "keyword": "After",
-            "hidden": true,
-            "result": {
-              "status": "passed",
-              "duration": 14000000
-            }
-          }
-        ],
-        "tags": [],
-        "type": "scenario"
-      },
-      {
-        "description": "",
-        "id": "main-page-modules-and-their-functionality;navigation-to-employee_master_data-module",
-        "keyword": "Scenario",
-        "line": 18,
-        "name": "navigation to Employee_Master_data module",
-        "steps": [
-          {
-            "arguments": [],
-            "keyword": "Given ",
-            "line": 7,
-            "name": "Navigate to Dashboard with \"english\" language",
-            "result": {
-              "status": "passed",
-              "duration": 3619000000
+              "duration": 605000000
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 8,
-            "name": "verify that dashboard page tab name contains QUGEM",
+            "line": 10,
+            "name": "delete if a vehicle is added for test purpose ,Vehicle plate is \"TE ST 3000\"",
             "result": {
               "status": "passed",
-              "duration": 1017000000
+              "duration": 3642000000
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 19,
-            "name": "verify Employee_Master_Data module button is visible and is Clickable",
+            "line": 73,
+            "name": "click add vehicle button",
             "result": {
               "status": "passed",
-              "duration": 23000000
+              "duration": 75000000
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 21,
-            "name": "click the Employee_Master_data module",
+            "line": 74,
+            "name": "fill in the input boxes of \"TE ST 3000\" , \"Mercedes\" , \"A5\",\"Sprinter\",\"2015\" \"2016\" , \"100000\" and \"20000\"",
             "result": {
               "status": "passed",
-              "duration": 2000000
+              "duration": 457000000
             }
           },
           {
             "arguments": [],
-            "keyword": "And ",
-            "line": 22,
-            "name": "verify the URL of the Employee_Master_data module should be \"https://qugem-staging.netlify.app/employee\"",
+            "keyword": "When ",
+            "line": 75,
+            "name": "click save changes in vehicles edit page",
             "result": {
               "status": "passed",
-              "duration": 64000000
-            }
-          },
-          {
-            "keyword": "After",
-            "hidden": true,
-            "result": {
-              "status": "failed",
-              "duration": 24000000,
-              "error_message": "Tearing down \"context\" exceeded the test timeout of 60000ms."
-            }
-          },
-          {
-            "keyword": "After",
-            "hidden": true,
-            "result": {
-              "status": "passed",
-              "duration": 131000000
-            }
-          }
-        ],
-        "tags": [],
-        "type": "scenario"
-      },
-      {
-        "description": "",
-        "id": "main-page-modules-and-their-functionality;navigation-to-employee_attendance-module",
-        "keyword": "Scenario",
-        "line": 24,
-        "name": "navigation to Employee_Attendance module",
-        "steps": [
-          {
-            "arguments": [],
-            "keyword": "Given ",
-            "line": 7,
-            "name": "Navigate to Dashboard with \"english\" language",
-            "result": {
-              "status": "passed",
-              "duration": 3251000000
+              "duration": 2269000000
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 8,
-            "name": "verify that dashboard page tab name contains QUGEM",
-            "result": {
-              "status": "passed",
-              "duration": 1013000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 25,
-            "name": "verify Employee_Attendance Module Button is visible and is Clickable",
-            "result": {
-              "status": "passed",
-              "duration": 17000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 26,
-            "name": "click the Employee_Attendance module",
-            "result": {
-              "status": "passed",
-              "duration": 84000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "line": 27,
-            "name": "verify the URL of the Employee_Master_data module module should be \"https://qugem-staging.netlify.app/employee/attendance\"",
-            "result": {
-              "status": "passed",
-              "duration": 0
-            }
-          },
-          {
-            "keyword": "After",
-            "hidden": true,
+            "line": 76,
+            "name": "verify alert message text is \"Vehicle was added successfully..\"",
             "result": {
               "status": "passed",
               "duration": 10000000
             }
-          }
-        ],
-        "tags": [],
-        "type": "scenario"
-      },
-      {
-        "description": "",
-        "id": "main-page-modules-and-their-functionality;navigation-to-payroll-module",
-        "keyword": "Scenario",
-        "line": 31,
-        "name": "navigation to Payroll module",
-        "steps": [
+          },
           {
             "arguments": [],
-            "keyword": "Given ",
-            "line": 7,
-            "name": "Navigate to Dashboard with \"english\" language",
+            "keyword": "Then ",
+            "line": 77,
+            "name": "I navigate to vehicles Module \"https://qugem-staging.netlify.app/auto\"",
             "result": {
               "status": "passed",
-              "duration": 3213000000
+              "duration": 240000000
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 8,
-            "name": "verify that dashboard page tab name contains QUGEM",
+            "line": 78,
+            "name": "I write in the filter \"TE ST 3000\"",
             "result": {
               "status": "passed",
-              "duration": 1043000000
+              "duration": 3039000000
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 32,
-            "name": "verify Payroll Module Button is visible and is clickable",
+            "line": 79,
+            "name": "I click usage button",
             "result": {
               "status": "passed",
-              "duration": 26000000
+              "duration": 569000000
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 33,
-            "name": "click the Payroll module",
+            "line": 80,
+            "name": "I see the \"TE ST 3000\", \"Mercedes\", and \"A5\" of the vehicle before assigning a driver to the vehicle.",
             "result": {
               "status": "passed",
-              "duration": 95000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "line": 34,
-            "name": "verify the URL of the Employee_Master_data module module should be \"https://qugem-staging.netlify.app/salary\"",
-            "result": {
-              "status": "passed",
-              "duration": 2000000
-            }
-          },
-          {
-            "keyword": "After",
-            "hidden": true,
-            "result": {
-              "status": "passed",
-              "duration": 10000000
-            }
-          }
-        ],
-        "tags": [],
-        "type": "scenario"
-      },
-      {
-        "description": "",
-        "id": "main-page-modules-and-their-functionality;navigation-to-vehicles-module",
-        "keyword": "Scenario",
-        "line": 37,
-        "name": "navigation to Vehicles module",
-        "steps": [
-          {
-            "arguments": [],
-            "keyword": "Given ",
-            "line": 7,
-            "name": "Navigate to Dashboard with \"english\" language",
-            "result": {
-              "status": "passed",
-              "duration": 3175000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 8,
-            "name": "verify that dashboard page tab name contains QUGEM",
-            "result": {
-              "status": "passed",
-              "duration": 1017000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 38,
-            "name": "verify Vehicles Module Button is visible and is clickable",
-            "result": {
-              "status": "passed",
-              "duration": 17000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 39,
-            "name": "click the Vehicles module",
-            "result": {
-              "status": "passed",
-              "duration": 77000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "line": 40,
-            "name": "verify the URL of the Employee_Master_data module module should be \"https://qugem-staging.netlify.app/auto\"",
-            "result": {
-              "status": "passed",
-              "duration": 0
-            }
-          },
-          {
-            "keyword": "After",
-            "hidden": true,
-            "result": {
-              "status": "passed",
-              "duration": 7000000
-            }
-          }
-        ],
-        "tags": [],
-        "type": "scenario"
-      },
-      {
-        "description": "",
-        "id": "main-page-modules-and-their-functionality;navigation-to-admin_users-module",
-        "keyword": "Scenario",
-        "line": 44,
-        "name": "navigation to Admin_Users module",
-        "steps": [
-          {
-            "arguments": [],
-            "keyword": "Given ",
-            "line": 7,
-            "name": "Navigate to Dashboard with \"english\" language",
-            "result": {
-              "status": "passed",
-              "duration": 3134000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 8,
-            "name": "verify that dashboard page tab name contains QUGEM",
-            "result": {
-              "status": "passed",
-              "duration": 1013000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 45,
-            "name": "verify Admin Module Button is visible and is clickable",
-            "result": {
-              "status": "passed",
-              "duration": 12000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 46,
-            "name": "click the Admin Module",
-            "result": {
-              "status": "passed",
-              "duration": 54000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 47,
-            "name": "verify Users module button is visible and clickable",
-            "result": {
-              "status": "passed",
-              "duration": 17000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "line": 48,
-            "name": "click the Users Module",
-            "result": {
-              "status": "passed",
-              "duration": 67000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "line": 49,
-            "name": "verify the URL of the Users module should be \"https://qugem-staging.netlify.app/admin/users\"",
-            "result": {
-              "status": "passed",
-              "duration": 1000000
-            }
-          },
-          {
-            "keyword": "After",
-            "hidden": true,
-            "result": {
-              "status": "passed",
-              "duration": 6000000
-            }
-          }
-        ],
-        "tags": [],
-        "type": "scenario"
-      },
-      {
-        "description": "",
-        "id": "main-page-modules-and-their-functionality;navigation-to-admin_options-module",
-        "keyword": "Scenario",
-        "line": 51,
-        "name": "navigation to Admin_Options module",
-        "steps": [
-          {
-            "arguments": [],
-            "keyword": "Given ",
-            "line": 7,
-            "name": "Navigate to Dashboard with \"english\" language",
-            "result": {
-              "status": "passed",
-              "duration": 3203000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 8,
-            "name": "verify that dashboard page tab name contains QUGEM",
-            "result": {
-              "status": "passed",
-              "duration": 1113000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "line": 52,
-            "name": "verify Admin Module Button is visible and is clickable",
-            "result": {
-              "status": "passed",
-              "duration": 340000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 53,
-            "name": "click the Admin Module",
-            "result": {
-              "status": "passed",
-              "duration": 583000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 54,
-            "name": "verify Options module button is visible and clickable",
-            "result": {
-              "status": "passed",
-              "duration": 254000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "line": 55,
-            "name": "click the Options Module",
-            "result": {
-              "status": "passed",
-              "duration": 427000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "line": 56,
-            "name": "verify the URL of the Options module should be \"https://qugem-staging.netlify.app/admin/options\"",
-            "result": {
-              "status": "passed",
-              "duration": 20000000
-            }
-          },
-          {
-            "keyword": "After",
-            "hidden": true,
-            "result": {
-              "status": "passed",
-              "duration": 30000000
-            }
-          }
-        ],
-        "tags": [],
-        "type": "scenario"
-      },
-      {
-        "description": "",
-        "id": "main-page-modules-and-their-functionality;navigation-to-admin_holidays-module",
-        "keyword": "Scenario",
-        "line": 59,
-        "name": "navigation to Admin_Holidays module",
-        "steps": [
-          {
-            "keyword": "Before",
-            "hidden": true,
-            "result": {
-              "status": "failed",
-              "duration": 3749000000,
-              "error_message": "Test timeout of 60000ms exceeded while running \"beforeEach\" hook.\n  4 | test.describe(\"Main Page Modules and their functionality\", () => {\n  5 |\n> 6 |   test.beforeEach(async ({ Given, page, Then }) => {\n    |        ^\n  7 |     await Given(\"Navigate to Dashboard with \\\"english\\\" language\", null, { page });\n  8 |     await Then(\"verify that dashboard page tab name contains QUGEM\", null, { page });\n  9 |   });"
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Given ",
-            "line": 7,
-            "name": "Navigate to Dashboard with \"english\" language",
-            "result": {
-              "status": "passed",
-              "duration": 3823000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 8,
-            "name": "verify that dashboard page tab name contains QUGEM",
-            "result": {
-              "status": "failed",
-              "duration": 118000000,
-              "error_message": "Error: page.title: Target page, context or browser has been closed\n   at ../.cucumber/stepDefinitions/steps_LoginPage.js:43\n\n  41 |\n  42 | Then('verify that dashboard page tab name contains QUGEM', async ({ page }) => {\n> 43 |   const title = await page.title(); // Get the title of the page\n     |                            ^\n  44 |   console.log(title)\n  45 |   if (title.includes('QUGEM')) {\n  46 |     console.log('Dashboard page tab name contains \"QUGEM\"');"
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "line": 60,
-            "name": "verify Admin Module Button is visible and is clickable",
-            "result": {
-              "status": "skipped",
-              "duration": 0
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 61,
-            "name": "click the Admin Module",
-            "result": {
-              "status": "skipped",
-              "duration": 0
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 62,
-            "name": "verify Holidays module button is visible and clickable",
-            "result": {
-              "status": "skipped",
-              "duration": 0
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "line": 63,
-            "name": "click the Holidays Module",
-            "result": {
-              "status": "skipped",
-              "duration": 0
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "line": 64,
-            "name": "verify the URL of the Holidays module should be \"https://qugem-staging.netlify.app/admin/holidays\"",
-            "result": {
-              "status": "skipped",
-              "duration": 0
+              "duration": 13000000
             }
           },
           {
@@ -641,15 +138,34 @@
             }
           }
         ],
-        "tags": [],
+        "tags": [
+          {
+            "name": "@mode:serial"
+          },
+          {
+            "name": "@retry:1"
+          },
+          {
+            "name": "@only"
+          }
+        ],
         "type": "scenario"
       }
     ],
-    "id": "main-page-modules-and-their-functionality",
+    "id": "chromium-›-vehicles-module-functionality",
     "line": 3,
     "keyword": "Feature",
-    "name": "Main Page Modules and their functionality",
-    "tags": [],
-    "uri": ".cucumber/features/dashboard.feature"
+    "name": "Vehicles Module functionality",
+    "tags": [
+      {
+        "name": "@mode:serial",
+        "line": 2
+      },
+      {
+        "name": "@retry:1",
+        "line": 2
+      }
+    ],
+    "uri": ".cucumber/features/vehicles.feature"
   }
 ]
