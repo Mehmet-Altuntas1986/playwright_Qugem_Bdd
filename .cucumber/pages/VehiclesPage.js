@@ -38,6 +38,7 @@ export class VehiclesPage extends BasePage {
         this.model_inputbox = this.page.locator("input[name='model']");
         this.type_select_btn = this.page.locator("#mui-component-select-type");
 
+
         this.lkw = this.page.getByRole('option', { name: 'LKW' })
         this.sattle = this.page.getByRole('option', { name: 'Sattle' })
         this.sprinter = this.page.getByRole('option', { name: 'Sprinter' })
@@ -50,7 +51,12 @@ export class VehiclesPage extends BasePage {
 
         // click detail and see this elements
         this.detail_btn_in_first_row = this.page.locator("//tbody//tr[1]//td[9]") //or   this.page.getByRole('button', { name: 'Detail' })
-        this.detail_btn_In_any_row_with_plate = this.page.locator("//tbody/tr/td[contains(.,'KO PJ 3396')]/following-sibling::td[8]");
+        // Define locators dynamically based on the plate number
+        this.detail_btn_In_any_row_with_plate = this.page.locator(`//tbody/tr/td[contains(.,'TE ST 3000')]/following-sibling::td[8]`);
+        this.repair_btn_VehicleListPage = this.page.locator(`//tbody/tr/td[contains(.,'TE ST 3000')]/following-sibling::td[7]`);
+        this.usage_btn_vehicleListPage = this.page.locator(`//tbody/tr/td[contains(.,'TE ST 3000')]/following-sibling::td[6]`);
+
+
 
         this.edit_btn_vehicle_details_page = this.page.locator("//span[normalize-space()='Edit']");
         this.back_btn_vehicle_details_page = this.page.getByRole('button', { name: 'Back' })
@@ -70,6 +76,11 @@ export class VehiclesPage extends BasePage {
         this.deleted_alert = this.page.getByText('Vehicle was deleted successfully')
         this.vehicle_added_alert = this.page.getByText('Vehicle was added successfully')
         this.vehicle_updated_alert = this.page.getByText('Vehicle was updated successfully')
+
+        //use this to learn number of rows with count() method
+        this.all_rows_seen = this.page.locator("//tbody//tr")
+
+
 
     }
 
@@ -112,43 +123,67 @@ export class VehiclesPage extends BasePage {
 
     // Method to delete a vehicle by plate
     async deleteVehicleByPlate(plate) {
+        const targetUrl = "https://qugem-staging.netlify.app/auto";
+
         // Ensure we are on the correct URL
-        if (await this.page.url() !== "https://qugem-staging.netlify.app/auto") {
-            await this.page.goto("https://qugem-staging.netlify.app/auto");
+        if (await this.page.url() !== targetUrl) {
+            await this.page.goto(targetUrl);
         }
 
-        // Fill the plate filter
-        await this.filter_plate.fill(plate);
-        await this.page.waitForTimeout(2000); // Optional wait (can be replaced with proper waitForSelector)
+        // Clear the plate filter and enter the plate to search
+        await this.filter_plate.fill("");  // Clear the previous filter
+        await this.filter_plate.fill(plate);  // Set the new plate filter
 
-        const row = this.page.locator("//tbody//tr[1]");
+        const rows = this.page.locator("//tbody//tr");
+        let rowCount = 0;
 
-        // Check if the first row is visible
-        const isVisible = await row.isVisible();
+        // Wait for the rows to load after filtering, handle if rows don't appear
+        try {
+            // Wait dynamically for the rows to become visible
+            await rows.waitFor({ state: 'visible', timeout: 2000 });
+            rowCount = await rows.count();
+        } catch (error) {
+            console.log(`No rows appeared for plate: ${plate}`);
+            rowCount = 0;  // Set rowCount to 0 if no rows appeared
+        }
 
-        if (isVisible) {
-            // Ensure the 'Detail' button is located correctly
+        if (rowCount === 1) {
+            // If exactly one row is found, continue with deletion
             const detailButton = this.page.locator(`//tbody//tr//td[contains(text(),'${plate}')]/following-sibling::td//button[normalize-space()='Detail']`);
 
-            // Wait for the detail button to be clickable, then click it
-            await detailButton.waitFor({ state: 'visible', timeout: 5000 });
-            await detailButton.click({ force: true }); // Force click in case there are overlapping elements
-            await this.page.waitForTimeout(2000)
+            // Wait for the button to be visible and double-click it
+            await detailButton.waitFor({ state: 'visible' });
+            await detailButton.click();
+            await this.page.waitForTimeout(1000);
 
-            await this.delete_btn_vehicle_details_page.scrollIntoViewIfNeeded()
-            await this.delete_btn_vehicle_details_page.click()
+            await this.page.mouse.wheel(0, 500);  // Simulate mouse wheel
 
-            await this.Yes_btn_AlertToConfirmDeleteAuto.waitFor({ state: 'visible', timeout: 5000 });
+            // Perform the deletion action
+            await this.delete_btn_vehicle_details_page.click({ force: true });
+            await this.page.waitForTimeout(1000);
+
             await this.Yes_btn_AlertToConfirmDeleteAuto.click();
-            await this.page.waitForTimeout(2000)
-            expect(await this.deleted_alert.textContent()).toBe("Vehicle was deleted successfully.")
-            await console.log("Vehicle with ${plate} was deleted successfully")
-            // Wait for the page to load after deletion
-            await this.page.waitForLoadState('load');
+            await this.page.waitForTimeout(1000);
+
+            // Wait for the alert to confirm deletion and check for success
+            const alertText = await this.deleted_alert.textContent();
+            await expect(alertText).toBe("Vehicle was deleted successfully.");
+
+            await this.page.goto("https://qugem-staging.netlify.app/auto")
+            console.log(`Vehicle with plate ${plate} was deleted successfully.`);
+
+        } else if (rowCount === 0) {
+            // If no vehicles are found, log the situation and proceed without failure
+            console.log(`Vehicle with plate ${plate} not found. Proceeding without deletion.`);
         } else {
-            console.log(`Vehicle with plate ${plate} not found.`);
+            // If multiple vehicles are found, log the situation and proceed without failure
+            console.log(`Multiple vehicles with plate ${plate} found. Please verify.`);
         }
     }
+
+
+
+
 
 
 

@@ -7,7 +7,7 @@ Feature:Testing Payroll module functionality
         When I click the Payroll module button
 
 
-    Scenario: verify month and year selects function as expected
+    Scenario:030_verify month and year selects function as expected
 
         When I click the month dropdown select btn
         Then all months are visible and clickable
@@ -15,7 +15,7 @@ Feature:Testing Payroll module functionality
         Then I verify years are visible and clickable
 
 
-    Scenario: Verify headers are visible
+    Scenario:031_Verify headers are visible
 
         Then I verify table column "<headers>" are visible
 
@@ -33,7 +33,7 @@ Feature:Testing Payroll module functionality
 
 
 
-    Scenario: Verify that if an employee added in the employee master data , that data comes correctly to payroll module
+    Scenario:032_Verify that if an employee added in the employee master data , that data comes correctly to payroll module
         Then I navigate to "https://qugem-staging.netlify.app/salary"
         Then I added an employee with details below:   and verify they are samely came to payroll page
             | Name  | ID_Number | Company                 | Gross_Salary |
@@ -41,7 +41,7 @@ Feature:Testing Payroll module functionality
 
 
    
-    Scenario: Ensure employee is not visible in the system before their addition date
+    Scenario:033_Ensure employee is not visible in the system before their addition date
         Then I navigate to "https://qugem-staging.netlify.app/employee"
         Then I see employee details:
             | id  | name  | lastName     | entry_month | entry_year |

@@ -3,7 +3,7 @@ Feature:Testing Navigation Success with valid and invalid credentials
   Background:
     Given  Navigate to Login Page
 
-  Scenario:1-User Logs In, Navigates to Dashboard, and Logs Out
+  Scenario:001-User Logs In, Navigates to Dashboard, and Logs Out
 
     Then Enter a valid email
     Then Enter a valid password
@@ -13,7 +13,7 @@ Feature:Testing Navigation Success with valid and invalid credentials
     Then Click the sign out button and verify you are in sign in page again
 
 
-  Scenario Outline:2- User cannot login with invalid passwords and valid email
+  Scenario Outline:002- User cannot login with invalid passwords and valid email
     Then Enter a valid email
     Then Enter an invalid "<password>"
     Then Click the login button with "english" language
@@ -26,7 +26,7 @@ Feature:Testing Navigation Success with valid and invalid credentials
       | 1234567  |
 
 
-  Scenario Outline:3- User cannot login with a short password less than 6 characters
+  Scenario Outline:003- User cannot login with a short password less than 6 characters
     Then Enter a valid email
     Then Enter an invalid "<shortpassword>"
     Then choose the "<langauge>" in loginPage

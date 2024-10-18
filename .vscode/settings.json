@@ -1,36 +1,51 @@
 {
+    // Step definitions location for autocomplete
     "cucumberautocomplete.steps": [
         ".cucumber/stepDefinitions/*.js"
     ],
     
+    // Enable strict Gherkin completion for accurate suggestions
     "cucumberautocomplete.strictGherkinCompletion": true,
+    
+    // Ensure strict validation for Gherkin syntax
     "cucumberautocomplete.strictGherkinValidation": true,
+    
+    // Enable smart snippets to automatically suggest steps
     "cucumberautocomplete.smartSnippets": true,
+    
+    // Include steps invariants for better completions
     "cucumberautocomplete.stepsInvariants": true,
+
+    // Customize step parameters (e.g., {ab} to (a|b))
     "cucumberautocomplete.customParameters": [
         {
             "parameter": "{ab}",
             "value": "(a|b)"
         }
     ],
-    
+
+    // Skip doc string format for better Gherkin editing
     "cucumberautocomplete.skipDocStringsFormat": true,
+    
+    // Override default Gherkin formatting behavior
     "cucumberautocomplete.formatConfOverride": {
-        "And": 3,
-        "But": "relative"
+        "And": 3,   // Position for "And" steps
+        "But": "relative" // Keep relative positions for "But"
     },
+    
+    // Enable on-type formatting for better step definition auto-completion
     "cucumberautocomplete.onTypeFormat": true,
+    
+    // Define Gherkin definitions for better syntax highlighting
+    "cucumberautocomplete.gherkinDefinitionPart": "(Given|When|Then)\\(",
+    
+    // Use the apostrophe symbol for regular expressions in steps
+    "cucumberautocomplete.stepRegExSymbol": "'",
+
+    // Quick suggestions settings: disable comment suggestions, but enable for strings and other
     "editor.quickSuggestions": {
         "comments": false,
         "strings": true,
         "other": true
-    },
-    "cucumberautocomplete.gherkinDefinitionPart": "(Given|When|Then)\\(",
-    "cucumberautocomplete.stepRegExSymbol": "'",
-
-
-
-
-    
+    }
 }
-
