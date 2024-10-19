@@ -487,6 +487,7 @@ Then('verify that with same {string} new employee cannot be added', async ({ pag
 
 
 When('I delete if in any row, surname column text is tester or developer', async ({ page }) => {
+  employeeMasterData = new EmployeeMasterDataPage(page)
   await employeeMasterData.delete_TesterOrDeveloper_A_Row_Has()
 
 });
@@ -499,24 +500,44 @@ Then('verify if you write tester or developer in filter surname, row1 is invisib
   // Filter by "tester"
   await employeeMasterData.last_name_filter.fill('tester'); // Apply "tester" filter
 
-  // Wait for the first row to be hidden (invisible) for "tester"
-  await page.locator('//tbody/tr[1]').waitFor({ state: 'hidden', timeout: 5000 });
+  try {
+    // Check if the first row becomes visible after filtering
+    const isRowVisibleTester = await page.locator('//tbody/tr[1]').isVisible({ timeout: 3000 });
 
-  // Assert that row1 is not visible for "tester"
-  const isRow1Visible = await page.locator('//tbody/tr[1]').isVisible();
-  expect(isRow1Visible).toBeFalsy();
+    if (isRowVisibleTester) {
+      // Wait for the first row to be hidden (invisible) for "tester"
+      await page.locator('//tbody/tr[1]').waitFor({ state: 'hidden', timeout: 5000 });
+    }
+  } catch (error) {
+    console.log('First row did not become invisible after filtering for "tester".');
+    throw new Error('First row is still visible after applying the "tester" filter, failing the test.');
+  }
 
   // Clear the filter again before applying "developer" filter
   await employeeMasterData.last_name_filter.fill(''); // Clear the filter
   await employeeMasterData.last_name_filter.fill('developer'); // Apply "developer" filter
 
-  // Wait for the first row to be hidden (invisible) for "developer"
-  await page.locator('//tbody/tr[1]').waitFor({ state: 'hidden', timeout: 5000 });
+  try {
+    // Check if the first row becomes visible after filtering
+    const isRowVisibleDev = await page.locator('//tbody/tr[1]').isVisible({ timeout: 3000 });
 
-  // Assert that row1 is not visible for "developer"
-  const isRow1VisibleDev = await page.locator('//tbody/tr[1]').isVisible();
-  expect(isRow1VisibleDev).toBeFalsy();
+    if (isRowVisibleDev) {
+      // Wait for the first row to be hidden (invisible) for "developer"
+      await page.locator('//tbody/tr[1]').waitFor({ state: 'hidden', timeout: 5000 });
+    }
+  } catch (error) {
+    console.log('First row did not become invisible after filtering for "developer".');
+    throw new Error('First row is still visible after applying the "developer" filter, failing the test.');
+  }
+
+  // Final check: If the row is still visible after filtering for developer, fail the test
+  const isRow1VisibleDevFinal = await page.locator('//tbody/tr[1]').isVisible();
+  if (isRow1VisibleDevFinal) {
+    throw new Error('First row is still visible after applying the "developer" filter, failing the test.');
+  }
 });
+
+
 
 
 

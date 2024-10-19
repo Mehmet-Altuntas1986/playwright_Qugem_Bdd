@@ -1,88 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite failures="3" skipped="0" name="my suite" time="41.217000000000006" tests="8">
-  <testcase classname="Main Page Modules and their functionality" name="Main Page Modules and their functionality › navigation to Dashboard Module" time="4.989000000000002">
-    <failure type="Error" message="Error: locator.textContent: Target page, context or browser has been closed&#xA;Call log:&#xA;  - waiting for locator('//h5[contains(text(),\'Hello, welcome to the QUGEM homepage.\')]')&#xA;&#xA;   at ../.cucumber/stepDefinitions/steps_DashboardPage.js:50&#xA;&#xA;  48 | Then('I should see the message {string}', async ({ page }, expectedText) => {  //expected text is coming from feature file with a parameter value&#xA;  49 |   const textLocator = page.locator(dashboard.helloToHomePageText);&#xA;> 50 |   const actualText = await textLocator.textContent()&#xA;     |                                        ^&#xA;  51 |   expect(actualText.trim()).toBe(expectedText);&#xA;  52 | });&#xA;  53 |"><![CDATA[Error: locator.textContent: Target page, context or browser has been closed
-Call log:
-  - waiting for locator('//h5[contains(text(),\'Hello, welcome to the QUGEM homepage.\')]')
-
-   at ../.cucumber/stepDefinitions/steps_DashboardPage.js:50
-
-  48 | Then('I should see the message {string}', async ({ page }, expectedText) => {  //expected text is coming from feature file with a parameter value
-  49 |   const textLocator = page.locator(dashboard.helloToHomePageText);
-> 50 |   const actualText = await textLocator.textContent()
-     |                                        ^
-  51 |   expect(actualText.trim()).toBe(expectedText);
-  52 | });
-  53 |]]></failure>
+<testsuite failures="0" skipped="0" name="my suite" time="15.838999999999999" tests="1">
+  <testcase classname="Vehicles Module functionality" name="chromium › Vehicles Module functionality › verify if you click usage after adding a vehicle , you see plate, name of vehicle and model of the vehicle" time="15.838999999999999">
     <system-out><![CDATA[Given Navigate to Dashboard with "english" language.......................passed
 Then verify that dashboard page tab name contains QUGEM...................passed
-And verify DashBoard Module Button is visible and is Clickable............passed
-Then click the Dashboard module...........................................passed
-And verify the URL of the dashboard should be "https://qugem-staging.ne...passed
-And I should see the message "Hello, welcome to the QUGEM homepage."......failed]]></system-out>
-  </testcase>
-  <testcase classname="Main Page Modules and their functionality" name="Main Page Modules and their functionality › navigation to Employee_Master_data module" time="4.88">
-    <failure type="Error" message="Tearing down &quot;context&quot; exceeded the test timeout of 60000ms."><![CDATA[Tearing down "context" exceeded the test timeout of 60000ms.]]></failure>
-    <system-out><![CDATA[Given Navigate to Dashboard with "english" language.......................passed
-Then verify that dashboard page tab name contains QUGEM...................passed
-Then verify Employee_Master_Data module button is visible and is Clicka...passed
-Then click the Employee_Master_data module................................passed
-And verify the URL of the Employee_Master_data module should be "https:...passed]]></system-out>
-  </testcase>
-  <testcase classname="Main Page Modules and their functionality" name="Main Page Modules and their functionality › navigation to Employee_Attendance module" time="4.374999999999999">
-    <system-out><![CDATA[Given Navigate to Dashboard with "english" language.......................passed
-Then verify that dashboard page tab name contains QUGEM...................passed
-Then verify Employee_Attendance Module Button is visible and is Clickab...passed
-Then click the Employee_Attendance module.................................passed
-And verify the URL of the Employee_Master_data module module should be ...passed]]></system-out>
-  </testcase>
-  <testcase classname="Main Page Modules and their functionality" name="Main Page Modules and their functionality › navigation to Payroll module" time="4.388999999999999">
-    <system-out><![CDATA[Given Navigate to Dashboard with "english" language.......................passed
-Then verify that dashboard page tab name contains QUGEM...................passed
-Then verify Payroll Module Button is visible and is clickable.............passed
-Then click the Payroll module.............................................passed
-And verify the URL of the Employee_Master_data module module should be ...passed]]></system-out>
-  </testcase>
-  <testcase classname="Main Page Modules and their functionality" name="Main Page Modules and their functionality › navigation to Vehicles module" time="4.293">
-    <system-out><![CDATA[Given Navigate to Dashboard with "english" language.......................passed
-Then verify that dashboard page tab name contains QUGEM...................passed
-Then verify Vehicles Module Button is visible and is clickable............passed
-Then click the Vehicles module............................................passed
-And verify the URL of the Employee_Master_data module module should be ...passed]]></system-out>
-  </testcase>
-  <testcase classname="Main Page Modules and their functionality" name="Main Page Modules and their functionality › navigation to Admin_Users module" time="4.304000000000001">
-    <system-out><![CDATA[Given Navigate to Dashboard with "english" language.......................passed
-Then verify that dashboard page tab name contains QUGEM...................passed
-Then verify Admin Module Button is visible and is clickable...............passed
-Then click the Admin Module...............................................passed
-Then verify Users module button is visible and clickable..................passed
-And click the Users Module................................................passed
-And verify the URL of the Users module should be "https://qugem-staging...passed]]></system-out>
-  </testcase>
-  <testcase classname="Main Page Modules and their functionality" name="Main Page Modules and their functionality › navigation to Admin_Options module" time="5.97">
-    <system-out><![CDATA[Given Navigate to Dashboard with "english" language.......................passed
-Then verify that dashboard page tab name contains QUGEM...................passed
-And verify Admin Module Button is visible and is clickable................passed
-Then click the Admin Module...............................................passed
-Then verify Options module button is visible and clickable................passed
-And click the Options Module..............................................passed
-And verify the URL of the Options module should be "https://qugem-stagi...passed]]></system-out>
-  </testcase>
-  <testcase classname="Main Page Modules and their functionality" name="Main Page Modules and their functionality › navigation to Admin_Holidays module" time="8.017000000000001">
-    <failure type="Error" message="Test timeout of 60000ms exceeded while running &quot;beforeEach&quot; hook.&#xA;  4 | test.describe(&quot;Main Page Modules and their functionality&quot;, () => {&#xA;  5 |&#xA;> 6 |   test.beforeEach(async ({ Given, page, Then }) => {&#xA;    |        ^&#xA;  7 |     await Given(&quot;Navigate to Dashboard with \&quot;english\&quot; language&quot;, null, { page });&#xA;  8 |     await Then(&quot;verify that dashboard page tab name contains QUGEM&quot;, null, { page });&#xA;  9 |   });"><![CDATA[Test timeout of 60000ms exceeded while running "beforeEach" hook.
-  4 | test.describe("Main Page Modules and their functionality", () => {
-  5 |
-> 6 |   test.beforeEach(async ({ Given, page, Then }) => {
-    |        ^
-  7 |     await Given("Navigate to Dashboard with \"english\" language", null, { page });
-  8 |     await Then("verify that dashboard page tab name contains QUGEM", null, { page });
-  9 |   });]]></failure>
-    <system-out><![CDATA[Given Navigate to Dashboard with "english" language.......................passed
-Then verify that dashboard page tab name contains QUGEM...................failed
-And verify Admin Module Button is visible and is clickable...............skipped
-Then click the Admin Module..............................................skipped
-Then verify Holidays module button is visible and clickable..............skipped
-And click the Holidays Module............................................skipped
-And verify the URL of the Holidays module should be "https://qugem-sta...skipped]]></system-out>
+When click to Vehicles module.............................................passed
+Then delete if a vehicle is added for test purpose ,Vehicle plate is "T...passed
+Then click add vehicle button.............................................passed
+Then fill in the input boxes of "TE ST 3000" , "Mercedes" , "A5","Sprin...passed
+When click save changes in vehicles edit page.............................passed
+Then verify alert message text is "Vehicle was added successfully.."......passed
+Then I navigate to vehicles Module "https://qugem-staging.netlify.app/a...passed
+Then I write in the filter "TE ST 3000"...................................passed
+Then I click usage button.................................................passed
+Then I see the "TE ST 3000", "Mercedes", and "A5" of the vehicle before...passed]]></system-out>
   </testcase>
 </testsuite>
