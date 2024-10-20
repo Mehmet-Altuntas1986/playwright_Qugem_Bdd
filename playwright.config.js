@@ -21,7 +21,7 @@ export default defineConfig({
  
  workers: process.env.CI ? 4 : 6,     // workers: process.env.CI ? 2 : 8,   Use 2 workers in CI,  but 8 workers in your local enviroment ayarlandi
  //retries:1,  //if test fails , runs one more time 
- //fullyParallel: true, // Enable full parallel execution in local or CI Enviroment  (butun testler birbirinden bagimsiz olmali )
+ fullyParallel: true, // Enable full parallel execution in local or CI Enviroment  (butun testler birbirinden bagimsiz olmali )
 
 
   reporter: [

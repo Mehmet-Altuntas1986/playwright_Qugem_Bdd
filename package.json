@@ -6,7 +6,7 @@
   "scripts": {
     "smoke": "npx bddgen && npx playwright test --headed  --browser=chromium --grep '@smoke'",
     "regression": "npx bddgen && npx playwright test --headed --grep '@reg'",
-    "test": "npx bddgen && npx playwright test --headed --browser=chromium",
+    "test": "npx bddgen && npx playwright test --headed --browser=chromium && sleep 10 && open .cucumber-report/report.html",
     "headless": "npx bddgen && npx playwright test",
     "debug": "npx bddgen && npx playwright test --debug",
     "codegen": "npx bddgen && npx playwright codegen ",

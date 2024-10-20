@@ -507,4 +507,47 @@ const dialogMessage = await basePage.getDialogMessage();
 console.log(`Captured pop-up message: ${dialogMessage}`);
 
 -----------------------------------
- 
+ # bir array degerleri ile diger array degerlerini iceriyormu verification , toContain kullanamzsin
+
+     expect(actualHeaders).toEqual(expect.arrayContaining(expectedHeaders));
+
+
+ Expected Headers: [
+  'Nr',
+  'Driver',
+  'Start Date',
+  'End Date',
+  'Start Kilometer',
+  'End Kilometer',
+  'Distance'
+]
+Actual Headers: [
+  'Nr',
+  'Driver',
+  'Start Date',
+  'End Date',
+  'Start Kilometer',
+  'End Kilometer',
+  'Distance',
+  '',
+  ''
+]
+
+# filtre kullanimi bazen faydali olabilir
+// Örnek bir dizi
+const actualHeaders = ['Nr', 'Driver', 'Start Date', 'End Date', 'Start Kilometer', 'End Kilometer', 'Distance', '', ''];
+
+// Boş string'leri filtreleme
+# const filteredHeaders = actualHeaders.filter(header => header.trim() !== '');
+
+console.log(filteredHeaders);  // ['Nr', 'Driver', 'Start Date', 'End Date', 'Start Kilometer', 'End Kilometer', 'Distance']
+
+----------------------------------------------------------------------------
+# textContent():
+ Tek bir öğenin metin içeriğini string olarak döndürür.
+# allTextContents()
+  Birden fazla öğenin metin içeriklerini dizi (array) olarak döndürür, her öğe için ayrı bir string içerir.
+
+  ---------------------------------------------------------------------------
+# JavaScript'te ve diğer birçok programlama dilinde metot isimleri genellikle küçük harfle başlar
+

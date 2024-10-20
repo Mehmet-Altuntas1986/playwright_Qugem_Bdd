@@ -7,6 +7,7 @@ import { LoginPage } from './LoginPage';
 import { DashboardPage } from './DashboardPage';
 import { BasePage } from './BasePage';
 import { EmployeeMasterDataPage } from './EmployeeMasterDataPage';
+import { error } from 'console';
 
 export class VehiclesPage extends BasePage {
     constructor(page) {
@@ -79,8 +80,26 @@ export class VehiclesPage extends BasePage {
 
         //use this to learn number of rows with count() method
         this.all_rows_seen = this.page.locator("//tbody//tr")
+        this.headers_all_after_clicking_usage_btn = this.page.locator("(//table//thead//tr)[2]/th")    //
 
+        //after click usage btn
+        this.add_btn_after_click_usage = this.page.getByRole('button', { name: 'add' })
 
+        this.driver1_input_box = this.page.getByRole('textbox', { name: 'Driver', exact: true })
+        this.driver1_select_open_svg_btn = this.page.locator('div').filter({ hasText: /^Driver$/ }).getByLabel('Open')
+        this.driver1_select_close_svg_btn = this.page.getByLabel('Close')
+
+        this.driver2_input_box = this.page.getByRole('textbox', { name: 'Driver-' })
+        this.driver2_select_open_svg_btn = this.page.locator('div').filter({ hasText: /^Driver-2$/ }).getByLabel('Open')
+        this.driver2_select_close_svg_btn = this.page.getByLabel('Close')
+
+        this.save_btn_in_usage = this.page.getByRole('button', { name: 'Save' })
+        this.cancel_btn_in_usage = this.page.getByRole('button', { name: 'Cancel' })
+
+        //how to choose one driver and how to add start date
+        //await page.getByRole('option', { name: 'Robert Samuel' }).click();
+        //await page.locator('input[name="deliveryDate"]').fill('2024-02-12');
+        this.start_km_input_box = this.page.getByRole('spinbutton')
 
     }
 
@@ -181,6 +200,35 @@ export class VehiclesPage extends BasePage {
         }
     }
 
+    /**Method to add driver1 driver2, start date and km for vehicle usage 
+     * Date should be in this format "2024-02-12"
+    */
+    async addDriversWith_start_dateAndKm(driver1_withFullName, driver2_withFullName, start_date, start_km) {
+
+        await this.add_btn_after_click_usage.click({ force: true })
+        await this.page.waitForTimeout(1000)
+        
+        await this.page.locator('input[name="deliveryDate"]').fill(start_date)
+        await this.start_km_input_box.fill(start_km)
+        await this.driver1_input_box.fill(driver1_withFullName)
+        await this.driver2_input_box.fill(driver2_withFullName)
+        // throw new Error()
+        await this.page.getByRole('button', { name: 'Save' }).click({ force: true });
+        
+
+
+        try {
+            await this.page.getByText('Please select a driver').isVisible()
+            throw new Error()
+
+        } catch (error) {
+            console.warn('Warning: the full name is correct, but in selections can\'t be found');
+            console.error('the Name is correct in emloyee data but it doesnt appear in select options if you fill the input box with full name, the alert warns:Please select a driver', error); // Logs the error
+            throw error; // Rethrows the error so it appears in reports
+        }
+
+
+    }
 
 
 

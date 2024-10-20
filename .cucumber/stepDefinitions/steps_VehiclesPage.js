@@ -98,12 +98,12 @@ Then('I navigate to vehicles Module {string}', async ({ page }, url) => {
   await page.waitForLoadState()
 });
 
-Then('I write in the filter {string}', async ({ page }, plate) => {
+Then('I write in the filter {string}', async ({page}, plate) => {
   await vehicles.filter_plate.fill("")
   await vehicles.filter_plate.fill(plate)
   await page.waitForTimeout(3000)
-
 });
+
 
 Then('I verify {string} , {string} , {string} and {string} of the vehicle is visible', async ({ page }, plate, brand, model, type) => {
   const expectedValues = [plate, brand, model, type]; //array with parameter values
@@ -147,7 +147,7 @@ Then('I verify vehicle has no driver and the status of vehicle is idle in Vehicl
 Then('I click usage button', async ({ page }) => {
   vehicles = new VehiclesPage(page)
   await vehicles.usage_btn_vehicleListPage.click()
-  await page.waitForTimeout(500)
+  await page.waitForTimeout(1500)
 
 });
 
@@ -157,3 +157,31 @@ Then('I see the {string}, {string}, and {string} of the vehicle before assigning
   console.log("the header text if you click usage btn is:", header_text)
   expect(isVisible_Header).toBeTruthy()
 });
+
+
+Then('I verify there are header like below:', async ({page}, dataTable) => {
+
+    // Extract expected headers from the Gherkin table
+    const expectedHeaders = dataTable.raw()[0];
+
+    // Locate the header row in the table
+    const actualHeaders = await page.locator('(//table//thead//tr)[2]/th').allTextContents();
+     
+    // Log the actual and expected headers for debugging
+    console.log('Expected Headers:', expectedHeaders);
+    console.log('Actual Headers:', actualHeaders);
+  
+     // Assert that the actual headers match the expected headers
+     expect(actualHeaders).toEqual(expect.arrayContaining(expectedHeaders));
+
+});
+
+
+Then('I click add button and fill the input boxes with the data below:', async ({page}, dataTable) => {
+ vehicles=new VehiclesPage(page)
+  // Get the first (or only) row of data
+ const row = await dataTable.hashes()[0]; //gives headers in array
+ await vehicles.addDriversWith_start_dateAndKm(row.driver1,row.driver2,row.Start_Date,row.start_km)
+
+});
+
