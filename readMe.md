@@ -552,3 +552,52 @@ console.log(filteredHeaders);  // ['Nr', 'Driver', 'Start Date', 'End Date', 'St
 # JavaScript'te ve diğer birçok programlama dilinde metot isimleri genellikle küçük harfle başlar
 
 #dynamic locater aldiginda "selector" bunu degil      --> `selector ` bu sekilde kullan
+
+---------------
+# elementHandles()  ile herbir elementi ayristirabiliyoruz ve visibility ,text leri almada sonra kullaniyoruz
+
+Then('verify employee information table {string} are visible', async ({ page }, headerText) => {
+  const employeeMasterData = new EmployeeMasterDataPage(page);
+  
+  // Tablodaki başlık elemanlarını al
+  const table_Headers_elements = await employeeMasterData.table_headers.elementHandles(); // Element handle'larını al
+  console.log("Table headers elements count:", table_Headers_elements.length);
+
+  // Başlık elemanlarının görünürlük kontrolü ve belirli bir başlığın varlığını kontrol et
+  let headerFound = false; // Başlık bulundu mu kontrolü için
+
+  for (const element of table_Headers_elements) {
+    const headerTextContent = await element.innerText(); // Görünür metni al
+    const isVisible = await element.isVisible(); // Elemanın görünür olup olmadığını kontrol et
+
+    // Başlığın görünür olup olmadığını kontrol et
+    if (isVisible) {
+      console.log(`${headerTextContent}: is visible on the page.`);
+      
+      // Belirli bir başlık metni kontrolü
+      if (headerTextContent === headerText) {
+        console.log(`${headerText} is present in the header list.`);
+        headerFound = true; // Başlık bulundu
+      }
+    } else {
+      console.log(`${headerTextContent}: is not visible on the page.`);
+    }
+  }
+
+  // Eğer başlık bulunamadıysa hata mesajı
+  if (!headerFound) {
+    console.error(`${headerText} is not found in the header list.`);
+    await expect.fail(`${headerText} is not found in the header list.`);
+  }
+});
+
+
+# allTextContent ile elementlerin  textlerini array icine atabiliyoruz ama viisbility ve inner text de ise yaramadi
+  const table_Headers_elements = await employeeMasterData.table_headers.AllTextContent(); // array olustu
+
+for (const element of table_Headers_elements) {
+    const headerTextContent = await element.innerText(); //AllTextContent ile calismadi
+    const isVisible = await element.isVisible();         //AllTextContent ile calismadi
+}
+
+------------------------
