@@ -98,7 +98,7 @@ Then('I navigate to vehicles Module {string}', async ({ page }, url) => {
   await page.waitForLoadState()
 });
 
-Then('I write in the filter {string}', async ({page}, plate) => {
+Then('I write in the filter {string}', async ({ page }, plate) => {
   await vehicles.filter_plate.fill("")
   await vehicles.filter_plate.fill(plate)
   await page.waitForTimeout(3000)
@@ -159,29 +159,76 @@ Then('I see the {string}, {string}, and {string} of the vehicle before assigning
 });
 
 
-Then('I verify there are header like below:', async ({page}, dataTable) => {
+Then('I verify there are header like below:', async ({ page }, dataTable) => {
 
-    // Extract expected headers from the Gherkin table
-    const expectedHeaders = dataTable.raw()[0];
+  // Extract expected headers from the Gherkin table
+  const expectedHeaders = dataTable.raw()[0];
 
-    // Locate the header row in the table
-    const actualHeaders = await page.locator('(//table//thead//tr)[2]/th').allTextContents();
-     
-    // Log the actual and expected headers for debugging
-    console.log('Expected Headers:', expectedHeaders);
-    console.log('Actual Headers:', actualHeaders);
-  
-     // Assert that the actual headers match the expected headers
-     expect(actualHeaders).toEqual(expect.arrayContaining(expectedHeaders));
+  // Locate the header row in the table
+  const actualHeaders = await page.locator('(//table//thead//tr)[2]/th').allTextContents();
+
+  // Log the actual and expected headers for debugging
+  console.log('Expected Headers:', expectedHeaders);
+  console.log('Actual Headers:', actualHeaders);
+
+  // Assert that the actual headers match the expected headers
+  expect(actualHeaders).toEqual(expect.arrayContaining(expectedHeaders));
 
 });
 
 
-Then('I click add button and fill the input boxes with the data below:', async ({page}, dataTable) => {
- vehicles=new VehiclesPage(page)
+Then('I click add button and fill the input boxes with the data below:', async ({ page }, dataTable) => {
+  vehicles = new VehiclesPage(page)
   // Get the first (or only) row of data
- const row = await dataTable.hashes()[0]; //gives headers in array
- await vehicles.addDriversWith_start_dateAndKm(row.driver1,row.driver2,row.Start_Date,row.start_km)
+  const row = await dataTable.hashes()[0]; //gives headers in array
+  await vehicles.addDriversWith_start_dateAndKm(row.driver1, row.driver2, row.Start_Date, row.start_km)
 
 });
 
+Then('verify the actual page url contains this part of the URL {string}', async ({ page }, expectedUrl) => {
+  const actualUrl = await page.url()
+  expect(actualUrl).toContain(expectedUrl)
+
+});
+
+Then('click edit button in vehicle details page', async ({ page }) => {
+  vehicles = new VehiclesPage(page)
+  await vehicles.edit_btn_vehicle_details_page.click()
+  await page.waitForTimeout(2000)
+});
+
+Then('change Brand to {string}', async ({ page }, newBrand) => {
+  vehicles = new VehiclesPage(page)
+  await vehicles.brand_inputbox.fill("");
+  await vehicles.brand_inputbox.fill(newBrand);
+});
+
+Then('change Model to {string}', async ({ page }, newModel) => {
+  await vehicles.model_inputbox.fill("");
+  await vehicles.model_inputbox.fill(newModel);
+});
+
+Then('click save changes button in vehicle details page', async ({ page }) => {
+  vehicles = new VehiclesPage(page)
+  await vehicles.saveChanges_btn_vehicle_details.click({ force: true })
+  await page.waitForTimeout(2000)
+});
+
+Then('verify the changed row headers have values in vehicle details page like below:', async ({ page }, dataTable) => {
+  const header=await dataTable.hashes()[0] //gives headers in the data table
+
+  const actualBrand_Text=await page.getByRole('cell', { name: 'Toyota' }).textContent()
+  const actualModel_text=await page.getByRole('cell', { name: 'X40' }).textContent()
+
+   expect(actualBrand_Text).toEqual(header.Brand)  //Toyota 
+   expect(actualModel_text).toEqual(header.Model)   //X40 in dataTable
+
+});
+
+Then('I verify first row with {string} has Brand name {string} and Model name {string}', async ({ page }, plate, brand, model) => {
+ const first_row_text=  await page.locator("//tbody//tr[1]").textContent()
+expect(first_row_text).toContain(brand)
+expect(first_row_text).toContain(model)
+await console.log("the edited brand and model appeared in the text of first row like:",first_row_text )
+
+});

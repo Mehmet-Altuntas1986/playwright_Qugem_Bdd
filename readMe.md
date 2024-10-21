@@ -551,3 +551,4 @@ console.log(filteredHeaders);  // ['Nr', 'Driver', 'Start Date', 'End Date', 'St
   ---------------------------------------------------------------------------
 # JavaScript'te ve diğer birçok programlama dilinde metot isimleri genellikle küçük harfle başlar
 
+#dynamic locater aldiginda "selector" bunu degil      --> `selector ` bu sekilde kullan

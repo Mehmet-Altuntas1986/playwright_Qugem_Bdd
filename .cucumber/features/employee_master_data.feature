@@ -36,7 +36,7 @@ Feature:Employee Master Data Module functionality
         Then I see client companies are visible and clickable
 
     @timeout:90000
-    Scenario Outline:019_Add and Delete Employees with Valid Data
+    Scenario Outline:019_verify admin can add and delete employees with Valid Data
         When I click the employee add button
         Then I click active check button
         Then I fill "<firstName>" "<LastName>" "<Emp_Id>"  "<tax_id>"  "<grosSalary>"
@@ -56,7 +56,6 @@ Feature:Employee Master Data Module functionality
         Then I choose payment Type
         Then I see if I filled correctly , calculate salary button becomes functional
         Then I click save changes
-
         Then I verify the alert says "Employee was added successfully"
         Then I wait for the Url "https://qugem-staging.netlify.app/employee/"
         Then I use no filter and write "<Emp_Id>" and verify it brings to the first row employee "<firstName>" and "<LastName>"
@@ -94,7 +93,6 @@ Feature:Employee Master Data Module functionality
         Then I choose payment Type
         Then I see if I filled correctly , calculate salary button becomes functional
         Then I click save changes
-
         Then I verify the alert says "Employee was added successfully"
         Then I wait for the Url "https://qugem-staging.netlify.app/employee/"
         Then I use no filter and write "<Emp_Id>" and verify it brings to the first row employee "<firstName>" and "<LastName>"
@@ -117,7 +115,7 @@ Feature:Employee Master Data Module functionality
             | Ersan     | tester       | 201    | 12324  | 3000       |
            
 
-    Scenario Outline:021_Attempt to Add an Employee with a Duplicate Employee ID
+    Scenario Outline:021_verify we cannot add an Employee with a used employee id
 
         When I click the employee add button
         Then I click active check button
@@ -138,13 +136,9 @@ Feature:Employee Master Data Module functionality
         Then I choose payment Type
         Then I see if I filled correctly , calculate salary button becomes functional
         Then I click save changes
-
         Then I verify the alert warns "Es existiert bereits ein Mitarbeiter mit dieser Nummer!"
         Then I navigate to "https://qugem-staging.netlify.app/employee"
         Then verify that with same "<Emp_Id>" new employee cannot be added
-
-
-
 
         Examples:Kenan with ID 123 added to the system prior to this test, attempt to add again with the same ID.
 
@@ -177,7 +171,6 @@ Feature:Employee Master Data Module functionality
         Then I choose payment Type
         Then I see if I filled correctly , calculate salary button becomes functional
         Then I click save changes
-
         Then I navigate to "https://qugem-staging.netlify.app/employee"
         Then I use no filter and write "<Emp_Id>" and verify it brings to the first row employee "<firstName>" and "<LastName>"
         Then I should not see the new employee added using another employee tax id  "<firstName>" "<LastName>" added to system
@@ -190,6 +183,7 @@ Feature:Employee Master Data Module functionality
 
 
     Scenario Outline:023_ As a user, if I click Lines per page "<number_chosen>", the number of rows in the employee table should reflect the correct count.
+        
         When I check if Lines per page select button is functional and visible
         Then I click "<number_chosen>" employee choose in Lines Per Page
         Then I verify the number of rows in employee table is not more than the "<number_chosen>"
@@ -204,8 +198,9 @@ Feature:Employee Master Data Module functionality
             | 25            |
             | 50            |
 
+    
     @timeout:90000 
-    Scenario Outline:024_ Add an employee with name contain numbers
+    Scenario Outline:024_ Add an employee with name contains numbers
         When I click the employee add button
         Then I click active check button
         Then I fill "<firstName>" "<LastName>" "<Emp_Id>"  "<tax_id>"  "<grosSalary>"
@@ -250,7 +245,9 @@ Feature:Employee Master Data Module functionality
             | 123abc | employeeNumber must be a `number` type |
 
 
+
     Scenario:026_ verify employee id cannot be a so long number
+
         Then I navigate to "https://qugem-staging.netlify.app/employee"
         Then I find an existing employee with filter , name is "mehmet" and lastname is "Abusoglu"
         Then I click edit button
@@ -284,6 +281,7 @@ Feature:Employee Master Data Module functionality
 
 
     Scenario Outline:029_verify Tax_id field cannot be more than 11 characters long and only accepts numeric value
+    
         When I click the employee add button
         Then I fill tax_id input box with :"<values>"
         Then I click save changes

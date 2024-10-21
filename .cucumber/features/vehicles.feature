@@ -1,5 +1,5 @@
 #this feature is flaky if we use parallel test
-@mode:serial  
+@mode:serial
 Feature: Vehicles Module functionality
 
     Background:Before each test, delete the vehicle added for test purpose and make all tests independent to each other
@@ -101,13 +101,39 @@ Feature: Vehicles Module functionality
             | Nr | Driver | Start Date | End Date | Start Kilometer | End Kilometer | Distance |
 
         Then I click add button and fill the input boxes with the data below:
-            | driver1       | driver2           | Start_Date | start_km |
-            | Robert Slomka | Miroslav Kiisyov  | 2024-12-18 | 55000    |
-            
+            | driver1       | driver2          | Start_Date | start_km |
+            | Robert Slomka | Miroslav Kiisyov | 2024-12-18 | 55000    |
+
 
 
 
         Examples:
             | Plate      | Brand    | Model | type     | Year_of_construction | Year_of_the_purchase | current_kilometer | purchase_price |
             | TE ST 3000 | Mercedes | A5    | Sprinter | 2015                 | 2016                 | 100000            | 20000          |
+
+
+    Scenario Outline: 040_Verify vehicle edit in vehicle Details page works as expected
+        Then click add vehicle button
+        Then fill in the input boxes of "<Plate>" , "<Brand>" , "<Model>","<type>","<Year_of_construction>" "<Year_of_the_purchase>" , "<current_kilometer>" and "<purchase_price>"
+        When click save changes in vehicles edit page
+        Then verify alert message text is "Vehicle was added successfully.."
+        Then verify the actual page url contains this part of the URL "https://qugem-staging.netlify.app/auto/details/"
+        Then click edit button in vehicle details page
+        Then change Brand to "Toyota"
+        Then change Model to "X40"
+        Then click save changes button in vehicle details page
+        Then verify the actual page url contains this part of the URL "https://qugem-staging.netlify.app/auto/details/"
+        Then verify the changed row headers have values in vehicle details page like below:
+            | Brand  | Model |
+            | Toyota | X40   |
+        Then I navigate to vehicles Module "https://qugem-staging.netlify.app/auto"
+        Then I write in the filter "<Plate>"
+        Then I verify first row with "<Plate>" has Brand name "Toyota" and Model name "X40"
+
+        Examples:
+            | Plate      | Brand    | Model | type | Year_of_construction | Year_of_the_purchase | current_kilometer | purchase_price |
+            | TE ST 3000 | Mercedes | A3    | LKW  | 2012                 | 2015                 | 100000            | 20000          |
+
+
+
 

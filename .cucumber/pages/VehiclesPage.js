@@ -60,6 +60,8 @@ export class VehiclesPage extends BasePage {
 
 
         this.edit_btn_vehicle_details_page = this.page.locator("//span[normalize-space()='Edit']");
+        this.saveChanges_btn_vehicle_details = this.page.getByRole('button', { name: 'Save Changes' })
+
         this.back_btn_vehicle_details_page = this.page.getByRole('button', { name: 'Back' })
         this.delete_btn_vehicle_details_page = this.page.getByRole('button', { name: 'Delete' })
         this.Yes_btn_AlertToConfirmDeleteAuto = this.page.locator("//span[.='yes']/..");
