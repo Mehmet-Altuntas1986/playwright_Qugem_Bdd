@@ -22,7 +22,6 @@ Before(async ({ page }) => {
 });
 
 Given('Navigate to Dashboard with {string} language', async ({ page }, language) => {
-  basePage=new BasePage(page)
   await basePage.navigateToDashboard(language)
 
 });
@@ -68,13 +67,13 @@ Then('verify Employee_Master_Data module button is visible and is Clickable', as
 Then('click the Employee_Master_data module', async ({ page }) => {
 
   dashboard.employee_master_data_btn.click()
-
+  
 
 });
 
 Then('verify the URL of the Employee_Master_data module should be {string}', async ({ page }, expectedUrl) => {
   await page.waitForURL(expectedUrl)
-  const currentUrl = page.url();
+  const currentUrl =  page.url();
   expect(currentUrl).toBe(expectedUrl)
 });
 
@@ -149,45 +148,45 @@ Then('click the Options Module', async ({ page }) => {
   await dashboard.admin_options_btn.click()
 });
 
-Then('verify the URL of the Options module should be {string}', async ({ page }, expectedUrl) => {
+Then('verify the URL of the Options module should be {string}', async ({ page}, expectedUrl) => {
   const actualUrl = page.url()
   expect(actualUrl).toBe(expectedUrl)
 });
 
-Then('verify Holidays module button is visible and clickable', async ({ page }) => {
+Then('verify Holidays module button is visible and clickable', async ({ page}) => {
   await expect(dashboard.admin_holidays_btn).toBeVisible()
   await expect(dashboard.admin_holidays_btn).toBeEnabled()
 });
 
-Then('click the Holidays Module', async ({ page }) => {
+Then('click the Holidays Module', async ({ page}) => {
   await dashboard.admin_holidays_btn.click()
 });
 
-Then('verify the URL of the Holidays module should be {string}', async ({ page }, expectedUrl) => {
+Then('verify the URL of the Holidays module should be {string}', async ({ page}, expectedUrl) => {
   const actualUrl = page.url()
   expect(actualUrl).toBe(expectedUrl)
 });
 
-Then('verify Payout_amounts module button is visible and clickable', async ({ page }) => {
+Then('verify Payout_amounts module button is visible and clickable', async ({page }) => {
   await expect(dashboard.admin_payamount_btn).toBeVisible()
   await expect(dashboard.admin_payamount_btn).toBeEnabled()
 });
 
-Then('click the Payout_amounts Module', async ({ page }) => {
+Then('click the Payout_amounts Module', async ({ page}) => {
   await dashboard.admin_payamount_btn.click()
 });
 
-Then('verify the URL of Payout_amounts module should be {string}', async ({ page }, expectedUrl) => {
+Then('verify the URL of Payout_amounts module should be {string}', async ({ page}, expectedUrl) => {
   const actualUrl = page.url()
   expect(actualUrl).toBe(expectedUrl)
 });
 
-Then('verify Quickly_Gmbh Module Button is visible and is clickable', async ({ page }) => {
+Then('verify Quickly_Gmbh Module Button is visible and is clickable', async ({page }) => {
   await expect(dashboard.quickly_gmbh).toBeVisible()
   await expect(dashboard.quickly_gmbh).toBeEnabled()
 });
 
-Then('click the Quickly_Gmbh Module', async ({ page }) => {
+Then('click the Quickly_Gmbh Module', async ({page }) => {
   [newPage] = await Promise.all([
     page.context().waitForEvent('page'), // Wait for the new page to open
     dashboard.quickly_gmbh.click() // Click the link to open the new tab
@@ -196,15 +195,15 @@ Then('click the Quickly_Gmbh Module', async ({ page }) => {
   await newPage.waitForLoadState('load');
 });
 
-Then('verify new opened Tab title contains {string}', async ({ page }, TextTitle) => {
-
+Then('verify new opened Tab title contains {string}', async ({ page}, TextTitle) => {
+  
   // Now you can check the title of the new page
   const title = await newPage.title();
   expect(title).toContain(TextTitle);
 
 });
 
-Then('verify the Quickly_Gmbh URL should be {string}', async ({ }, expectedUrl) => {
+Then('verify the Quickly_Gmbh URL should be {string}', async ({}, expectedUrl) => {
   if (!newPage) {
     throw new Error('Yeni sekme açılmadı.');
   }
@@ -212,15 +211,14 @@ Then('verify the Quickly_Gmbh URL should be {string}', async ({ }, expectedUrl) 
   // Yeni sekmenin URL'sini kontrol et
   const actualUrl = await newPage.url();
   expect(actualUrl).toBe(expectedUrl); // Beklenen URL'ye eşit olup olmadığını kontrol et
-
+ 
 });
 
 
 
-Then('verify Kinesis GPS Module Button is visible and is clickable', async ({ page }) => {
+Then('verify Kinesis GPS Module Button is visible and is clickable', async ({page }) => {
   await expect(dashboard.kinesis_gps).toBeVisible()
   await expect(dashboard.kinesis_gps).toBeEnabled()
-
 });
 
 
@@ -228,22 +226,22 @@ Then('verify Kinesis GPS Module Button is visible and is clickable', async ({ pa
 Then('click the Kinesis GPS Module', async ({ page }) => {
 
   //const [newPage] yerine globalde let newPage dedim 
-  [newPage] = await Promise.all([
+   [newPage] = await Promise.all([
     page.context().waitForEvent('page'), // 90 saniye yeni sekmenin açılmasını bekle
-    await page.getByRole('link', { name: 'Kinesis GPS' }).click({force:true})
+    await page.getByRole('link', { name: 'Kinesis GPS' }).click()
 
   ]);
 
+  
   // Yeni sekmeyi yüklenene kadar bekle
   await newPage.waitForLoadState()
-  await newPage.waitForTimeout(1000)
 
   console.log('Yeni Kinesis GPS sayfası yüklendi ve kullanıma hazır.');
 });
 
 
-Then('verify new opened Tab contains {string}', async ({ page }, TextTitle) => {
-
+Then('verify new opened Tab contains {string}', async ({page }, TextTitle) => {
+  
   if (!newPage) {
     throw new Error('Yeni sekme açılmadı.');
   }
@@ -253,7 +251,7 @@ Then('verify new opened Tab contains {string}', async ({ page }, TextTitle) => {
   expect(title).toContain(TextTitle); // Beklenen başlık metnini içerip içermediğini kontrol et
 })
 
-Then('verify the URL should contain {string}', async ({ page }, expectedUrl) => {
+Then('verify the URL should be {string}', async ({ page}, expectedUrl) => {
   //new page i global ayarladim
   if (!newPage) {
     throw new Error('Yeni sekme açılmadı.');
@@ -261,12 +259,11 @@ Then('verify the URL should contain {string}', async ({ page }, expectedUrl) => 
 
   // Yeni sekmenin URL'sini kontrol et
   const actualUrl = await newPage.url();
-  expect(actualUrl).toContain(expectedUrl); // Beklenen URL'ye eşit olup olmadığını kontrol et
+  expect(actualUrl).toBe(expectedUrl); // Beklenen URL'ye eşit olup olmadığını kontrol et
 })
 
 
 // 1. Missing step definition for ".cucumber/features/dashboard.feature:89:1"
-Then('click module {string}', async ({ page }, module) => {
-  dashboard = new DashboardPage(page)
-  await dashboard.clickModule(module)
+Then('click module {string}', async ({page}, module) => {
+  dashboard.clickModule(module)
 });

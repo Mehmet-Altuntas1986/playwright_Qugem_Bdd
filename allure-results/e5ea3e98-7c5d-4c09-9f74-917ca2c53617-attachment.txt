@@ -1,0 +1,7 @@
+QUGEM - Quickly Gehaltsmanagement
+Dashboard page tab name contains "QUGEM"
+Row with "tester" found and deleted.
+Row with "tester" found and deleted.
+No rows found with tester or developer last name before each test scenario is tested.
+No rows found with tester or developer last name before each test scenario is tested.
+the number of row appeeared after filling name filter : 1

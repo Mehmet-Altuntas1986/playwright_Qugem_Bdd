@@ -1,0 +1,41 @@
+Error navigating to the dashboard: locator.fill: Target page, context or browser has been closed
+Call log:
+  - waiting for locator('//input[@name=\'email\']')
+
+    at BasePage.navigateToDashboard (/Users/mehmetaltuntas/Documents/playwright-bdd_Qugem/.cucumber/pages/BasePage.js:36:51)
+    at Object.<anonymous> (/Users/mehmetaltuntas/Documents/playwright-bdd_Qugem/.cucumber/stepDefinitions/steps_DashboardPage.js:25:3)
+    at /Users/mehmetaltuntas/Documents/playwright-bdd_Qugem/.features-gen/.cucumber/features/employee_master_data.feature.spec.js:7:5 {
+  [Symbol(step)]: {
+    stepId: 'pw:api@14',
+    location: {
+      file: '/Users/mehmetaltuntas/Documents/playwright-bdd_Qugem/.cucumber/pages/BasePage.js',
+      line: 36,
+      column: 51,
+      function: 'BasePage.navigateToDashboard'
+    },
+    category: 'pw:api',
+    title: "locator.fill(//input[@name='email'])",
+    apiName: 'locator.fill',
+    params: {
+      selector: "//input[@name='email']",
+      value: 'max.mustermann@gmail.com',
+      strict: true
+    },
+    boxedStack: undefined,
+    steps: [],
+    complete: [Function: complete],
+    endWallTime: 1728559181518,
+    error: {
+      message: 'Error: locator.fill: Target page, context or browser has been closed\n' +
+        'Call log:\n' +
+        "  \x1B[2m- waiting for locator('//input[@name=\\'email\\']')\x1B[22m\n",
+      stack: 'Error: locator.fill: Target page, context or browser has been closed\n' +
+        'Call log:\n' +
+        "  \x1B[2m- waiting for locator('//input[@name=\\'email\\']')\x1B[22m\n" +
+        '\n' +
+        '    at BasePage.navigateToDashboard (/Users/mehmetaltuntas/Documents/playwright-bdd_Qugem/.cucumber/pages/BasePage.js:36:51)\n' +
+        '    at Object.<anonymous> (/Users/mehmetaltuntas/Documents/playwright-bdd_Qugem/.cucumber/stepDefinitions/steps_DashboardPage.js:25:3)\n' +
+        '    at /Users/mehmetaltuntas/Documents/playwright-bdd_Qugem/.features-gen/.cucumber/features/employee_master_data.feature.spec.js:7:5'
+    }
+  }
+}

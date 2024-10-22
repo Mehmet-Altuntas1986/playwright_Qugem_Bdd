@@ -1,9 +1,9 @@
-[# playwright_Qugem_Bdd
-Playright Test Automation with Bdd
-](https://vitalets.github.io/playwright-bdd/#/getting-started/index
+
+# Playright Test Automation with Bdd
 https://vitalets.github.io/playwright-bdd/#/getting-started/index
 
-Install playwright-bdd from npm:
+
+# Install playwright-bdd from npm:
    npm init playwright@latest    //ile normal olan playwright kurulumu yapilir
 
 bdd ile olanida kullanabilmek icin bu adimlari terminalde yazmalisin
@@ -554,4 +554,6 @@ console.log(filteredHeaders);  // ['Nr', 'Driver', 'Start Date', 'End Date', 'St
   ---------------------------------------------------------------------------
 # JavaScript'te ve diğer birçok programlama dilinde metot isimleri genellikle küçük harfle başlar
 
-#dynamic locater aldiginda "selector" bunu degil      --> `selector ` bu sekilde kullan
+
+# dynamic locater aldiginda "selector" bunu degil      --> `selector ` bu sekilde kullan)
+

@@ -1,0 +1,10 @@
+QUGEM - Quickly Gehaltsmanagement
+Dashboard page tab name contains "QUGEM"
+Row with "tester" found and deleted.
+No rows found with tester or developer last name before each test scenario is tested.
+No rows found with tester or developer last name before each test scenario is tested.
+Input Date: 10.10.2024
+Expected first name: Mehmet, Actual first name: Mehmet
+Expected last name: tester, Actual last name: tester
+Net salary now has a value but its value is not logeable
+the actual text after clicking edit --> save changes is : Mehmet tester was updated successfully.
