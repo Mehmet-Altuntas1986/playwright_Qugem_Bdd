@@ -232,3 +232,18 @@ expect(first_row_text).toContain(model)
 await console.log("the edited brand and model appeared in the text of first row like:",first_row_text )
 
 });
+
+
+
+Then('verify vehicle status is not {string}', async ({page}, text) => {
+  const firstRowText=await page.locator("//tbody//tr[1]").textContent()
+  await expect(firstRowText).not.toContain(text)
+});
+
+Then('verify driver names are correctly visible in the first row:', async ({page}, dataTable) => {
+  const row=dataTable.hashes()[0]
+  const firstRowText=await page.locator("//tbody//tr[1]").textContent()
+  await expect(firstRowText).toContain(row.driver1)
+  await expect(firstRowText).toContain(row.driver2)
+
+});

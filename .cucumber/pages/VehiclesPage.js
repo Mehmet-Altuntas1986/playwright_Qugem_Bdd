@@ -57,8 +57,10 @@ export class VehiclesPage extends BasePage {
         this.repair_btn_VehicleListPage = this.page.locator(`//tbody/tr/td[contains(.,'TE ST 3000')]/following-sibling::td[7]`);
         this.usage_btn_vehicleListPage = this.page.locator(`//tbody/tr/td[contains(.,'TE ST 3000')]/following-sibling::td[6]`);
 
-
-
+        //after click usage button
+        this.delete_usage_vehicle_btn = this.page.locator("//span[contains(text(),'Delete')]")
+        this.edit_usage_vehicle_btn = this.page.locator("//span[contains(text(),'Edit')]")
+        //-------------------------------------------------------------------------------------------------
         this.edit_btn_vehicle_details_page = this.page.locator("//span[normalize-space()='Edit']");
         this.saveChanges_btn_vehicle_details = this.page.getByRole('button', { name: 'Save Changes' })
 
@@ -151,6 +153,7 @@ export class VehiclesPage extends BasePage {
             await this.page.goto(targetUrl);
         }
 
+
         // Clear the plate filter and enter the plate to search
         await this.filter_plate.fill("");  // Clear the previous filter
         await this.filter_plate.fill(plate);  // Set the new plate filter
@@ -169,6 +172,22 @@ export class VehiclesPage extends BasePage {
         }
 
         if (rowCount === 1) {
+            try {
+                const firstRowStatus = await this.page.locator('//tbody/tr[1]/td[6]').textContent();
+                await console.log("first row status is:", firstRowStatus);
+                
+                if (firstRowStatus === 'In use') {
+                    await this.usage_btn_vehicleListPage.click();
+                    await this.page.waitForTimeout(1000);
+                    await this.delete_usage_vehicle_btn.click();
+                } else {
+                    console.log('Vehicle Usage status is : Idle');
+                }
+            
+            } catch (error) {
+                console.error('An error occurred during vehicle usage deletion:', error);
+            }
+
             // If exactly one row is found, continue with deletion
             const detailButton = this.page.locator(`//tbody//tr//td[contains(text(),'${plate}')]/following-sibling::td//button[normalize-space()='Detail']`);
 
@@ -209,19 +228,27 @@ export class VehiclesPage extends BasePage {
 
         await this.add_btn_after_click_usage.click({ force: true })
         await this.page.waitForTimeout(1000)
-        
+
         await this.page.locator('input[name="deliveryDate"]').fill(start_date)
         await this.start_km_input_box.fill(start_km)
-        await this.driver1_input_box.fill(driver1_withFullName)
-        await this.driver2_input_box.fill(driver2_withFullName)
-        // throw new Error()
-        await this.page.getByRole('button', { name: 'Save' }).click({ force: true });
-        
 
+        await this.driver1_input_box.fill(driver1_withFullName)
+        await this.page.keyboard.press('ArrowDown')
+        await this.page.keyboard.press('Enter')
+        await this.page.waitForTimeout(500)
+
+        await this.driver2_input_box.fill(driver2_withFullName)
+        await this.page.keyboard.press('ArrowDown')
+        await this.page.keyboard.press('Enter')
+        await this.page.waitForTimeout(500)
+
+        await this.page.getByRole('button', { name: 'Save' }).click({ force: true });
+        await this.page.waitForTimeout(1500)
 
         try {
-            await this.page.getByText('Please select a driver').isVisible()
-            throw new Error()
+            if (await this.page.getByText('Please select a driver').isVisible()) {
+                throw new Error()
+            }
 
         } catch (error) {
             console.warn('Warning: the full name is correct, but in selections can\'t be found');

@@ -1,10 +1,9 @@
-[# playwright_Qugem_Bdd
+# playwright_Qugem_Bdd
 Playright Test Automation with Bdd
-](https://vitalets.github.io/playwright-bdd/#/getting-started/index
 https://vitalets.github.io/playwright-bdd/#/getting-started/index
 
-Install playwright-bdd from npm:
-   npm init playwright@latest    //ile normal olan playwright kurulumu yapilir
+# Install playwright-bdd from npm:
+npm init playwright@latest    //ile normal olan playwright kurulumu yapilir
 
 bdd ile olanida kullanabilmek icin bu adimlari terminalde yazmalisin
 1. npm i -D playwright-bdd      //if there is an issue in terminal , run these 3 steps again 

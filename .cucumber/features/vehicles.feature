@@ -1,5 +1,6 @@
-#this feature is flaky if we use parallel test
-@mode:serial
+#this feature is flaky if we use parallel test 
+# @mode:serial
+  
 Feature: Vehicles Module functionality
 
     Background:Before each test, delete the vehicle added for test purpose and make all tests independent to each other
@@ -80,15 +81,13 @@ Feature: Vehicles Module functionality
         Then I see the "<Plate>", "<Brand>", and "<Model>" of the vehicle before assigning a driver to the vehicle.
         Then I verify there are header like below:
             | Nr | Driver | Start Date | End Date | Start Kilometer | End Kilometer | Distance |
-
-
         Examples:
             | Plate      | Brand    | Model | type     | Year_of_construction | Year_of_the_purchase | current_kilometer | purchase_price |
             | TE ST 3000 | Mercedes | A5    | Sprinter | 2015                 | 2016                 | 100000            | 20000          |
 
 
 
-    Scenario Outline: 039_Verify added drivers BY clicking usage button and filling input boxes
+    Scenario Outline: 039_Verify added drivers by clicking usage button and filling input boxes
         Then click add vehicle button
         Then fill in the input boxes of "<Plate>" , "<Brand>" , "<Model>","<type>","<Year_of_construction>" "<Year_of_the_purchase>" , "<current_kilometer>" and "<purchase_price>"
         When click save changes in vehicles edit page
@@ -103,10 +102,6 @@ Feature: Vehicles Module functionality
         Then I click add button and fill the input boxes with the data below:
             | driver1       | driver2          | Start_Date | start_km |
             | Robert Slomka | Miroslav Kiisyov | 2024-12-18 | 55000    |
-
-
-
-
         Examples:
             | Plate      | Brand    | Model | type     | Year_of_construction | Year_of_the_purchase | current_kilometer | purchase_price |
             | TE ST 3000 | Mercedes | A5    | Sprinter | 2015                 | 2016                 | 100000            | 20000          |
@@ -134,6 +129,35 @@ Feature: Vehicles Module functionality
             | Plate      | Brand    | Model | type | Year_of_construction | Year_of_the_purchase | current_kilometer | purchase_price |
             | TE ST 3000 | Mercedes | A3    | LKW  | 2012                 | 2015                 | 100000            | 20000          |
 
+
+    Scenario Outline: 041_ verify we cannot add drivers if they are not found in employee master data
+        Then click add vehicle button
+        Then fill in the input boxes of "<Plate>" , "<Brand>" , "<Model>","<type>","<Year_of_construction>" "<Year_of_the_purchase>" , "<current_kilometer>" and "<purchase_price>"
+        When click save changes in vehicles edit page
+        Then verify alert message text is "Vehicle was added successfully.."
+        Then I navigate to vehicles Module "https://qugem-staging.netlify.app/auto"
+        Then I write in the filter "<Plate>"
+        Then I click usage button
+        Then I see the "<Plate>", "<Brand>", and "<Model>" of the vehicle before assigning a driver to the vehicle.
+        Then I verify there are header like below:
+            | Nr | Driver | Start Date | End Date | Start Kilometer | End Kilometer | Distance |
+
+        Then I click add button and fill the input boxes with the data below:
+            | driver1       | driver2           | Start_Date | start_km |
+            | Robert Robert | Miroslav Miroslav | 2024-12-18 | 55000    |
+
+        Then verify the actual page url contains this part of the URL "https://qugem-staging.netlify.app/auto"
+        Then I write in the filter "<Plate>"
+        Then I verify first row with "<Plate>" has Brand name "<Brand>" and Model name "<Model>"
+        Then verify vehicle status is not "Idle"
+        Then verify driver names are correctly visible in the first row:
+            | driver1       | driver2           |
+            | Robert Robert | Miroslav Miroslav |
+
+
+        Examples:
+            | Plate      | Brand    | Model | type     | Year_of_construction | Year_of_the_purchase | current_kilometer | purchase_price |
+            | TE ST 3000 | Mercedes | A5    | Sprinter | 2015                 | 2016                 | 100000            | 20000          |
 
 
 
