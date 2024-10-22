@@ -1,0 +1,40 @@
+Error navigating to the dashboard: page.goto: Target page, context or browser has been closed
+Call log:
+  - navigating to "https://qugem-staging.netlify.app/auth/sign-in", waiting until "load"
+
+    at BasePage.navigateToDashboard (/Users/mehmetaltuntas/Documents/playwright-bdd_Qugem/.cucumber/pages/BasePage.js:34:23)
+    at Object.<anonymous> (/Users/mehmetaltuntas/Documents/playwright-bdd_Qugem/.cucumber/stepDefinitions/steps_DashboardPage.js:25:18)
+    at /Users/mehmetaltuntas/Documents/playwright-bdd_Qugem/.features-gen/.cucumber/features/employee_master_data.feature.spec.js:7:5 {
+  [Symbol(step)]: {
+    stepId: 'pw:api@12',
+    location: {
+      file: '/Users/mehmetaltuntas/Documents/playwright-bdd_Qugem/.cucumber/pages/BasePage.js',
+      line: 34,
+      column: 23,
+      function: 'BasePage.navigateToDashboard'
+    },
+    category: 'pw:api',
+    title: 'page.goto(https://qugem-staging.netlify.app/auth/sign-in)',
+    apiName: 'page.goto',
+    params: {
+      url: 'https://qugem-staging.netlify.app/auth/sign-in',
+      waitUntil: 'load'
+    },
+    boxedStack: undefined,
+    steps: [],
+    complete: [Function: complete],
+    endWallTime: 1728559183352,
+    error: {
+      message: 'Error: page.goto: Target page, context or browser has been closed\n' +
+        'Call log:\n' +
+        '  \x1B[2m- navigating to "https://qugem-staging.netlify.app/auth/sign-in", waiting until "load"\x1B[22m\n',
+      stack: 'Error: page.goto: Target page, context or browser has been closed\n' +
+        'Call log:\n' +
+        '  \x1B[2m- navigating to "https://qugem-staging.netlify.app/auth/sign-in", waiting until "load"\x1B[22m\n' +
+        '\n' +
+        '    at BasePage.navigateToDashboard (/Users/mehmetaltuntas/Documents/playwright-bdd_Qugem/.cucumber/pages/BasePage.js:34:23)\n' +
+        '    at Object.<anonymous> (/Users/mehmetaltuntas/Documents/playwright-bdd_Qugem/.cucumber/stepDefinitions/steps_DashboardPage.js:25:18)\n' +
+        '    at /Users/mehmetaltuntas/Documents/playwright-bdd_Qugem/.features-gen/.cucumber/features/employee_master_data.feature.spec.js:7:5'
+    }
+  }
+}

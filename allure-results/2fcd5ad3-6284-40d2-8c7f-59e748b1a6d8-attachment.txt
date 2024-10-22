@@ -1,0 +1,4 @@
+An error occurred during the verification: locator.innerText: Test timeout of 60000ms exceeded.
+Call log:
+  - waiting for locator('//tbody/tr[1]/td[2]')
+

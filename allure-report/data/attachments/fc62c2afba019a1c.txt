@@ -1,0 +1,6 @@
+QUGEM - Quickly Gehaltsmanagement
+Dashboard page tab name contains "QUGEM"
+Row with "tester" found and deleted.
+Row with "tester" found and deleted.
+Row with "tester" found and deleted.
+Row with "tester" found and deleted.

@@ -1,0 +1,3 @@
+QUGEM - Quickly Gehaltsmanagement
+Dashboard page tab name contains "QUGEM"
+No rows found with tester or developer last name before each test scenario is tested.

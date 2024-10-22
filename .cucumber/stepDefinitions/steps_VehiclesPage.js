@@ -102,8 +102,8 @@ Then('I write in the filter {string}', async ({ page }, plate) => {
   await vehicles.filter_plate.fill("")
   await vehicles.filter_plate.fill(plate)
   await page.waitForTimeout(3000)
-});
 
+});
 
 Then('I verify {string} , {string} , {string} and {string} of the vehicle is visible', async ({ page }, plate, brand, model, type) => {
   const expectedValues = [plate, brand, model, type]; //array with parameter values
@@ -147,7 +147,7 @@ Then('I verify vehicle has no driver and the status of vehicle is idle in Vehicl
 Then('I click usage button', async ({ page }) => {
   vehicles = new VehiclesPage(page)
   await vehicles.usage_btn_vehicleListPage.click()
-  await page.waitForTimeout(1500)
+  await page.waitForTimeout(500)
 
 });
 
@@ -156,6 +156,7 @@ Then('I see the {string}, {string}, and {string} of the vehicle before assigning
   const header_text = await page.locator(`//h2[contains(text(),'${plate} - ${brand} ${model}')]`).textContent()
   console.log("the header text if you click usage btn is:", header_text)
   expect(isVisible_Header).toBeTruthy()
+<<<<<<< HEAD
 });
 
 
@@ -246,4 +247,6 @@ Then('verify driver names are correctly visible in the first row:', async ({page
   await expect(firstRowText).toContain(row.driver1)
   await expect(firstRowText).toContain(row.driver2)
 
+=======
+>>>>>>> 1223ca66ede00c7a0d59360116903c910a0112d8
 });
