@@ -7,7 +7,6 @@ import { LoginPage } from './LoginPage';
 import { DashboardPage } from './DashboardPage';
 import { BasePage } from './BasePage';
 import { EmployeeMasterDataPage } from './EmployeeMasterDataPage';
-import { error } from 'console';
 
 export class VehiclesPage extends BasePage {
     constructor(page) {
@@ -62,8 +61,6 @@ export class VehiclesPage extends BasePage {
         this.edit_usage_vehicle_btn = this.page.locator("//span[contains(text(),'Edit')]")
         //-------------------------------------------------------------------------------------------------
         this.edit_btn_vehicle_details_page = this.page.locator("//span[normalize-space()='Edit']");
-        this.saveChanges_btn_vehicle_details = this.page.getByRole('button', { name: 'Save Changes' })
-
         this.back_btn_vehicle_details_page = this.page.getByRole('button', { name: 'Back' })
         this.delete_btn_vehicle_details_page = this.page.getByRole('button', { name: 'Delete' })
         this.Yes_btn_AlertToConfirmDeleteAuto = this.page.locator("//span[.='yes']/..");
@@ -84,26 +81,8 @@ export class VehiclesPage extends BasePage {
 
         //use this to learn number of rows with count() method
         this.all_rows_seen = this.page.locator("//tbody//tr")
-        this.headers_all_after_clicking_usage_btn = this.page.locator("(//table//thead//tr)[2]/th")    //
 
-        //after click usage btn
-        this.add_btn_after_click_usage = this.page.getByRole('button', { name: 'add' })
 
-        this.driver1_input_box = this.page.getByRole('textbox', { name: 'Driver', exact: true })
-        this.driver1_select_open_svg_btn = this.page.locator('div').filter({ hasText: /^Driver$/ }).getByLabel('Open')
-        this.driver1_select_close_svg_btn = this.page.getByLabel('Close')
-
-        this.driver2_input_box = this.page.getByRole('textbox', { name: 'Driver-' })
-        this.driver2_select_open_svg_btn = this.page.locator('div').filter({ hasText: /^Driver-2$/ }).getByLabel('Open')
-        this.driver2_select_close_svg_btn = this.page.getByLabel('Close')
-
-        this.save_btn_in_usage = this.page.getByRole('button', { name: 'Save' })
-        this.cancel_btn_in_usage = this.page.getByRole('button', { name: 'Cancel' })
-
-        //how to choose one driver and how to add start date
-        //await page.getByRole('option', { name: 'Robert Samuel' }).click();
-        //await page.locator('input[name="deliveryDate"]').fill('2024-02-12');
-        this.start_km_input_box = this.page.getByRole('spinbutton')
 
     }
 
@@ -221,6 +200,7 @@ export class VehiclesPage extends BasePage {
         }
     }
 
+<<<<<<< HEAD
     /**Method to add driver1 driver2, start date and km for vehicle usage 
      * Date should be in this format "2024-02-12"
     */
@@ -258,6 +238,8 @@ export class VehiclesPage extends BasePage {
 
 
     }
+=======
+>>>>>>> 1223ca66ede00c7a0d59360116903c910a0112d8
 
 
 

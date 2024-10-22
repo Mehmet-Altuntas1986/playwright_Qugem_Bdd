@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD
 <testsuite failures="11" skipped="0" name="my suite" time="954.7859999999998" tests="55">
   <testcase classname="Playwright site" name="chromium › Playwright site › User logins the web application" time="1.819">
     <system-out><![CDATA[Given Navigate to Login Page..............................................passed]]></system-out>
@@ -529,6 +530,10 @@ Call log:
   250 |                 throw new Error()
   251 |             }
   252 |]]></failure>
+=======
+<testsuite failures="0" skipped="0" name="my suite" time="15.838999999999999" tests="1">
+  <testcase classname="Vehicles Module functionality" name="chromium › Vehicles Module functionality › verify if you click usage after adding a vehicle , you see plate, name of vehicle and model of the vehicle" time="15.838999999999999">
+>>>>>>> 1223ca66ede00c7a0d59360116903c910a0112d8
     <system-out><![CDATA[Given Navigate to Dashboard with "english" language.......................passed
 Then verify that dashboard page tab name contains QUGEM...................passed
 When click to Vehicles module.............................................passed
@@ -540,6 +545,7 @@ Then verify alert message text is "Vehicle was added successfully.."......passed
 Then I navigate to vehicles Module "https://qugem-staging.netlify.app/a...passed
 Then I write in the filter "TE ST 3000"...................................passed
 Then I click usage button.................................................passed
+<<<<<<< HEAD
 Then I see the "TE ST 3000", "Mercedes", and "A5" of the vehicle before...passed
 Then I verify there are header like below:................................passed
 Then I click add button and fill the input boxes with the data below:.....failed]]></system-out>
@@ -964,5 +970,8 @@ When I click the employee add button......................................passed
 Then I fill tax_id input box with :"1234abcd".............................passed
 Then I click save changes.................................................passed
 Then I verify tax cannot be more than _11_ characters long or accepts a...passed]]></system-out>
+=======
+Then I see the "TE ST 3000", "Mercedes", and "A5" of the vehicle before...passed]]></system-out>
+>>>>>>> 1223ca66ede00c7a0d59360116903c910a0112d8
   </testcase>
 </testsuite>

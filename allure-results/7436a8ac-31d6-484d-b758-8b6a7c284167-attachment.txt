@@ -1,0 +1,8 @@
+QUICKLY | QUGEM
+Dashboard page tab name contains "QUGEM"
+Row with "tester" found and deleted.
+No rows found with tester or developer last name before each test scenario is tested.
+No rows found with tester or developer last name before each test scenario is tested.
+Verifying visibility and functionality for: company and client
+Employee name: ${firstName} is found
+Gyulyustan: is not present in the first row : test passed

@@ -1,0 +1,9 @@
+QUGEM - Quickly Gehaltsmanagement
+Dashboard page tab name contains "QUGEM"
+No rows found with tester or developer last name before each test scenario is tested.
+No rows found with tester or developer last name before each test scenario is tested.
+Input Date: 10.10.2024
+Expected first name: Ersan, Actual first name: Ersan
+Expected last name: tester, Actual last name: tester
+Net salary now has a value but its value is not logeable
+the actual text after clicking edit --> save changes is : Network Error

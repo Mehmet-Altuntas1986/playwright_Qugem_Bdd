@@ -1,0 +1,1 @@
+An error occurred during the verification: page.waitForSelector: Target page, context or browser has been closed

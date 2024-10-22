@@ -1,0 +1,10 @@
+QUGEM - Quickly Gehaltsmanagement
+Dashboard page tab name contains "QUGEM"
+No rows found with tester or developer last name before each test scenario is tested.
+No rows found with tester or developer last name before each test scenario is tested.
+There are 5 elements.
+Element 1 with text "GESAMT FIRMEN" is visible and clickable.
+Element 2 with text "QUICK BAU & TRANSPORTE GMBH" is visible and clickable.
+Element 3 with text "QUICK IMMOTRANS GMBH" is visible and clickable.
+Element 4 with text "QUICK PLT GMBH" is visible and clickable.
+Element 5 with text "QUICKLY TRANSPORTE GMBH" is visible and clickable.

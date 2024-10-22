@@ -1,6 +1,11 @@
+<<<<<<< HEAD
 #this feature is flaky if we use parallel test 
 # @mode:serial
   
+=======
+#this feature is flaky if we use parallel test
+@mode:serial @retry:1
+>>>>>>> 1223ca66ede00c7a0d59360116903c910a0112d8
 Feature: Vehicles Module functionality
 
     Background:Before each test, delete the vehicle added for test purpose and make all tests independent to each other
@@ -54,7 +59,7 @@ Feature: Vehicles Module functionality
             | TE ST 3000 | Mercedes | A5    | Sprinter | 2015                 | 2016                 | 100000            | 20000          |
 
 
-    Scenario Outline:037_verify driver is empty and status is idle if you did not assign any driver to the Vehicle
+    Scenario Outline: verify driver is empty and status is idle if you did not assign any driver to the Vehicle
         Then click add vehicle button
         Then fill in the input boxes of "<Plate>" , "<Brand>" , "<Model>","<type>","<Year_of_construction>" "<Year_of_the_purchase>" , "<current_kilometer>" and "<purchase_price>"
         When click save changes in vehicles edit page
@@ -69,8 +74,8 @@ Feature: Vehicles Module functionality
             | Plate      | Brand    | Model | type     | Year_of_construction | Year_of_the_purchase | current_kilometer | purchase_price |
             | TE ST 3000 | Mercedes | A5    | Sprinter | 2015                 | 2016                 | 100000            | 20000          |
 
-
-    Scenario Outline:038_verify if you click usage after adding a vehicle , you see plate, name of vehicle and model of the vehicle
+@only
+    Scenario Outline: verify if you click usage after adding a vehicle , you see plate, name of vehicle and model of the vehicle
         Then click add vehicle button
         Then fill in the input boxes of "<Plate>" , "<Brand>" , "<Model>","<type>","<Year_of_construction>" "<Year_of_the_purchase>" , "<current_kilometer>" and "<purchase_price>"
         When click save changes in vehicles edit page
@@ -79,12 +84,18 @@ Feature: Vehicles Module functionality
         Then I write in the filter "<Plate>"
         Then I click usage button
         Then I see the "<Plate>", "<Brand>", and "<Model>" of the vehicle before assigning a driver to the vehicle.
+<<<<<<< HEAD
         Then I verify there are header like below:
             | Nr | Driver | Start Date | End Date | Start Kilometer | End Kilometer | Distance |
+=======
+
+
+>>>>>>> 1223ca66ede00c7a0d59360116903c910a0112d8
         Examples:
             | Plate      | Brand    | Model | type     | Year_of_construction | Year_of_the_purchase | current_kilometer | purchase_price |
             | TE ST 3000 | Mercedes | A5    | Sprinter | 2015                 | 2016                 | 100000            | 20000          |
 
+<<<<<<< HEAD
 
 
     Scenario Outline: 039_Verify added drivers by clicking usage button and filling input boxes
@@ -161,3 +172,5 @@ Feature: Vehicles Module functionality
 
 
 
+=======
+>>>>>>> 1223ca66ede00c7a0d59360116903c910a0112d8
