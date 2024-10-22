@@ -6,7 +6,7 @@ node_modules/
 /playwright-report/
 /blob-report/
 /playwright/.cache/
-/allure-results
-/allure-report
+allure-results
+allure-report
 /e2e
-.cucumber-report
+.cucumber-report/*
