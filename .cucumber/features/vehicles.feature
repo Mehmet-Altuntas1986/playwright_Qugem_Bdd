@@ -70,7 +70,7 @@ Feature: Vehicles Module functionality
             | TE ST 3000 | Mercedes | A5    | Sprinter | 2015                 | 2016                 | 100000            | 20000          |
 
 
-    Scenario Outline:038_verify if you click usage after adding a vehicle , you see plate, name of vehicle and model of the vehicle
+    Scenario Outline:038_verify if you click usage button after adding a vehicle , you see plate, name of vehicle and model of the vehicle
         Then click add vehicle button
         Then fill in the input boxes of "<Plate>" , "<Brand>" , "<Model>","<type>","<Year_of_construction>" "<Year_of_the_purchase>" , "<current_kilometer>" and "<purchase_price>"
         When click save changes in vehicles edit page
@@ -129,7 +129,7 @@ Feature: Vehicles Module functionality
             | Plate      | Brand    | Model | type | Year_of_construction | Year_of_the_purchase | current_kilometer | purchase_price |
             | TE ST 3000 | Mercedes | A3    | LKW  | 2012                 | 2015                 | 100000            | 20000          |
 
-
+@only
     Scenario Outline: 041_ verify we cannot add drivers if they are not found in employee master data
         Then click add vehicle button
         Then fill in the input boxes of "<Plate>" , "<Brand>" , "<Model>","<type>","<Year_of_construction>" "<Year_of_the_purchase>" , "<current_kilometer>" and "<purchase_price>"
@@ -161,3 +161,33 @@ Feature: Vehicles Module functionality
 
 
 
+@only
+ Scenario Outline: 042_ verify if driver is assigned to a vehicle, then delete button in vehicle details is not functional
+        Then click add vehicle button
+        Then fill in the input boxes of "<Plate>" , "<Brand>" , "<Model>","<type>","<Year_of_construction>" "<Year_of_the_purchase>" , "<current_kilometer>" and "<purchase_price>"
+        When click save changes in vehicles edit page
+        Then verify alert message text is "Vehicle was added successfully.."
+        Then I navigate to vehicles Module "https://qugem-staging.netlify.app/auto"
+        Then I write in the filter "<Plate>"
+        Then I click usage button
+        Then I see the "<Plate>", "<Brand>", and "<Model>" of the vehicle before assigning a driver to the vehicle.
+        Then I verify there are header like below:
+            | Nr | Driver | Start Date | End Date | Start Kilometer | End Kilometer | Distance |
+
+        Then I click add button and fill the input boxes with the data below:
+            | driver1       | driver2           | Start_Date | start_km |
+            | Robert Robert | Miroslav Miroslav | 2024-12-18 | 55000    |
+
+        Then verify the actual page url contains this part of the URL "https://qugem-staging.netlify.app/auto"
+        Then I write in the filter "<Plate>"
+        Then I verify first row with "<Plate>" has Brand name "<Brand>" and Model name "<Model>"
+        Then verify vehicle status is not "Idle"
+        Then click details button in Vehicle List page
+        Then verify delete button is visible but not functional because vehicle driver was not deleted
+
+
+        Examples:
+            | Plate      | Brand    | Model | type     | Year_of_construction | Year_of_the_purchase | current_kilometer | purchase_price |
+            | TE ST 3000 | Mercedes | A5    | Sprinter | 2015                 | 2016                 | 100000            | 20000          |
+
+#repair button ve islevleri test edilmeli

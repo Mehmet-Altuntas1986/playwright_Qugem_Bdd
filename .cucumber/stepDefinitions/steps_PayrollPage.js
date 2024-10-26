@@ -135,7 +135,7 @@ Then('I added an employee with details below:   and verify they are samely came 
 });
 
 Then('I see employee details:', async ({ page }, dataTable) => {
-  const employeeDetails = dataTable.hashes()[0]; // Use first row of the table
+  const employeeDetails = dataTable.hashes()[0]; //headers --- Use first row of the table
 
   // Log and apply the filter
   console.log("Applying filter for ID:", employeeDetails.id);

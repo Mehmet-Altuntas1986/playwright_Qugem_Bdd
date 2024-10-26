@@ -33,6 +33,7 @@ Before(async ({ page }) => {
 
 
 When('click to Vehicles module', async ({ page }) => {
+
   await vehicles.Vehicles_module_btn.click()
   await page.waitForTimeout(500)
 });
@@ -215,35 +216,50 @@ Then('click save changes button in vehicle details page', async ({ page }) => {
 });
 
 Then('verify the changed row headers have values in vehicle details page like below:', async ({ page }, dataTable) => {
-  const header=await dataTable.hashes()[0] //gives headers in the data table
+  const header = await dataTable.hashes()[0] //gives headers in the data table
 
-  const actualBrand_Text=await page.getByRole('cell', { name: 'Toyota' }).textContent()
-  const actualModel_text=await page.getByRole('cell', { name: 'X40' }).textContent()
+  const actualBrand_Text = await page.getByRole('cell', { name: 'Toyota' }).textContent()
+  const actualModel_text = await page.getByRole('cell', { name: 'X40' }).textContent()
 
-   expect(actualBrand_Text).toEqual(header.Brand)  //Toyota 
-   expect(actualModel_text).toEqual(header.Model)   //X40 in dataTable
+  expect(actualBrand_Text).toEqual(header.Brand)  //Toyota 
+  expect(actualModel_text).toEqual(header.Model)   //X40 in dataTable
 
 });
 
 Then('I verify first row with {string} has Brand name {string} and Model name {string}', async ({ page }, plate, brand, model) => {
- const first_row_text=  await page.locator("//tbody//tr[1]").textContent()
-expect(first_row_text).toContain(brand)
-expect(first_row_text).toContain(model)
-await console.log("the edited brand and model appeared in the text of first row like:",first_row_text )
+  const first_row_text = await page.locator("//tbody//tr[1]").textContent()
+  expect(first_row_text).toContain(brand)
+  expect(first_row_text).toContain(model)
+  await console.log("the edited brand and model appeared in the text of first row like:", first_row_text)
 
 });
 
 
 
-Then('verify vehicle status is not {string}', async ({page}, text) => {
-  const firstRowText=await page.locator("//tbody//tr[1]").textContent()
+Then('verify vehicle status is not {string}', async ({ page }, text) => {
+  const firstRowText = await page.locator("//tbody//tr[1]").textContent()
   await expect(firstRowText).not.toContain(text)
 });
 
-Then('verify driver names are correctly visible in the first row:', async ({page}, dataTable) => {
-  const row=dataTable.hashes()[0]
-  const firstRowText=await page.locator("//tbody//tr[1]").textContent()
+Then('verify driver names are correctly visible in the first row:', async ({ page }, dataTable) => {
+  const row = dataTable.hashes()[0]
+  const firstRowText = await page.locator("//tbody//tr[1]").textContent()
   await expect(firstRowText).toContain(row.driver1)
   await expect(firstRowText).toContain(row.driver2)
+
+});
+
+Then('click details button in Vehicle List page', async ({ page }) => {
+  vehicles = await new VehiclesPage(page)
+  await vehicles.detail_btn_in_first_row.click()
+  await page.waitForLoadState('load')
+});
+
+Then('verify delete button is visible but not functional because vehicle driver was not deleted', async ({ page }) => {
+  vehicles = await new VehiclesPage(page)
+  await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight)); //page goes to end
+  await expect(vehicles.delete_btn_vehicle_details_page).toBeVisible()
+  await expect(vehicles.delete_btn_vehicle_details_page).not.toBeEnabled()
+
 
 });
