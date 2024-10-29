@@ -1,6 +1,122 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite failures="1" skipped="0" name="my suite" time="53.20400000000001" tests="2">
-  <testcase classname="Vehicles Module functionality" name="chromium › Vehicles Module functionality › 041_ verify we cannot add drivers if they are not found in employee master data" time="26.667">
+<testsuite failures="2" skipped="0" name="my suite" time="217.25100000000003" tests="11">
+  <testcase classname="Vehicles Module functionality" name="chromium › Vehicles Module functionality › 034_Adding a vehicle and verifying alert message that shows the vehicle is added" time="18.158">
+    <system-out><![CDATA[Given Navigate to Dashboard with "english" language.......................passed
+Then verify that dashboard page tab name contains QUGEM...................passed
+When click to Vehicles module.............................................passed
+Then delete if a vehicle is added for test purpose ,Vehicle plate is "T...passed
+Then click add vehicle button.............................................passed
+Then fill in the input boxes of "TE ST 3000" , "Mercedes" , "A3","LKW",...passed
+When click save changes in vehicles edit page.............................passed
+Then verify alert message text is "Vehicle was added successfully.."......passed]]></system-out>
+  </testcase>
+  <testcase classname="Vehicles Module functionality" name="chromium › Vehicles Module functionality › 035_Adding a vehicle and verifying added vehicle data is seen if we use filters and the data is seen in vehicle list page" time="14.569">
+    <system-out><![CDATA[Given Navigate to Dashboard with "english" language.......................passed
+Then verify that dashboard page tab name contains QUGEM...................passed
+When click to Vehicles module.............................................passed
+Then delete if a vehicle is added for test purpose ,Vehicle plate is "T...passed
+Then click add vehicle button.............................................passed
+Then fill in the input boxes of "TE ST 3000" , "Mercedes" , "A3","LKW",...passed
+When click save changes in vehicles edit page.............................passed
+Then verify alert message text is "Vehicle was added successfully.."......passed
+Then verify you are in Vehicle Details Page...............................passed
+Then verify the data is visible "TE ST 3000" , "Mercedes" , "A3","LKW",...passed]]></system-out>
+  </testcase>
+  <testcase classname="Vehicles Module functionality" name="chromium › Vehicles Module functionality › 036_add a vehicle ,then verify its data comes to filter table correctly" time="17.966">
+    <system-out><![CDATA[Given Navigate to Dashboard with "english" language.......................passed
+Then verify that dashboard page tab name contains QUGEM...................passed
+When click to Vehicles module.............................................passed
+Then delete if a vehicle is added for test purpose ,Vehicle plate is "T...passed
+Then click add vehicle button.............................................passed
+Then fill in the input boxes of "TE ST 3000" , "Mercedes" , "A5","Sprin...passed
+When click save changes in vehicles edit page.............................passed
+Then verify alert message text is "Vehicle was added successfully.."......passed
+Then I navigate to vehicles Module "https://qugem-staging.netlify.app/a...passed
+Then I write in the filter "TE ST 3000"...................................passed
+Then I verify "TE ST 3000" , "Mercedes" , "A5" and "Sprinter" of the ve...passed]]></system-out>
+  </testcase>
+  <testcase classname="Vehicles Module functionality" name="chromium › Vehicles Module functionality › 037_verify driver is empty and status is idle if you did not assign any driver to the Vehicle" time="17.620000000000005">
+    <system-out><![CDATA[Given Navigate to Dashboard with "english" language.......................passed
+Then verify that dashboard page tab name contains QUGEM...................passed
+When click to Vehicles module.............................................passed
+Then delete if a vehicle is added for test purpose ,Vehicle plate is "T...passed
+Then click add vehicle button.............................................passed
+Then fill in the input boxes of "TE ST 3000" , "Mercedes" , "A5","Sprin...passed
+When click save changes in vehicles edit page.............................passed
+Then verify alert message text is "Vehicle was added successfully.."......passed
+Then I navigate to vehicles Module "https://qugem-staging.netlify.app/a...passed
+Then I write in the filter "TE ST 3000"...................................passed
+Then I verify vehicle has no driver and the status of vehicle is idle i...passed]]></system-out>
+  </testcase>
+  <testcase classname="Vehicles Module functionality" name="chromium › Vehicles Module functionality › 038_verify if you click usage button after adding a vehicle , you see plate, name of vehicle and model of the vehicle" time="18.807">
+    <system-out><![CDATA[Given Navigate to Dashboard with "english" language.......................passed
+Then verify that dashboard page tab name contains QUGEM...................passed
+When click to Vehicles module.............................................passed
+Then delete if a vehicle is added for test purpose ,Vehicle plate is "T...passed
+Then click add vehicle button.............................................passed
+Then fill in the input boxes of "TE ST 3000" , "Mercedes" , "A5","Sprin...passed
+When click save changes in vehicles edit page.............................passed
+Then verify alert message text is "Vehicle was added successfully.."......passed
+Then I navigate to vehicles Module "https://qugem-staging.netlify.app/a...passed
+Then I write in the filter "TE ST 3000"...................................passed
+Then I click usage button.................................................passed
+Then I see the "TE ST 3000", "Mercedes", and "A5" of the vehicle before...passed
+Then I verify there are header like below:................................passed]]></system-out>
+  </testcase>
+  <testcase classname="Vehicles Module functionality" name="chromium › Vehicles Module functionality › 039_Verify added drivers by clicking usage button and filling input boxes" time="25.201">
+    <failure type="Error" message="Error: locator.isVisible: Error: strict mode violation: getByText('Please select a driver') resolved to 3 elements:&#xA;    1) &lt;div>Please select a driver&lt;/div> aka locator('[id=&quot;\\31 &quot;]').getByText('Please select a driver')&#xA;    2) &lt;div>Please select a driver&lt;/div> aka locator('[id=&quot;\\32 &quot;]').getByText('Please select a driver')&#xA;    3) &lt;div>Please select a driver&lt;/div> aka locator('[id=&quot;\\33 &quot;]').getByText('Please select a driver')&#xA;&#xA;Call log:&#xA;  -   checking visibility of getByText('Please select a driver')&#xA;&#xA;   at ../.cucumber/pages/VehiclesPage.js:253&#xA;&#xA;  251 |&#xA;  252 |         try {&#xA;> 253 |             if (await this.page.getByText('Please select a driver').isVisible()) {&#xA;      |                                                                     ^&#xA;  254 |                 throw new Error()&#xA;  255 |             }&#xA;  256 |"><![CDATA[Error: locator.isVisible: Error: strict mode violation: getByText('Please select a driver') resolved to 3 elements:
+    1) <div>Please select a driver</div> aka locator('[id="\\31 "]').getByText('Please select a driver')
+    2) <div>Please select a driver</div> aka locator('[id="\\32 "]').getByText('Please select a driver')
+    3) <div>Please select a driver</div> aka locator('[id="\\33 "]').getByText('Please select a driver')
+
+Call log:
+  -   checking visibility of getByText('Please select a driver')
+
+   at ../.cucumber/pages/VehiclesPage.js:253
+
+  251 |
+  252 |         try {
+> 253 |             if (await this.page.getByText('Please select a driver').isVisible()) {
+      |                                                                     ^
+  254 |                 throw new Error()
+  255 |             }
+  256 |]]></failure>
+    <system-out><![CDATA[Given Navigate to Dashboard with "english" language.......................passed
+Then verify that dashboard page tab name contains QUGEM...................passed
+When click to Vehicles module.............................................passed
+Then delete if a vehicle is added for test purpose ,Vehicle plate is "T...passed
+Then click add vehicle button.............................................passed
+Then fill in the input boxes of "TE ST 3000" , "Mercedes" , "A5","Sprin...passed
+When click save changes in vehicles edit page.............................passed
+Then verify alert message text is "Vehicle was added successfully.."......passed
+Then I navigate to vehicles Module "https://qugem-staging.netlify.app/a...passed
+Then I write in the filter "TE ST 3000"...................................passed
+Then I click usage button.................................................passed
+Then I see the "TE ST 3000", "Mercedes", and "A5" of the vehicle before...passed
+Then I verify there are header like below:................................passed
+Then I click add button and fill the input boxes with the data below:.....failed]]></system-out>
+  </testcase>
+  <testcase classname="Vehicles Module functionality" name="chromium › Vehicles Module functionality › 040_Verify vehicle edit in vehicle Details page works as expected" time="22.893">
+    <system-out><![CDATA[Given Navigate to Dashboard with "english" language.......................passed
+Then verify that dashboard page tab name contains QUGEM...................passed
+When click to Vehicles module.............................................passed
+Then delete if a vehicle is added for test purpose ,Vehicle plate is "T...passed
+Then click add vehicle button.............................................passed
+Then fill in the input boxes of "TE ST 3000" , "Mercedes" , "A3","LKW",...passed
+When click save changes in vehicles edit page.............................passed
+Then verify alert message text is "Vehicle was added successfully.."......passed
+Then verify the actual page url contains this part of the URL "https://...passed
+Then click edit button in vehicle details page............................passed
+Then change Brand to "Toyota".............................................passed
+Then change Model to "X40"................................................passed
+Then click save changes button in vehicle details page....................passed
+Then verify the actual page url contains this part of the URL "https://...passed
+Then verify the changed row headers have values in vehicle details page...passed
+Then I navigate to vehicles Module "https://qugem-staging.netlify.app/a...passed
+Then I write in the filter "TE ST 3000"...................................passed
+Then I verify first row with "TE ST 3000" has Brand name "Toyota" and M...passed]]></system-out>
+  </testcase>
+  <testcase classname="Vehicles Module functionality" name="chromium › Vehicles Module functionality › 041_ verify we cannot add drivers if they are not found in employee master data" time="25.573">
     <failure type="Error" message="Error: expect(received).toContain(expected) // indexOf&#xA;&#xA;Expected substring: &quot;Robert Robert&quot;&#xA;Received string:    &quot;TE ST 3000MercedesA5SprinterRobert Slomka , Miroslav KiisyovIn useUsageRepairDetail&quot;&#xA;   at ../.cucumber/stepDefinitions/steps_VehiclesPage.js:247&#xA;&#xA;  245 |   const row = dataTable.hashes()[0]&#xA;  246 |   const firstRowText = await page.locator(&quot;//tbody//tr[1]&quot;).textContent()&#xA;> 247 |   await expect(firstRowText).toContain(row.driver1)&#xA;      |                              ^&#xA;  248 |   await expect(firstRowText).toContain(row.driver2)&#xA;  249 |&#xA;  250 | });"><![CDATA[Error: expect(received).toContain(expected) // indexOf
 
 Expected substring: "Robert Robert"
@@ -34,7 +150,7 @@ Then I verify first row with "TE ST 3000" has Brand name "Mercedes" and...passed
 Then verify vehicle status is not "Idle"..................................passed
 Then verify driver names are correctly visible in the first row:..........failed]]></system-out>
   </testcase>
-  <testcase classname="Vehicles Module functionality" name="chromium › Vehicles Module functionality › 042_ verify if driver is assigned to a vehicle, then delete button in vehicle details is not functional" time="26.537000000000006">
+  <testcase classname="Vehicles Module functionality" name="chromium › Vehicles Module functionality › 042_ verify if driver is assigned to a vehicle, then delete button in vehicle details is not functional" time="27.433000000000003">
     <system-out><![CDATA[Given Navigate to Dashboard with "english" language.......................passed
 Then verify that dashboard page tab name contains QUGEM...................passed
 When click to Vehicles module.............................................passed
@@ -55,5 +171,25 @@ Then I verify first row with "TE ST 3000" has Brand name "Mercedes" and...passed
 Then verify vehicle status is not "Idle"..................................passed
 Then click details button in Vehicle List page............................passed
 Then verify delete button is visible but not functional because vehicle...passed]]></system-out>
+  </testcase>
+  <testcase classname="Vehicles Module functionality" name="chromium › Vehicles Module functionality › 043_User cannot add again a vehicle with the same plate" time="16.401">
+    <system-out><![CDATA[Given Navigate to Dashboard with "english" language.......................passed
+Then verify that dashboard page tab name contains QUGEM...................passed
+When click to Vehicles module.............................................passed
+Then delete if a vehicle is added for test purpose ,Vehicle plate is "T...passed
+Then click add vehicle button.............................................passed
+Then fill in the input boxes of "DOUB LE 3000" , "Mercedes" , "A3","LKW...passed
+When click save changes in vehicles edit page.............................passed
+Then verify "Existiert Bereits" warns with the Plate of the vehicle is ...passed]]></system-out>
+  </testcase>
+  <testcase classname="Vehicles Module functionality" name="chromium › Vehicles Module functionality › 043_User cannot add again a vehicle with the same plate [1]" time="12.63">
+    <system-out><![CDATA[Given Navigate to Dashboard with "english" language.......................passed
+Then verify that dashboard page tab name contains QUGEM...................passed
+When click to Vehicles module.............................................passed
+Then delete if a vehicle is added for test purpose ,Vehicle plate is "T...passed
+Then click add vehicle button.............................................passed
+Then fill in the input boxes of "DOUB LE 3000" , "Toyota" , "Camry","LK...passed
+When click save changes in vehicles edit page.............................passed
+Then verify "Existiert Bereits" warns with the Plate of the vehicle is ...passed]]></system-out>
   </testcase>
 </testsuite>
