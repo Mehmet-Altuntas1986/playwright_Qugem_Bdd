@@ -1,4 +1,4 @@
-  @only  #@mode:serial
+#@mode:serial
 Feature: Vehicles Module functionality
 
     Background:Before each test, delete the vehicle added for test purpose and make all tests independent to each other
@@ -199,6 +199,8 @@ Feature: Vehicles Module functionality
             | Alert             | Plate        | Brand    | Model | type | Year_of_construction | Year_of_the_purchase | current_kilometer | purchase_price |
             | Existiert Bereits | DOUB LE 3000 | Mercedes | A3    | LKW  | 2012                 | 2015                 | 50000             | 10000          |
             | Existiert Bereits | DOUB LE 3000 | Toyota   | Camry | LKW  | 2013                 | 2015                 | 50000             | 10000          |
+
+
 
 
 

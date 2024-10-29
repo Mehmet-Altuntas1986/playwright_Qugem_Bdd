@@ -1,7 +1,6 @@
 
-
 Feature:Employee Master Data Module functionality
-   
+
     Background: Navigation to the Employee Master Data module and the removal of employees with the surname 'tester' or 'developer' were added for testing purposes.
         Given Navigate to Dashboard with "english" language
         Then verify that dashboard page tab name contains QUGEM
@@ -71,7 +70,7 @@ Feature:Employee Master Data Module functionality
             | Ersan     | tester   | 4321   | 12324  | 3000       |
 
 
-    @timeout:90000 
+    @timeout:90000
     Scenario Outline:020_Adding one personal with acceptable data and verifying employee saved and employee data is seen in employee master data page
 
         When I click the employee add button
@@ -110,10 +109,10 @@ Feature:Employee Master Data Module functionality
 
         Examples:
 
-            | firstName | LastName     | Emp_Id | tax_id | grosSalary |
-            | Mehmet    | tester       | 200    | 12323  | 3000       |
-            | Ersan     | tester       | 201    | 12324  | 3000       |
-           
+            | firstName | LastName | Emp_Id | tax_id | grosSalary |
+            | Mehmet    | tester   | 200    | 12323  | 3000       |
+            | Ersan     | tester   | 201    | 12324  | 3000       |
+
 
     Scenario Outline:021_verify we cannot add an Employee with a used employee id
 
@@ -183,7 +182,7 @@ Feature:Employee Master Data Module functionality
 
 
     Scenario Outline:023_ As a user, if I click Lines per page "<number_chosen>", the number of rows in the employee table should reflect the correct count.
-        
+
         When I check if Lines per page select button is functional and visible
         Then I click "<number_chosen>" employee choose in Lines Per Page
         Then I verify the number of rows in employee table is not more than the "<number_chosen>"
@@ -198,8 +197,8 @@ Feature:Employee Master Data Module functionality
             | 25            |
             | 50            |
 
-    
-    @timeout:90000 
+
+    @timeout:90000
     Scenario Outline:024_ Add an employee with name contains numbers
         When I click the employee add button
         Then I click active check button
@@ -281,7 +280,7 @@ Feature:Employee Master Data Module functionality
 
 
     Scenario Outline:029_verify Tax_id field cannot be more than 11 characters long and only accepts numeric value
-    
+
         When I click the employee add button
         Then I fill tax_id input box with :"<values>"
         Then I click save changes
@@ -292,7 +291,25 @@ Feature:Employee Master Data Module functionality
             | 123456789123456789123456789 | Cannot be more than 11 characters long |
             | 1234abcd                    | Cast to Number failed for value        |
 
+    @only
+    Scenario Outline:044_Verify employee information Table headers are visible
+        Then click module button: "employee_master_data_btn"
+        Then I verify url is "https://qugem-staging.netlify.app/employee"
+        Then verify employee information table "<Headers>" are visible
 
+        Examples:
+            | Headers         |
+            | No              |
+            | First Name      |
+            | Last Name       |
+            | Client          |
+            | Company         |
+            | Entry Date      |
+            | Role            |
+            | Dispatcher      |
+            | Wage type       |
+            | Current Vehicle |
+            | Status          |
 
 
 
