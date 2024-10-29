@@ -34,9 +34,10 @@ export class EmployeeMasterDataPage extends BasePage {
     this.firstRow_secondColumn_firstName = this.page.locator('//tbody/tr[1]/td[2]')
     // & table first row third column value --last name
     this.firstRow_secondColumn_lastname = this.page.locator('//tbody/tr[1]/td[3]')
+    //table headers
+    this.table_headers = this.page.locator(`//th//strong`) //11 elements
 
-
-    this.max_musterman = "//span[normalize-space()='Max Mustermann']"
+      this.max_musterman = "//span[normalize-space()='Max Mustermann']"
     this.sign_out = "//li[normalize-space()='Sign out']"
     this.languages_btn = "//img[@alt='Flag']"
     this.german = "//li[normalize-space()='Deutsch']"
@@ -71,9 +72,9 @@ export class EmployeeMasterDataPage extends BasePage {
     this.current_vehicle = this.page.getByRole('button', { name: 'Current Vehicle' })
     this.status = this.page.getByRole('button', { name: 'Status' })
     this.lines_per_page = this.page.getByText('Lines per page:')
-    this.page_employee_number_10=this.page.locator("//li[normalize-space()='10']")
-    this.page_employee_number_25=this.page.locator("//li[normalize-space()='25']")
-    this.page_employee_number_50=this.page.locator("//li[normalize-space()='50']")
+    this.page_employee_number_10 = this.page.locator("//li[normalize-space()='10']")
+    this.page_employee_number_25 = this.page.locator("//li[normalize-space()='25']")
+    this.page_employee_number_50 = this.page.locator("//li[normalize-space()='50']")
     this.page_rows = this.page.locator('//tbody//tr');
 
     this.nextpage_arrow = this.page.getByLabel('Next page')
@@ -191,9 +192,9 @@ export class EmployeeMasterDataPage extends BasePage {
       // Clear the existing filter and apply the new one
       await this.last_name_filter.fill(''); // Clear existing filter
       await this.last_name_filter.fill(filterText); // Apply new filter
-    
+
       await this.page.waitForTimeout(3000) //bu codu burda cikarirsan asagidaki count methodu otomatik bekler ve hata atar
-      
+
       // Check if the first row exists
       const firstRowExists = await this.page.locator('//tbody//tr[1]').count();  //countun 30 sn bekleyecekti eger koymasaydik
 

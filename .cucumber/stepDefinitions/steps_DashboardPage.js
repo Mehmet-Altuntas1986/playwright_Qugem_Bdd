@@ -266,7 +266,7 @@ Then('verify the URL should contain {string}', async ({ page }, expectedUrl) => 
 
 
 // 1. Missing step definition for ".cucumber/features/dashboard.feature:89:1"
-Then('click module {string}', async ({ page }, module) => {
+Then('click module button: {string}', async ({ page }, module) => {
   dashboard = new DashboardPage(page)
   await dashboard.clickModule(module)
 });

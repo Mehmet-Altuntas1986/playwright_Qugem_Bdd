@@ -4,89 +4,109 @@
     "elements": [
       {
         "description": "",
-        "id": "vehicles-module-functionality;034_adding-a-vehicle-and-verifying-alert-message-that-shows-the-vehicle-is-added",
+        "id": "employee-master-data-module-functionality;044_verify-employee-information-table-headers-are-visible",
         "keyword": "Scenario Outline",
-        "line": 20,
-        "name": "034_Adding a vehicle and verifying alert message that shows the vehicle is added",
+        "line": 302,
+        "name": "044_Verify employee information Table headers are visible",
         "steps": [
           {
             "arguments": [],
             "keyword": "Given ",
-            "line": 6,
+            "line": 5,
             "name": "Navigate to Dashboard with \"english\" language",
             "result": {
               "status": "passed",
-              "duration": 9879000000
+              "duration": 3781000000
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 7,
+            "line": 6,
             "name": "verify that dashboard page tab name contains QUGEM",
             "result": {
               "status": "passed",
-              "duration": 1012000000
+              "duration": 1010000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 7,
+            "name": "I click the Employee_Master_data module",
+            "result": {
+              "status": "passed",
+              "duration": 117000000
             }
           },
           {
             "arguments": [],
             "keyword": "When ",
             "line": 8,
-            "name": "click to Vehicles module",
+            "name": "I select \"GESAMT FIRMEN\" using the company selection button, and choose \"All\" using the client selection button\"",
             "result": {
               "status": "passed",
-              "duration": 587000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 9,
-            "name": "delete if a vehicle is added for test purpose ,Vehicle plate is \"TE ST 3000\"",
-            "result": {
-              "status": "passed",
-              "duration": 3565000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 13,
-            "name": "click add vehicle button",
-            "result": {
-              "status": "passed",
-              "duration": 90000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 14,
-            "name": "fill in the input boxes of \"TE ST 3000\" , \"Mercedes\" , \"A3\",\"LKW\",\"2012\" \"2015\" , \"100000\" and \"20000\"",
-            "result": {
-              "status": "passed",
-              "duration": 471000000
+              "duration": 931000000
             }
           },
           {
             "arguments": [],
             "keyword": "When ",
-            "line": 15,
-            "name": "click save changes in vehicles edit page",
+            "line": 9,
+            "name": "I delete if in any row, surname column text is tester or developer",
             "result": {
               "status": "passed",
-              "duration": 2265000000
+              "duration": 6131000000
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 16,
-            "name": "verify alert message text is \"Vehicle was added successfully..\"",
+            "line": 10,
+            "name": "verify if you write tester or developer in filter surname, row1 is invisible",
             "result": {
               "status": "passed",
-              "duration": 12000000
+              "duration": 63000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 11,
+            "name": "I delete all filter sections to start every test Scenario with a clear filter",
+            "result": {
+              "status": "passed",
+              "duration": 29000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 296,
+            "name": "click module button: \"employee_master_data_btn\"",
+            "result": {
+              "status": "passed",
+              "duration": 54000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 297,
+            "name": "I verify url is \"https://qugem-staging.netlify.app/employee\"",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 298,
+            "name": "verify employee information table \"No\" are visible",
+            "result": {
+              "status": "passed",
+              "duration": 145000000
             }
           },
           {
@@ -94,7 +114,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 277000000
+              "duration": 350000000
             }
           }
         ],
@@ -107,109 +127,109 @@
       },
       {
         "description": "",
-        "id": "vehicles-module-functionality;035_adding-a-vehicle-and-verifying-added-vehicle-data-is-seen-if-we-use-filters-and-the-data-is-seen-in-vehicle-list-page",
+        "id": "employee-master-data-module-functionality;044_verify-employee-information-table-headers-are-visible",
         "keyword": "Scenario Outline",
-        "line": 36,
-        "name": "035_Adding a vehicle and verifying added vehicle data is seen if we use filters and the data is seen in vehicle list page",
+        "line": 303,
+        "name": "044_Verify employee information Table headers are visible",
         "steps": [
           {
             "arguments": [],
             "keyword": "Given ",
-            "line": 6,
+            "line": 5,
             "name": "Navigate to Dashboard with \"english\" language",
             "result": {
               "status": "passed",
-              "duration": 4550000000
+              "duration": 3557000000
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 7,
+            "line": 6,
             "name": "verify that dashboard page tab name contains QUGEM",
             "result": {
               "status": "passed",
-              "duration": 1013000000
+              "duration": 1068000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 7,
+            "name": "I click the Employee_Master_data module",
+            "result": {
+              "status": "passed",
+              "duration": 120000000
             }
           },
           {
             "arguments": [],
             "keyword": "When ",
             "line": 8,
-            "name": "click to Vehicles module",
+            "name": "I select \"GESAMT FIRMEN\" using the company selection button, and choose \"All\" using the client selection button\"",
             "result": {
               "status": "passed",
-              "duration": 608000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 9,
-            "name": "delete if a vehicle is added for test purpose ,Vehicle plate is \"TE ST 3000\"",
-            "result": {
-              "status": "passed",
-              "duration": 5237000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 26,
-            "name": "click add vehicle button",
-            "result": {
-              "status": "passed",
-              "duration": 121000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 27,
-            "name": "fill in the input boxes of \"TE ST 3000\" , \"Mercedes\" , \"A3\",\"LKW\",\"2012\" \"2015\" , \"50000\" and \"10000\"",
-            "result": {
-              "status": "passed",
-              "duration": 505000000
+              "duration": 1138000000
             }
           },
           {
             "arguments": [],
             "keyword": "When ",
-            "line": 28,
-            "name": "click save changes in vehicles edit page",
+            "line": 9,
+            "name": "I delete if in any row, surname column text is tester or developer",
             "result": {
               "status": "passed",
-              "duration": 2182000000
+              "duration": 6139000000
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 29,
-            "name": "verify alert message text is \"Vehicle was added successfully..\"",
+            "line": 10,
+            "name": "verify if you write tester or developer in filter surname, row1 is invisible",
             "result": {
               "status": "passed",
-              "duration": 8000000
+              "duration": 57000000
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 30,
-            "name": "verify you are in Vehicle Details Page",
+            "line": 11,
+            "name": "I delete all filter sections to start every test Scenario with a clear filter",
             "result": {
               "status": "passed",
-              "duration": 16000000
+              "duration": 28000000
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 31,
-            "name": "verify the data is visible \"TE ST 3000\" , \"Mercedes\" , \"A3\",\"LKW\",\"2012\" \"2015\" , \"50000\" and \"10000\"",
+            "line": 296,
+            "name": "click module button: \"employee_master_data_btn\"",
             "result": {
               "status": "passed",
-              "duration": 42000000
+              "duration": 37000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 297,
+            "name": "I verify url is \"https://qugem-staging.netlify.app/employee\"",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 298,
+            "name": "verify employee information table \"First Name\" are visible",
+            "result": {
+              "status": "passed",
+              "duration": 143000000
             }
           },
           {
@@ -230,119 +250,109 @@
       },
       {
         "description": "",
-        "id": "vehicles-module-functionality;036_add-a-vehicle-,then-verify-its-data-comes-to-filter-table-correctly",
+        "id": "employee-master-data-module-functionality;044_verify-employee-information-table-headers-are-visible",
         "keyword": "Scenario Outline",
-        "line": 52,
-        "name": "036_add a vehicle ,then verify its data comes to filter table correctly",
+        "line": 304,
+        "name": "044_Verify employee information Table headers are visible",
         "steps": [
           {
             "arguments": [],
             "keyword": "Given ",
-            "line": 6,
+            "line": 5,
             "name": "Navigate to Dashboard with \"english\" language",
             "result": {
               "status": "passed",
-              "duration": 4438000000
+              "duration": 3432000000
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 7,
+            "line": 6,
             "name": "verify that dashboard page tab name contains QUGEM",
             "result": {
               "status": "passed",
-              "duration": 1015000000
+              "duration": 1011000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 7,
+            "name": "I click the Employee_Master_data module",
+            "result": {
+              "status": "passed",
+              "duration": 104000000
             }
           },
           {
             "arguments": [],
             "keyword": "When ",
             "line": 8,
-            "name": "click to Vehicles module",
+            "name": "I select \"GESAMT FIRMEN\" using the company selection button, and choose \"All\" using the client selection button\"",
             "result": {
               "status": "passed",
-              "duration": 604000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 9,
-            "name": "delete if a vehicle is added for test purpose ,Vehicle plate is \"TE ST 3000\"",
-            "result": {
-              "status": "passed",
-              "duration": 5391000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 42,
-            "name": "click add vehicle button",
-            "result": {
-              "status": "passed",
-              "duration": 79000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 43,
-            "name": "fill in the input boxes of \"TE ST 3000\" , \"Mercedes\" , \"A5\",\"Sprinter\",\"2015\" \"2016\" , \"100000\" and \"20000\"",
-            "result": {
-              "status": "passed",
-              "duration": 510000000
+              "duration": 905000000
             }
           },
           {
             "arguments": [],
             "keyword": "When ",
-            "line": 44,
-            "name": "click save changes in vehicles edit page",
+            "line": 9,
+            "name": "I delete if in any row, surname column text is tester or developer",
             "result": {
               "status": "passed",
-              "duration": 2296000000
+              "duration": 6187000000
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 45,
-            "name": "verify alert message text is \"Vehicle was added successfully..\"",
+            "line": 10,
+            "name": "verify if you write tester or developer in filter surname, row1 is invisible",
             "result": {
               "status": "passed",
-              "duration": 9000000
+              "duration": 65000000
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 46,
-            "name": "I navigate to vehicles Module \"https://qugem-staging.netlify.app/auto\"",
-            "result": {
-              "status": "passed",
-              "duration": 200000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 47,
-            "name": "I write in the filter \"TE ST 3000\"",
-            "result": {
-              "status": "passed",
-              "duration": 3052000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 48,
-            "name": "I verify \"TE ST 3000\" , \"Mercedes\" , \"A5\" and \"Sprinter\" of the vehicle is visible",
+            "line": 11,
+            "name": "I delete all filter sections to start every test Scenario with a clear filter",
             "result": {
               "status": "passed",
               "duration": 29000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 296,
+            "name": "click module button: \"employee_master_data_btn\"",
+            "result": {
+              "status": "passed",
+              "duration": 55000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 297,
+            "name": "I verify url is \"https://qugem-staging.netlify.app/employee\"",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 298,
+            "name": "verify employee information table \"Last Name\" are visible",
+            "result": {
+              "status": "passed",
+              "duration": 111000000
             }
           },
           {
@@ -350,7 +360,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 343000000
+              "duration": 251000000
             }
           }
         ],
@@ -363,25 +373,394 @@
       },
       {
         "description": "",
-        "id": "vehicles-module-functionality;037_verify-driver-is-empty-and-status-is-idle-if-you-did-not-assign-any-driver-to-the-vehicle",
+        "id": "employee-master-data-module-functionality;044_verify-employee-information-table-headers-are-visible",
         "keyword": "Scenario Outline",
-        "line": 68,
-        "name": "037_verify driver is empty and status is idle if you did not assign any driver to the Vehicle",
+        "line": 305,
+        "name": "044_Verify employee information Table headers are visible",
         "steps": [
           {
             "arguments": [],
             "keyword": "Given ",
-            "line": 6,
+            "line": 5,
             "name": "Navigate to Dashboard with \"english\" language",
             "result": {
               "status": "passed",
-              "duration": 4286000000
+              "duration": 3402000000
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
+            "line": 6,
+            "name": "verify that dashboard page tab name contains QUGEM",
+            "result": {
+              "status": "passed",
+              "duration": 1011000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
             "line": 7,
+            "name": "I click the Employee_Master_data module",
+            "result": {
+              "status": "passed",
+              "duration": 120000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 8,
+            "name": "I select \"GESAMT FIRMEN\" using the company selection button, and choose \"All\" using the client selection button\"",
+            "result": {
+              "status": "passed",
+              "duration": 854000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 9,
+            "name": "I delete if in any row, surname column text is tester or developer",
+            "result": {
+              "status": "passed",
+              "duration": 6158000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 10,
+            "name": "verify if you write tester or developer in filter surname, row1 is invisible",
+            "result": {
+              "status": "passed",
+              "duration": 66000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 11,
+            "name": "I delete all filter sections to start every test Scenario with a clear filter",
+            "result": {
+              "status": "passed",
+              "duration": 29000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 296,
+            "name": "click module button: \"employee_master_data_btn\"",
+            "result": {
+              "status": "passed",
+              "duration": 45000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 297,
+            "name": "I verify url is \"https://qugem-staging.netlify.app/employee\"",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 298,
+            "name": "verify employee information table \"Client\" are visible",
+            "result": {
+              "status": "passed",
+              "duration": 147000000
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 240000000
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@only"
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "employee-master-data-module-functionality;044_verify-employee-information-table-headers-are-visible",
+        "keyword": "Scenario Outline",
+        "line": 306,
+        "name": "044_Verify employee information Table headers are visible",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 5,
+            "name": "Navigate to Dashboard with \"english\" language",
+            "result": {
+              "status": "passed",
+              "duration": 3481000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 6,
+            "name": "verify that dashboard page tab name contains QUGEM",
+            "result": {
+              "status": "passed",
+              "duration": 1009000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 7,
+            "name": "I click the Employee_Master_data module",
+            "result": {
+              "status": "passed",
+              "duration": 107000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 8,
+            "name": "I select \"GESAMT FIRMEN\" using the company selection button, and choose \"All\" using the client selection button\"",
+            "result": {
+              "status": "passed",
+              "duration": 923000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 9,
+            "name": "I delete if in any row, surname column text is tester or developer",
+            "result": {
+              "status": "passed",
+              "duration": 6166000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 10,
+            "name": "verify if you write tester or developer in filter surname, row1 is invisible",
+            "result": {
+              "status": "passed",
+              "duration": 109000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 11,
+            "name": "I delete all filter sections to start every test Scenario with a clear filter",
+            "result": {
+              "status": "passed",
+              "duration": 63000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 296,
+            "name": "click module button: \"employee_master_data_btn\"",
+            "result": {
+              "status": "passed",
+              "duration": 49000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 297,
+            "name": "I verify url is \"https://qugem-staging.netlify.app/employee\"",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 298,
+            "name": "verify employee information table \"Company\" are visible",
+            "result": {
+              "status": "passed",
+              "duration": 466000000
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 247000000
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@only"
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "employee-master-data-module-functionality;044_verify-employee-information-table-headers-are-visible",
+        "keyword": "Scenario Outline",
+        "line": 307,
+        "name": "044_Verify employee information Table headers are visible",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 5,
+            "name": "Navigate to Dashboard with \"english\" language",
+            "result": {
+              "status": "passed",
+              "duration": 3329000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 6,
+            "name": "verify that dashboard page tab name contains QUGEM",
+            "result": {
+              "status": "passed",
+              "duration": 1011000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 7,
+            "name": "I click the Employee_Master_data module",
+            "result": {
+              "status": "passed",
+              "duration": 111000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 8,
+            "name": "I select \"GESAMT FIRMEN\" using the company selection button, and choose \"All\" using the client selection button\"",
+            "result": {
+              "status": "passed",
+              "duration": 499000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 9,
+            "name": "I delete if in any row, surname column text is tester or developer",
+            "result": {
+              "status": "passed",
+              "duration": 6142000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 10,
+            "name": "verify if you write tester or developer in filter surname, row1 is invisible",
+            "result": {
+              "status": "passed",
+              "duration": 81000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 11,
+            "name": "I delete all filter sections to start every test Scenario with a clear filter",
+            "result": {
+              "status": "passed",
+              "duration": 33000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 296,
+            "name": "click module button: \"employee_master_data_btn\"",
+            "result": {
+              "status": "passed",
+              "duration": 62000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 297,
+            "name": "I verify url is \"https://qugem-staging.netlify.app/employee\"",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 298,
+            "name": "verify employee information table \"Entry Date\" are visible",
+            "result": {
+              "status": "passed",
+              "duration": 126000000
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 219000000
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@only"
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "employee-master-data-module-functionality;044_verify-employee-information-table-headers-are-visible",
+        "keyword": "Scenario Outline",
+        "line": 308,
+        "name": "044_Verify employee information Table headers are visible",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 5,
+            "name": "Navigate to Dashboard with \"english\" language",
+            "result": {
+              "status": "passed",
+              "duration": 3602000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 6,
             "name": "verify that dashboard page tab name contains QUGEM",
             "result": {
               "status": "passed",
@@ -391,108 +770,81 @@
           {
             "arguments": [],
             "keyword": "When ",
-            "line": 8,
-            "name": "click to Vehicles module",
+            "line": 7,
+            "name": "I click the Employee_Master_data module",
             "result": {
               "status": "passed",
-              "duration": 615000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 9,
-            "name": "delete if a vehicle is added for test purpose ,Vehicle plate is \"TE ST 3000\"",
-            "result": {
-              "status": "passed",
-              "duration": 5223000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 56,
-            "name": "click add vehicle button",
-            "result": {
-              "status": "passed",
-              "duration": 79000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 57,
-            "name": "fill in the input boxes of \"TE ST 3000\" , \"Mercedes\" , \"A5\",\"Sprinter\",\"2015\" \"2016\" , \"100000\" and \"20000\"",
-            "result": {
-              "status": "passed",
-              "duration": 506000000
+              "duration": 121000000
             }
           },
           {
             "arguments": [],
             "keyword": "When ",
-            "line": 58,
-            "name": "click save changes in vehicles edit page",
+            "line": 8,
+            "name": "I select \"GESAMT FIRMEN\" using the company selection button, and choose \"All\" using the client selection button\"",
             "result": {
               "status": "passed",
-              "duration": 2263000000
+              "duration": 1107000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 9,
+            "name": "I delete if in any row, surname column text is tester or developer",
+            "result": {
+              "status": "passed",
+              "duration": 6151000000
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 59,
-            "name": "verify alert message text is \"Vehicle was added successfully..\"",
+            "line": 10,
+            "name": "verify if you write tester or developer in filter surname, row1 is invisible",
             "result": {
               "status": "passed",
-              "duration": 9000000
+              "duration": 74000000
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 60,
-            "name": "I navigate to vehicles Module \"https://qugem-staging.netlify.app/auto\"",
+            "line": 11,
+            "name": "I delete all filter sections to start every test Scenario with a clear filter",
             "result": {
               "status": "passed",
-              "duration": 244000000
+              "duration": 32000000
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 61,
-            "name": "I write in the filter \"TE ST 3000\"",
+            "line": 296,
+            "name": "click module button: \"employee_master_data_btn\"",
             "result": {
               "status": "passed",
-              "duration": 3049000000
+              "duration": 59000000
             }
           },
           {
-            "arguments": [
-              {
-                "rows": [
-                  {
-                    "cells": [
-                      "driver",
-                      "status"
-                    ]
-                  },
-                  {
-                    "cells": [
-                      "",
-                      "Idle"
-                    ]
-                  }
-                ]
-              }
-            ],
+            "arguments": [],
             "keyword": "Then ",
-            "line": 62,
-            "name": "I verify vehicle has no driver and the status of vehicle is idle in Vehicle List Page",
+            "line": 297,
+            "name": "I verify url is \"https://qugem-staging.netlify.app/employee\"",
             "result": {
               "status": "passed",
-              "duration": 21000000
+              "duration": 4000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 298,
+            "name": "verify employee information table \"Role\" are visible",
+            "result": {
+              "status": "passed",
+              "duration": 147000000
             }
           },
           {
@@ -500,7 +852,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 315000000
+              "duration": 264000000
             }
           }
         ],
@@ -513,25 +865,148 @@
       },
       {
         "description": "",
-        "id": "vehicles-module-functionality;038_verify-if-you-click-usage-button-after-adding-a-vehicle-,-you-see-plate,-name-of-vehicle-and-model-of-the-vehicle",
+        "id": "employee-master-data-module-functionality;044_verify-employee-information-table-headers-are-visible",
         "keyword": "Scenario Outline",
-        "line": 84,
-        "name": "038_verify if you click usage button after adding a vehicle , you see plate, name of vehicle and model of the vehicle",
+        "line": 309,
+        "name": "044_Verify employee information Table headers are visible",
         "steps": [
           {
             "arguments": [],
             "keyword": "Given ",
-            "line": 6,
+            "line": 5,
             "name": "Navigate to Dashboard with \"english\" language",
             "result": {
               "status": "passed",
-              "duration": 3667000000
+              "duration": 3446000000
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
+            "line": 6,
+            "name": "verify that dashboard page tab name contains QUGEM",
+            "result": {
+              "status": "passed",
+              "duration": 1011000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
             "line": 7,
+            "name": "I click the Employee_Master_data module",
+            "result": {
+              "status": "passed",
+              "duration": 139000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 8,
+            "name": "I select \"GESAMT FIRMEN\" using the company selection button, and choose \"All\" using the client selection button\"",
+            "result": {
+              "status": "passed",
+              "duration": 1041000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 9,
+            "name": "I delete if in any row, surname column text is tester or developer",
+            "result": {
+              "status": "passed",
+              "duration": 6149000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 10,
+            "name": "verify if you write tester or developer in filter surname, row1 is invisible",
+            "result": {
+              "status": "passed",
+              "duration": 127000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 11,
+            "name": "I delete all filter sections to start every test Scenario with a clear filter",
+            "result": {
+              "status": "passed",
+              "duration": 36000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 296,
+            "name": "click module button: \"employee_master_data_btn\"",
+            "result": {
+              "status": "passed",
+              "duration": 41000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 297,
+            "name": "I verify url is \"https://qugem-staging.netlify.app/employee\"",
+            "result": {
+              "status": "passed",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 298,
+            "name": "verify employee information table \"Dispatcher\" are visible",
+            "result": {
+              "status": "passed",
+              "duration": 120000000
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 256000000
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@only"
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "employee-master-data-module-functionality;044_verify-employee-information-table-headers-are-visible",
+        "keyword": "Scenario Outline",
+        "line": 310,
+        "name": "044_Verify employee information Table headers are visible",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 5,
+            "name": "Navigate to Dashboard with \"english\" language",
+            "result": {
+              "status": "passed",
+              "duration": 3719000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 6,
             "name": "verify that dashboard page tab name contains QUGEM",
             "result": {
               "status": "passed",
@@ -541,127 +1016,81 @@
           {
             "arguments": [],
             "keyword": "When ",
-            "line": 8,
-            "name": "click to Vehicles module",
+            "line": 7,
+            "name": "I click the Employee_Master_data module",
             "result": {
               "status": "passed",
-              "duration": 602000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 9,
-            "name": "delete if a vehicle is added for test purpose ,Vehicle plate is \"TE ST 3000\"",
-            "result": {
-              "status": "passed",
-              "duration": 5441000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 72,
-            "name": "click add vehicle button",
-            "result": {
-              "status": "passed",
-              "duration": 82000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 73,
-            "name": "fill in the input boxes of \"TE ST 3000\" , \"Mercedes\" , \"A5\",\"Sprinter\",\"2015\" \"2016\" , \"100000\" and \"20000\"",
-            "result": {
-              "status": "passed",
-              "duration": 452000000
+              "duration": 115000000
             }
           },
           {
             "arguments": [],
             "keyword": "When ",
-            "line": 74,
-            "name": "click save changes in vehicles edit page",
+            "line": 8,
+            "name": "I select \"GESAMT FIRMEN\" using the company selection button, and choose \"All\" using the client selection button\"",
             "result": {
               "status": "passed",
-              "duration": 2272000000
+              "duration": 1057000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 9,
+            "name": "I delete if in any row, surname column text is tester or developer",
+            "result": {
+              "status": "passed",
+              "duration": 6134000000
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 75,
-            "name": "verify alert message text is \"Vehicle was added successfully..\"",
+            "line": 10,
+            "name": "verify if you write tester or developer in filter surname, row1 is invisible",
             "result": {
               "status": "passed",
-              "duration": 10000000
+              "duration": 63000000
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 76,
-            "name": "I navigate to vehicles Module \"https://qugem-staging.netlify.app/auto\"",
+            "line": 11,
+            "name": "I delete all filter sections to start every test Scenario with a clear filter",
             "result": {
               "status": "passed",
-              "duration": 243000000
+              "duration": 30000000
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 77,
-            "name": "I write in the filter \"TE ST 3000\"",
+            "line": 296,
+            "name": "click module button: \"employee_master_data_btn\"",
             "result": {
               "status": "passed",
-              "duration": 3050000000
+              "duration": 54000000
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 78,
-            "name": "I click usage button",
+            "line": 297,
+            "name": "I verify url is \"https://qugem-staging.netlify.app/employee\"",
             "result": {
               "status": "passed",
-              "duration": 1589000000
+              "duration": 1000000
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 79,
-            "name": "I see the \"TE ST 3000\", \"Mercedes\", and \"A5\" of the vehicle before assigning a driver to the vehicle.",
+            "line": 298,
+            "name": "verify employee information table \"Wage type\" are visible",
             "result": {
               "status": "passed",
-              "duration": 19000000
-            }
-          },
-          {
-            "arguments": [
-              {
-                "rows": [
-                  {
-                    "cells": [
-                      "Nr",
-                      "Driver",
-                      "Start Date",
-                      "End Date",
-                      "Start Kilometer",
-                      "End Kilometer",
-                      "Distance"
-                    ]
-                  }
-                ]
-              }
-            ],
-            "keyword": "Then ",
-            "line": 80,
-            "name": "I verify there are header like below:",
-            "result": {
-              "status": "passed",
-              "duration": 27000000
+              "duration": 157000000
             }
           },
           {
@@ -669,7 +1098,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 340000000
+              "duration": 243000000
             }
           }
         ],
@@ -682,25 +1111,25 @@
       },
       {
         "description": "",
-        "id": "vehicles-module-functionality;039_verify-added-drivers-by-clicking-usage-button-and-filling-input-boxes",
+        "id": "employee-master-data-module-functionality;044_verify-employee-information-table-headers-are-visible",
         "keyword": "Scenario Outline",
-        "line": 105,
-        "name": "039_Verify added drivers by clicking usage button and filling input boxes",
+        "line": 311,
+        "name": "044_Verify employee information Table headers are visible",
         "steps": [
           {
             "arguments": [],
             "keyword": "Given ",
-            "line": 6,
+            "line": 5,
             "name": "Navigate to Dashboard with \"english\" language",
             "result": {
               "status": "passed",
-              "duration": 6339000000
+              "duration": 3682000000
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 7,
+            "line": 6,
             "name": "verify that dashboard page tab name contains QUGEM",
             "result": {
               "status": "passed",
@@ -710,379 +1139,81 @@
           {
             "arguments": [],
             "keyword": "When ",
-            "line": 8,
-            "name": "click to Vehicles module",
-            "result": {
-              "status": "passed",
-              "duration": 620000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 9,
-            "name": "delete if a vehicle is added for test purpose ,Vehicle plate is \"TE ST 3000\"",
-            "result": {
-              "status": "passed",
-              "duration": 5375000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 89,
-            "name": "click add vehicle button",
-            "result": {
-              "status": "passed",
-              "duration": 86000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 90,
-            "name": "fill in the input boxes of \"TE ST 3000\" , \"Mercedes\" , \"A5\",\"Sprinter\",\"2015\" \"2016\" , \"100000\" and \"20000\"",
-            "result": {
-              "status": "passed",
-              "duration": 458000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "When ",
-            "line": 91,
-            "name": "click save changes in vehicles edit page",
-            "result": {
-              "status": "passed",
-              "duration": 2251000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 92,
-            "name": "verify alert message text is \"Vehicle was added successfully..\"",
-            "result": {
-              "status": "passed",
-              "duration": 9000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 93,
-            "name": "I navigate to vehicles Module \"https://qugem-staging.netlify.app/auto\"",
-            "result": {
-              "status": "passed",
-              "duration": 238000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 94,
-            "name": "I write in the filter \"TE ST 3000\"",
-            "result": {
-              "status": "passed",
-              "duration": 3038000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 95,
-            "name": "I click usage button",
-            "result": {
-              "status": "passed",
-              "duration": 1562000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 96,
-            "name": "I see the \"TE ST 3000\", \"Mercedes\", and \"A5\" of the vehicle before assigning a driver to the vehicle.",
-            "result": {
-              "status": "passed",
-              "duration": 18000000
-            }
-          },
-          {
-            "arguments": [
-              {
-                "rows": [
-                  {
-                    "cells": [
-                      "Nr",
-                      "Driver",
-                      "Start Date",
-                      "End Date",
-                      "Start Kilometer",
-                      "End Kilometer",
-                      "Distance"
-                    ]
-                  }
-                ]
-              }
-            ],
-            "keyword": "Then ",
-            "line": 97,
-            "name": "I verify there are header like below:",
-            "result": {
-              "status": "passed",
-              "duration": 17000000
-            }
-          },
-          {
-            "arguments": [
-              {
-                "rows": [
-                  {
-                    "cells": [
-                      "driver1",
-                      "driver2",
-                      "Start_Date",
-                      "start_km"
-                    ]
-                  },
-                  {
-                    "cells": [
-                      "Robert Slomka",
-                      "Miroslav Kiisyov",
-                      "2024-12-18",
-                      "55000"
-                    ]
-                  }
-                ]
-              }
-            ],
-            "keyword": "Then ",
-            "line": 100,
-            "name": "I click add button and fill the input boxes with the data below:",
-            "result": {
-              "status": "failed",
-              "duration": 3795000000,
-              "error_message": "Error: locator.isVisible: Error: strict mode violation: getByText('Please select a driver') resolved to 3 elements:\n    1) <div>Please select a driver</div> aka locator('[id=\"\\\\31 \"]').getByText('Please select a driver')\n    2) <div>Please select a driver</div> aka locator('[id=\"\\\\32 \"]').getByText('Please select a driver')\n    3) <div>Please select a driver</div> aka locator('[id=\"\\\\33 \"]').getByText('Please select a driver')\n\nCall log:\n  -   checking visibility of getByText('Please select a driver')\n\n   at ../.cucumber/pages/VehiclesPage.js:253\n\n  251 |\n  252 |         try {\n> 253 |             if (await this.page.getByText('Please select a driver').isVisible()) {\n      |                                                                     ^\n  254 |                 throw new Error()\n  255 |             }\n  256 |"
-            }
-          },
-          {
-            "keyword": "After",
-            "hidden": true,
-            "result": {
-              "status": "passed",
-              "duration": 384000000
-            }
-          }
-        ],
-        "tags": [
-          {
-            "name": "@only"
-          }
-        ],
-        "type": "scenario"
-      },
-      {
-        "description": "",
-        "id": "vehicles-module-functionality;040_verify-vehicle-edit-in-vehicle-details-page-works-as-expected",
-        "keyword": "Scenario Outline",
-        "line": 128,
-        "name": "040_Verify vehicle edit in vehicle Details page works as expected",
-        "steps": [
-          {
-            "arguments": [],
-            "keyword": "Given ",
-            "line": 6,
-            "name": "Navigate to Dashboard with \"english\" language",
-            "result": {
-              "status": "passed",
-              "duration": 4516000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
             "line": 7,
-            "name": "verify that dashboard page tab name contains QUGEM",
+            "name": "I click the Employee_Master_data module",
             "result": {
               "status": "passed",
-              "duration": 1072000000
+              "duration": 153000000
             }
           },
           {
             "arguments": [],
             "keyword": "When ",
             "line": 8,
-            "name": "click to Vehicles module",
+            "name": "I select \"GESAMT FIRMEN\" using the company selection button, and choose \"All\" using the client selection button\"",
             "result": {
               "status": "passed",
-              "duration": 612000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 9,
-            "name": "delete if a vehicle is added for test purpose ,Vehicle plate is \"TE ST 3000\"",
-            "result": {
-              "status": "passed",
-              "duration": 5439000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 109,
-            "name": "click add vehicle button",
-            "result": {
-              "status": "passed",
-              "duration": 91000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 110,
-            "name": "fill in the input boxes of \"TE ST 3000\" , \"Mercedes\" , \"A3\",\"LKW\",\"2012\" \"2015\" , \"100000\" and \"20000\"",
-            "result": {
-              "status": "passed",
-              "duration": 467000000
+              "duration": 589000000
             }
           },
           {
             "arguments": [],
             "keyword": "When ",
-            "line": 111,
-            "name": "click save changes in vehicles edit page",
+            "line": 9,
+            "name": "I delete if in any row, surname column text is tester or developer",
             "result": {
               "status": "passed",
-              "duration": 2275000000
+              "duration": 6184000000
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 112,
-            "name": "verify alert message text is \"Vehicle was added successfully..\"",
+            "line": 10,
+            "name": "verify if you write tester or developer in filter surname, row1 is invisible",
             "result": {
               "status": "passed",
-              "duration": 9000000
+              "duration": 68000000
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 113,
-            "name": "verify the actual page url contains this part of the URL \"https://qugem-staging.netlify.app/auto/details/\"",
+            "line": 11,
+            "name": "I delete all filter sections to start every test Scenario with a clear filter",
             "result": {
               "status": "passed",
-              "duration": 2000000
+              "duration": 33000000
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 114,
-            "name": "click edit button in vehicle details page",
+            "line": 296,
+            "name": "click module button: \"employee_master_data_btn\"",
             "result": {
               "status": "passed",
-              "duration": 2079000000
+              "duration": 108000000
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 115,
-            "name": "change Brand to \"Toyota\"",
-            "result": {
-              "status": "passed",
-              "duration": 41000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 116,
-            "name": "change Model to \"X40\"",
-            "result": {
-              "status": "passed",
-              "duration": 32000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 117,
-            "name": "click save changes button in vehicle details page",
-            "result": {
-              "status": "passed",
-              "duration": 2040000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 118,
-            "name": "verify the actual page url contains this part of the URL \"https://qugem-staging.netlify.app/auto/details/\"",
+            "line": 297,
+            "name": "I verify url is \"https://qugem-staging.netlify.app/employee\"",
             "result": {
               "status": "passed",
               "duration": 1000000
             }
           },
           {
-            "arguments": [
-              {
-                "rows": [
-                  {
-                    "cells": [
-                      "Brand",
-                      "Model"
-                    ]
-                  },
-                  {
-                    "cells": [
-                      "Toyota",
-                      "X40"
-                    ]
-                  }
-                ]
-              }
-            ],
-            "keyword": "Then ",
-            "line": 119,
-            "name": "verify the changed row headers have values in vehicle details page like below:",
-            "result": {
-              "status": "passed",
-              "duration": 18000000
-            }
-          },
-          {
             "arguments": [],
             "keyword": "Then ",
-            "line": 122,
-            "name": "I navigate to vehicles Module \"https://qugem-staging.netlify.app/auto\"",
+            "line": 298,
+            "name": "verify employee information table \"Current Vehicle\" are visible",
             "result": {
               "status": "passed",
-              "duration": 745000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 123,
-            "name": "I write in the filter \"TE ST 3000\"",
-            "result": {
-              "status": "passed",
-              "duration": 3042000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 124,
-            "name": "I verify first row with \"TE ST 3000\" has Brand name \"Toyota\" and Model name \"X40\"",
-            "result": {
-              "status": "passed",
-              "duration": 16000000
+              "duration": 125000000
             }
           },
           {
@@ -1090,7 +1221,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 396000000
+              "duration": 237000000
             }
           }
         ],
@@ -1103,25 +1234,25 @@
       },
       {
         "description": "",
-        "id": "vehicles-module-functionality;041_-verify-we-cannot-add-drivers-if-they-are-not-found-in-employee-master-data",
+        "id": "employee-master-data-module-functionality;044_verify-employee-information-table-headers-are-visible",
         "keyword": "Scenario Outline",
-        "line": 157,
-        "name": "041_ verify we cannot add drivers if they are not found in employee master data",
+        "line": 312,
+        "name": "044_Verify employee information Table headers are visible",
         "steps": [
           {
             "arguments": [],
             "keyword": "Given ",
-            "line": 6,
+            "line": 5,
             "name": "Navigate to Dashboard with \"english\" language",
             "result": {
               "status": "passed",
-              "duration": 3683000000
+              "duration": 3767000000
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 7,
+            "line": 6,
             "name": "verify that dashboard page tab name contains QUGEM",
             "result": {
               "status": "passed",
@@ -1131,486 +1262,81 @@
           {
             "arguments": [],
             "keyword": "When ",
-            "line": 8,
-            "name": "click to Vehicles module",
-            "result": {
-              "status": "passed",
-              "duration": 593000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 9,
-            "name": "delete if a vehicle is added for test purpose ,Vehicle plate is \"TE ST 3000\"",
-            "result": {
-              "status": "passed",
-              "duration": 5265000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 131,
-            "name": "click add vehicle button",
-            "result": {
-              "status": "passed",
-              "duration": 78000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 132,
-            "name": "fill in the input boxes of \"TE ST 3000\" , \"Mercedes\" , \"A5\",\"Sprinter\",\"2015\" \"2016\" , \"100000\" and \"20000\"",
-            "result": {
-              "status": "passed",
-              "duration": 456000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "When ",
-            "line": 133,
-            "name": "click save changes in vehicles edit page",
-            "result": {
-              "status": "passed",
-              "duration": 2257000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 134,
-            "name": "verify alert message text is \"Vehicle was added successfully..\"",
-            "result": {
-              "status": "passed",
-              "duration": 10000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 135,
-            "name": "I navigate to vehicles Module \"https://qugem-staging.netlify.app/auto\"",
-            "result": {
-              "status": "passed",
-              "duration": 236000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 136,
-            "name": "I write in the filter \"TE ST 3000\"",
-            "result": {
-              "status": "passed",
-              "duration": 3036000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 137,
-            "name": "I click usage button",
-            "result": {
-              "status": "passed",
-              "duration": 1570000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 138,
-            "name": "I see the \"TE ST 3000\", \"Mercedes\", and \"A5\" of the vehicle before assigning a driver to the vehicle.",
-            "result": {
-              "status": "passed",
-              "duration": 14000000
-            }
-          },
-          {
-            "arguments": [
-              {
-                "rows": [
-                  {
-                    "cells": [
-                      "Nr",
-                      "Driver",
-                      "Start Date",
-                      "End Date",
-                      "Start Kilometer",
-                      "End Kilometer",
-                      "Distance"
-                    ]
-                  }
-                ]
-              }
-            ],
-            "keyword": "Then ",
-            "line": 139,
-            "name": "I verify there are header like below:",
-            "result": {
-              "status": "passed",
-              "duration": 17000000
-            }
-          },
-          {
-            "arguments": [
-              {
-                "rows": [
-                  {
-                    "cells": [
-                      "driver1",
-                      "driver2",
-                      "Start_Date",
-                      "start_km"
-                    ]
-                  },
-                  {
-                    "cells": [
-                      "Robert Robert",
-                      "Miroslav Miroslav",
-                      "2024-12-18",
-                      "55000"
-                    ]
-                  }
-                ]
-              }
-            ],
-            "keyword": "Then ",
-            "line": 142,
-            "name": "I click add button and fill the input boxes with the data below:",
-            "result": {
-              "status": "passed",
-              "duration": 3795000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 146,
-            "name": "verify the actual page url contains this part of the URL \"https://qugem-staging.netlify.app/auto\"",
-            "result": {
-              "status": "passed",
-              "duration": 1000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 147,
-            "name": "I write in the filter \"TE ST 3000\"",
-            "result": {
-              "status": "passed",
-              "duration": 3061000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 148,
-            "name": "I verify first row with \"TE ST 3000\" has Brand name \"Mercedes\" and Model name \"A5\"",
-            "result": {
-              "status": "passed",
-              "duration": 10000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 149,
-            "name": "verify vehicle status is not \"Idle\"",
-            "result": {
-              "status": "passed",
-              "duration": 9000000
-            }
-          },
-          {
-            "arguments": [
-              {
-                "rows": [
-                  {
-                    "cells": [
-                      "driver1",
-                      "driver2"
-                    ]
-                  },
-                  {
-                    "cells": [
-                      "Robert Robert",
-                      "Miroslav Miroslav"
-                    ]
-                  }
-                ]
-              }
-            ],
-            "keyword": "Then ",
-            "line": 150,
-            "name": "verify driver names are correctly visible in the first row:",
-            "result": {
-              "status": "failed",
-              "duration": 9000000,
-              "error_message": "Error: expect(received).toContain(expected) // indexOf\n\nExpected substring: \"Robert Robert\"\nReceived string:    \"TE ST 3000MercedesA5SprinterRobert Slomka , Miroslav KiisyovIn useUsageRepairDetail\"\n   at ../.cucumber/stepDefinitions/steps_VehiclesPage.js:247\n\n  245 |   const row = dataTable.hashes()[0]\n  246 |   const firstRowText = await page.locator(\"//tbody//tr[1]\").textContent()\n> 247 |   await expect(firstRowText).toContain(row.driver1)\n      |                              ^\n  248 |   await expect(firstRowText).toContain(row.driver2)\n  249 |\n  250 | });"
-            }
-          },
-          {
-            "keyword": "After",
-            "hidden": true,
-            "result": {
-              "status": "passed",
-              "duration": 461000000
-            }
-          }
-        ],
-        "tags": [
-          {
-            "name": "@only"
-          }
-        ],
-        "type": "scenario"
-      },
-      {
-        "description": "",
-        "id": "vehicles-module-functionality;042_-verify-if-driver-is-assigned-to-a-vehicle,-then-delete-button-in-vehicle-details-is-not-functional",
-        "keyword": "Scenario Outline",
-        "line": 187,
-        "name": "042_ verify if driver is assigned to a vehicle, then delete button in vehicle details is not functional",
-        "steps": [
-          {
-            "arguments": [],
-            "keyword": "Given ",
-            "line": 6,
-            "name": "Navigate to Dashboard with \"english\" language",
-            "result": {
-              "status": "passed",
-              "duration": 4189000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
             "line": 7,
-            "name": "verify that dashboard page tab name contains QUGEM",
+            "name": "I click the Employee_Master_data module",
             "result": {
               "status": "passed",
-              "duration": 1018000000
+              "duration": 123000000
             }
           },
           {
             "arguments": [],
             "keyword": "When ",
             "line": 8,
-            "name": "click to Vehicles module",
+            "name": "I select \"GESAMT FIRMEN\" using the company selection button, and choose \"All\" using the client selection button\"",
             "result": {
               "status": "passed",
-              "duration": 631000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 9,
-            "name": "delete if a vehicle is added for test purpose ,Vehicle plate is \"TE ST 3000\"",
-            "result": {
-              "status": "passed",
-              "duration": 6188000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 162,
-            "name": "click add vehicle button",
-            "result": {
-              "status": "passed",
-              "duration": 93000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 163,
-            "name": "fill in the input boxes of \"TE ST 3000\" , \"Mercedes\" , \"A5\",\"Sprinter\",\"2015\" \"2016\" , \"100000\" and \"20000\"",
-            "result": {
-              "status": "passed",
-              "duration": 455000000
+              "duration": 952000000
             }
           },
           {
             "arguments": [],
             "keyword": "When ",
-            "line": 164,
-            "name": "click save changes in vehicles edit page",
+            "line": 9,
+            "name": "I delete if in any row, surname column text is tester or developer",
             "result": {
               "status": "passed",
-              "duration": 2258000000
+              "duration": 6156000000
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 165,
-            "name": "verify alert message text is \"Vehicle was added successfully..\"",
+            "line": 10,
+            "name": "verify if you write tester or developer in filter surname, row1 is invisible",
             "result": {
               "status": "passed",
-              "duration": 12000000
+              "duration": 61000000
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 166,
-            "name": "I navigate to vehicles Module \"https://qugem-staging.netlify.app/auto\"",
+            "line": 11,
+            "name": "I delete all filter sections to start every test Scenario with a clear filter",
             "result": {
               "status": "passed",
-              "duration": 208000000
+              "duration": 29000000
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 167,
-            "name": "I write in the filter \"TE ST 3000\"",
+            "line": 296,
+            "name": "click module button: \"employee_master_data_btn\"",
             "result": {
               "status": "passed",
-              "duration": 3040000000
+              "duration": 43000000
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 168,
-            "name": "I click usage button",
+            "line": 297,
+            "name": "I verify url is \"https://qugem-staging.netlify.app/employee\"",
             "result": {
               "status": "passed",
-              "duration": 1585000000
+              "duration": 0
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 169,
-            "name": "I see the \"TE ST 3000\", \"Mercedes\", and \"A5\" of the vehicle before assigning a driver to the vehicle.",
+            "line": 298,
+            "name": "verify employee information table \"Status\" are visible",
             "result": {
               "status": "passed",
-              "duration": 20000000
-            }
-          },
-          {
-            "arguments": [
-              {
-                "rows": [
-                  {
-                    "cells": [
-                      "Nr",
-                      "Driver",
-                      "Start Date",
-                      "End Date",
-                      "Start Kilometer",
-                      "End Kilometer",
-                      "Distance"
-                    ]
-                  }
-                ]
-              }
-            ],
-            "keyword": "Then ",
-            "line": 170,
-            "name": "I verify there are header like below:",
-            "result": {
-              "status": "passed",
-              "duration": 23000000
-            }
-          },
-          {
-            "arguments": [
-              {
-                "rows": [
-                  {
-                    "cells": [
-                      "driver1",
-                      "driver2",
-                      "Start_Date",
-                      "start_km"
-                    ]
-                  },
-                  {
-                    "cells": [
-                      "Robert Robert",
-                      "Miroslav Miroslav",
-                      "2024-12-18",
-                      "55000"
-                    ]
-                  }
-                ]
-              }
-            ],
-            "keyword": "Then ",
-            "line": 173,
-            "name": "I click add button and fill the input boxes with the data below:",
-            "result": {
-              "status": "passed",
-              "duration": 3722000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 177,
-            "name": "verify the actual page url contains this part of the URL \"https://qugem-staging.netlify.app/auto\"",
-            "result": {
-              "status": "passed",
-              "duration": 1000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 178,
-            "name": "I write in the filter \"TE ST 3000\"",
-            "result": {
-              "status": "passed",
-              "duration": 3066000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 179,
-            "name": "I verify first row with \"TE ST 3000\" has Brand name \"Mercedes\" and Model name \"A5\"",
-            "result": {
-              "status": "passed",
-              "duration": 8000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 180,
-            "name": "verify vehicle status is not \"Idle\"",
-            "result": {
-              "status": "passed",
-              "duration": 8000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 181,
-            "name": "click details button in Vehicle List page",
-            "result": {
-              "status": "passed",
-              "duration": 80000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 182,
-            "name": "verify delete button is visible but not functional because vehicle driver was not deleted",
-            "result": {
-              "status": "passed",
-              "duration": 379000000
+              "duration": 110000000
             }
           },
           {
@@ -1618,213 +1344,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 449000000
-            }
-          }
-        ],
-        "tags": [
-          {
-            "name": "@only"
-          }
-        ],
-        "type": "scenario"
-      },
-      {
-        "description": "",
-        "id": "vehicles-module-functionality;043_user-cannot-add-again-a-vehicle-with-the-same-plate",
-        "keyword": "Scenario Outline",
-        "line": 200,
-        "name": "043_User cannot add again a vehicle with the same plate",
-        "steps": [
-          {
-            "arguments": [],
-            "keyword": "Given ",
-            "line": 6,
-            "name": "Navigate to Dashboard with \"english\" language",
-            "result": {
-              "status": "passed",
-              "duration": 5160000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 7,
-            "name": "verify that dashboard page tab name contains QUGEM",
-            "result": {
-              "status": "passed",
-              "duration": 1011000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "When ",
-            "line": 8,
-            "name": "click to Vehicles module",
-            "result": {
-              "status": "passed",
-              "duration": 627000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 9,
-            "name": "delete if a vehicle is added for test purpose ,Vehicle plate is \"TE ST 3000\"",
-            "result": {
-              "status": "passed",
-              "duration": 6465000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 193,
-            "name": "click add vehicle button",
-            "result": {
-              "status": "passed",
-              "duration": 79000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 194,
-            "name": "fill in the input boxes of \"DOUB LE 3000\" , \"Mercedes\" , \"A3\",\"LKW\",\"2012\" \"2015\" , \"50000\" and \"10000\"",
-            "result": {
-              "status": "passed",
-              "duration": 459000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "When ",
-            "line": 195,
-            "name": "click save changes in vehicles edit page",
-            "result": {
-              "status": "passed",
-              "duration": 2272000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 196,
-            "name": "verify \"Existiert Bereits\" warns with the Plate of the vehicle is added the system before",
-            "result": {
-              "status": "passed",
-              "duration": 11000000
-            }
-          },
-          {
-            "keyword": "After",
-            "hidden": true,
-            "result": {
-              "status": "passed",
-              "duration": 317000000
-            }
-          }
-        ],
-        "tags": [
-          {
-            "name": "@only"
-          }
-        ],
-        "type": "scenario"
-      },
-      {
-        "description": "",
-        "id": "vehicles-module-functionality;043_user-cannot-add-again-a-vehicle-with-the-same-plate",
-        "keyword": "Scenario Outline",
-        "line": 201,
-        "name": "043_User cannot add again a vehicle with the same plate",
-        "steps": [
-          {
-            "arguments": [],
-            "keyword": "Given ",
-            "line": 6,
-            "name": "Navigate to Dashboard with \"english\" language",
-            "result": {
-              "status": "passed",
-              "duration": 4329000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 7,
-            "name": "verify that dashboard page tab name contains QUGEM",
-            "result": {
-              "status": "passed",
-              "duration": 1071000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "When ",
-            "line": 8,
-            "name": "click to Vehicles module",
-            "result": {
-              "status": "passed",
-              "duration": 603000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 9,
-            "name": "delete if a vehicle is added for test purpose ,Vehicle plate is \"TE ST 3000\"",
-            "result": {
-              "status": "passed",
-              "duration": 3575000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 193,
-            "name": "click add vehicle button",
-            "result": {
-              "status": "passed",
-              "duration": 108000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 194,
-            "name": "fill in the input boxes of \"DOUB LE 3000\" , \"Toyota\" , \"Camry\",\"LKW\",\"2013\" \"2015\" , \"50000\" and \"10000\"",
-            "result": {
-              "status": "passed",
-              "duration": 438000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "When ",
-            "line": 195,
-            "name": "click save changes in vehicles edit page",
-            "result": {
-              "status": "passed",
-              "duration": 2246000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 196,
-            "name": "verify \"Existiert Bereits\" warns with the Plate of the vehicle is added the system before",
-            "result": {
-              "status": "passed",
-              "duration": 10000000
-            }
-          },
-          {
-            "keyword": "After",
-            "hidden": true,
-            "result": {
-              "status": "passed",
-              "duration": 250000000
+              "duration": 247000000
             }
           }
         ],
@@ -1836,16 +1356,11 @@
         "type": "scenario"
       }
     ],
-    "id": "chromium-›-vehicles-module-functionality",
+    "id": "chromium-›-employee-master-data-module-functionality",
     "line": 2,
     "keyword": "Feature",
-    "name": "Vehicles Module functionality",
-    "tags": [
-      {
-        "name": "@only",
-        "line": 1
-      }
-    ],
-    "uri": ".cucumber/features/vehicles.feature"
+    "name": "Employee Master Data Module functionality",
+    "tags": [],
+    "uri": ".cucumber/features/employee_master_data.feature"
   }
 ]
