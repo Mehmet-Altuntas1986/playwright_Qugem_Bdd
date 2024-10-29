@@ -86,4 +86,4 @@ Feature:Main Page Modules and their functionality
 
 
   Scenario:015_click module
-    Then click module "admin_btn"
+    Then click module button: "admin_btn"

@@ -1,59 +1,135 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite failures="1" skipped="0" name="my suite" time="53.20400000000001" tests="2">
-  <testcase classname="Vehicles Module functionality" name="chromium › Vehicles Module functionality › 041_ verify we cannot add drivers if they are not found in employee master data" time="26.667">
-    <failure type="Error" message="Error: expect(received).toContain(expected) // indexOf&#xA;&#xA;Expected substring: &quot;Robert Robert&quot;&#xA;Received string:    &quot;TE ST 3000MercedesA5SprinterRobert Slomka , Miroslav KiisyovIn useUsageRepairDetail&quot;&#xA;   at ../.cucumber/stepDefinitions/steps_VehiclesPage.js:247&#xA;&#xA;  245 |   const row = dataTable.hashes()[0]&#xA;  246 |   const firstRowText = await page.locator(&quot;//tbody//tr[1]&quot;).textContent()&#xA;> 247 |   await expect(firstRowText).toContain(row.driver1)&#xA;      |                              ^&#xA;  248 |   await expect(firstRowText).toContain(row.driver2)&#xA;  249 |&#xA;  250 | });"><![CDATA[Error: expect(received).toContain(expected) // indexOf
-
-Expected substring: "Robert Robert"
-Received string:    "TE ST 3000MercedesA5SprinterRobert Slomka , Miroslav KiisyovIn useUsageRepairDetail"
-   at ../.cucumber/stepDefinitions/steps_VehiclesPage.js:247
-
-  245 |   const row = dataTable.hashes()[0]
-  246 |   const firstRowText = await page.locator("//tbody//tr[1]").textContent()
-> 247 |   await expect(firstRowText).toContain(row.driver1)
-      |                              ^
-  248 |   await expect(firstRowText).toContain(row.driver2)
-  249 |
-  250 | });]]></failure>
+<testsuite failures="0" skipped="0" name="my suite" time="135.85999999999999" tests="11">
+  <testcase classname="Employee Master Data Module functionality" name="chromium › Employee Master Data Module functionality › 044_Verify employee information Table headers are visible" time="12.612">
     <system-out><![CDATA[Given Navigate to Dashboard with "english" language.......................passed
 Then verify that dashboard page tab name contains QUGEM...................passed
-When click to Vehicles module.............................................passed
-Then delete if a vehicle is added for test purpose ,Vehicle plate is "T...passed
-Then click add vehicle button.............................................passed
-Then fill in the input boxes of "TE ST 3000" , "Mercedes" , "A5","Sprin...passed
-When click save changes in vehicles edit page.............................passed
-Then verify alert message text is "Vehicle was added successfully.."......passed
-Then I navigate to vehicles Module "https://qugem-staging.netlify.app/a...passed
-Then I write in the filter "TE ST 3000"...................................passed
-Then I click usage button.................................................passed
-Then I see the "TE ST 3000", "Mercedes", and "A5" of the vehicle before...passed
-Then I verify there are header like below:................................passed
-Then I click add button and fill the input boxes with the data below:.....passed
-Then verify the actual page url contains this part of the URL "https://...passed
-Then I write in the filter "TE ST 3000"...................................passed
-Then I verify first row with "TE ST 3000" has Brand name "Mercedes" and...passed
-Then verify vehicle status is not "Idle"..................................passed
-Then verify driver names are correctly visible in the first row:..........failed]]></system-out>
+When I click the Employee_Master_data module..............................passed
+When I select "GESAMT FIRMEN" using the company selection button, and c...passed
+When I delete if in any row, surname column text is tester or developer...passed
+Then verify if you write tester or developer in filter surname, row1 is...passed
+Then I delete all filter sections to start every test Scenario with a c...passed
+Then click module button: "employee_master_data_btn"......................passed
+Then I verify url is "https://qugem-staging.netlify.app/employee".........passed
+Then verify employee information table "No" are visible...................passed]]></system-out>
   </testcase>
-  <testcase classname="Vehicles Module functionality" name="chromium › Vehicles Module functionality › 042_ verify if driver is assigned to a vehicle, then delete button in vehicle details is not functional" time="26.537000000000006">
+  <testcase classname="Employee Master Data Module functionality" name="chromium › Employee Master Data Module functionality › 044_Verify employee information Table headers are visible [1]" time="12.575000000000003">
     <system-out><![CDATA[Given Navigate to Dashboard with "english" language.......................passed
 Then verify that dashboard page tab name contains QUGEM...................passed
-When click to Vehicles module.............................................passed
-Then delete if a vehicle is added for test purpose ,Vehicle plate is "T...passed
-Then click add vehicle button.............................................passed
-Then fill in the input boxes of "TE ST 3000" , "Mercedes" , "A5","Sprin...passed
-When click save changes in vehicles edit page.............................passed
-Then verify alert message text is "Vehicle was added successfully.."......passed
-Then I navigate to vehicles Module "https://qugem-staging.netlify.app/a...passed
-Then I write in the filter "TE ST 3000"...................................passed
-Then I click usage button.................................................passed
-Then I see the "TE ST 3000", "Mercedes", and "A5" of the vehicle before...passed
-Then I verify there are header like below:................................passed
-Then I click add button and fill the input boxes with the data below:.....passed
-Then verify the actual page url contains this part of the URL "https://...passed
-Then I write in the filter "TE ST 3000"...................................passed
-Then I verify first row with "TE ST 3000" has Brand name "Mercedes" and...passed
-Then verify vehicle status is not "Idle"..................................passed
-Then click details button in Vehicle List page............................passed
-Then verify delete button is visible but not functional because vehicle...passed]]></system-out>
+When I click the Employee_Master_data module..............................passed
+When I select "GESAMT FIRMEN" using the company selection button, and c...passed
+When I delete if in any row, surname column text is tester or developer...passed
+Then verify if you write tester or developer in filter surname, row1 is...passed
+Then I delete all filter sections to start every test Scenario with a c...passed
+Then click module button: "employee_master_data_btn"......................passed
+Then I verify url is "https://qugem-staging.netlify.app/employee".........passed
+Then verify employee information table "First Name" are visible...........passed]]></system-out>
+  </testcase>
+  <testcase classname="Employee Master Data Module functionality" name="chromium › Employee Master Data Module functionality › 044_Verify employee information Table headers are visible [2]" time="12.150999999999998">
+    <system-out><![CDATA[Given Navigate to Dashboard with "english" language.......................passed
+Then verify that dashboard page tab name contains QUGEM...................passed
+When I click the Employee_Master_data module..............................passed
+When I select "GESAMT FIRMEN" using the company selection button, and c...passed
+When I delete if in any row, surname column text is tester or developer...passed
+Then verify if you write tester or developer in filter surname, row1 is...passed
+Then I delete all filter sections to start every test Scenario with a c...passed
+Then click module button: "employee_master_data_btn"......................passed
+Then I verify url is "https://qugem-staging.netlify.app/employee".........passed
+Then verify employee information table "Last Name" are visible............passed]]></system-out>
+  </testcase>
+  <testcase classname="Employee Master Data Module functionality" name="chromium › Employee Master Data Module functionality › 044_Verify employee information Table headers are visible [3]" time="12.073000000000002">
+    <system-out><![CDATA[Given Navigate to Dashboard with "english" language.......................passed
+Then verify that dashboard page tab name contains QUGEM...................passed
+When I click the Employee_Master_data module..............................passed
+When I select "GESAMT FIRMEN" using the company selection button, and c...passed
+When I delete if in any row, surname column text is tester or developer...passed
+Then verify if you write tester or developer in filter surname, row1 is...passed
+Then I delete all filter sections to start every test Scenario with a c...passed
+Then click module button: "employee_master_data_btn"......................passed
+Then I verify url is "https://qugem-staging.netlify.app/employee".........passed
+Then verify employee information table "Client" are visible...............passed]]></system-out>
+  </testcase>
+  <testcase classname="Employee Master Data Module functionality" name="chromium › Employee Master Data Module functionality › 044_Verify employee information Table headers are visible [4]" time="12.620999999999999">
+    <system-out><![CDATA[Given Navigate to Dashboard with "english" language.......................passed
+Then verify that dashboard page tab name contains QUGEM...................passed
+When I click the Employee_Master_data module..............................passed
+When I select "GESAMT FIRMEN" using the company selection button, and c...passed
+When I delete if in any row, surname column text is tester or developer...passed
+Then verify if you write tester or developer in filter surname, row1 is...passed
+Then I delete all filter sections to start every test Scenario with a c...passed
+Then click module button: "employee_master_data_btn"......................passed
+Then I verify url is "https://qugem-staging.netlify.app/employee".........passed
+Then verify employee information table "Company" are visible..............passed]]></system-out>
+  </testcase>
+  <testcase classname="Employee Master Data Module functionality" name="chromium › Employee Master Data Module functionality › 044_Verify employee information Table headers are visible [5]" time="11.613999999999995">
+    <system-out><![CDATA[Given Navigate to Dashboard with "english" language.......................passed
+Then verify that dashboard page tab name contains QUGEM...................passed
+When I click the Employee_Master_data module..............................passed
+When I select "GESAMT FIRMEN" using the company selection button, and c...passed
+When I delete if in any row, surname column text is tester or developer...passed
+Then verify if you write tester or developer in filter surname, row1 is...passed
+Then I delete all filter sections to start every test Scenario with a c...passed
+Then click module button: "employee_master_data_btn"......................passed
+Then I verify url is "https://qugem-staging.netlify.app/employee".........passed
+Then verify employee information table "Entry Date" are visible...........passed]]></system-out>
+  </testcase>
+  <testcase classname="Employee Master Data Module functionality" name="chromium › Employee Master Data Module functionality › 044_Verify employee information Table headers are visible [6]" time="12.570999999999998">
+    <system-out><![CDATA[Given Navigate to Dashboard with "english" language.......................passed
+Then verify that dashboard page tab name contains QUGEM...................passed
+When I click the Employee_Master_data module..............................passed
+When I select "GESAMT FIRMEN" using the company selection button, and c...passed
+When I delete if in any row, surname column text is tester or developer...passed
+Then verify if you write tester or developer in filter surname, row1 is...passed
+Then I delete all filter sections to start every test Scenario with a c...passed
+Then click module button: "employee_master_data_btn"......................passed
+Then I verify url is "https://qugem-staging.netlify.app/employee".........passed
+Then verify employee information table "Role" are visible.................passed]]></system-out>
+  </testcase>
+  <testcase classname="Employee Master Data Module functionality" name="chromium › Employee Master Data Module functionality › 044_Verify employee information Table headers are visible [7]" time="12.366000000000001">
+    <system-out><![CDATA[Given Navigate to Dashboard with "english" language.......................passed
+Then verify that dashboard page tab name contains QUGEM...................passed
+When I click the Employee_Master_data module..............................passed
+When I select "GESAMT FIRMEN" using the company selection button, and c...passed
+When I delete if in any row, surname column text is tester or developer...passed
+Then verify if you write tester or developer in filter surname, row1 is...passed
+Then I delete all filter sections to start every test Scenario with a c...passed
+Then click module button: "employee_master_data_btn"......................passed
+Then I verify url is "https://qugem-staging.netlify.app/employee".........passed
+Then verify employee information table "Dispatcher" are visible...........passed]]></system-out>
+  </testcase>
+  <testcase classname="Employee Master Data Module functionality" name="chromium › Employee Master Data Module functionality › 044_Verify employee information Table headers are visible [8]" time="12.586">
+    <system-out><![CDATA[Given Navigate to Dashboard with "english" language.......................passed
+Then verify that dashboard page tab name contains QUGEM...................passed
+When I click the Employee_Master_data module..............................passed
+When I select "GESAMT FIRMEN" using the company selection button, and c...passed
+When I delete if in any row, surname column text is tester or developer...passed
+Then verify if you write tester or developer in filter surname, row1 is...passed
+Then I delete all filter sections to start every test Scenario with a c...passed
+Then click module button: "employee_master_data_btn"......................passed
+Then I verify url is "https://qugem-staging.netlify.app/employee".........passed
+Then verify employee information table "Wage type" are visible............passed]]></system-out>
+  </testcase>
+  <testcase classname="Employee Master Data Module functionality" name="chromium › Employee Master Data Module functionality › 044_Verify employee information Table headers are visible [9]" time="12.190999999999999">
+    <system-out><![CDATA[Given Navigate to Dashboard with "english" language.......................passed
+Then verify that dashboard page tab name contains QUGEM...................passed
+When I click the Employee_Master_data module..............................passed
+When I select "GESAMT FIRMEN" using the company selection button, and c...passed
+When I delete if in any row, surname column text is tester or developer...passed
+Then verify if you write tester or developer in filter surname, row1 is...passed
+Then I delete all filter sections to start every test Scenario with a c...passed
+Then click module button: "employee_master_data_btn"......................passed
+Then I verify url is "https://qugem-staging.netlify.app/employee".........passed
+Then verify employee information table "Current Vehicle" are visible......passed]]></system-out>
+  </testcase>
+  <testcase classname="Employee Master Data Module functionality" name="chromium › Employee Master Data Module functionality › 044_Verify employee information Table headers are visible [10]" time="12.499999999999998">
+    <system-out><![CDATA[Given Navigate to Dashboard with "english" language.......................passed
+Then verify that dashboard page tab name contains QUGEM...................passed
+When I click the Employee_Master_data module..............................passed
+When I select "GESAMT FIRMEN" using the company selection button, and c...passed
+When I delete if in any row, surname column text is tester or developer...passed
+Then verify if you write tester or developer in filter surname, row1 is...passed
+Then I delete all filter sections to start every test Scenario with a c...passed
+Then click module button: "employee_master_data_btn"......................passed
+Then I verify url is "https://qugem-staging.netlify.app/employee".........passed
+Then verify employee information table "Status" are visible...............passed]]></system-out>
   </testcase>
 </testsuite>

@@ -1,6 +1,4 @@
-#this feature is flaky if we use parallel test 
-# @mode:serial
-  
+#@mode:serial
 Feature: Vehicles Module functionality
 
     Background:Before each test, delete the vehicle added for test purpose and make all tests independent to each other
@@ -129,7 +127,6 @@ Feature: Vehicles Module functionality
             | Plate      | Brand    | Model | type | Year_of_construction | Year_of_the_purchase | current_kilometer | purchase_price |
             | TE ST 3000 | Mercedes | A3    | LKW  | 2012                 | 2015                 | 100000            | 20000          |
 
-@only
     Scenario Outline: 041_ verify we cannot add drivers if they are not found in employee master data
         Then click add vehicle button
         Then fill in the input boxes of "<Plate>" , "<Brand>" , "<Model>","<type>","<Year_of_construction>" "<Year_of_the_purchase>" , "<current_kilometer>" and "<purchase_price>"
@@ -161,8 +158,7 @@ Feature: Vehicles Module functionality
 
 
 
-@only
- Scenario Outline: 042_ verify if driver is assigned to a vehicle, then delete button in vehicle details is not functional
+    Scenario Outline: 042_ verify if driver is assigned to a vehicle, then delete button in vehicle details is not functional
         Then click add vehicle button
         Then fill in the input boxes of "<Plate>" , "<Brand>" , "<Model>","<type>","<Year_of_construction>" "<Year_of_the_purchase>" , "<current_kilometer>" and "<purchase_price>"
         When click save changes in vehicles edit page
@@ -190,4 +186,22 @@ Feature: Vehicles Module functionality
             | Plate      | Brand    | Model | type     | Year_of_construction | Year_of_the_purchase | current_kilometer | purchase_price |
             | TE ST 3000 | Mercedes | A5    | Sprinter | 2015                 | 2016                 | 100000            | 20000          |
 
-#repair button ve islevleri test edilmeli
+
+      
+    Scenario Outline:043_User cannot add again a vehicle with the same plate
+
+        Then click add vehicle button
+        Then fill in the input boxes of "<Plate>" , "<Brand>" , "<Model>","<type>","<Year_of_construction>" "<Year_of_the_purchase>" , "<current_kilometer>" and "<purchase_price>"
+        When click save changes in vehicles edit page
+        Then verify "<Alert>" warns with the Plate of the vehicle is added the system before
+
+        Examples:
+            | Alert             | Plate        | Brand    | Model | type | Year_of_construction | Year_of_the_purchase | current_kilometer | purchase_price |
+            | Existiert Bereits | DOUB LE 3000 | Mercedes | A3    | LKW  | 2012                 | 2015                 | 50000             | 10000          |
+            | Existiert Bereits | DOUB LE 3000 | Toyota   | Camry | LKW  | 2013                 | 2015                 | 50000             | 10000          |
+
+
+
+
+
+#repair button ve islevlerini test etme
