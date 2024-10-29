@@ -263,3 +263,10 @@ Then('verify delete button is visible but not functional because vehicle driver 
 
 
 });
+
+Then('verify {string} warns with the Plate of the vehicle is added the system before', async ({page}, alertExpected) => {
+ 
+  const AlertActual=await vehicles.existiert_bereits_alert.textContent()
+  await expect(AlertActual).toBe(alertExpected)
+
+});

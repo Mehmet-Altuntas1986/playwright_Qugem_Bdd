@@ -157,7 +157,7 @@ export class VehiclesPage extends BasePage {
         // Clear the plate filter and enter the plate to search
         await this.filter_plate.fill("");  // Clear the previous filter
         await this.filter_plate.fill(plate);  // Set the new plate filter
-
+        await this.page.waitForTimeout(1500) //dont remove this from here
         const rows = this.page.locator("//tbody//tr");
         let rowCount = 0;
 
@@ -169,13 +169,17 @@ export class VehiclesPage extends BasePage {
         } catch (error) {
             console.log(`No rows appeared for plate: ${plate}`);
             rowCount = 0;  // Set rowCount to 0 if no rows appeared
+            return;  // Exit the function if no rows are found
+
         }
 
         if (rowCount === 1) {
             try {
-                const firstRowStatus = await this.page.locator('//tbody/tr[1]/td[6]').textContent();
-                await console.log("first row status is:", firstRowStatus);
-                
+                const firstRowStatusLocator = this.page.locator('//tbody/tr[1]/td[6]');
+                await firstRowStatusLocator.waitFor({ state: 'attached', timeout: 2000 }); // dont wait more than 2 second
+                const firstRowStatus = await firstRowStatusLocator.textContent();
+                console.log("first row status is:", firstRowStatus);
+
                 if (firstRowStatus === 'In use') {
                     await this.usage_btn_vehicleListPage.click();
                     await this.page.waitForTimeout(1000);
@@ -183,7 +187,7 @@ export class VehiclesPage extends BasePage {
                 } else {
                     console.log('Vehicle Usage status is : Idle');
                 }
-            
+
             } catch (error) {
                 console.error('An error occurred during vehicle usage deletion:', error);
             }
@@ -192,7 +196,7 @@ export class VehiclesPage extends BasePage {
             const detailButton = this.page.locator(`//tbody//tr//td[contains(text(),'${plate}')]/following-sibling::td//button[normalize-space()='Detail']`);
 
             // Wait for the button to be visible and double-click it
-            await detailButton.waitFor({ state: 'visible' });
+            await detailButton.waitFor({ state: 'visible', timeout: 2000 });
             await detailButton.click();
             await this.page.waitForTimeout(1000);
 
