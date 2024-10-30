@@ -601,3 +601,178 @@ for (const element of table_Headers_elements) {
 }
 
 ------------------------
+# Takım Çalışmasında Rebase Kullanımı İçin İdeal Zamanlar
+Feature Dalını Güncel Tutmak: Kendi dalınızı, ekibin main dalında yaptığı güncellemelerle uyumlu hale getirmek için rebase kullanabilirsiniz.
+Pull Request Öncesi Commit’leri Temizlemek: Çekme isteği (pull request) açmadan önce commit geçmişinizi düzenlemek ve gereksiz commit’leri birleştirmek için rebase yapabilirsiniz.
+Çatışmaları Önceden Çözmek: Güncel main dalına göre rebase yaparak, dalınızı son haliyle uyumlu hale getirir ve çatışmaları önceden çözmüş olursunuz.
+
+Senaryo: Takım Çalışmasında Rebase Kullanımı
+Diyelim ki projede main dalı var ve siz de kendi özelliğiniz üzerinde çalışmak için feature-x adında bir dal açtınız. Çalışma sürecinde ekip arkadaşlarınız main dalına yeni commit'ler ekledi, ancak siz bu güncellemeleri almadan çalışmanıza devam ettiniz. İşte rebase kullanarak nasıl güncel hale gelebileceğinizi görelim.
+
+1. Başlangıç Durumu: Main Dalından Ayrılma
+Başlangıçta, main dalında birkaç commit var. main dalı C commit’ine kadar ilerlemiş durumda. Siz de bu noktada kendi dalınızı feature-x adıyla oluşturdunuz ve kendi değişikliklerinizi eklemeye başladınız.
+
+Başlangıç Durumu:
+
+mathematica
+Copy code
+main:       A---B---C
+                \
+feature-x:        D---E
+A, B, C: Ekip arkadaşlarınızın main dalında yaptığı commit'ler.
+D, E: Kendi feature-x dalınızda yaptığınız commit'ler.
+
+2. Main Dalında Yeni Değişiklikler
+Siz feature-x dalında çalışırken ekip arkadaşlarınız main dalında bazı güncellemeler yaptı ve yeni commit'ler eklendi. Şu anda main dalı F commit’ine kadar ilerlemiş durumda.
+
+Main Dalında Yeni Commit’ler:
+
+mathematica
+Copy code
+main:       A---B---C---F---G
+                \
+feature-x:        D---E
+F ve G commit’leri main dalında sonradan yapılmış yeni güncellemeleri temsil ediyor. Siz bu güncellemeleri kendi dalınıza almak için rebase işlemi yapabilirsiniz.
+3. Feature Dalında Rebase İşlemi Yapmak
+Kendi dalınızda git rebase main komutunu çalıştırarak, feature-x dalını güncel main dalı üzerine taşıyabilirsiniz. Bu, dalınızdaki değişiklikleri (D ve E commit’leri) main dalındaki son güncellemelerin arkasına taşır.
+
+Rebase Komutu:
+
+git checkout feature-x
+git rebase main
+
+Bu işlemden sonra dalınız şu şekilde görünür:
+
+Rebase Sonrası:
+
+main:       A---B---C---F---G
+                            \
+feature-x (rebased):         D'---E'
+D' ve E', feature-x dalındaki değişikliklerinizin yeniden yazılmış halleridir. Böylece, commit’leriniz artık en güncel main dalının üzerine sıralanmış olur.
+Rebase ve Çatışma (Conflict) Çözme
+Eğer main dalındaki commit'ler ile feature-x dalındaki commit'ler aynı dosya veya satırda değişiklik yapmışsa, rebase sırasında çatışmalar (conflict) ortaya çıkabilir. Bu durumda Git size hangi dosyalarda çatışma olduğunu bildirir, ve çatışmayı çözmeniz istenir:
+
+Çatışma Çözme: Çatışan dosyaları açın, gerekli düzenlemeleri yaparak hangi değişikliklerin korunacağına karar verin.
+
+Çatışmayı Onaylama ve Devam Etme:
+
+git add <çatışma-yaşanan-dosya>
+git rebase --continue
+Eğer daha fazla çatışma yoksa rebase işlemi devam eder ve güncellenmiş commit’lerinizi temiz bir şekilde yerleştirir.
+
+----------------------------
+
+# Git Revert Nedir?
+git revert, Git’te yapılan bir commit’i geri almak, yani commit’in etkisini iptal etmek için kullanılan bir komuttur. Ancak, revert komutu geri alınan commit’i doğrudan silmez; onun yerine orijinal commit’in etkisini tersine çeviren yeni bir commit oluşturur. Bu, takım çalışmasında güvenli bir şekilde geçmişteki hataları düzeltmek veya istenmeyen değişiklikleri geri almak için kullanılır.
+
+main:    A---B---C---D---E
+
+git revert <D'nin commit ID'si>
+
+
+main:    A---B---C---D---E---D'    sonuc ta diger commitler silinmedi D ye donduk cunku orda sistem iyi calisiyordu, ordan tekrar devam ettik
+
+Avantajları
+Geçmiş Korunur: Commit geçmişi değiştirilmez, tüm değişiklikler kaydedilir.
+Takım İçin Güvenli: Diğer geliştiricilerin çalışmalarını etkilemeden geri alma işlemi yapılır.
+
+
+# Git Revert ve Git Reset Arasındaki Fark
+Git Revert	                                                    Git Reset
+Geri alma işlemi için yeni bir commit oluşturur.	      Commit’i tamamen siler.
+Paylaşılan dallarda güvenle kullanılır.	                Paylaşılan dallarda önerilmez, çünkü commit geçmişini değiştirir.
+Geçmişteki bireysel commit'leri geri alabilir.	        Genellikle son commit'leri silmek için kullanılır.
+
+# Git Reset Nedir?
+git reset, bir Git deposundaki commit geçmişini değiştirmek için kullanılan bir komuttur. Bu komut, belirli bir commit'e geri dönmenizi sağlar ve o commit'ten sonraki commit'leri siler veya geri alır. git reset, genellikle çalışma dizinini veya index’i (staging area) temizlemek için kullanılır.
+
+Ne Zaman Kullanılmalı?
+1. Son Commit’i Geri Alma: Yanlış bir commit yaptıysanız ve bunu geri almak istiyorsanız.
+2. Staging Alanını Temizleme: Değişikliklerinizi staging alanından kaldırmak ve çalışma dizinini temizlemek için.
+3. Geçmişi Düzenleme: Commit geçmişini düzeltmek veya gereksiz commit'leri silmek için.
+
+
+1. Soft Reset (--soft)
+Kullanım: git reset --soft <commit_id>
+Etkisi:
+Geri dönülen commit'ten sonraki tüm commit'ler kaldırılır.
+Değişiklikler staging alanında kalır.
+
+2. Mixed Reset (Varsayılan)
+Kullanım: git reset <commit_id>
+Etkisi:
+Geri dönülen commit'ten sonraki tüm commit'ler kaldırılır.
+Değişiklikler çalışma dizininde kalır, staging alanı temizlenir.
+
+3. Hard Reset (--hard)
+Kullanım: git reset --hard <commit_id>
+Etkisi:
+Geri dönülen commit'ten sonraki tüm commit'ler kaldırılır.
+Tüm değişiklikler kaybolur (hem staging hem de çalışma dizininden).
+Özet Tablosu
+Reset Türü	Diğer Commit'lere Etkisi	Değişikliklerin Durumu
+Soft	Sonraki commit'ler kaldırılır	Değişiklikler staging alanında kalır
+Mixed	Sonraki commit'ler kaldırılır	Değişiklikler çalışma dizininde kalır
+Hard	Sonraki commit'ler kaldırılır	Tüm değişiklikler kaybolur
+
+
+------
+# git checkout HEAD son komite gecis yapar    
+# git checkout HEAD~1 son komitten bir onceki komit e gecis yapar     
+
+
+-------------------------------------------------
+1. Çalışma Dizininde Değişiklik Yapma
+**Durum: Şimdi main dalındasınız ve yeni bir özellik eklemek için bir dosyada değişiklik yapıyorsunuz. Örneğin, app.js dosyasını açtınız ve yeni bir fonksiyon eklediniz.
+
+Aşama: Çalışma Dizin (Working Directory)
+
+Ne Yapılıyor?: app.js dosyasında değişiklik yaptınız. Henüz bu değişiklikler kaydedilmedi.
+
+2. Değişiklikleri Staging Alanına Eklemek
+git add app.js
+Aşama: Staging Alanı (Staging Area)
+
+Ne Yapılıyor?: app.js dosyasındaki değişiklikler staging alanına eklendi. Bu aşamada, commit yapmaya hazır hale getirildi.
+
+3. Değişiklikleri Yerel Depoya Kaydetmek
+Komut: Değişikliklerinizi kaydetmek için commit yapıyorsunuz:
+
+git commit -m "Yeni özellik eklendi"
+Aşama: Yerel Depo (Local Repository)
+
+Ne Yapılıyor?: app.js dosyasındaki değişiklikler, yeni bir commit (E) olarak yerel depoya kaydedildi.
+
+4. Staging Alanında Değişikliklerin İptali
+Durum: Ancak, daha sonra yaptığınız değişiklikleri tekrar gözden geçirince, bazı hatalar olduğunu fark ettiniz. Staging alanındaki değişiklikleri geri almak istiyorsunuz.
+
+Komut: Staging alanındaki değişiklikleri iptal etmek için:
+
+git reset app.js
+Aşama: Staging Alanı
+Ne Yapılıyor?: app.js dosyası staging alanından çıkarıldı ve çalışma dizininde değişiklikler kalmaya devam etti.
+
+
+5. Çalışma Dizininde Değişiklikleri İptal Etme
+Durum: Hatalı değişikliklerin tamamen geri alınmasını istiyorsunuz.
+
+Komut: Çalışma dizinindeki değişiklikleri iptal etmek için:
+
+git checkout -- app.js
+Aşama: Çalışma Dizin
+Ne Yapılıyor?: app.js dosyası önceki durumuna geri döndü. Artık çalışma dizininde değişiklik yok.
+
+# Özet
+Çalışma Dizin: Dosyalar üzerinde değişiklik yaparız (örneğin, app.js dosyasını düzenlemek).
+Staging Alanı: Değişiklikleri commit için hazır hale getiririz (git add ile).
+Yerel Depo: Değişiklikleri kalıcı hale getiririz (git commit ile).
+İptal İşlemleri: Staging alanından ve çalışma dizininden değişiklikleri geri alabiliriz (git reset ve git checkout ile).
+Bu senaryo, Git’in çalışma alanları arasındaki geçişleri ve her bir aşamanın işlevini anlamanıza yardımcı olacaktır. Eğer daha fazla bilgi isterseniz, lütfen sormaktan çekinmeyin!
+
+
+----------------------------------------
+
+
+
+
+
