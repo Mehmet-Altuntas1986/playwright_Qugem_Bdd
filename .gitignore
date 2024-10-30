@@ -10,3 +10,5 @@ allure-results
 allure-report
 /e2e
 .cucumber-report/*
+tests
+tests-examples
