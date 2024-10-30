@@ -7,7 +7,7 @@ Feature:Testing Payroll module functionality
         When I click the Payroll module button
 
 
-    Scenario:030_verify month and year selects function as expected
+    Scenario:054 verify month and year selects function as expected
 
         When I click the month dropdown select btn
         Then all months are visible and clickable
@@ -15,10 +15,10 @@ Feature:Testing Payroll module functionality
         Then I verify years are visible and clickable
 
 
-    Scenario:031_Verify headers are visible
+    Scenario Outline:055-061 Verify headers are visible
 
         Then I verify table column "<headers>" are visible
-
+        Examples:
             | headers      |
             | Employee ID  |
             | First Name   |
@@ -30,18 +30,15 @@ Feature:Testing Payroll module functionality
 
 
     #dataTable usage  rows() ,row(), hashes() ,
-
-
-
-    Scenario:032_Verify that if an employee added in the employee master data , that data comes correctly to payroll module
+    Scenario:062 Verify that if an employee added in the employee master data , that data comes correctly to payroll module
         Then I navigate to "https://qugem-staging.netlify.app/salary"
         Then I added an employee with details below:   and verify they are samely came to payroll page
             | Name  | ID_Number | Company                 | Gross_Salary |
             | Kenan | 124       | QUICKLY TRANSPORTE GMBH | 4.000,00     |
 
 
-   
-    Scenario:033_Ensure employee is not visible in the system before their addition date
+
+    Scenario:063 Ensure employee is not visible in the system before their addition date
         Then I navigate to "https://qugem-staging.netlify.app/employee"
         Then I see employee details:
             | id  | name  | lastName     | entry_month | entry_year |
@@ -55,4 +52,14 @@ Feature:Testing Payroll module functionality
             | month     | year_chosen | id  |
             | September | 2024        | 124 |
 
+
+    Scenario:064 verify export to exel button is visible and functional
+        Then I verify url is "https://qugem-staging.netlify.app/salary"
+        Then verify export to exel button is visible and clickable
+@only
+    Scenario:065 verify visibility and functionality export button2 after clicking export to exel button
+        Then I verify url is "https://qugem-staging.netlify.app/salary"
+        Then verify export to exel button is visible and clickable
+        When I click Export to Exel button
+        Then verify Export to Exel2 button is visible and functional
 

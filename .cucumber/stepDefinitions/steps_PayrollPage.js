@@ -181,7 +181,7 @@ Then('I click {string} and {string} and search with employee {string}', async ({
 
   await payroll.filter_employee_id.fill(id)
   await page.waitForTimeout(1000)
-  
+
 
 
 });
@@ -206,3 +206,25 @@ Then('I verify employee is not seen in table if you choose a date before additio
   }
 
 })
+
+Then('verify export to exel button is visible and clickable', async ({ page }) => {
+  payroll = new PayrollPage(page)
+  const exelbtn = await payroll.export_to_Excel
+  await expect(exelbtn).toBeVisible()
+  await page.waitForTimeout(2500) //in 2 second button gets enabled
+  await expect(exelbtn).toBeEnabled()
+
+});
+
+
+When('I click Export to Exel button', async ({page}) => {
+  await payroll.export_to_Excel.click({state:'enabled'})
+});
+
+Then('verify Export to Exel2 button is visible and functional', async ({page}) => {
+  payroll = new PayrollPage(page)
+  const exelbtn2 = await payroll.export_to_Excel2
+  await expect(exelbtn2).toBeVisible()
+  await expect(exelbtn2).toBeEnabled()
+
+});

@@ -9,7 +9,7 @@ Feature: Vehicles Module functionality
         Then delete if a vehicle is added for test purpose ,Vehicle plate is "TE ST 3000"
 
 
-    Scenario Outline:034_Adding a vehicle and verifying alert message that shows the vehicle is added
+    Scenario Outline:064 Adding a vehicle and verifying alert message that shows the vehicle is added
         Then click add vehicle button
         Then fill in the input boxes of "<Plate>" , "<Brand>" , "<Model>","<type>","<Year_of_construction>" "<Year_of_the_purchase>" , "<current_kilometer>" and "<purchase_price>"
         When click save changes in vehicles edit page
@@ -21,7 +21,7 @@ Feature: Vehicles Module functionality
 
 
 
-    Scenario Outline:035_Adding a vehicle and verifying added vehicle data is seen if we use filters and the data is seen in vehicle list page
+    Scenario Outline:065 Adding a vehicle and verifying added vehicle data is seen if we use filters and the data is seen in vehicle list page
 
         Then click add vehicle button
         Then fill in the input boxes of "<Plate>" , "<Brand>" , "<Model>","<type>","<Year_of_construction>" "<Year_of_the_purchase>" , "<current_kilometer>" and "<purchase_price>"
@@ -38,7 +38,7 @@ Feature: Vehicles Module functionality
 
 
 
-    Scenario Outline: 036_add a vehicle ,then verify its data comes to filter table correctly
+    Scenario Outline:066 add a vehicle ,then verify its data comes to filter table correctly
         Then click add vehicle button
         Then fill in the input boxes of "<Plate>" , "<Brand>" , "<Model>","<type>","<Year_of_construction>" "<Year_of_the_purchase>" , "<current_kilometer>" and "<purchase_price>"
         When click save changes in vehicles edit page
@@ -52,7 +52,7 @@ Feature: Vehicles Module functionality
             | TE ST 3000 | Mercedes | A5    | Sprinter | 2015                 | 2016                 | 100000            | 20000          |
 
 
-    Scenario Outline:037_verify driver is empty and status is idle if you did not assign any driver to the Vehicle
+    Scenario Outline:067 verify driver is empty and status is idle if you did not assign any driver to the Vehicle
         Then click add vehicle button
         Then fill in the input boxes of "<Plate>" , "<Brand>" , "<Model>","<type>","<Year_of_construction>" "<Year_of_the_purchase>" , "<current_kilometer>" and "<purchase_price>"
         When click save changes in vehicles edit page
@@ -68,7 +68,7 @@ Feature: Vehicles Module functionality
             | TE ST 3000 | Mercedes | A5    | Sprinter | 2015                 | 2016                 | 100000            | 20000          |
 
 
-    Scenario Outline:038_verify if you click usage button after adding a vehicle , you see plate, name of vehicle and model of the vehicle
+    Scenario Outline:068 verify if you click usage button after adding a vehicle , you see plate, name of vehicle and model of the vehicle
         Then click add vehicle button
         Then fill in the input boxes of "<Plate>" , "<Brand>" , "<Model>","<type>","<Year_of_construction>" "<Year_of_the_purchase>" , "<current_kilometer>" and "<purchase_price>"
         When click save changes in vehicles edit page
@@ -85,7 +85,7 @@ Feature: Vehicles Module functionality
 
 
 
-    Scenario Outline: 039_Verify added drivers by clicking usage button and filling input boxes
+    Scenario Outline:069 Verify added drivers by clicking usage button and filling input boxes
         Then click add vehicle button
         Then fill in the input boxes of "<Plate>" , "<Brand>" , "<Model>","<type>","<Year_of_construction>" "<Year_of_the_purchase>" , "<current_kilometer>" and "<purchase_price>"
         When click save changes in vehicles edit page
@@ -105,7 +105,7 @@ Feature: Vehicles Module functionality
             | TE ST 3000 | Mercedes | A5    | Sprinter | 2015                 | 2016                 | 100000            | 20000          |
 
 
-    Scenario Outline: 040_Verify vehicle edit in vehicle Details page works as expected
+    Scenario Outline:070 Verify vehicle edit in vehicle Details page works as expected
         Then click add vehicle button
         Then fill in the input boxes of "<Plate>" , "<Brand>" , "<Model>","<type>","<Year_of_construction>" "<Year_of_the_purchase>" , "<current_kilometer>" and "<purchase_price>"
         When click save changes in vehicles edit page
@@ -127,7 +127,7 @@ Feature: Vehicles Module functionality
             | Plate      | Brand    | Model | type | Year_of_construction | Year_of_the_purchase | current_kilometer | purchase_price |
             | TE ST 3000 | Mercedes | A3    | LKW  | 2012                 | 2015                 | 100000            | 20000          |
 
-    Scenario Outline: 041_ verify we cannot add drivers if they are not found in employee master data
+    Scenario Outline:071 verify we cannot add drivers if they are not found in employee master data
         Then click add vehicle button
         Then fill in the input boxes of "<Plate>" , "<Brand>" , "<Model>","<type>","<Year_of_construction>" "<Year_of_the_purchase>" , "<current_kilometer>" and "<purchase_price>"
         When click save changes in vehicles edit page
@@ -158,7 +158,7 @@ Feature: Vehicles Module functionality
 
 
 
-    Scenario Outline: 042_ verify if driver is assigned to a vehicle, then delete button in vehicle details is not functional
+    Scenario Outline:072 verify if driver is assigned to a vehicle, then delete button in vehicle details is not functional
         Then click add vehicle button
         Then fill in the input boxes of "<Plate>" , "<Brand>" , "<Model>","<type>","<Year_of_construction>" "<Year_of_the_purchase>" , "<current_kilometer>" and "<purchase_price>"
         When click save changes in vehicles edit page
@@ -188,7 +188,7 @@ Feature: Vehicles Module functionality
 
 
       
-    Scenario Outline:043_User cannot add again a vehicle with the same plate
+    Scenario Outline:073-074 User cannot add again a vehicle with the same plate
 
         Then click add vehicle button
         Then fill in the input boxes of "<Plate>" , "<Brand>" , "<Model>","<type>","<Year_of_construction>" "<Year_of_the_purchase>" , "<current_kilometer>" and "<purchase_price>"
