@@ -56,5 +56,16 @@ export class PayrollPage extends BasePage {
         this.page_employee_number_50 = this.page.locator("//li[normalize-space()='50']");
         this.nextpage_arrow = this.page.getByLabel('Next page');
         this.previous_page_arrow = this.page.getByLabel('Previous page');
+        this.page_rows = this.page.locator('//tbody//tr');
+
+
+
+
+
+
+        
     }
+
+
+    
 }

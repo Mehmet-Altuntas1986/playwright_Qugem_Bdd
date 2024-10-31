@@ -37,7 +37,7 @@ export class EmployeeMasterDataPage extends BasePage {
     //table headers
     this.table_headers = this.page.locator(`//th//strong`) //11 elements
 
-      this.max_musterman = "//span[normalize-space()='Max Mustermann']"
+    this.max_musterman = "//span[normalize-space()='Max Mustermann']"
     this.sign_out = "//li[normalize-space()='Sign out']"
     this.languages_btn = "//img[@alt='Flag']"
     this.german = "//li[normalize-space()='Deutsch']"
@@ -71,6 +71,7 @@ export class EmployeeMasterDataPage extends BasePage {
     this.wage_type = this.page.getByRole('button', { name: 'Wage type' })
     this.current_vehicle = this.page.getByRole('button', { name: 'Current Vehicle' })
     this.status = this.page.getByRole('button', { name: 'Status' })
+    
     this.lines_per_page = this.page.getByText('Lines per page:')
     this.page_employee_number_10 = this.page.locator("//li[normalize-space()='10']")
     this.page_employee_number_25 = this.page.locator("//li[normalize-space()='25']")

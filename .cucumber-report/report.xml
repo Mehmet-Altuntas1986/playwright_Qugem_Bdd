@@ -1,12 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite failures="0" skipped="0" name="my suite" time="12.547" tests="1">
-  <testcase classname="Testing Payroll module functionality" name="chromium › Testing Payroll module functionality › 065 verify visibility and functionality export button2 after clicking export to exel button" time="12.547">
+<testsuite failures="0" skipped="0" name="my suite" time="39.116" tests="3">
+  <testcase classname="Testing Payroll module functionality" name="chromium › Testing Payroll module functionality › 070-072 verify click Lines per page &quot;&lt;number_chosen>&quot;, the number of rows in the employee table should reflect the correct count." time="12.261">
     <system-out><![CDATA[Given Navigate to Dashboard with "english" language.......................passed
 Then verify that dashboard page tab name contains QUGEM...................passed
 When I click the Payroll module button....................................passed
 Then I verify url is "https://qugem-staging.netlify.app/salary"...........passed
-Then verify export to exel button is visible and clickable................passed
-When I click Export to Exel button........................................passed
-Then verify Export to Exel2 button is visible and functional..............passed]]></system-out>
+When I verify if Lines per page select button is functional and visible...passed
+When click "10" in payroll page as Lines per page.........................passed
+And I verify the number of rows is not more than the "10" in payroll pa...passed
+And verify next page button is visible and clickable......................passed
+And click employee table next page button and verify number of rows are...passed
+And click previous page button is visible and clickable...................passed
+And click employee table previous page button , and verify number of ro...passed]]></system-out>
+  </testcase>
+  <testcase classname="Testing Payroll module functionality" name="chromium › Testing Payroll module functionality › 070-072 verify click Lines per page &quot;&lt;number_chosen>&quot;, the number of rows in the employee table should reflect the correct count. [1]" time="13.375">
+    <system-out><![CDATA[Given Navigate to Dashboard with "english" language.......................passed
+Then verify that dashboard page tab name contains QUGEM...................passed
+When I click the Payroll module button....................................passed
+Then I verify url is "https://qugem-staging.netlify.app/salary"...........passed
+When I verify if Lines per page select button is functional and visible...passed
+When click "25" in payroll page as Lines per page.........................passed
+And I verify the number of rows is not more than the "25" in payroll pa...passed
+And verify next page button is visible and clickable......................passed
+And click employee table next page button and verify number of rows are...passed
+And click previous page button is visible and clickable...................passed
+And click employee table previous page button , and verify number of ro...passed]]></system-out>
+  </testcase>
+  <testcase classname="Testing Payroll module functionality" name="chromium › Testing Payroll module functionality › 070-072 verify click Lines per page &quot;&lt;number_chosen>&quot;, the number of rows in the employee table should reflect the correct count. [2]" time="13.48">
+    <system-out><![CDATA[Given Navigate to Dashboard with "english" language.......................passed
+Then verify that dashboard page tab name contains QUGEM...................passed
+When I click the Payroll module button....................................passed
+Then I verify url is "https://qugem-staging.netlify.app/salary"...........passed
+When I verify if Lines per page select button is functional and visible...passed
+When click "50" in payroll page as Lines per page.........................passed
+And I verify the number of rows is not more than the "50" in payroll pa...passed
+And verify next page button is visible and clickable......................passed
+And click employee table next page button and verify number of rows are...passed
+And click previous page button is visible and clickable...................passed
+And click employee table previous page button , and verify number of ro...passed]]></system-out>
   </testcase>
 </testsuite>
