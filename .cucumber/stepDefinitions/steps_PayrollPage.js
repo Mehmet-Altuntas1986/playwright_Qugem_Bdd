@@ -211,20 +211,119 @@ Then('verify export to exel button is visible and clickable', async ({ page }) =
   payroll = new PayrollPage(page)
   const exelbtn = await payroll.export_to_Excel
   await expect(exelbtn).toBeVisible()
-  await page.waitForTimeout(2500) //in 2 second button gets enabled
+  await page.waitForSelector("(//span[@class='MuiButton-label'])[1]", { state: 'visible' })
+  await page.waitForTimeout(3000) //in 5 second button gets enabled
   await expect(exelbtn).toBeEnabled()
 
 });
 
 
-When('I click Export to Exel button', async ({page}) => {
-  await payroll.export_to_Excel.click({state:'enabled'})
+When('I click Export to Exel button', async ({ page }) => {
+  await payroll.export_to_Excel.click({ force: true, state: 'enabled' })
 });
 
-Then('verify Export to Exel2 button is visible and functional', async ({page}) => {
+Then('verify Export to Exel2 button is visible and functional', async ({ page }) => {
   payroll = new PayrollPage(page)
   const exelbtn2 = await payroll.export_to_Excel2
   await expect(exelbtn2).toBeVisible()
   await expect(exelbtn2).toBeEnabled()
 
+});
+
+Then('I click company selection svg button', async ({ page }) => {
+  payroll = new PayrollPage(page)
+  await payroll.select_export_company_svg_btn.click({ force: true, state: 'enabled', state: 'visible' })
+  await page.waitForTimeout(1000)
+
+});
+
+Then('I choose a {string} and verify it is visible and clickable', async ({ page }, company) => {
+  payroll = new PayrollPage(page)
+  const companyOption = page.locator(`//li[@role='option'][normalize-space()="${company}"]`);
+  await companyOption.waitFor({ state: 'visible' });
+  await expect(companyOption).toBeEnabled();
+  await console.log(company + ":is visible and clickable after click select button ")
+});
+
+
+
+Then('I click {string}', async ({ page }, company) => {
+  payroll = new PayrollPage(page)
+  await page.locator(`//li[@role='option'][.='${company}']`).click()
+
+});
+
+Then('I click ExportToExel2 button', async ({ page }) => {
+  await payroll.export_to_Excel2.click({ state:'enabled' })
+  await page.waitForTimeout(1000)
+
+});
+
+Then('I verify {string}', async ({ page }, alert) => {
+  payroll = new PayrollPage(page)
+
+  const actual_alert = await payroll.alert_after_export_click.textContent()
+  expect(actual_alert).toBe(alert)
+});
+
+When('I verify if Lines per page select button is functional and visible in payroll page', async ({page}) => {
+  await payroll.lines_per_page.waitFor(); // is a Playwright function that waits for the element to appear in the DOM before interacting with it
+  await expect(payroll.lines_per_page).toBeVisible();
+  await expect(payroll.lines_per_page).toBeEnabled();
+});
+
+
+When('click {string} in payroll page as Lines per page', async ({page}, number) => {
+  if (number === 10) {
+    await payroll.page_employee_number_10.click();
+    await page.waitForLoadState()
+    await page.waitForTimeout(1000)
+  } else if (number === 25) {
+    await payroll.page_employee_number_25.click();
+    await page.waitForLoadState()
+    await page.waitForTimeout(1000)
+
+  } else if (number === 50) {
+    await payroll.page_employee_number_50.click();
+    await page.waitForLoadState()
+    await page.waitForTimeout(1000)
+
+  }
+});
+
+
+
+Then('I verify the number of rows is not more than the {string} in payroll page', async ({page}, number_chosen) => {
+  const rowCount = await payroll.page_rows.count();
+  expect(rowCount).toBeLessThanOrEqual(parseInt(number_chosen));
+});
+
+Then('verify next page button is visible and clickable', async ({page}) => {
+  await payroll.nextpage_arrow.waitFor();  // Wait for the next page button to appear
+  await expect(payroll.nextpage_arrow).toBeVisible();  // Ensure the button is visible
+  await page.waitForTimeout(3000) //dont remove from here
+  await expect(payroll.nextpage_arrow).toBeEnabled();  // Ensure the button is clickable (enabled)
+});
+
+Then('click employee table next page button and verify number of rows are not more than {string}', async ({page}, number_chosen) => {
+    await payroll.nextpage_arrow.click();
+    await payroll.page_rows.waitFor();
+    const rowCount = await payroll.page_rows.count();
+    expect(rowCount).toBeLessThanOrEqual(parseInt(number_chosen));
+});
+
+Then('click previous page button is visible and clickable', async ({page}) => {
+  // Wait for the previous page button to appear
+  await payroll.previous_page_arrow.waitFor();
+  await expect(payroll.previous_page_arrow).toBeVisible();
+  await expect(payroll.previous_page_arrow).toBeEnabled();
+});
+
+Then('click employee table previous page button , and verify number of rows are not more than {string}', async ({page}, number_chosen) => {
+  await payroll.previous_page_arrow.click();
+  // Wait for the table to load the previous page
+  await payroll.page_rows.waitFor();
+  const rowCount = await payroll.page_rows.count();
+  // Verify the row count is not more than the chosen number
+  expect(rowCount).toBeLessThanOrEqual(parseInt(number_chosen));
 });

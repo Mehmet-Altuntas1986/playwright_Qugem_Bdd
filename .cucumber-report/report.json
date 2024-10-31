@@ -4,10 +4,10 @@
     "elements": [
       {
         "description": "",
-        "id": "testing-payroll-module-functionality;065-verify-visibility-and-functionality-export-button2-after-clicking-export-to-exel-button",
-        "keyword": "Scenario",
-        "line": 60,
-        "name": "065 verify visibility and functionality export button2 after clicking export to exel button",
+        "id": "testing-payroll-module-functionality;070-072-verify-click-lines-per-page-\"<number_chosen>\",-the-number-of-rows-in-the-employee-table-should-reflect-the-correct-count.",
+        "keyword": "Scenario Outline",
+        "line": 98,
+        "name": "070-072 verify click Lines per page \"<number_chosen>\", the number of rows in the employee table should reflect the correct count.",
         "steps": [
           {
             "arguments": [],
@@ -16,7 +16,7 @@
             "name": "Navigate to Dashboard with \"english\" language",
             "result": {
               "status": "passed",
-              "duration": 3625000000
+              "duration": 3753000000
             }
           },
           {
@@ -26,7 +26,7 @@
             "name": "verify that dashboard page tab name contains QUGEM",
             "result": {
               "status": "passed",
-              "duration": 1041000000
+              "duration": 1014000000
             }
           },
           {
@@ -36,47 +36,87 @@
             "name": "I click the Payroll module button",
             "result": {
               "status": "passed",
-              "duration": 101000000
+              "duration": 133000000
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 61,
+            "line": 86,
             "name": "I verify url is \"https://qugem-staging.netlify.app/salary\"",
             "result": {
               "status": "passed",
-              "duration": 3000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 62,
-            "name": "verify export to exel button is visible and clickable",
-            "result": {
-              "status": "passed",
-              "duration": 7461000000
+              "duration": 1000000
             }
           },
           {
             "arguments": [],
             "keyword": "When ",
-            "line": 63,
-            "name": "I click Export to Exel button",
+            "line": 88,
+            "name": "I verify if Lines per page select button is functional and visible in payroll page",
             "result": {
               "status": "passed",
-              "duration": 59000000
+              "duration": 23000000
             }
           },
           {
             "arguments": [],
-            "keyword": "Then ",
-            "line": 64,
-            "name": "verify Export to Exel2 button is visible and functional",
+            "keyword": "When ",
+            "line": 89,
+            "name": "click \"10\" in payroll page as Lines per page",
             "result": {
               "status": "passed",
-              "duration": 25000000
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 90,
+            "name": "I verify the number of rows is not more than the \"10\" in payroll page",
+            "result": {
+              "status": "passed",
+              "duration": 2000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 91,
+            "name": "verify next page button is visible and clickable",
+            "result": {
+              "status": "passed",
+              "duration": 6905000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 92,
+            "name": "click employee table next page button and verify number of rows are not more than \"10\"",
+            "result": {
+              "status": "passed",
+              "duration": 93000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 93,
+            "name": "click previous page button is visible and clickable",
+            "result": {
+              "status": "passed",
+              "duration": 13000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 94,
+            "name": "click employee table previous page button , and verify number of rows are not more than \"10\"",
+            "result": {
+              "status": "passed",
+              "duration": 76000000
             }
           },
           {
@@ -84,7 +124,273 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 232000000
+              "duration": 248000000
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@only"
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "testing-payroll-module-functionality;070-072-verify-click-lines-per-page-\"<number_chosen>\",-the-number-of-rows-in-the-employee-table-should-reflect-the-correct-count.",
+        "keyword": "Scenario Outline",
+        "line": 99,
+        "name": "070-072 verify click Lines per page \"<number_chosen>\", the number of rows in the employee table should reflect the correct count.",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 5,
+            "name": "Navigate to Dashboard with \"english\" language",
+            "result": {
+              "status": "passed",
+              "duration": 3945000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 6,
+            "name": "verify that dashboard page tab name contains QUGEM",
+            "result": {
+              "status": "passed",
+              "duration": 1013000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 7,
+            "name": "I click the Payroll module button",
+            "result": {
+              "status": "passed",
+              "duration": 107000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 86,
+            "name": "I verify url is \"https://qugem-staging.netlify.app/salary\"",
+            "result": {
+              "status": "passed",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 88,
+            "name": "I verify if Lines per page select button is functional and visible in payroll page",
+            "result": {
+              "status": "passed",
+              "duration": 19000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 89,
+            "name": "click \"25\" in payroll page as Lines per page",
+            "result": {
+              "status": "passed",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 90,
+            "name": "I verify the number of rows is not more than the \"25\" in payroll page",
+            "result": {
+              "status": "passed",
+              "duration": 2000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 91,
+            "name": "verify next page button is visible and clickable",
+            "result": {
+              "status": "passed",
+              "duration": 7920000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 92,
+            "name": "click employee table next page button and verify number of rows are not more than \"25\"",
+            "result": {
+              "status": "passed",
+              "duration": 69000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 93,
+            "name": "click previous page button is visible and clickable",
+            "result": {
+              "status": "passed",
+              "duration": 16000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 94,
+            "name": "click employee table previous page button , and verify number of rows are not more than \"25\"",
+            "result": {
+              "status": "passed",
+              "duration": 62000000
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 222000000
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@only"
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "testing-payroll-module-functionality;070-072-verify-click-lines-per-page-\"<number_chosen>\",-the-number-of-rows-in-the-employee-table-should-reflect-the-correct-count.",
+        "keyword": "Scenario Outline",
+        "line": 100,
+        "name": "070-072 verify click Lines per page \"<number_chosen>\", the number of rows in the employee table should reflect the correct count.",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 5,
+            "name": "Navigate to Dashboard with \"english\" language",
+            "result": {
+              "status": "passed",
+              "duration": 3943000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 6,
+            "name": "verify that dashboard page tab name contains QUGEM",
+            "result": {
+              "status": "passed",
+              "duration": 1062000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 7,
+            "name": "I click the Payroll module button",
+            "result": {
+              "status": "passed",
+              "duration": 135000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 86,
+            "name": "I verify url is \"https://qugem-staging.netlify.app/salary\"",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 88,
+            "name": "I verify if Lines per page select button is functional and visible in payroll page",
+            "result": {
+              "status": "passed",
+              "duration": 18000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 89,
+            "name": "click \"50\" in payroll page as Lines per page",
+            "result": {
+              "status": "passed",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 90,
+            "name": "I verify the number of rows is not more than the \"50\" in payroll page",
+            "result": {
+              "status": "passed",
+              "duration": 2000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 91,
+            "name": "verify next page button is visible and clickable",
+            "result": {
+              "status": "passed",
+              "duration": 7907000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 92,
+            "name": "click employee table next page button and verify number of rows are not more than \"50\"",
+            "result": {
+              "status": "passed",
+              "duration": 115000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 93,
+            "name": "click previous page button is visible and clickable",
+            "result": {
+              "status": "passed",
+              "duration": 15000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 94,
+            "name": "click employee table previous page button , and verify number of rows are not more than \"50\"",
+            "result": {
+              "status": "passed",
+              "duration": 63000000
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 219000000
             }
           }
         ],
