@@ -771,6 +771,8 @@ Bu senaryo, Git’in çalışma alanları arasındaki geçişleri ve her bir aş
 
 
 ----------------------------------------
+# bir elementin enable olmasini belirli sure icinde bekleme
+  await expect(anyButtonElement).toBeEnabled({timeout:5000});
 
 
 

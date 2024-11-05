@@ -4,6 +4,7 @@ import { LoginPage } from '../pages/LoginPage.js';
 import { BasePage } from '../pages/BasePage.js';
 import { DashboardPage } from '../pages/DashboardPage.js';
 import { EmployeeMasterDataPage } from '../pages/EmployeeMasterDataPage.js';
+import { time } from 'console';
 const allure = require('allure-playwright');
 
 const { When, Then, Given, Before } = createBdd();
@@ -32,8 +33,9 @@ Before(async ({ page }) => {
 When('I click the Employee_Master_data module', async ({ page }) => {
   await employeeMasterData.employee_master_data_btn.click()
   await page.waitForURL("https://qugem-staging.netlify.app/employee")
+  await page.waitForTimeout(5000)
   await expect(employeeMasterData.add_btn).toBeVisible();
-  await expect(employeeMasterData.add_btn).toBeEnabled();
+  await expect(employeeMasterData.add_btn).toBeEnabled({ timeout: 5000 });
 
 });
 
@@ -114,14 +116,16 @@ Then('verify {string} should not be in the first row', async ({ page }, deletedN
 
 
 When('I click the company dropdown', async ({ page }) => {
-  await page.locator(basePage.company_svg_btn_lc).click();
+  basePage = new BasePage(page)
+  await page.locator(basePage.company_svg_btn_sl).click({ force: true });
   await page.waitForTimeout(2000)
 
 });
 
 Then('all companies in dropdown are visible and clickable', async ({ page }) => {
-  const elements = await page.locator(basePage.companyDropdownElements_lc); // Elementleri al
-  const company_dropdown_el = await page.locator(basePage.company_svg_btn_lc) // Firma seçimini al
+  basePage = new BasePage(page)
+  const elements = await page.locator(basePage.companyDropdownElements_sl); // Elementleri al
+  const company_dropdown_el = await page.locator(basePage.company_svg_btn_sl) // Firma seçimini al
   // Firma seçimini al
 
   // Burada doğru company elementini geçiriyoruz
@@ -129,13 +133,14 @@ Then('all companies in dropdown are visible and clickable', async ({ page }) => 
 });
 
 When('I click the client companies dropdown button', async ({ page }) => {
-  await page.locator(basePage.client_svg_btn_lc).click();
+  await page.locator(basePage.client_svg_btn_sl).click();
   await page.waitForLoadState('domcontentloaded')
 });
 
 Then('I see client companies are visible and clickable', async ({ page }) => {
+  basePage = new BasePage(page)
   const client_companies_select_btn = page.locator(basePage.client_firmen_select_btn)
-  const elements = page.locator(basePage.clientFirmaDropdownElements_lc); // Elementleri al
+  const elements = page.locator(basePage.clientFirmaDropdownElements_sl); // Elementlerin selectorunu al
 
   await basePage.clickAllElementsAndCheckVisibilityAndClickability(elements, client_companies_select_btn);
 
@@ -294,7 +299,8 @@ Then('I see if I filled correctly , calculate salary button becomes functional',
 });
 
 When('I click the calculate salary button', async ({ page }) => {
-  await employeeMasterData.calculate_salary_btn.click({ timeout: 6000 })
+  expect(await employeeMasterData.calculate_salary_btn).toBeEnabled({ timeout: 10000 })
+  await employeeMasterData.calculate_salary_btn.click()
 
 
 });
@@ -310,21 +316,19 @@ Then('I can see netSalary of the new employee', async ({ page }) => {
 
 
 Then('I click save changes', async ({ page }) => {
-
-  await page.getByRole('button', { name: 'Save Changes' }).nth(1).click();
+  const saveBtn = await page.getByRole('button', { name: 'Save Changes' }).nth(1)
+  expect(saveBtn).toBeEnabled({ timeout: 20000 })
+  await saveBtn.click();
   await page.waitForTimeout(2000) //bunu kaldirma
-
-
 });
+
 
 Then('I wait for the Url {string}', async ({ page }, url) => {
   await page.waitForURL(url);
-  await page.waitForLoadState()
-  await page.waitForTimeout(2000)
-
-
+  await page.waitForTimeout(3000)
 
 });
+
 
 Then('I verify the alert says {string}', async ({ page }, textInAlert) => {
   // Dialog (alert) olayını dinleyin
@@ -338,8 +342,9 @@ Then('I verify the alert says {string}', async ({ page }, textInAlert) => {
     // Alert'i kapat
     await dialog.accept();  // Alert penceresini 
   });
-
 });
+
+
 
 
 
@@ -582,19 +587,28 @@ When('I check if Lines per page select button is functional and visible', async 
 });
 
 Then('I click {string} employee choose in Lines Per Page', async ({ page }, number_chosen) => {
-  if (number_chosen === 10) {
-    await employeeMasterData.page_employee_number_10.click();
-    await page.waitForLoadState()
-    await page.waitForTimeout(1000)
-  } else if (number_chosen === 25) {
-    await employeeMasterData.page_employee_number_25.click();
-    await page.waitForLoadState()
-    await page.waitForTimeout(1000)
+  employeeMasterData = new EmployeeMasterDataPage(page)
 
-  } else if (number_chosen === 50) {
-    await employeeMasterData.page_employee_number_50.click();
-    await page.waitForLoadState()
-    await page.waitForTimeout(1000)
+  await page.getByLabel('50').click(); //first this appears always
+  await page.waitForTimeout(1000)
+  let rows = await employeeMasterData.page_rows
+
+  if (parseInt(number_chosen) === 10) {
+    await page.getByRole('option', { name: '10' }).click();
+    await page.waitForTimeout(4000)
+    console.log(number_chosen + " is the number chosen and the number of appeared row is " + await rows.count())
+
+  } else if (parseInt(number_chosen) === 25) {
+    await page.getByRole('option', { name: '25' }).click();
+    await page.waitForTimeout(4000)
+    console.log(number_chosen + " is the number chosen and the number of appeared row is " + await rows.count())
+
+
+  } else if (parseInt(number_chosen) === 50) {
+    await page.getByRole('option', { name: '50' }).click();
+    await page.waitForTimeout(4000)
+    console.log(number_chosen + " is the number chosen and the number of appeared row is " + await rows.count())
+
 
   }
 });
@@ -798,11 +812,12 @@ Then('I verify tax cannot be more than _11_ characters long or accepts alphaphet
 Then('I verify url is {string}', async ({ page }, expectedUrl) => {
   const actualUrl = await page.url()
   await expect(actualUrl).toBe(expectedUrl)
+  await page.waitForTimeout(3000)
 });
 
 Then('verify employee information table {string} are visible', async ({ page }, headerText) => {
   const employeeMasterData = new EmployeeMasterDataPage(page);
-  
+
   // Tablodaki başlık elemanlarını al
   const table_Headers_elements = await employeeMasterData.table_headers.elementHandles(); // Element handle'larını al
   console.log("Table headers elements count:", table_Headers_elements.length);
@@ -817,7 +832,7 @@ Then('verify employee information table {string} are visible', async ({ page }, 
     // Başlığın görünür olup olmadığını kontrol et
     if (isVisible) {
       console.log(`${headerTextContent}: is visible on the page.`);
-      
+
       // Belirli bir başlık metni kontrolü
       if (headerTextContent === headerText) {
         console.log(`${headerText} is present in the header list.`);

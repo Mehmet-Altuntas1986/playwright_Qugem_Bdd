@@ -1,4 +1,3 @@
-
 Feature:Employee Master Data Module functionality
 
     Background: Navigation to the Employee Master Data module and the removal of employees with the surname 'tester' or 'developer' were added for testing purposes.
@@ -11,8 +10,8 @@ Feature:Employee Master Data Module functionality
         Then I delete all filter sections to start every test Scenario with a clear filter
 
 
-
-    Scenario Outline:019 Verify Employee First Name Filter Functionality
+    @passed
+    Scenario Outline:020 Verify Employee First Name Filter Functionality
         Given I verify that the Employees table title is visible
         Then I verify that the "company" and "client" selection buttons are visible and functional
         Then I enter "<firstNameInFilter>" in the employee search field
@@ -24,18 +23,19 @@ Feature:Employee Master Data Module functionality
             | firstNameInFilter |
             | Gyulyustan        |
 
-
-    Scenario:020 Verify Visibility and Clickability of Company Dropdown Elements
+    @passed
+    Scenario:021 Verify Visibility and Clickability of Company Dropdown Elements
         When I click the company dropdown
         Then all companies in dropdown are visible and clickable
 
 
-    Scenario:021 Verify Visibility and Clickability of Client Companies Dropdown Elements
+    @passed
+    Scenario:022 Verify Visibility and Clickability of Client Companies Dropdown Elements
         When I click the client companies dropdown button
         Then I see client companies are visible and clickable
 
     @timeout:90000
-    Scenario Outline:022-023 verify admin can add and delete employees with Valid Data
+    Scenario Outline:023-024 verify admin can add and delete employees with Valid Data
         When I click the employee add button
         Then I click active check button
         Then I fill "<firstName>" "<LastName>" "<Emp_Id>"  "<tax_id>"  "<grosSalary>"
@@ -70,8 +70,8 @@ Feature:Employee Master Data Module functionality
             | Ersan     | tester   | 4321   | 12324  | 3000       |
 
 
-    @timeout:90000
-    Scenario Outline:024-025 Adding one personal with acceptable data and verifying employee saved and employee data is seen in employee master data page
+    @timeout:90000  @passed
+    Scenario Outline:025-026 Adding one personal with acceptable data and verifying employee saved and employee data is seen in employee master data page
 
         When I click the employee add button
         Then I click active check button
@@ -114,7 +114,8 @@ Feature:Employee Master Data Module functionality
             | Ersan     | tester   | 201    | 12324  | 3000       |
 
 
-    Scenario Outline:026-027 verify we cannot add an Employee with a used employee id
+    @failed
+    Scenario Outline:027-028 verify we cannot add an Employee with a used employee id
 
         When I click the employee add button
         Then I click active check button
@@ -148,8 +149,8 @@ Feature:Employee Master Data Module functionality
 
 
 
-
-    Scenario Outline:028 Attempt to Add an Employee with a Duplicate Tax ID
+    @failed
+    Scenario Outline:029 Attempt to Add an Employee with a Duplicate Tax ID
 
         When I click the employee add button
         Then I click active check button
@@ -179,9 +180,8 @@ Feature:Employee Master Data Module functionality
             | firstName | LastName | Emp_Id | tax_id | grosSalary |
             | Mehmet    | tester   | 52     | 12345  | 3000       |
 
-
-
-    Scenario Outline:029-031 As a user, if I click Lines per page "<number_chosen>", the number of rows in the employee table should reflect the correct count.
+    @passed
+    Scenario Outline:030-032 As a user, if I click Lines per page "<number_chosen>", the number of rows in the employee table should reflect the correct count.
 
         When I check if Lines per page select button is functional and visible
         Then I click "<number_chosen>" employee choose in Lines Per Page
@@ -198,8 +198,8 @@ Feature:Employee Master Data Module functionality
             | 50            |
 
 
-    @timeout:90000
-    Scenario Outline:032-034 Add an employee with name contains numbers
+    @timeout:90000     @failed
+    Scenario Outline:033-035 Add an employee with name contains numbers
         When I click the employee add button
         Then I click active check button
         Then I fill "<firstName>" "<LastName>" "<Emp_Id>"  "<tax_id>"  "<grosSalary>"
@@ -230,8 +230,8 @@ Feature:Employee Master Data Module functionality
             | Ersan1234  | tester   | 301    | 86573  | 3000       |
             | 1234567    | tester   | 302    | 98564  | 3000       |
 
-
-    Scenario Outline:035-036 verify employee id cant have alphabetic characters
+    @passed
+    Scenario Outline:036-037 verify employee id cant have alphabetic characters
 
         When I click the employee add button
         Then I verify employee id input does not accept alphabetic values: "<id_no>" and "<warning_message>"
@@ -244,8 +244,8 @@ Feature:Employee Master Data Module functionality
             | 123abc | employeeNumber must be a `number` type |
 
 
-
-    Scenario:037 verify employee id cannot be a so long number
+    @failed
+    Scenario:038 verify employee id cannot be a so long number
 
         Then I navigate to "https://qugem-staging.netlify.app/employee"
         Then I find an existing employee with filter , name is "mehmet" and lastname is "Abusoglu"
@@ -255,8 +255,8 @@ Feature:Employee Master Data Module functionality
         Then verify we dont see an alert employee "was updated successfully"
 
 
-
-    Scenario:038 verify necessary input box fields warns you if you dont fill and click save
+    @passed
+    Scenario:039 verify necessary input box fields warns you if you dont fill and click save
         When I click the employee add button
         Then I click save changes
         Then verify if adress is not filled , warning message is "This field is required"
@@ -265,8 +265,8 @@ Feature:Employee Master Data Module functionality
         Then verify if Last Name is not filled , warning message is "This field is required"
         Then verify if adress is not filled , warning message is "This field is required"
 
-
-    Scenario Outline:039-040 verify social security number cannot be less or more than _12_ characters
+    @passed
+    Scenario Outline:040-041 verify social security number cannot be less or more than _12_ characters
         When I click the employee add button
         Then I fill social security number "<values>"
         Then I click save changes
@@ -278,8 +278,8 @@ Feature:Employee Master Data Module functionality
             | 123sdfsadfsdgfsdgdgsedg | Cannot be more than 12 characters long |
 
 
-
-    Scenario Outline:041-042 verify Tax_id field cannot be more than 11 characters long and only accepts numeric value
+    @passed
+    Scenario Outline:042-043 verify Tax_id field cannot be more than 11 characters long and only accepts numeric value
 
         When I click the employee add button
         Then I fill tax_id input box with :"<values>"
@@ -291,8 +291,8 @@ Feature:Employee Master Data Module functionality
             | 123456789123456789123456789 | Cannot be more than 11 characters long |
             | 1234abcd                    | Cast to Number failed for value        |
 
-    
-    Scenario Outline:043-053 Verify employee information Table headers are visible
+    @passed
+    Scenario Outline:044-054 Verify employee information Table headers are visible
         Then click module button: "employee_master_data_btn"
         Then I verify url is "https://qugem-staging.netlify.app/employee"
         Then verify employee information table "<Headers>" are visible

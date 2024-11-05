@@ -5,6 +5,8 @@
   "main": "playwright.config.js",
   "scripts": {
     "smoke": "npx bddgen && npx playwright test --headed  --browser=chromium --grep '@smoke'",
+    "failed": "npx bddgen && npx playwright test --headed  --browser=chromium --grep '@failed'",
+    "passed": "npx bddgen && npx playwright test --headed  --browser=chromium --grep '@passed'",
     "regression": "npx bddgen && npx playwright test --headed --grep '@reg'",
     "test": "npx bddgen && npx playwright test --headed --browser=chromium && sleep 10 && open .cucumber-report/report.html",
     "headless": "npx bddgen && npx playwright test",

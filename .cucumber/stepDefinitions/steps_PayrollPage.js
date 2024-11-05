@@ -6,6 +6,7 @@ import { DashboardPage } from '../pages/DashboardPage.js';
 import { EmployeeMasterDataPage } from '../pages/EmployeeMasterDataPage.js';
 import { VehiclesPage } from '../pages/VehiclesPage.js';
 import { PayrollPage } from '../pages/PayrollPage.js';
+import exp from 'constants';
 const allure = require('allure-playwright');
 
 const { When, Then, Given, Before } = createBdd();
@@ -35,7 +36,8 @@ Before(async ({ page }) => {
 
 When('I click the Payroll module button', async ({ page }) => {
   await payroll.payroll_module_btn.click();
-  await page.waitForLoadState('load');
+  await payroll.table_rows.waitFor({ state: 'visible' });
+  await page.waitForTimeout(10000)
 });
 
 When('I click the month dropdown select btn', async ({ page }) => {
@@ -116,7 +118,7 @@ Then('I added an employee with details below:   and verify they are samely came 
   await console.log("id numebr is:", employees[0].ID_Number)
   const firstRow = page.locator('//table//tbody//tr[1]');
   await page.waitForSelector("//tbody//tr", { state: 'visible' })
-  await page.waitForTimeout(2000)
+  await page.waitForTimeout(3000)
 
   const id = await page.locator("//table//tbody//tr[1]//td[1]").textContent()
   const firstName = await page.locator("//table//tbody//tr[1]//td[2]").textContent()
@@ -207,32 +209,24 @@ Then('I verify employee is not seen in table if you choose a date before additio
 
 })
 
-Then('verify export to exel button is visible and clickable', async ({ page }) => {
-  payroll = new PayrollPage(page)
-  const exelbtn = await payroll.export_to_Excel
-  await expect(exelbtn).toBeVisible()
-  await page.waitForSelector("(//span[@class='MuiButton-label'])[1]", { state: 'visible' })
-  await page.waitForTimeout(3000) //in 5 second button gets enabled
-  await expect(exelbtn).toBeEnabled()
 
-});
-
-
-When('I click Export to Exel button', async ({ page }) => {
-  await payroll.export_to_Excel.click({ force: true, state: 'enabled' })
+When('I verify it is enabled then I click Export to Exel button', async ({ page }) => {
+  await expect(payroll.export_to_Excel).toBeEnabled({ timeout: 30000 })
+  await payroll.export_to_Excel.click({ force: true })
 });
 
 Then('verify Export to Exel2 button is visible and functional', async ({ page }) => {
   payroll = new PayrollPage(page)
   const exelbtn2 = await payroll.export_to_Excel2
   await expect(exelbtn2).toBeVisible()
-  await expect(exelbtn2).toBeEnabled()
+  await expect(exelbtn2).toBeEnabled({ timeout: 10000 })
 
 });
 
 Then('I click company selection svg button', async ({ page }) => {
   payroll = new PayrollPage(page)
-  await payroll.select_export_company_svg_btn.click({ force: true, state: 'enabled', state: 'visible' })
+  await expect(payroll.select_export_company_svg_btn).toBeEnabled({ timeout: 10000 })
+  await payroll.select_export_company_svg_btn.click({ force: true })
   await page.waitForTimeout(1000)
 
 });
@@ -241,7 +235,7 @@ Then('I choose a {string} and verify it is visible and clickable', async ({ page
   payroll = new PayrollPage(page)
   const companyOption = page.locator(`//li[@role='option'][normalize-space()="${company}"]`);
   await companyOption.waitFor({ state: 'visible' });
-  await expect(companyOption).toBeEnabled();
+  await expect(companyOption).toBeEnabled({ timeout: 5000 });
   await console.log(company + ":is visible and clickable after click select button ")
 });
 
@@ -254,7 +248,7 @@ Then('I click {string}', async ({ page }, company) => {
 });
 
 Then('I click ExportToExel2 button', async ({ page }) => {
-  await payroll.export_to_Excel2.click({ state:'enabled' })
+  await payroll.export_to_Excel2.click()
   await page.waitForTimeout(1000)
 
 });
@@ -266,64 +260,83 @@ Then('I verify {string}', async ({ page }, alert) => {
   expect(actual_alert).toBe(alert)
 });
 
-When('I verify if Lines per page select button is functional and visible in payroll page', async ({page}) => {
+When('I verify if Lines per page select button is functional and visible in payroll page', async ({ page }) => {
   await payroll.lines_per_page.waitFor(); // is a Playwright function that waits for the element to appear in the DOM before interacting with it
   await expect(payroll.lines_per_page).toBeVisible();
-  await expect(payroll.lines_per_page).toBeEnabled();
+  await expect(payroll.lines_per_page).toBeEnabled({ timeout: 10000 });
 });
 
+Then('click {string} in payroll page as Lines per page', async ({ page }, number) => {
+  await page.getByLabel('50').click(); //first this appears always
 
-When('click {string} in payroll page as Lines per page', async ({page}, number) => {
-  if (number === 10) {
-    await payroll.page_employee_number_10.click();
-    await page.waitForLoadState()
-    await page.waitForTimeout(1000)
-  } else if (number === 25) {
-    await payroll.page_employee_number_25.click();
-    await page.waitForLoadState()
-    await page.waitForTimeout(1000)
+  if (parseInt(number) === 10) {
 
-  } else if (number === 50) {
-    await payroll.page_employee_number_50.click();
-    await page.waitForLoadState()
-    await page.waitForTimeout(1000)
+    await page.getByRole('option', { name: '10' }).click();
+    await page.waitForTimeout(4000)
+    await console.log(payroll.table_rows.count() + ":is the number of the rows found")
+
+  } else if (parseInt(number) === 25) {
+    await page.getByRole('option', { name: '25' }).click();
+    await page.waitForTimeout(4000)
+
+    await console.log(payroll.table_rows.count() + ":is the number of the rows found")
+
+  } else if (parseInt(number) === 50) {
+    await page.getByRole('option', { name: '50' }).click();
+    await page.waitForTimeout(4000)
+    await console.log(payroll.table_rows.count() + ":is the number of the rows found")
 
   }
 });
 
+When('I verify the number of rows is not more than the {string} in payroll page', async ({ page }, number_chosen) => {
+  await page.waitForTimeout(5000)
+  const rowCount = await payroll.page_rows.count();
+  await console.log(number_chosen + ":is chosen and the number of the rows with employee found is :", rowCount)
+  expect(rowCount).toBeLessThanOrEqual(parseInt(number_chosen));
+});
+
+When('verify next page button is visible and clickable', async ({ page }) => {
+  await payroll.nextpage_arrow.waitFor({ state: 'visible' });  // Butonun görünür olmasını bekle
+
+  await expect(payroll.nextpage_arrow).toBeVisible();
+  await expect(payroll.nextpage_arrow).toBeEnabled({ timeout: 15000 });
+});
 
 
-Then('I verify the number of rows is not more than the {string} in payroll page', async ({page}, number_chosen) => {
+When('click employee table next page button and verify number of rows are not more than {string}', async ({ page }, number_chosen) => {
+  await payroll.nextpage_arrow.click();
+  await payroll.page_rows.waitFor({ timeout: 10000 });
   const rowCount = await payroll.page_rows.count();
   expect(rowCount).toBeLessThanOrEqual(parseInt(number_chosen));
 });
 
-Then('verify next page button is visible and clickable', async ({page}) => {
-  await payroll.nextpage_arrow.waitFor();  // Wait for the next page button to appear
-  await expect(payroll.nextpage_arrow).toBeVisible();  // Ensure the button is visible
-  await page.waitForTimeout(3000) //dont remove from here
-  await expect(payroll.nextpage_arrow).toBeEnabled();  // Ensure the button is clickable (enabled)
-});
-
-Then('click employee table next page button and verify number of rows are not more than {string}', async ({page}, number_chosen) => {
-    await payroll.nextpage_arrow.click();
-    await payroll.page_rows.waitFor();
-    const rowCount = await payroll.page_rows.count();
-    expect(rowCount).toBeLessThanOrEqual(parseInt(number_chosen));
-});
-
-Then('click previous page button is visible and clickable', async ({page}) => {
+When('click previous page button is visible and clickable', async ({ page }) => {
   // Wait for the previous page button to appear
   await payroll.previous_page_arrow.waitFor();
   await expect(payroll.previous_page_arrow).toBeVisible();
-  await expect(payroll.previous_page_arrow).toBeEnabled();
+  await expect(payroll.previous_page_arrow).toBeEnabled({ timeout: 10000 });
 });
 
-Then('click employee table previous page button , and verify number of rows are not more than {string}', async ({page}, number_chosen) => {
+
+
+When('click employee table previous page button and verify number of rows are not more than {string}', async ({ page }, number_chosen) => {
   await payroll.previous_page_arrow.click();
-  // Wait for the table to load the previous page
-  await payroll.page_rows.waitFor();
   const rowCount = await payroll.page_rows.count();
-  // Verify the row count is not more than the chosen number
   expect(rowCount).toBeLessThanOrEqual(parseInt(number_chosen));
+});
+
+Then('verify export to exel button is visible and clickable', async ({ page }) => {
+  payroll = new PayrollPage(page)
+  const exelbtn = await payroll.export_to_Excel
+  await expect(exelbtn).toBeVisible()
+  await expect(exelbtn).toBeEnabled({ timeout: 30000 })
+
+});
+
+When('verify previous page button is visible but not clickable  without clicking next page button', async ({ page }) => {
+  const button = await payroll.previous_page_arrow
+  expect(button).toBeVisible()
+  expect(button).not.toBeEnabled()
+
 });

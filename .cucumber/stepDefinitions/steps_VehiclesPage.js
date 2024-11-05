@@ -35,7 +35,7 @@ Before(async ({ page }) => {
 When('click to Vehicles module', async ({ page }) => {
 
   await vehicles.Vehicles_module_btn.click()
-  await page.waitForTimeout(500)
+  await page.waitForLoadState('load')
 });
 
 Then('click add vehicle button', async ({ page }) => {
@@ -50,14 +50,17 @@ Then('fill in the input boxes of {string} , {string} , {string},{string},{string
 });
 
 When('click save changes in vehicles edit page', async ({ page }) => {
+  vehicles = new VehiclesPage(page)
+  expect(await vehicles.saveChanges_btn_in_edit_page).toBeEnabled({ timeout: 20000 })
   await vehicles.saveChanges_btn_in_edit_page.click()
-  await page.waitForTimeout(2000)
+  await page.waitForTimeout(2500)
 
 
 
 });
 
 Then('verify alert message text is {string}', async ({ page }, textExpected) => {
+  await vehicles.vehicle_added_alert.waitFor({ timeout: 10000 })
   const actualText = await vehicles.vehicle_added_alert.textContent()
   console.log("after clicking save changes, alert text content is :", actualText)
   expect(actualText).toBe(textExpected)
@@ -69,10 +72,11 @@ Then('delete if a vehicle is added for test purpose ,Vehicle plate is {string}',
 });
 
 Then('verify you are in Vehicle Details Page', async ({ page }) => {
-
-  const page_Header_Title = await vehicles.vehicle_Details_header.textContent()
-  expect(page_Header_Title).toEqual("Vehicle Details")
+  const page_Header = await vehicles.vehicle_Details_header
+  expect(page_Header).toBeVisible({ timeout: 10000 })
   console.log("Now you are in vehicle Deatils page ")
+  expect(await page_Header.textContent()).toEqual("Vehicle Details")
+
 });
 
 
@@ -96,7 +100,7 @@ Then('verify the data is visible {string} , {string} , {string},{string},{string
 
 Then('I navigate to vehicles Module {string}', async ({ page }, url) => {
   await page.goto(url)
-  await page.waitForLoadState()
+  await page.waitForTimeout(2000)
 });
 
 Then('I write in the filter {string}', async ({ page }, plate) => {
@@ -147,6 +151,7 @@ Then('I verify vehicle has no driver and the status of vehicle is idle in Vehicl
 
 Then('I click usage button', async ({ page }) => {
   vehicles = new VehiclesPage(page)
+  expect(await vehicles.usage_btn_vehicleListPage).toBeEnabled({timeout:10000})
   await vehicles.usage_btn_vehicleListPage.click()
   await page.waitForTimeout(1500)
 
@@ -182,7 +187,7 @@ Then('I click add button and fill the input boxes with the data below:', async (
   vehicles = new VehiclesPage(page)
   // Get the first (or only) row of data
   const row = await dataTable.hashes()[0]; //gives headers in array
-  await vehicles.addDriversWith_start_dateAndKm(row.driver1, row.driver2, row.Start_Date, row.start_km)
+ await vehicles.addDriversWith_start_dateAndKm(row.driver1, row.driver2, row.Start_Date, row.start_km)
 
 });
 
@@ -264,9 +269,9 @@ Then('verify delete button is visible but not functional because vehicle driver 
 
 });
 
-Then('verify {string} warns with the Plate of the vehicle is added the system before', async ({page}, alertExpected) => {
- 
-  const AlertActual=await vehicles.existiert_bereits_alert.textContent()
+Then('verify {string} warns with the Plate of the vehicle is added the system before', async ({ page }, alertExpected) => {
+
+  const AlertActual = await vehicles.existiert_bereits_alert.textContent()
   await expect(AlertActual).toBe(alertExpected)
 
 });

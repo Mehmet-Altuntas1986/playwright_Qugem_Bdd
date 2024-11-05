@@ -96,7 +96,6 @@ export class VehiclesPage extends BasePage {
         this.driver2_input_box = this.page.getByRole('textbox', { name: 'Driver-' })
         this.driver2_select_open_svg_btn = this.page.locator('div').filter({ hasText: /^Driver-2$/ }).getByLabel('Open')
         this.driver2_select_close_svg_btn = this.page.getByLabel('Close')
-
         this.save_btn_in_usage = this.page.getByRole('button', { name: 'Save' })
         this.cancel_btn_in_usage = this.page.getByRole('button', { name: 'Cancel' })
 
@@ -157,14 +156,14 @@ export class VehiclesPage extends BasePage {
         // Clear the plate filter and enter the plate to search
         await this.filter_plate.fill("");  // Clear the previous filter
         await this.filter_plate.fill(plate);  // Set the new plate filter
-        await this.page.waitForTimeout(1500) //dont remove this from here
+        await this.page.waitForTimeout(3000) //dont remove this from here
         const rows = this.page.locator("//tbody//tr");
         let rowCount = 0;
 
         // Wait for the rows to load after filtering, handle if rows don't appear
         try {
             // Wait dynamically for the rows to become visible
-            await rows.waitFor({ state: 'visible', timeout: 2000 });
+            await rows.waitFor({ state: 'visible', timeout: 5000 });
             rowCount = await rows.count();
         } catch (error) {
             console.log(`No rows appeared for plate: ${plate}`);
@@ -196,7 +195,7 @@ export class VehiclesPage extends BasePage {
             const detailButton = this.page.locator(`//tbody//tr//td[contains(text(),'${plate}')]/following-sibling::td//button[normalize-space()='Detail']`);
 
             // Wait for the button to be visible and double-click it
-            await detailButton.waitFor({ state: 'visible', timeout: 2000 });
+            await detailButton.waitFor({ state: 'visible', timeout: 3000 });
             await detailButton.click();
             await this.page.waitForTimeout(1000);
 
@@ -229,8 +228,8 @@ export class VehiclesPage extends BasePage {
      * Date should be in this format "2024-02-12"
     */
     async addDriversWith_start_dateAndKm(driver1_withFullName, driver2_withFullName, start_date, start_km) {
-
-        await this.add_btn_after_click_usage.click({ force: true })
+        expect(await this.add_btn_after_click_usage).toBeEnabled({ timeout: 5000 })
+        await this.add_btn_after_click_usage.click()
         await this.page.waitForTimeout(1000)
 
         await this.page.locator('input[name="deliveryDate"]').fill(start_date)
@@ -244,10 +243,9 @@ export class VehiclesPage extends BasePage {
         await this.driver2_input_box.fill(driver2_withFullName)
         await this.page.keyboard.press('ArrowDown')
         await this.page.keyboard.press('Enter')
-        await this.page.waitForTimeout(500)
-
-        await this.page.getByRole('button', { name: 'Save' }).click({ force: true });
-        await this.page.waitForTimeout(1500)
+        await this.page.waitForTimeout(2000)
+        await this.save_btn_in_usage.click({force:true});
+        await this.page.waitForTimeout(2000)
 
         try {
             if (await this.page.getByText('Please select a driver').isVisible()) {
