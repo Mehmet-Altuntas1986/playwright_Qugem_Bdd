@@ -16,14 +16,14 @@ export class BasePage {
 
     //list of elements --this locater represents more than one element
 
-    this.companyDropdownElements_lc = "//li[.='GESAMT FIRMEN']/../li";
-    this.clientFirmaDropdownElements_lc = "//li[.='All']/../li"; //   /..   first ansector tag a goturur
+    this.companyDropdownElements_sl = "//li[.='GESAMT FIRMEN']/../li";
+    this.clientFirmaDropdownElements_sl = "//li[.='All']/../li"; //   /..   first ansector tag a goturur
     //firmen select on top of page
     this.company_firmen_select_btn = this.page.getByLabel('Select Company')
     this.client_firmen_select_btn = this.page.getByLabel('Select Client')
     //company and client svg dropdown arrow buttons
-    this.company_svg_btn_lc = "div[aria-label='Select Company'] svg"
-    this.client_svg_btn_lc = "div[aria-label='Select Client'] svg"
+    this.company_svg_btn_sl = "div[aria-label='Select Company'] svg"
+    this.client_svg_btn_sl = "div[aria-label='Select Client'] svg"
 
   }
 
@@ -32,19 +32,19 @@ export class BasePage {
   /**use parameter as english,german or turkish */
   async navigateToDashboard(language) {
     try {
-      const loginPage = new LoginPage(this.page); 
+      const loginPage = new LoginPage(this.page);
       await this.page.goto(process.env.url);
       await this.page.waitForLoadState('load')
       await this.page.locator(loginPage.emailBox).fill(process.env.email);
       await this.page.locator(loginPage.password).fill(process.env.password);
       await loginPage.clickLoginButton_withLanguage(language);
       await this.page.waitForURL("https://qugem-staging.netlify.app/");
-      await this.page.waitForLoadState('load')
+      await this.page.waitForLoadState()
     } catch (error) {
       console.error("Error navigating to the dashboard:", error);
     }
   }
-  
+
 
   //common methods can be used in all page step definition files
 
@@ -89,7 +89,7 @@ export class BasePage {
       await element.fill(value);
     }
   }
-  
+
 
   async fillInputToInputBox(element, value) {
     // Find the element and write the value into it
@@ -97,65 +97,66 @@ export class BasePage {
   }
 
   /** use this method to check visibiliy and clickabilty of the company or client dropdown elements
-   * companyTypes: first is main compann select button , other is client company select button
+   * companyTypes: locater of compann select button or locater of client company select button  we choose
+   * elements   : is selector represents all elements in dropdown
   */
   async clickAllElementsAndCheckVisibilityAndClickability(elements, companyType) {
     const count = await elements.count(); // Get the number of matching elements
     console.log(`There are ${count} elements.`);
 
     for (let i = 0; i < count; i++) {
-        const element = elements.nth(i); // Select the ith element
+      const element = elements.nth(i); // Select the ith element
 
-        // Check if the element is visible and clickable
-        const isVisible = await element.isVisible();
-        const isEnabled = await element.isEnabled();
+      // Check if the element is visible and clickable
+      const isVisible = await element.isVisible();
+      const isEnabled = await element.isEnabled();
 
-        if (isVisible && isEnabled) {
-            // Get the text content of the element
-            const textContent = await element.textContent();
-            console.log(`Element ${i + 1} with text "${textContent}" is ${isVisible ? 'visible' : 'not visible'} and ${isEnabled ? 'clickable' : 'not clickable'}.`);
-        } else {
-            // Throw an error if the element is not visible or clickable
-            throw new Error(`Element ${i + 1} is not visible or clickable.`);
-        }
+      if (isVisible && isEnabled) {
+        // Get the text content of the element
+        const textContent = await element.textContent();
+        console.log(`Element ${i + 1} with text "${textContent}" is ${isVisible ? 'visible' : 'not visible'} and ${isEnabled ? 'clickable' : 'not clickable'}.`);
+      } else {
+        // Throw an error if the element is not visible or clickable
+        throw new Error(`Element ${i + 1} is not visible or clickable.`);
+      }
     }
-    
-
-}
 
 
-/**usage
- * const formattedDate = getCurrentDateFormatted();
- *  Output example: "27-09-2024"
- */
-  async  getCurrentDateFormatted() {
+  }
+
+
+  /**usage
+   * const formattedDate = getCurrentDateFormatted();
+   *  Output example: "27-09-2024"
+   */
+  async getCurrentDateFormatted() {
     const currentDate = new Date();
     const day = String(currentDate.getDate()).padStart(2, '0');  // Get day and pad with '0' if needed
     const month = String(currentDate.getMonth() + 1).padStart(2, '0');  // Get month (0-11) and pad with '0'
     const year = currentDate.getFullYear();  // Get year
 
     return `${day}-${month}-${year}`;  // Return formatted date
-}
+  }
 
 
-/**
-     * Handles all types of pop-ups (alert, confirm, prompt) and logs their messages.
-     * @param {string} action - Determines whether to 'accept' or 'dismiss' the pop-up. Default is 'accept'.
-     * @param {string} promptText - (Optional) Text to input if the dialog is a prompt. Default is empty string.
-     * 
-     * Usage:
-     *  Handle pop-up and accept it:
-     * await basePage.handleAllPopups('accept');
-     * 
-     *  Handle pop-up and dismiss it:
-     * await basePage.handleAllPopups('dismiss');
-     * 
-     *  Handle prompt pop-up and provide text:
-     * await basePage.handleAllPopups('accept', 'Your input text');
-     */
-async handleAllPopups(action = 'accept', promptText = '') {
-  // Listen for the dialog event
-  this.page.on('dialog', async (dialog) => {
+  /**
+       * Handles all types of pop-ups (alert, confirm, prompt) and logs their messages.
+       * @param {string} action - Determines whether to 'accept' or 'dismiss' the pop-up. Default is 'accept'.
+       * @param {string} promptText - (Optional) Text to input if the dialog is a prompt. Default is empty string.
+       * 
+       * Usage:
+       *  Handle pop-up and accept it:
+       * await basePage.handleAllPopups('accept');
+       * 
+       *  Handle pop-up and dismiss it:
+       * await basePage.handleAllPopups('dismiss');
+       * 
+       *  Handle prompt pop-up and provide text:
+       * await basePage.handleAllPopups('accept', 'Your input text');
+       */
+  async handleAllPopups(action = 'accept', promptText = '') {
+    // Listen for the dialog event
+    this.page.on('dialog', async (dialog) => {
       // Get the pop-up message and log it to the console
       this.dialogMessage = dialog.message();
       console.log(`Pop-up type: ${dialog.type()}`);
@@ -163,66 +164,66 @@ async handleAllPopups(action = 'accept', promptText = '') {
 
       // Handle the pop-up based on its type
       switch (dialog.type()) {
-          case 'alert':
-              // For alert dialog, simply accept it
-              await dialog.accept();
-              console.log("Alert accepted.");
-              break;
-          case 'confirm':
-              // For confirm dialog, either accept or dismiss
-              if (action === 'accept') {
-                  await dialog.accept();
-                  console.log("Confirm accepted.");
-              } else {
-                  await dialog.dismiss();
-                  console.log("Confirm dismissed.");
-              }
-              break;
-          case 'prompt':
-              // For prompt dialog, input text or dismiss
-              if (action === 'accept') {
-                  await dialog.accept(promptText);  // Provide input to the prompt
-                  console.log(`Prompt input provided: ${promptText}`);
-              } else {
-                  await dialog.dismiss();
-                  console.log("Prompt dismissed.");
-              }
-              break;
-          default:
-              console.log("Unknown dialog type.");
+        case 'alert':
+          // For alert dialog, simply accept it
+          await dialog.accept();
+          console.log("Alert accepted.");
+          break;
+        case 'confirm':
+          // For confirm dialog, either accept or dismiss
+          if (action === 'accept') {
+            await dialog.accept();
+            console.log("Confirm accepted.");
+          } else {
+            await dialog.dismiss();
+            console.log("Confirm dismissed.");
+          }
+          break;
+        case 'prompt':
+          // For prompt dialog, input text or dismiss
+          if (action === 'accept') {
+            await dialog.accept(promptText);  // Provide input to the prompt
+            console.log(`Prompt input provided: ${promptText}`);
+          } else {
+            await dialog.dismiss();
+            console.log("Prompt dismissed.");
+          }
+          break;
+        default:
+          console.log("Unknown dialog type.");
       }
-  });
-}
+    });
+  }
 
-/**
-* Returns the message of the last captured dialog.
-* @returns {string} - The message of the last dialog.
-* 
-* Usage:
-* Get the message of the last pop-up:
-* const dialogMessage = basePage.getDialogMessage();
-* console.log(`Captured pop-up message: ${dialogMessage}`);
-*/
-getDialogMessage() {
-  // Ensure the dialog message is always a string
-  return String(this.dialogMessage); // Convert the dialog message to string if not already
-}
+  /**
+  * Returns the message of the last captured dialog.
+  * @returns {string} - The message of the last dialog.
+  * 
+  * Usage:
+  * Get the message of the last pop-up:
+  * const dialogMessage = basePage.getDialogMessage();
+  * console.log(`Captured pop-up message: ${dialogMessage}`);
+  */
+  getDialogMessage() {
+    // Ensure the dialog message is always a string
+    return String(this.dialogMessage); // Convert the dialog message to string if not already
+  }
 
-/**
-* Triggers a pop-up by clicking a specified element.
-* @param {string} triggerSelector - CSS selector of the element that triggers the pop-up.
-* 
-* Usage:
-* Trigger a pop-up by clicking a button:
-* await basePage.triggerPopup('button#trigger-popup');
-*/
-async triggerPopup(triggerSelector) {
-  await this.page.click(triggerSelector);
-}
+  /**
+  * Triggers a pop-up by clicking a specified element.
+  * @param {string} triggerSelector - CSS selector of the element that triggers the pop-up.
+  * 
+  * Usage:
+  * Trigger a pop-up by clicking a button:
+  * await basePage.triggerPopup('button#trigger-popup');
+  */
+  async triggerPopup(triggerSelector) {
+    await this.page.click(triggerSelector);
+  }
 
 
 
-  
+
 
 
 }

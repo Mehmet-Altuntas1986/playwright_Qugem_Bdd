@@ -3,31 +3,31 @@ Feature:Testing Navigation Success with valid and invalid credentials
 
   Background:
     Given  Navigate to Login Page
-
-  Scenario:001-verify user logs In, Navigates to Dashboard, and Logs Out
+  @passed
+  Scenario:002-verify user logs In, Navigates to Dashboard, and Logs Out
 
     Then Enter a valid email
     Then Enter a valid password
     Then Click the login button after choosing english language
-    And  Verify that user is now on the Dasboard Page url after clicking login
+      And  Verify that user is now on the Dasboard Page url after clicking login
     Then verify that dashboard page tab name contains QUGEM
     Then Click the sign out button and verify you are in sign in page again
 
-
-  Scenario Outline:002-003 verify user cannot login with invalid passwords and valid email
+  @failed
+  Scenario Outline:003-004 verify user cannot login with invalid passwords and valid email
     Then Enter a valid email
     Then Enter an invalid "<password>"
     Then Click the login button with "english" language
-    And  Verify that user is not on the Dasboard Page because login is not successfull
-    And  verify user gets right alert warning if invalid password and valid email used in right language
+      And  Verify that user is not on the Dasboard Page because login is not successfull
+      And  verify user gets right alert warning if invalid password and valid email used in right language
 
     Examples:
       | password |
       | 123txt_  |
       | 1234567  |
 
-
-  Scenario Outline:004-006 verify user cannot login with a short password less than 6 characters
+  @passed
+  Scenario Outline:005-007 verify user cannot login with a short password less than 6 characters
     Then Enter a valid email
     Then Enter an invalid "<shortpassword>"
     Then choose the "<langauge>" in loginPage

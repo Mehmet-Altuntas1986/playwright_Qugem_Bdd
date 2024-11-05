@@ -40,6 +40,7 @@ Then('Verify that user is now on the Dasboard Page url after clicking login', as
 });
 
 Then('verify that dashboard page tab name contains QUGEM', async ({ page }) => {
+
   const title = await page.title(); // Get the title of the page
   console.log(title)
   if (title.includes('QUGEM')) {

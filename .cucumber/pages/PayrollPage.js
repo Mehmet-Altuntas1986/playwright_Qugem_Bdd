@@ -27,7 +27,7 @@ export class PayrollPage extends BasePage {
 
         this.month_select_svg_btn = this.page.locator("(//*[name()='svg'][@class='MuiSvgIcon-root MuiSelect-icon'])[1]");
         this.years_select_svg_btn = this.page.locator("(//*[name()='svg'][@class='MuiSvgIcon-root MuiSelect-icon'])[2]");
-        
+
         // Export button and related actions
         this.export_to_Excel = this.page.getByRole('button', { name: 'Export to Excel' });
         this.select_export_company_svg_btn = this.page.locator("(//*[name()='svg'][@class='MuiSvgIcon-root MuiSelect-icon MuiSelect-iconOutlined'])[1]");
@@ -37,7 +37,7 @@ export class PayrollPage extends BasePage {
         this.alert_after_export_click = this.page.locator('div').filter({ hasText: /^Bitte berechnen Sie zuerst alle Löhne$/ }).nth(3);
 
         // Filter fields
-        this.filter_employee_id =this.page.getByRole('columnheader', { name: 'Employee ID' }).getByPlaceholder('Filter') // Define actual selector
+        this.filter_employee_id = this.page.getByRole('columnheader', { name: 'Employee ID' }).getByPlaceholder('Filter') // Define actual selector
         this.filter_first_name = this.page.getByRole('columnheader', { name: 'First Name' }).getByPlaceholder('Filter')  // Define actual selector
         this.filter_last_name = this.page.getByRole('columnheader', { name: 'Last Name' }).getByPlaceholder('Filter') // Define actual selector
 
@@ -50,6 +50,7 @@ export class PayrollPage extends BasePage {
         this.table_rows = this.page.locator('//tbody//tr');
 
         // Pagination
+        this.number_opening_select_svg_btn=this.page.locator(".MuiSvgIcon-root.MuiSelect-icon.MuiTablePagination-selectIcon")
         this.lines_per_page = this.page.getByText('Lines per page:');
         this.page_employee_number_10 = this.page.locator("//li[normalize-space()='10']");
         this.page_employee_number_25 = this.page.locator("//li[normalize-space()='25']");
@@ -58,14 +59,17 @@ export class PayrollPage extends BasePage {
         this.previous_page_arrow = this.page.getByLabel('Previous page');
         this.page_rows = this.page.locator('//tbody//tr');
 
-
-
-
-
-
-        
     }
 
 
-    
+
+
+
+
+
+
+
+
+
+
 }
