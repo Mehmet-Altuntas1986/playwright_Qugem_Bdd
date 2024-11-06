@@ -34,6 +34,7 @@ Feature:Employee attendance module functionality
         When I click the "<year>" in example
         Then verify "<year>" becomes visible in select Box
 
+        
         Examples:
             | year |
             | 2024 |

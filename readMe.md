@@ -774,6 +774,12 @@ Bu senaryo, Git’in çalışma alanları arasındaki geçişleri ve her bir aş
 # bir elementin enable olmasini belirli sure icinde bekleme
   await expect(anyButtonElement).toBeEnabled({timeout:5000});
 
+--------------------------------------------------
+#`${variable}` dogru kullanim    --- bu sekilde olunca parametreleri algilayabilir
+#'${variable}' yanlis kullanim
+
+--------------------------------------------------
+
 
 
 
