@@ -7,7 +7,6 @@ import { LoginPage } from './LoginPage';
 import { DashboardPage } from './DashboardPage';
 import { BasePage } from './BasePage';
 import { EmployeeMasterDataPage } from './EmployeeMasterDataPage';
-import { error } from 'console';
 
 export class VehiclesPage extends BasePage {
     constructor(page) {

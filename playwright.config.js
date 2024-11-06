@@ -20,8 +20,8 @@ export default defineConfig({
   timeout: 60000, // Sets the maximum wait time for each test to 60 seconds (60000ms) -- important setting
  
  workers: process.env.CI ? 2 : 6,     // workers: process.env.CI ? 2 : 8,   Use 2 workers in CI,  but 8 workers in your local enviroment ayarlandi
- retries:1,  //if test fails , runs one more time 
- //fullyParallel: true, // Enable full parallel execution in local or CI Enviroment  (butun testler birbirinden bagimsiz olmali )
+ //retries:1,  //if test fails , runs one more time 
+ fullyParallel: true, // Enable full parallel execution in local or CI Enviroment  (butun testler birbirinden bagimsiz olmali )
 
 
   reporter: [
