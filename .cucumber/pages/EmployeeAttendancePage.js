@@ -22,9 +22,8 @@ export class EmployeeAttendancePage extends BasePage {
         this.year_select_svg_btn = this.page.locator("(//*[name()='svg'][@class='MuiSvgIcon-root MuiSelect-icon'])[2]")
 
 
-        //vacation,Extra Holiday, new /Canceled and other all title 
-        this.employee_vacation_presence_titles_all = this.page.getByText('Employee AttendanceNovember2024UVacationKSick LeaveSExtra HolidayAPresentNNew')
-
+        //emplloye attandance status titles
+        this.employee_attandance_status_titles = this.page.locator(`(//div[@class='MuiBox-root jss45 jss41'])[1]`)
 
 
 

@@ -86,26 +86,33 @@ Then('I verify {string} is visible and clickable in example', async ({ page }, y
 });
 
 When('I click the {string} in example', async ({ page }, year) => {
-    if(parseInt(year)==2024){
+    if (parseInt(year) == 2024) {
         await page.locator("div[id='menu-'] li:nth-child(3)").click()
         await page.waitForTimeout(2000)
 
-    }else{
-        await page.getByRole('option', { name: `${year}` }).click({force:true})
+    } else {
+        await page.getByRole('option', { name: `${year}` }).click({ force: true })
         await page.waitForTimeout(1000)
     }
-        
-         
+
+
 });
 
 Then('verify {string} becomes visible in select Box', async ({ page }, year) => {
-    
-    if(parseInt(year)==2024){
-    await page.locator("div[id='menu-'] li:nth-child(3)").isVisible()       //2024 deki sorun boyle asildi
-    }else{
+
+    if (parseInt(year) == 2024) {
+        await page.locator("div[id='menu-'] li:nth-child(3)").isVisible()       //2024 deki sorun boyle asildi
+    } else {
         await expect(page.getByText(`${year}`)).toBeVisible()
     }
-      
+
+});
+
+Then('the {string} should be visible on the page', async ({ page }, statusText) => {
+
+    const statusElement = await page.locator(`//p[.='${statusText}']`);
+    await expect(statusElement).toBeVisible();
+
 
 
 });

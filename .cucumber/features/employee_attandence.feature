@@ -26,7 +26,7 @@ Feature:Employee attendance module functionality
             | November  |
             | December  |
 
-    @only
+  
     Scenario Outline: verify Employee Attendance page year select svg button is functional and years are visible and working as expected
         Then I verify select year svg button is functional
         Then I click year svg button
@@ -42,4 +42,17 @@ Feature:Employee attendance module functionality
             | 2022 |
             | 2025 |
 
+@only
+Scenario Outline: Employee Attendance Status Visibility
+  Then the "<Status Code>" should be visible on the page
 
+  Examples:
+    | Status Code       |
+    | Vacation          |
+    | Sick Leave        |
+    | Extra Holiday     |
+    | Present           |
+    | New / Cancelled   |
+    | Half Day          |
+    | Official Holiday  |
+    | Unpaid Vacation   |
