@@ -1,43 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite failures="0" skipped="0" name="my suite" time="41.102" tests="4">
-  <testcase classname="Employee attendance module functionality" name="chromium › Employee attendance module functionality › verify Employee Attendance page year select svg button is functional and years are visible and working as expected" time="9.493">
+<testsuite failures="0" skipped="0" name="my suite" time="74.19300000000001" tests="8">
+  <testcase classname="Employee attendance module functionality" name="chromium › Employee attendance module functionality › Employee Attendance Status Visibility" time="10.073">
     <system-out><![CDATA[Given Navigate to Dashboard with "english" language.......................passed
 Then click module button: "employee_attendance_btn".......................passed
 Then verify page Title "Employee Attendance" is visible...................passed
-Then I verify select year svg button is functional........................passed
-Then I click year svg button..............................................passed
-Then I verify "2025" is visible and clickable in example..................passed
-When I click the "2025" in example........................................passed
-Then verify "2025" becomes visible in select Box..........................passed]]></system-out>
+Then the "Present" should be visible on the page..........................passed]]></system-out>
   </testcase>
-  <testcase classname="Employee attendance module functionality" name="chromium › Employee attendance module functionality › verify Employee Attendance page year select svg button is functional and years are visible and working as expected [1]" time="10.117999999999999">
+  <testcase classname="Employee attendance module functionality" name="chromium › Employee attendance module functionality › Employee Attendance Status Visibility [1]" time="10.451">
     <system-out><![CDATA[Given Navigate to Dashboard with "english" language.......................passed
 Then click module button: "employee_attendance_btn".......................passed
 Then verify page Title "Employee Attendance" is visible...................passed
-Then I verify select year svg button is functional........................passed
-Then I click year svg button..............................................passed
-Then I verify "2022" is visible and clickable in example..................passed
-When I click the "2022" in example........................................passed
-Then verify "2022" becomes visible in select Box..........................passed]]></system-out>
+Then the "Half Day" should be visible on the page.........................passed]]></system-out>
   </testcase>
-  <testcase classname="Employee attendance module functionality" name="chromium › Employee attendance module functionality › verify Employee Attendance page year select svg button is functional and years are visible and working as expected [2]" time="10.133">
+  <testcase classname="Employee attendance module functionality" name="chromium › Employee attendance module functionality › Employee Attendance Status Visibility [2]" time="9.391">
     <system-out><![CDATA[Given Navigate to Dashboard with "english" language.......................passed
 Then click module button: "employee_attendance_btn".......................passed
 Then verify page Title "Employee Attendance" is visible...................passed
-Then I verify select year svg button is functional........................passed
-Then I click year svg button..............................................passed
-Then I verify "2023" is visible and clickable in example..................passed
-When I click the "2023" in example........................................passed
-Then verify "2023" becomes visible in select Box..........................passed]]></system-out>
+Then the "Vacation" should be visible on the page.........................passed]]></system-out>
   </testcase>
-  <testcase classname="Employee attendance module functionality" name="chromium › Employee attendance module functionality › verify Employee Attendance page year select svg button is functional and years are visible and working as expected [3]" time="11.357999999999999">
+  <testcase classname="Employee attendance module functionality" name="chromium › Employee attendance module functionality › Employee Attendance Status Visibility [3]" time="10.612">
     <system-out><![CDATA[Given Navigate to Dashboard with "english" language.......................passed
 Then click module button: "employee_attendance_btn".......................passed
 Then verify page Title "Employee Attendance" is visible...................passed
-Then I verify select year svg button is functional........................passed
-Then I click year svg button..............................................passed
-Then I verify "2024" is visible and clickable in example..................passed
-When I click the "2024" in example........................................passed
-Then verify "2024" becomes visible in select Box..........................passed]]></system-out>
+Then the "New / Cancelled" should be visible on the page..................passed]]></system-out>
+  </testcase>
+  <testcase classname="Employee attendance module functionality" name="chromium › Employee attendance module functionality › Employee Attendance Status Visibility [4]" time="10.933">
+    <system-out><![CDATA[Given Navigate to Dashboard with "english" language.......................passed
+Then click module button: "employee_attendance_btn".......................passed
+Then verify page Title "Employee Attendance" is visible...................passed
+Then the "Extra Holiday" should be visible on the page....................passed]]></system-out>
+  </testcase>
+  <testcase classname="Employee attendance module functionality" name="chromium › Employee attendance module functionality › Employee Attendance Status Visibility [5]" time="11.222">
+    <system-out><![CDATA[Given Navigate to Dashboard with "english" language.......................passed
+Then click module button: "employee_attendance_btn".......................passed
+Then verify page Title "Employee Attendance" is visible...................passed
+Then the "Sick Leave" should be visible on the page.......................passed]]></system-out>
+  </testcase>
+  <testcase classname="Employee attendance module functionality" name="chromium › Employee attendance module functionality › Employee Attendance Status Visibility [6]" time="5.723999999999999">
+    <system-out><![CDATA[Given Navigate to Dashboard with "english" language.......................passed
+Then click module button: "employee_attendance_btn".......................passed
+Then verify page Title "Employee Attendance" is visible...................passed
+Then the "Official Holiday" should be visible on the page.................passed]]></system-out>
+  </testcase>
+  <testcase classname="Employee attendance module functionality" name="chromium › Employee attendance module functionality › Employee Attendance Status Visibility [7]" time="5.787">
+    <system-out><![CDATA[Given Navigate to Dashboard with "english" language.......................passed
+Then click module button: "employee_attendance_btn".......................passed
+Then verify page Title "Employee Attendance" is visible...................passed
+Then the "Unpaid Vacation" should be visible on the page..................passed]]></system-out>
   </testcase>
 </testsuite>
