@@ -4,10 +4,10 @@
     "elements": [
       {
         "description": "",
-        "id": "employee-attendance-module-functionality;employee-attendance-status-visibility",
-        "keyword": "Scenario Outline",
-        "line": 54,
-        "name": "Employee Attendance Status Visibility",
+        "id": "employee-attendance-module-functionality;verify-name-and-surname-filters-are-working-as-expected",
+        "keyword": "Scenario",
+        "line": 67,
+        "name": "verify name and surname filters are working as expected",
         "steps": [
           {
             "arguments": [],
@@ -16,7 +16,7 @@
             "name": "Navigate to Dashboard with \"english\" language",
             "result": {
               "status": "passed",
-              "duration": 8204000000
+              "duration": 5490000000
             }
           },
           {
@@ -26,7 +26,7 @@
             "name": "click module button: \"employee_attendance_btn\"",
             "result": {
               "status": "passed",
-              "duration": 1020000000
+              "duration": 119000000
             }
           },
           {
@@ -36,402 +36,66 @@
             "name": "verify page Title \"Employee Attendance\" is visible",
             "result": {
               "status": "passed",
-              "duration": 554000000
+              "duration": 19000000
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 47,
-            "name": "the \"Present\" should be visible on the page",
+            "line": 68,
+            "name": "I click the name filter and fill with \"Mehmet\"",
             "result": {
               "status": "passed",
-              "duration": 295000000
-            }
-          }
-        ],
-        "tags": [
-          {
-            "name": "@only"
-          }
-        ],
-        "type": "scenario"
-      },
-      {
-        "description": "",
-        "id": "employee-attendance-module-functionality;employee-attendance-status-visibility",
-        "keyword": "Scenario Outline",
-        "line": 56,
-        "name": "Employee Attendance Status Visibility",
-        "steps": [
-          {
-            "arguments": [],
-            "keyword": "Given ",
-            "line": 4,
-            "name": "Navigate to Dashboard with \"english\" language",
-            "result": {
-              "status": "passed",
-              "duration": 8214000000
+              "duration": 70000000
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 5,
-            "name": "click module button: \"employee_attendance_btn\"",
+            "line": 69,
+            "name": "I click lastNmae filter and fill with \"test_attendance\"",
             "result": {
               "status": "passed",
-              "duration": 988000000
+              "duration": 3090000000
             }
           },
           {
-            "arguments": [],
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "id",
+                      "name",
+                      "surname",
+                      "company"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "125",
+                      "Mehmet",
+                      "test_attendance",
+                      "QUICKLY TRANSPORTE GMBH"
+                    ]
+                  }
+                ]
+              }
+            ],
             "keyword": "Then ",
-            "line": 6,
-            "name": "verify page Title \"Employee Attendance\" is visible",
+            "line": 70,
+            "name": "I see in the first row employee data is visible like this:",
             "result": {
               "status": "passed",
-              "duration": 688000000
+              "duration": 9000000
             }
           },
           {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 47,
-            "name": "the \"Half Day\" should be visible on the page",
+            "keyword": "After",
+            "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 561000000
-            }
-          }
-        ],
-        "tags": [
-          {
-            "name": "@only"
-          }
-        ],
-        "type": "scenario"
-      },
-      {
-        "description": "",
-        "id": "employee-attendance-module-functionality;employee-attendance-status-visibility",
-        "keyword": "Scenario Outline",
-        "line": 51,
-        "name": "Employee Attendance Status Visibility",
-        "steps": [
-          {
-            "arguments": [],
-            "keyword": "Given ",
-            "line": 4,
-            "name": "Navigate to Dashboard with \"english\" language",
-            "result": {
-              "status": "passed",
-              "duration": 8053000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 5,
-            "name": "click module button: \"employee_attendance_btn\"",
-            "result": {
-              "status": "passed",
-              "duration": 415000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 6,
-            "name": "verify page Title \"Employee Attendance\" is visible",
-            "result": {
-              "status": "passed",
-              "duration": 449000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 47,
-            "name": "the \"Vacation\" should be visible on the page",
-            "result": {
-              "status": "passed",
-              "duration": 474000000
-            }
-          }
-        ],
-        "tags": [
-          {
-            "name": "@only"
-          }
-        ],
-        "type": "scenario"
-      },
-      {
-        "description": "",
-        "id": "employee-attendance-module-functionality;employee-attendance-status-visibility",
-        "keyword": "Scenario Outline",
-        "line": 55,
-        "name": "Employee Attendance Status Visibility",
-        "steps": [
-          {
-            "arguments": [],
-            "keyword": "Given ",
-            "line": 4,
-            "name": "Navigate to Dashboard with \"english\" language",
-            "result": {
-              "status": "passed",
-              "duration": 8531000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 5,
-            "name": "click module button: \"employee_attendance_btn\"",
-            "result": {
-              "status": "passed",
-              "duration": 946000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 6,
-            "name": "verify page Title \"Employee Attendance\" is visible",
-            "result": {
-              "status": "passed",
-              "duration": 763000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 47,
-            "name": "the \"New / Cancelled\" should be visible on the page",
-            "result": {
-              "status": "passed",
-              "duration": 372000000
-            }
-          }
-        ],
-        "tags": [
-          {
-            "name": "@only"
-          }
-        ],
-        "type": "scenario"
-      },
-      {
-        "description": "",
-        "id": "employee-attendance-module-functionality;employee-attendance-status-visibility",
-        "keyword": "Scenario Outline",
-        "line": 53,
-        "name": "Employee Attendance Status Visibility",
-        "steps": [
-          {
-            "arguments": [],
-            "keyword": "Given ",
-            "line": 4,
-            "name": "Navigate to Dashboard with \"english\" language",
-            "result": {
-              "status": "passed",
-              "duration": 8629000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 5,
-            "name": "click module button: \"employee_attendance_btn\"",
-            "result": {
-              "status": "passed",
-              "duration": 1800000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 6,
-            "name": "verify page Title \"Employee Attendance\" is visible",
-            "result": {
-              "status": "passed",
-              "duration": 151000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 47,
-            "name": "the \"Extra Holiday\" should be visible on the page",
-            "result": {
-              "status": "passed",
-              "duration": 353000000
-            }
-          }
-        ],
-        "tags": [
-          {
-            "name": "@only"
-          }
-        ],
-        "type": "scenario"
-      },
-      {
-        "description": "",
-        "id": "employee-attendance-module-functionality;employee-attendance-status-visibility",
-        "keyword": "Scenario Outline",
-        "line": 52,
-        "name": "Employee Attendance Status Visibility",
-        "steps": [
-          {
-            "arguments": [],
-            "keyword": "Given ",
-            "line": 4,
-            "name": "Navigate to Dashboard with \"english\" language",
-            "result": {
-              "status": "passed",
-              "duration": 8647000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 5,
-            "name": "click module button: \"employee_attendance_btn\"",
-            "result": {
-              "status": "passed",
-              "duration": 1949000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 6,
-            "name": "verify page Title \"Employee Attendance\" is visible",
-            "result": {
-              "status": "passed",
-              "duration": 381000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 47,
-            "name": "the \"Sick Leave\" should be visible on the page",
-            "result": {
-              "status": "passed",
-              "duration": 245000000
-            }
-          }
-        ],
-        "tags": [
-          {
-            "name": "@only"
-          }
-        ],
-        "type": "scenario"
-      },
-      {
-        "description": "",
-        "id": "employee-attendance-module-functionality;employee-attendance-status-visibility",
-        "keyword": "Scenario Outline",
-        "line": 57,
-        "name": "Employee Attendance Status Visibility",
-        "steps": [
-          {
-            "arguments": [],
-            "keyword": "Given ",
-            "line": 4,
-            "name": "Navigate to Dashboard with \"english\" language",
-            "result": {
-              "status": "passed",
-              "duration": 5600000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 5,
-            "name": "click module button: \"employee_attendance_btn\"",
-            "result": {
-              "status": "passed",
-              "duration": 106000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 6,
-            "name": "verify page Title \"Employee Attendance\" is visible",
-            "result": {
-              "status": "passed",
-              "duration": 10000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 47,
-            "name": "the \"Official Holiday\" should be visible on the page",
-            "result": {
-              "status": "passed",
-              "duration": 8000000
-            }
-          }
-        ],
-        "tags": [
-          {
-            "name": "@only"
-          }
-        ],
-        "type": "scenario"
-      },
-      {
-        "description": "",
-        "id": "employee-attendance-module-functionality;employee-attendance-status-visibility",
-        "keyword": "Scenario Outline",
-        "line": 58,
-        "name": "Employee Attendance Status Visibility",
-        "steps": [
-          {
-            "arguments": [],
-            "keyword": "Given ",
-            "line": 4,
-            "name": "Navigate to Dashboard with \"english\" language",
-            "result": {
-              "status": "passed",
-              "duration": 5657000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 5,
-            "name": "click module button: \"employee_attendance_btn\"",
-            "result": {
-              "status": "passed",
-              "duration": 108000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 6,
-            "name": "verify page Title \"Employee Attendance\" is visible",
-            "result": {
-              "status": "passed",
-              "duration": 16000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 47,
-            "name": "the \"Unpaid Vacation\" should be visible on the page",
-            "result": {
-              "status": "passed",
-              "duration": 6000000
+              "duration": 262000000
             }
           }
         ],

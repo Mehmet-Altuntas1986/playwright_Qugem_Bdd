@@ -24,7 +24,9 @@ export class EmployeeAttendancePage extends BasePage {
 
         //emplloye attandance status titles
         this.employee_attandance_status_titles = this.page.locator(`(//div[@class='MuiBox-root jss45 jss41'])[1]`)
-
+        this.id_filter= this.page.getByRole('columnheader', { name: 'Employee ID' }).getByPlaceholder('Filter')
+        this.firstName_filter=this.page.getByRole('columnheader', { name: 'First Name' }).getByPlaceholder('Filter')
+        this.LastName_filter=this.page.getByRole('columnheader', { name: 'Last Name' }).getByPlaceholder('Filter')
 
 
 

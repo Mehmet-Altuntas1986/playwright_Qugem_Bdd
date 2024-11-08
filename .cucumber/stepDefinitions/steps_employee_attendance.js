@@ -113,6 +113,43 @@ Then('the {string} should be visible on the page', async ({ page }, statusText) 
     const statusElement = await page.locator(`//p[.='${statusText}']`);
     await expect(statusElement).toBeVisible();
 
+});
 
+When('I click the id filter', async ({ page }) => {
+    await employeeAttendance.id_filter.click()
 
 });
+
+
+Then('If fill with id nummer {string}', async ({ page }, id) => {
+    await employeeAttendance.id_filter.fill("")
+    await employeeAttendance.id_filter.fill(id)
+    await page.waitForTimeout(3000)
+
+});
+
+
+Then('I see in the first row employee data is visible like this:', async ({ page }, dataTable) => {
+    const row = await dataTable.hashes()[0]; //gives headers in array
+    const firstRowTextAll = await page.locator("//tbody//tr[1]").textContent()
+    console.log("first row text all appeared like:",firstRowTextAll)
+    expect(firstRowTextAll).toContain(row.id);
+    expect(firstRowTextAll).toContain(row.name);
+    expect(firstRowTextAll).toContain(row.surname);
+    expect(firstRowTextAll).toContain(row.company);
+});
+
+Then('I click the name filter and fill with {string}', async ({page}, name) => {
+    await employeeAttendance.firstName_filter.click()
+    await employeeAttendance.firstName_filter.fill("")
+    await employeeAttendance.firstName_filter.fill(name)
+  });
+  
+  Then('I click lastNmae filter and fill with {string}', async ({page}, lastname) => {
+    await employeeAttendance.LastName_filter.click()
+    await employeeAttendance.LastName_filter.fill("")
+    await employeeAttendance.LastName_filter.fill(lastname)
+    await page.waitForTimeout(3000)
+
+  });
+  

@@ -70,7 +70,7 @@ Feature:Employee Master Data Module functionality
             | Ersan     | tester   | 4321   | 12324  | 3000       |
 
 
-    @timeout:90000  @passed
+    @timeout:90000  @passed 
     Scenario Outline:025-026 Adding one personal with acceptable data and verifying employee saved and employee data is seen in employee master data page
 
         When I click the employee add button
@@ -110,7 +110,7 @@ Feature:Employee Master Data Module functionality
         Examples:
 
             | firstName | LastName | Emp_Id | tax_id | grosSalary |
-            | Mehmet    | tester   | 200    | 12323  | 3000       |
+            | Mehmet    | tester   | 200    | 124    | 3000       |
             | Ersan     | tester   | 201    | 12324  | 3000       |
 
 
