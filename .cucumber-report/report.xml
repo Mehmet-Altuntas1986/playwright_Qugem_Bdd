@@ -1,51 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite failures="0" skipped="0" name="my suite" time="74.19300000000001" tests="8">
-  <testcase classname="Employee attendance module functionality" name="chromium › Employee attendance module functionality › Employee Attendance Status Visibility" time="10.073">
+<testsuite failures="0" skipped="0" name="my suite" time="9.059000000000001" tests="1">
+  <testcase classname="Employee attendance module functionality" name="chromium › Employee attendance module functionality › verify name and surname filters are working as expected" time="9.059000000000001">
     <system-out><![CDATA[Given Navigate to Dashboard with "english" language.......................passed
 Then click module button: "employee_attendance_btn".......................passed
 Then verify page Title "Employee Attendance" is visible...................passed
-Then the "Present" should be visible on the page..........................passed]]></system-out>
-  </testcase>
-  <testcase classname="Employee attendance module functionality" name="chromium › Employee attendance module functionality › Employee Attendance Status Visibility [1]" time="10.451">
-    <system-out><![CDATA[Given Navigate to Dashboard with "english" language.......................passed
-Then click module button: "employee_attendance_btn".......................passed
-Then verify page Title "Employee Attendance" is visible...................passed
-Then the "Half Day" should be visible on the page.........................passed]]></system-out>
-  </testcase>
-  <testcase classname="Employee attendance module functionality" name="chromium › Employee attendance module functionality › Employee Attendance Status Visibility [2]" time="9.391">
-    <system-out><![CDATA[Given Navigate to Dashboard with "english" language.......................passed
-Then click module button: "employee_attendance_btn".......................passed
-Then verify page Title "Employee Attendance" is visible...................passed
-Then the "Vacation" should be visible on the page.........................passed]]></system-out>
-  </testcase>
-  <testcase classname="Employee attendance module functionality" name="chromium › Employee attendance module functionality › Employee Attendance Status Visibility [3]" time="10.612">
-    <system-out><![CDATA[Given Navigate to Dashboard with "english" language.......................passed
-Then click module button: "employee_attendance_btn".......................passed
-Then verify page Title "Employee Attendance" is visible...................passed
-Then the "New / Cancelled" should be visible on the page..................passed]]></system-out>
-  </testcase>
-  <testcase classname="Employee attendance module functionality" name="chromium › Employee attendance module functionality › Employee Attendance Status Visibility [4]" time="10.933">
-    <system-out><![CDATA[Given Navigate to Dashboard with "english" language.......................passed
-Then click module button: "employee_attendance_btn".......................passed
-Then verify page Title "Employee Attendance" is visible...................passed
-Then the "Extra Holiday" should be visible on the page....................passed]]></system-out>
-  </testcase>
-  <testcase classname="Employee attendance module functionality" name="chromium › Employee attendance module functionality › Employee Attendance Status Visibility [5]" time="11.222">
-    <system-out><![CDATA[Given Navigate to Dashboard with "english" language.......................passed
-Then click module button: "employee_attendance_btn".......................passed
-Then verify page Title "Employee Attendance" is visible...................passed
-Then the "Sick Leave" should be visible on the page.......................passed]]></system-out>
-  </testcase>
-  <testcase classname="Employee attendance module functionality" name="chromium › Employee attendance module functionality › Employee Attendance Status Visibility [6]" time="5.723999999999999">
-    <system-out><![CDATA[Given Navigate to Dashboard with "english" language.......................passed
-Then click module button: "employee_attendance_btn".......................passed
-Then verify page Title "Employee Attendance" is visible...................passed
-Then the "Official Holiday" should be visible on the page.................passed]]></system-out>
-  </testcase>
-  <testcase classname="Employee attendance module functionality" name="chromium › Employee attendance module functionality › Employee Attendance Status Visibility [7]" time="5.787">
-    <system-out><![CDATA[Given Navigate to Dashboard with "english" language.......................passed
-Then click module button: "employee_attendance_btn".......................passed
-Then verify page Title "Employee Attendance" is visible...................passed
-Then the "Unpaid Vacation" should be visible on the page..................passed]]></system-out>
+Then I click the name filter and fill with "Mehmet".......................passed
+Then I click lastNmae filter and fill with "test_attendance"..............passed
+Then I see in the first row employee data is visible like this:...........passed]]></system-out>
   </testcase>
 </testsuite>
