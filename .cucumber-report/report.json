@@ -4,10 +4,10 @@
     "elements": [
       {
         "description": "",
-        "id": "employee-attendance-module-functionality;verify-name-and-surname-filters-are-working-as-expected",
-        "keyword": "Scenario",
-        "line": 67,
-        "name": "verify name and surname filters are working as expected",
+        "id": "employee-attendance-module-functionality;119-verify-chosen-employee-name-and-surname-goes-to-attendance-edit-page-as-title-correctly",
+        "keyword": "Scenario Outline",
+        "line": 110,
+        "name": "119 verify chosen employee name and surname goes to attendance edit page as title correctly",
         "steps": [
           {
             "arguments": [],
@@ -16,7 +16,7 @@
             "name": "Navigate to Dashboard with \"english\" language",
             "result": {
               "status": "passed",
-              "duration": 5490000000
+              "duration": 6285000000
             }
           },
           {
@@ -26,7 +26,7 @@
             "name": "click module button: \"employee_attendance_btn\"",
             "result": {
               "status": "passed",
-              "duration": 119000000
+              "duration": 120000000
             }
           },
           {
@@ -36,27 +36,27 @@
             "name": "verify page Title \"Employee Attendance\" is visible",
             "result": {
               "status": "passed",
-              "duration": 19000000
+              "duration": 14000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 100,
+            "name": "I click the id filter",
+            "result": {
+              "status": "passed",
+              "duration": 41000000
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 68,
-            "name": "I click the name filter and fill with \"Mehmet\"",
+            "line": 101,
+            "name": "If fill with id nummer \"125\"",
             "result": {
               "status": "passed",
-              "duration": 70000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 69,
-            "name": "I click lastNmae filter and fill with \"test_attendance\"",
-            "result": {
-              "status": "passed",
-              "duration": 3090000000
+              "duration": 3040000000
             }
           },
           {
@@ -67,27 +67,45 @@
                     "cells": [
                       "id",
                       "name",
-                      "surname",
-                      "company"
+                      "lastname"
                     ]
                   },
                   {
                     "cells": [
                       "125",
                       "Mehmet",
-                      "test_attendance",
-                      "QUICKLY TRANSPORTE GMBH"
+                      "test_attendance"
                     ]
                   }
                 ]
               }
             ],
             "keyword": "Then ",
-            "line": 70,
-            "name": "I see in the first row employee data is visible like this:",
+            "line": 102,
+            "name": "I see first row has data like below:",
             "result": {
               "status": "passed",
-              "duration": 9000000
+              "duration": 10000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 105,
+            "name": "click edit button in first row of employee attendance page",
+            "result": {
+              "status": "passed",
+              "duration": 79000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 106,
+            "name": "verify \"Mehmet\" \"test_attendance\" is seen as page title",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
             }
           },
           {
@@ -95,7 +113,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 262000000
+              "duration": 209000000
             }
           }
         ],

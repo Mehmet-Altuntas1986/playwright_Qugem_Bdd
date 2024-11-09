@@ -24,9 +24,20 @@ export class EmployeeAttendancePage extends BasePage {
 
         //emplloye attandance status titles
         this.employee_attandance_status_titles = this.page.locator(`(//div[@class='MuiBox-root jss45 jss41'])[1]`)
-        this.id_filter= this.page.getByRole('columnheader', { name: 'Employee ID' }).getByPlaceholder('Filter')
-        this.firstName_filter=this.page.getByRole('columnheader', { name: 'First Name' }).getByPlaceholder('Filter')
-        this.LastName_filter=this.page.getByRole('columnheader', { name: 'Last Name' }).getByPlaceholder('Filter')
+        this.id_filter = this.page.getByRole('columnheader', { name: 'Employee ID' }).getByPlaceholder('Filter')
+        this.firstName_filter = this.page.getByRole('columnheader', { name: 'First Name' }).getByPlaceholder('Filter')
+        this.LastName_filter = this.page.getByRole('columnheader', { name: 'Last Name' }).getByPlaceholder('Filter')
+
+        //---------------
+        this.edit_Button_in_first_row = this.page.getByLabel('Edit')
+        this.note_btn_for_attendance = this.page.getByLabel('Open Note')
+        this.textBox_note = this.page.getByRole('textbox')
+        this.save_changes_after_clcik_edit_attendance=this.page.getByRole('button', { name: 'Save Changes' })
+        this.cancel_btn_after_click_edit_attendance=this.page.getByRole('button', { name: 'Cancel' })
+        this.header_name_surname_after_click_edit=this.page.locator('#form-dialog-title')
+
+        //after click edit
+        this.headers_with_id_holidayentitlement_leavedays_Remainingleave_Sickleave=this.page.locator('.MuiGrid-root > .MuiPaper-root')
 
 
 

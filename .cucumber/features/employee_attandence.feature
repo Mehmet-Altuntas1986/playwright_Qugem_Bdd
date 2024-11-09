@@ -71,5 +71,50 @@ Feature:Employee attendance module functionality
         Then I see in the first row employee data is visible like this:
             | id  | name   | surname         | company                 |
             | 125 | Mehmet | test_attendance | QUICKLY TRANSPORTE GMBH |
+
+    Scenario:113 verify employee attendance edit button is functional
+        When I click the id filter
+        Then If fill with id nummer "125"
+        Then I verify employee attendance edit button is visible and clickable
+
+
+    Scenario Outline:114-118 verify attendance titles are visible after click edit attendance button
+        When I click the id filter
+        Then If fill with id nummer "125"
+        Then I verify employee attendance edit button is visible and clickable
+        Then click edit button in first row of employee attendance page
+
+        Then I verify the "<attendance_titles>" are visible
+
+        Examples:
+            | attendance_titles           |
+            | Employee ID                 |
+            | Current holiday entitlement |
+            | Used leave days             |
+            | Remaining leave             |
+            | Sick leave                  |
+
+
+   
+    Scenario Outline:119 verify chosen employee name and surname goes to attendance edit page as title correctly
+        When I click the id filter
+        Then If fill with id nummer "<id>"
+        Then I see first row has data like below:
+            | id  | name   | lastname        |
+            | 125 | Mehmet | test_attendance |
+        Then click edit button in first row of employee attendance page
+        Then verify "<name>" "<lastname>" is seen as page title
+
+        Examples:
+            | id  | name   | lastname        |
+            | 125 | Mehmet | test_attendance |
+
+
     
-    
+
+
+
+
+
+
+

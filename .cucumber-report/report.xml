@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite failures="0" skipped="0" name="my suite" time="9.059000000000001" tests="1">
-  <testcase classname="Employee attendance module functionality" name="chromium › Employee attendance module functionality › verify name and surname filters are working as expected" time="9.059000000000001">
+<testsuite failures="0" skipped="0" name="my suite" time="9.799" tests="1">
+  <testcase classname="Employee attendance module functionality" name="chromium › Employee attendance module functionality › 119 verify chosen employee name and surname goes to attendance edit page as title correctly" time="9.799">
     <system-out><![CDATA[Given Navigate to Dashboard with "english" language.......................passed
 Then click module button: "employee_attendance_btn".......................passed
 Then verify page Title "Employee Attendance" is visible...................passed
-Then I click the name filter and fill with "Mehmet".......................passed
-Then I click lastNmae filter and fill with "test_attendance"..............passed
-Then I see in the first row employee data is visible like this:...........passed]]></system-out>
+When I click the id filter................................................passed
+Then If fill with id nummer "125".........................................passed
+Then I see first row has data like below:.................................passed
+Then click edit button in first row of employee attendance page...........passed
+Then verify "Mehmet" "test_attendance" is seen as page title..............passed]]></system-out>
   </testcase>
 </testsuite>

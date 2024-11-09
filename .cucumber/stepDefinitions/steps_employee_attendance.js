@@ -132,24 +132,62 @@ Then('If fill with id nummer {string}', async ({ page }, id) => {
 Then('I see in the first row employee data is visible like this:', async ({ page }, dataTable) => {
     const row = await dataTable.hashes()[0]; //gives headers in array
     const firstRowTextAll = await page.locator("//tbody//tr[1]").textContent()
-    console.log("first row text all appeared like:",firstRowTextAll)
+    console.log("first row text all appeared like:", firstRowTextAll)
     expect(firstRowTextAll).toContain(row.id);
     expect(firstRowTextAll).toContain(row.name);
     expect(firstRowTextAll).toContain(row.surname);
     expect(firstRowTextAll).toContain(row.company);
 });
 
-Then('I click the name filter and fill with {string}', async ({page}, name) => {
+Then('I click the name filter and fill with {string}', async ({ page }, name) => {
     await employeeAttendance.firstName_filter.click()
     await employeeAttendance.firstName_filter.fill("")
     await employeeAttendance.firstName_filter.fill(name)
-  });
-  
-  Then('I click lastNmae filter and fill with {string}', async ({page}, lastname) => {
+});
+
+Then('I click lastNmae filter and fill with {string}', async ({ page }, lastname) => {
     await employeeAttendance.LastName_filter.click()
     await employeeAttendance.LastName_filter.fill("")
     await employeeAttendance.LastName_filter.fill(lastname)
     await page.waitForTimeout(3000)
 
-  });
-  
+});
+
+Then('I verify employee attendance edit button is visible and clickable', async ({ page }) => {
+    await expect(employeeAttendance.edit_Button_in_first_row).toBeVisible()
+    await expect(employeeAttendance.edit_Button_in_first_row).toBeEnabled()
+
+});
+
+Then('click edit button in first row of employee attendance page', async ({ page }) => {
+    await employeeAttendance.edit_Button_in_first_row.click()
+});
+
+Then('I verify the {string} are visible', async ({ page }, textTitle) => {
+    if (textTitle === "Sick leave") {
+        const el = page.getByText(`${textTitle}`, { exact: true })
+        await expect(el).toBeVisible({ timeout: 5000 })
+
+    } else {
+        const el = page.getByText(`${textTitle}`)
+        await expect(el).toBeVisible({ timeout: 5000 })
+
+    }
+});
+
+Then('I see first row has data like below:', async ({ page }, dataTable) => {
+    const rows = await dataTable.hashes()
+    const firstRoxText = await page.locator("//tbody//tr[1]").textContent()
+    console.log(firstRoxText)
+    expect(firstRoxText).toContain(rows[0].id)             //rows[0] is the first row 
+    expect(firstRoxText).toContain(rows[0].name)
+    expect(firstRoxText).toContain(rows[0].lastname)
+
+});
+
+Then('verify {string} {string} is seen as page title', async ({ page }, name, lastname) => {
+
+    const isVisible_el = page.getByRole('heading', { name: `${name} ${lastname}` }).isVisible()
+    expect(isVisible_el).toBeTruthy()
+
+});
