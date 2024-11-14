@@ -639,7 +639,7 @@ Then('I click employee table next page button , and verify number of rows are no
   expect(rowCount).toBeLessThanOrEqual(parseInt(number_chosen));
 });
 
-Then('I click previous page button is visible and clickable', async ({ page }) => {
+Then('I verify_previous page button is visible and clickable', async ({ page }) => {
   // Wait for the previous page button to appear
   await employeeMasterData.previous_page_arrow.waitFor();
 
