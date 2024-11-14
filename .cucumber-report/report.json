@@ -4,10 +4,10 @@
     "elements": [
       {
         "description": "",
-        "id": "employee-attendance-module-functionality;119-verify-chosen-employee-name-and-surname-goes-to-attendance-edit-page-as-title-correctly",
+        "id": "employee-attendance-module-functionality;120-122-verify-the-number-of-rows-in-the-employee-table-should-reflect-the-correct-count.",
         "keyword": "Scenario Outline",
-        "line": 110,
-        "name": "119 verify chosen employee name and surname goes to attendance edit page as title correctly",
+        "line": 126,
+        "name": "120-122 verify the number of rows in the employee table should reflect the correct count.",
         "steps": [
           {
             "arguments": [],
@@ -16,7 +16,7 @@
             "name": "Navigate to Dashboard with \"english\" language",
             "result": {
               "status": "passed",
-              "duration": 6285000000
+              "duration": 6448000000
             }
           },
           {
@@ -26,7 +26,7 @@
             "name": "click module button: \"employee_attendance_btn\"",
             "result": {
               "status": "passed",
-              "duration": 120000000
+              "duration": 133000000
             }
           },
           {
@@ -36,76 +36,77 @@
             "name": "verify page Title \"Employee Attendance\" is visible",
             "result": {
               "status": "passed",
-              "duration": 14000000
+              "duration": 15000000
             }
           },
           {
             "arguments": [],
             "keyword": "When ",
-            "line": 100,
-            "name": "I click the id filter",
+            "line": 116,
+            "name": "verify Lines per page select button is functional and visible",
             "result": {
               "status": "passed",
-              "duration": 41000000
+              "duration": 34000000
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 101,
-            "name": "If fill with id nummer \"125\"",
+            "line": 117,
+            "name": "If click \"10\" in Lines Per Page",
             "result": {
               "status": "passed",
-              "duration": 3040000000
-            }
-          },
-          {
-            "arguments": [
-              {
-                "rows": [
-                  {
-                    "cells": [
-                      "id",
-                      "name",
-                      "lastname"
-                    ]
-                  },
-                  {
-                    "cells": [
-                      "125",
-                      "Mehmet",
-                      "test_attendance"
-                    ]
-                  }
-                ]
-              }
-            ],
-            "keyword": "Then ",
-            "line": 102,
-            "name": "I see first row has data like below:",
-            "result": {
-              "status": "passed",
-              "duration": 10000000
+              "duration": 5173000000
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 105,
-            "name": "click edit button in first row of employee attendance page",
+            "line": 118,
+            "name": "I see the number of rows in employee table is not more than the \"10\"",
             "result": {
               "status": "passed",
-              "duration": 79000000
+              "duration": 4000000
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 106,
-            "name": "verify \"Mehmet\" \"test_attendance\" is seen as page title",
+            "line": 119,
+            "name": "verify next_page button is visible and clickable",
             "result": {
               "status": "passed",
-              "duration": 1000000
+              "duration": 32000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 120,
+            "name": "I click employee_attendance next page button under rows , and verify number of rows are not more than \"10\"",
+            "result": {
+              "status": "passed",
+              "duration": 78000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 121,
+            "name": "verify_previous page button is visible and clickable",
+            "result": {
+              "status": "passed",
+              "duration": 18000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 122,
+            "name": "I click employee_attendance previous page button , and verify number of rows are not more than \"10\"",
+            "result": {
+              "status": "passed",
+              "duration": 102000000
             }
           },
           {
@@ -113,11 +114,266 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 209000000
+              "duration": 287000000
             }
           }
         ],
         "tags": [
+          {
+            "name": "@only"
+          },
+          {
+            "name": "@only"
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "employee-attendance-module-functionality;120-122-verify-the-number-of-rows-in-the-employee-table-should-reflect-the-correct-count.",
+        "keyword": "Scenario Outline",
+        "line": 127,
+        "name": "120-122 verify the number of rows in the employee table should reflect the correct count.",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 4,
+            "name": "Navigate to Dashboard with \"english\" language",
+            "result": {
+              "status": "passed",
+              "duration": 5153000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 5,
+            "name": "click module button: \"employee_attendance_btn\"",
+            "result": {
+              "status": "passed",
+              "duration": 130000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 6,
+            "name": "verify page Title \"Employee Attendance\" is visible",
+            "result": {
+              "status": "passed",
+              "duration": 13000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 116,
+            "name": "verify Lines per page select button is functional and visible",
+            "result": {
+              "status": "passed",
+              "duration": 33000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 117,
+            "name": "If click \"25\" in Lines Per Page",
+            "result": {
+              "status": "passed",
+              "duration": 5173000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 118,
+            "name": "I see the number of rows in employee table is not more than the \"25\"",
+            "result": {
+              "status": "passed",
+              "duration": 6000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 119,
+            "name": "verify next_page button is visible and clickable",
+            "result": {
+              "status": "passed",
+              "duration": 45000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 120,
+            "name": "I click employee_attendance next page button under rows , and verify number of rows are not more than \"25\"",
+            "result": {
+              "status": "passed",
+              "duration": 88000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 121,
+            "name": "verify_previous page button is visible and clickable",
+            "result": {
+              "status": "passed",
+              "duration": 28000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 122,
+            "name": "I click employee_attendance previous page button , and verify number of rows are not more than \"25\"",
+            "result": {
+              "status": "passed",
+              "duration": 92000000
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 269000000
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@only"
+          },
+          {
+            "name": "@only"
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "employee-attendance-module-functionality;120-122-verify-the-number-of-rows-in-the-employee-table-should-reflect-the-correct-count.",
+        "keyword": "Scenario Outline",
+        "line": 128,
+        "name": "120-122 verify the number of rows in the employee table should reflect the correct count.",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 4,
+            "name": "Navigate to Dashboard with \"english\" language",
+            "result": {
+              "status": "passed",
+              "duration": 5069000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 5,
+            "name": "click module button: \"employee_attendance_btn\"",
+            "result": {
+              "status": "passed",
+              "duration": 141000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 6,
+            "name": "verify page Title \"Employee Attendance\" is visible",
+            "result": {
+              "status": "passed",
+              "duration": 10000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 116,
+            "name": "verify Lines per page select button is functional and visible",
+            "result": {
+              "status": "passed",
+              "duration": 22000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 117,
+            "name": "If click \"50\" in Lines Per Page",
+            "result": {
+              "status": "passed",
+              "duration": 5142000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 118,
+            "name": "I see the number of rows in employee table is not more than the \"50\"",
+            "result": {
+              "status": "passed",
+              "duration": 3000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 119,
+            "name": "verify next_page button is visible and clickable",
+            "result": {
+              "status": "passed",
+              "duration": 1914000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 120,
+            "name": "I click employee_attendance next page button under rows , and verify number of rows are not more than \"50\"",
+            "result": {
+              "status": "passed",
+              "duration": 73000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 121,
+            "name": "verify_previous page button is visible and clickable",
+            "result": {
+              "status": "passed",
+              "duration": 16000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 122,
+            "name": "I click employee_attendance previous page button , and verify number of rows are not more than \"50\"",
+            "result": {
+              "status": "passed",
+              "duration": 92000000
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 386000000
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@only"
+          },
           {
             "name": "@only"
           }
@@ -125,11 +381,16 @@
         "type": "scenario"
       }
     ],
-    "id": "chromium-›-employee-attendance-module-functionality",
+    "id": "employee-attendance-module-functionality",
     "line": 2,
     "keyword": "Feature",
     "name": "Employee attendance module functionality",
-    "tags": [],
+    "tags": [
+      {
+        "name": "@only",
+        "line": 1
+      }
+    ],
     "uri": ".cucumber/features/employee_attandence.feature"
   }
 ]

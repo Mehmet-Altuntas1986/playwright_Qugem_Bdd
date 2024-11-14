@@ -188,7 +188,7 @@ Feature:Employee Master Data Module functionality
         Then I verify the number of rows in employee table is not more than the "<number_chosen>"
         Then I verify next page button is visible and clickable
         Then I click employee table next page button , and verify number of rows are not more than "<number_chosen>"
-        Then I click previous page button is visible and clickable
+        Then I verify_previous page button is visible and clickable
         Then I click employee table previous page button , and verify number of rows are not more than "<number_chosen>"
 
         Examples:the numbers in line per page in employee master data table

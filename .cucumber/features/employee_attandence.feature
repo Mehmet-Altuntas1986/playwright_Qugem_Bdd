@@ -1,4 +1,4 @@
-
+@only
 Feature:Employee attendance module functionality
     Background:
         Given Navigate to Dashboard with "english" language
@@ -67,7 +67,7 @@ Feature:Employee attendance module functionality
 
     Scenario:112 verify name and lastName filters are working as expected
         Then I click the name filter and fill with "Mehmet"
-        Then I click lastNmae filter and fill with "test_attendance"
+        Then I click lastName filter and fill with "test_attendance"
         Then I see in the first row employee data is visible like this:
             | id  | name   | surname         | company                 |
             | 125 | Mehmet | test_attendance | QUICKLY TRANSPORTE GMBH |
@@ -95,7 +95,7 @@ Feature:Employee attendance module functionality
             | Sick leave                  |
 
 
-   
+
     Scenario Outline:119 verify chosen employee name and surname goes to attendance edit page as title correctly
         When I click the id filter
         Then If fill with id nummer "<id>"
@@ -110,7 +110,25 @@ Feature:Employee attendance module functionality
             | 125 | Mehmet | test_attendance |
 
 
-    
+ @only
+    Scenario Outline:120-122 verify the number of rows in the employee table should reflect the correct count.
+
+        When verify Lines per page select button is functional and visible
+        Then If click "<number_in_example>" in Lines Per Page
+        Then I see the number of rows in employee table is not more than the "<number_in_example>"
+        Then verify next_page button is visible and clickable
+        Then I click employee_attendance next page button under rows , and verify number of rows are not more than "<number_in_example>"
+        Then verify_previous page button is visible and clickable
+        Then I click employee_attendance previous page button , and verify number of rows are not more than "<number_in_example>"
+
+        Examples:the numbers in line per page in employee master data table
+            | number_in_example |
+            | 10                |
+            | 25                |
+            | 50                |
+
+
+
 
 
 

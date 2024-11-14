@@ -145,17 +145,17 @@ Then('I click the name filter and fill with {string}', async ({ page }, name) =>
     await employeeAttendance.firstName_filter.fill(name)
 });
 
-Then('I click lastNmae filter and fill with {string}', async ({ page }, lastname) => {
+Then('I click lastName filter and fill with {string}', async ({ page }, lastname) => {
     await employeeAttendance.LastName_filter.click()
     await employeeAttendance.LastName_filter.fill("")
     await employeeAttendance.LastName_filter.fill(lastname)
-    await page.waitForTimeout(3000)
+    await page.waitForTimeout(4000)
 
 });
 
 Then('I verify employee attendance edit button is visible and clickable', async ({ page }) => {
     await expect(employeeAttendance.edit_Button_in_first_row).toBeVisible()
-    await expect(employeeAttendance.edit_Button_in_first_row).toBeEnabled()
+    await expect(employeeAttendance.edit_Button_in_first_row).toBeEnabled({timeout:10000})
 
 });
 
@@ -190,4 +190,89 @@ Then('verify {string} {string} is seen as page title', async ({ page }, name, la
     const isVisible_el = page.getByRole('heading', { name: `${name} ${lastname}` }).isVisible()
     expect(isVisible_el).toBeTruthy()
 
+});
+
+When('verify Lines per page select button is functional and visible', async ({ page }) => {
+    await employeeAttendance.lines_per_page.waitFor(); // is a Playwright function that waits for the element to appear in the DOM before interacting with it
+    await expect(employeeAttendance.lines_per_page).toBeVisible();
+    await expect(employeeAttendance.lines_per_page).toBeEnabled();
+});
+
+Then('If click {string} in Lines Per Page', async ({ page }, number_chosen) => {
+    employeeAttendance = new EmployeeAttendancePage(page)
+
+    await page.getByLabel('50').click(); //first this appears always
+    await page.waitForTimeout(1000)
+    let rows = await employeeAttendance.page_rows
+
+    if (parseInt(number_chosen) === 10) {
+        await page.getByRole('option', { name: '10' }).click();
+        await page.waitForTimeout(4000)
+        console.log(number_chosen + " is the number chosen and the number of appeared row is " + await rows.count())
+
+    } else if (parseInt(number_chosen) === 25) {
+        await page.getByRole('option', { name: '25' }).click();
+        await page.waitForTimeout(4000)
+        console.log(number_chosen + " is the number chosen and the number of appeared row is " + await rows.count())
+
+
+    } else if (parseInt(number_chosen) === 50) {
+        await page.getByRole('option', { name: '50' }).click();
+        await page.waitForTimeout(4000)
+        console.log(number_chosen + " is the number chosen and the number of appeared row is " + await rows.count())
+
+
+    }
+});
+
+Then('I see the number of rows in employee table is not more than the {string}', async ({ page }, number_chosen) => {
+    const rowCount = await employeeAttendance.page_rows.count();
+    expect(rowCount).toBeLessThanOrEqual(parseInt(number_chosen));
+});
+
+Then('verify next_page button is visible and clickable', async ({ page }) => {
+    await employeeAttendance.nextpage_arrow.waitFor();  // Wait for the next page button to appear
+    await expect(employeeAttendance.nextpage_arrow).toBeVisible();  // Ensure the button is visible
+    await expect(employeeAttendance.nextpage_arrow).toBeEnabled({timeout:10000});  // default 5000 second bekler
+
+});
+
+Then('I click employee_attendance next page button under rows , and verify number of rows are not more than {string}', async ({ page }, number_chosen) => {
+    // Click the next page button
+    await employeeAttendance.nextpage_arrow.click();
+
+    // Wait for the table to load the next page (you can wait for a specific element change)
+    await employeeAttendance.page_rows.waitFor();
+
+    // Get the row count in the employee table
+    const rowCount = await employeeAttendance.page_rows.count();
+
+    // Verify the row count is not more than the chosen number
+    expect(rowCount).toBeLessThanOrEqual(parseInt(number_chosen));
+});
+
+Then('verify_previous page button is visible and clickable', async ({ page }) => {
+    // Wait for the previous page button to appear
+    await employeeAttendance.previous_page_arrow.waitFor();
+
+    // Ensure the previous page button is visible
+    await expect(employeeAttendance.previous_page_arrow).toBeVisible();
+
+    // Ensure the button is clickable (enabled)
+    await expect(employeeAttendance.previous_page_arrow).toBeEnabled();
+});
+
+
+Then('I click employee_attendance previous page button , and verify number of rows are not more than {string}', async ({ page }, number_chosen) => {
+    // Click the previous page button
+    await employeeAttendance.previous_page_arrow.click();
+
+    // Wait for the table to load the previous page
+    await employeeAttendance.page_rows.waitFor();
+
+    // Get the row count in the employee table
+    const rowCount = await employeeAttendance.page_rows.count();
+
+    // Verify the row count is not more than the chosen number
+    expect(rowCount).toBeLessThanOrEqual(parseInt(number_chosen));
 });
