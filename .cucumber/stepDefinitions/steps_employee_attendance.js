@@ -285,3 +285,10 @@ Then('verify if day is holiday ,{string} is not clickable and functional', async
 
 
   });
+
+  Then('I verify warning {string}', async ({page}, warning) => {
+
+   const text=await page.getByRole('heading', { name: 'The employee is not actively' }).textContent()
+   console.log("warning message text is:",text)
+   await expect(text).toBe(warning)
+  });
