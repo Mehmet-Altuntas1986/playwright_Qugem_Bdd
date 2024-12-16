@@ -50,6 +50,11 @@ export class EmployeeAttendancePage extends BasePage {
         this.nextpage_arrow = this.page.getByLabel('Next page')
         this.previous_page_arrow = this.page.getByLabel('Previous page')
 
+//dynamic locaters 
+//this.dayNumberInMonth=this.page.locator(`//tbody/tr[2]/td[1]/span[${intValue}]/div[1]`)  //method parameter should be numeric
+//this.attendance_box_in_day=this.page.locater(`//tbody/tr[1]/td[1]/div[${dayNumber}]/div[1]/div[1]`)
+
+
 
 
     }

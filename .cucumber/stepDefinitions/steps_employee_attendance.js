@@ -201,7 +201,7 @@ When('verify Lines per page select button is functional and visible', async ({ p
 Then('If click {string} in Lines Per Page', async ({ page }, number_chosen) => {
     employeeAttendance = new EmployeeAttendancePage(page)
 
-    await page.getByLabel('50').click(); //first this appears always
+    await page.getByLabel('50').click({timeout:1000}); //first this appears always
     await page.waitForTimeout(1000)
     let rows = await employeeAttendance.page_rows
 
@@ -276,3 +276,12 @@ Then('I click employee_attendance previous page button , and verify number of ro
     // Verify the row count is not more than the chosen number
     expect(rowCount).toBeLessThanOrEqual(parseInt(number_chosen));
 });
+
+Then('verify if day is holiday ,{string} is not clickable and functional', async ({page}, dayNumberInMonth) => {
+ const attendance_box=  page.locator(`//tbody/tr[1]/td[1]/div[${dayNumberInMonth}]/div[1]/div[1]`)
+ await expect(attendance_box).toBeVisible()
+ await expect(attendance_box).not.toBeEnabled({timeout:5000})
+ console.log(`Day number ${dayNumberInMonth} is verified as a holiday and not functional.`);
+
+
+  });
