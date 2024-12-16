@@ -1,4 +1,4 @@
-@only
+
 Feature:Employee attendance module functionality
     Background:
         Given Navigate to Dashboard with "english" language
@@ -110,7 +110,7 @@ Feature:Employee attendance module functionality
             | 125 | Mehmet | test_attendance |
 
 
- @only
+
     Scenario Outline:120-122 verify the number of rows in the employee table should reflect the correct count.
 
         When verify Lines per page select button is functional and visible
@@ -127,10 +127,64 @@ Feature:Employee attendance module functionality
             | 25                |
             | 50                |
 
+    @passed
+    Scenario Outline:123-136 verify in official holiday days , attendance status edit is not functional
+        Then I verify select month svg button is functional and I click it
+        When I click the chosen "<month>"
+        Then I see "<month>" becomes visible in select Box
 
+        Then I click year svg button
+        When I click the "<year>" in example
+        Then verify "<year>" becomes visible in select Box
 
+        When I click the id filter
+        Then If fill with id nummer "<id>"
+        Then I see first row has data like below:
+            | id  | name   | lastname        |
+            | 125 | Mehmet | test_attendance |
+        Then click edit button in first row of employee attendance page
+        Then verify "<name>" "<lastname>" is seen as page title
+        Then verify if day is holiday ,"<attendence_status_box_in_day_of>" is not clickable and functional
 
+        Examples:
+            | id  | name   | lastname        | attendence_status_box_in_day_of | month    | year |
+            | 125 | Mehmet | test_attendance | 1                               | November | 2024 |
+            | 125 | Mehmet | test_attendance | 25                              | December | 2024 |
+            | 125 | Mehmet | test_attendance | 26                              | December | 2024 |
+            | 125 | Mehmet | test_attendance | 1                               | January  | 2025 |
+            | 125 | Mehmet | test_attendance | 6                               | January  | 2025 |
+            | 125 | Mehmet | test_attendance | 18                              | April    | 2025 |
+            | 125 | Mehmet | test_attendance | 21                              | April    | 2025 |
+            | 125 | Mehmet | test_attendance | 1                               | May      | 2025 |
+            | 125 | Mehmet | test_attendance | 29                              | May      | 2025 |
+            | 125 | Mehmet | test_attendance | 9                               | June     | 2025 |
+            | 125 | Mehmet | test_attendance | 3                               | October  | 2025 |
+            | 125 | Mehmet | test_attendance | 25                              | December | 2025 |
+            | 125 | Mehmet | test_attendance | 26                              | December | 2025 |
 
+    @only
+    Scenario Outline:137 verify an employee attendance edit is not functional in a date which employee didnt start working in company
+
+        When I click the id filter
+        Then If fill with id nummer "<id>"
+        Then I see first row has data like below:
+            | id  | name   | lastname        |
+            | 125 | Mehmet | test_attendance |
+        Then click edit button in first row of employee attendance page
+        Then verify "<name>" "<lastname>" is seen as page title
+        
+        Then I verify select month svg button is functional and I click it
+        When I click the chosen "<month>"
+        Then I see "<month>" becomes visible in select Box
+
+        Then I click year svg button
+        When I click the "<year>" in example
+        Then verify "<year>" becomes visible in select Box
+        Then I verify warning "The employee is not actively working in the selected month"
+
+        Examples:
+            | id  | name   | lastname        | attendence_status_box_in_day_of | month | year |
+            | 125 | Mehmet | test_attendance | 1                               | July  | 2024 |
 
 
 

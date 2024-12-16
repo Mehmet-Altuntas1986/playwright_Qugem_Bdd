@@ -32,9 +32,7 @@ export default defineConfig({
     
     ['allure-playwright', { outputDir: 'allure-results' }],
 
-    
   ],
-
 
   use: {
 

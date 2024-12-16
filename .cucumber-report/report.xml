@@ -1,39 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite failures="0" skipped="0" name="my suite" time="36.222" tests="3">
-  <testcase classname="Employee attendance module functionality" name="Employee attendance module functionality › 120-122 verify the number of rows in the employee table should reflect the correct count." time="12.324000000000002">
+<testsuite failures="0" skipped="0" name="my suite" time="15.269" tests="1">
+  <testcase classname="Employee attendance module functionality" name="chromium › Employee attendance module functionality › 137 verify an employee attendance edit is not functional in a date which employee didnt start working in company" time="15.269">
     <system-out><![CDATA[Given Navigate to Dashboard with "english" language.......................passed
 Then click module button: "employee_attendance_btn".......................passed
 Then verify page Title "Employee Attendance" is visible...................passed
-When verify Lines per page select button is functional and visible........passed
-Then If click "10" in Lines Per Page......................................passed
-Then I see the number of rows in employee table is not more than the "1...passed
-Then verify next_page button is visible and clickable.....................passed
-Then I click employee_attendance next page button under rows , and veri...passed
-Then verify_previous page button is visible and clickable.................passed
-Then I click employee_attendance previous page button , and verify numb...passed]]></system-out>
-  </testcase>
-  <testcase classname="Employee attendance module functionality" name="Employee attendance module functionality › 120-122 verify the number of rows in the employee table should reflect the correct count. [1]" time="11.03">
-    <system-out><![CDATA[Given Navigate to Dashboard with "english" language.......................passed
-Then click module button: "employee_attendance_btn".......................passed
-Then verify page Title "Employee Attendance" is visible...................passed
-When verify Lines per page select button is functional and visible........passed
-Then If click "25" in Lines Per Page......................................passed
-Then I see the number of rows in employee table is not more than the "2...passed
-Then verify next_page button is visible and clickable.....................passed
-Then I click employee_attendance next page button under rows , and veri...passed
-Then verify_previous page button is visible and clickable.................passed
-Then I click employee_attendance previous page button , and verify numb...passed]]></system-out>
-  </testcase>
-  <testcase classname="Employee attendance module functionality" name="Employee attendance module functionality › 120-122 verify the number of rows in the employee table should reflect the correct count. [2]" time="12.868">
-    <system-out><![CDATA[Given Navigate to Dashboard with "english" language.......................passed
-Then click module button: "employee_attendance_btn".......................passed
-Then verify page Title "Employee Attendance" is visible...................passed
-When verify Lines per page select button is functional and visible........passed
-Then If click "50" in Lines Per Page......................................passed
-Then I see the number of rows in employee table is not more than the "5...passed
-Then verify next_page button is visible and clickable.....................passed
-Then I click employee_attendance next page button under rows , and veri...passed
-Then verify_previous page button is visible and clickable.................passed
-Then I click employee_attendance previous page button , and verify numb...passed]]></system-out>
+When I click the id filter................................................passed
+Then If fill with id nummer "125".........................................passed
+Then I see first row has data like below:.................................passed
+Then click edit button in first row of employee attendance page...........passed
+Then verify "Mehmet" "test_attendance" is seen as page title..............passed
+Then I verify select month svg button is functional and I click it........passed
+When I click the chosen "July"............................................passed
+Then I see "July" becomes visible in select Box...........................passed
+Then I click year svg button..............................................passed
+When I click the "2024" in example........................................passed
+Then verify "2024" becomes visible in select Box..........................passed
+Then I verify warning "The employee is not actively working in the sele...passed]]></system-out>
   </testcase>
 </testsuite>
