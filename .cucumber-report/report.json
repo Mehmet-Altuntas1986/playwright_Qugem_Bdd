@@ -4,10 +4,10 @@
     "elements": [
       {
         "description": "",
-        "id": "employee-attendance-module-functionality;137-verify-an-employee-attendance-edit-is-not-functional-in-a-date-which-employee-didnt-start-working-in-company",
+        "id": "employee-attendance-module-functionality;138-verify-if-any-suitable-day-attendace-status-box-is-clicked-and-k-sick-leave-is-chosen,-sick-leave-number-changes",
         "keyword": "Scenario Outline",
-        "line": 187,
-        "name": "137 verify an employee attendance edit is not functional in a date which employee didnt start working in company",
+        "line": 219,
+        "name": "138 verify if any suitable day attendace status box is clicked and K-Sick leave is chosen, sick leave number changes",
         "steps": [
           {
             "arguments": [],
@@ -16,7 +16,7 @@
             "name": "Navigate to Dashboard with \"english\" language",
             "result": {
               "status": "passed",
-              "duration": 5550000000
+              "duration": 5491000000
             }
           },
           {
@@ -26,7 +26,7 @@
             "name": "click module button: \"employee_attendance_btn\"",
             "result": {
               "status": "passed",
-              "duration": 125000000
+              "duration": 136000000
             }
           },
           {
@@ -36,27 +36,87 @@
             "name": "verify page Title \"Employee Attendance\" is visible",
             "result": {
               "status": "passed",
-              "duration": 9000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "When ",
-            "line": 168,
-            "name": "I click the id filter",
-            "result": {
-              "status": "passed",
-              "duration": 73000000
+              "duration": 10000000
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 169,
+            "line": 192,
+            "name": "I verify select month svg button is functional and I click it",
+            "result": {
+              "status": "passed",
+              "duration": 1029000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 193,
+            "name": "I click the chosen \"December\"",
+            "result": {
+              "status": "passed",
+              "duration": 1073000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 194,
+            "name": "I see \"December\" becomes visible in select Box",
+            "result": {
+              "status": "passed",
+              "duration": 16000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 196,
+            "name": "I click year svg button",
+            "result": {
+              "status": "passed",
+              "duration": 1530000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 197,
+            "name": "I click the \"2024\" in example",
+            "result": {
+              "status": "passed",
+              "duration": 2095000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 198,
+            "name": "verify \"2024\" becomes visible in select Box",
+            "result": {
+              "status": "passed",
+              "duration": 13000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 200,
+            "name": "I click the id filter",
+            "result": {
+              "status": "passed",
+              "duration": 33000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 201,
             "name": "If fill with id nummer \"125\"",
             "result": {
               "status": "passed",
-              "duration": 3038000000
+              "duration": 3078000000
             }
           },
           {
@@ -81,58 +141,68 @@
               }
             ],
             "keyword": "Then ",
-            "line": 170,
+            "line": 202,
             "name": "I see first row has data like below:",
             "result": {
               "status": "passed",
-              "duration": 9000000
+              "duration": 13000000
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 173,
+            "line": 205,
             "name": "click edit button in first row of employee attendance page",
             "result": {
               "status": "passed",
-              "duration": 106000000
+              "duration": 2094000000
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 174,
+            "line": 206,
             "name": "verify \"Mehmet\" \"test_attendance\" is seen as page title",
             "result": {
               "status": "passed",
-              "duration": 1000000
+              "duration": 3000000
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 176,
-            "name": "I verify select month svg button is functional and I click it",
+            "line": 208,
+            "name": "verify if,\"3\" is clickable",
             "result": {
               "status": "passed",
-              "duration": 1382000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "When ",
-            "line": 177,
-            "name": "I click the chosen \"July\"",
-            "result": {
-              "status": "passed",
-              "duration": 1079000000
+              "duration": 20000000
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 178,
-            "name": "I see \"July\" becomes visible in select Box",
+            "line": 209,
+            "name": "click \"3\"",
+            "result": {
+              "status": "passed",
+              "duration": 1051000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 210,
+            "name": "choose letter \"A\" means sick leave and click and save changes",
+            "result": {
+              "status": "passed",
+              "duration": 3445000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 211,
+            "name": "verify sick leave day is seen \"0\" before any edit in attendance in month",
             "result": {
               "status": "passed",
               "duration": 10000000
@@ -141,41 +211,31 @@
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 180,
-            "name": "I click year svg button",
+            "line": 213,
+            "name": "click \"3\"",
             "result": {
               "status": "passed",
-              "duration": 1526000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "When ",
-            "line": 181,
-            "name": "I click the \"2024\" in example",
-            "result": {
-              "status": "passed",
-              "duration": 2075000000
+              "duration": 1072000000
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 182,
-            "name": "verify \"2024\" becomes visible in select Box",
+            "line": 214,
+            "name": "choose letter \"K\" means sick leave and click and save changes",
             "result": {
               "status": "passed",
-              "duration": 10000000
+              "duration": 3444000000
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 183,
-            "name": "I verify warning \"The employee is not actively working in the selected month\"",
+            "line": 215,
+            "name": "verify sick_leave_day is seen \"1\"",
             "result": {
               "status": "passed",
-              "duration": 11000000
+              "duration": 33000000
             }
           },
           {
@@ -183,7 +243,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 265000000
+              "duration": 473000000
             }
           }
         ],

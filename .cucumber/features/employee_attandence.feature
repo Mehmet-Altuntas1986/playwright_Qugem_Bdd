@@ -144,7 +144,7 @@ Feature:Employee attendance module functionality
             | 125 | Mehmet | test_attendance |
         Then click edit button in first row of employee attendance page
         Then verify "<name>" "<lastname>" is seen as page title
-        Then verify if day is holiday ,"<attendence_status_box_in_day_of>" is not clickable and functional
+        Then verify if day is holiday ,"<attendence_status_box_in_day_of>" is not clickable and not functional
 
         Examples:
             | id  | name   | lastname        | attendence_status_box_in_day_of | month    | year |
@@ -162,7 +162,7 @@ Feature:Employee attendance module functionality
             | 125 | Mehmet | test_attendance | 25                              | December | 2025 |
             | 125 | Mehmet | test_attendance | 26                              | December | 2025 |
 
-    @only
+    @passed
     Scenario Outline:137 verify an employee attendance edit is not functional in a date which employee didnt start working in company
 
         When I click the id filter
@@ -172,7 +172,7 @@ Feature:Employee attendance module functionality
             | 125 | Mehmet | test_attendance |
         Then click edit button in first row of employee attendance page
         Then verify "<name>" "<lastname>" is seen as page title
-        
+
         Then I verify select month svg button is functional and I click it
         When I click the chosen "<month>"
         Then I see "<month>" becomes visible in select Box
@@ -186,6 +186,37 @@ Feature:Employee attendance module functionality
             | id  | name   | lastname        | attendence_status_box_in_day_of | month | year |
             | 125 | Mehmet | test_attendance | 1                               | July  | 2024 |
 
+
+    @only @passed
+    Scenario Outline:138 verify if any suitable day attendace status box is clicked and K-Sick leave is chosen, sick leave number changes
+        Then I verify select month svg button is functional and I click it
+        When I click the chosen "<month>"
+        Then I see "<month>" becomes visible in select Box
+
+        Then I click year svg button
+        When I click the "<year>" in example
+        Then verify "<year>" becomes visible in select Box
+
+        When I click the id filter
+        Then If fill with id nummer "<id>"
+        Then I see first row has data like below:
+            | id  | name   | lastname        |
+            | 125 | Mehmet | test_attendance |
+        Then click edit button in first row of employee attendance page
+        Then verify "<name>" "<lastname>" is seen as page title
+
+        Then verify if,"<attendence_status_box_in_day_of>" is clickable
+        Then click "<attendence_status_box_in_day_of>"
+        Then choose letter "A" means sick leave and click and save changes
+        Then verify sick leave day is seen "0" before any edit in attendance in month
+        
+        Then click "<attendence_status_box_in_day_of>"
+        Then choose letter "K" means sick leave and click and save changes
+        Then verify sick_leave_day is seen "1"
+
+        Examples:
+            | id  | name   | lastname        | attendence_status_box_in_day_of | month    | year |
+            | 125 | Mehmet | test_attendance | 3                               | December | 2024 |
 
 
 
