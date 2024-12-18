@@ -10,5 +10,8 @@ allure-results
 allure-report
 /e2e
 .cucumber-report/*
+.cucumber-report/report.json
+.cucumber-report/report.xml
+.cucumber-report/report.html
 tests
 tests-examples

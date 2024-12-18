@@ -1,20 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite failures="0" skipped="0" name="my suite" time="15.269" tests="1">
-  <testcase classname="Employee attendance module functionality" name="chromium › Employee attendance module functionality › 137 verify an employee attendance edit is not functional in a date which employee didnt start working in company" time="15.269">
+<testsuite failures="0" skipped="0" name="my suite" time="26.161999999999995" tests="1">
+  <testcase classname="Employee attendance module functionality" name="chromium › Employee attendance module functionality › 138 verify if any suitable day attendace status box is clicked and K-Sick leave is chosen, sick leave number changes" time="26.161999999999995">
     <system-out><![CDATA[Given Navigate to Dashboard with "english" language.......................passed
 Then click module button: "employee_attendance_btn".......................passed
 Then verify page Title "Employee Attendance" is visible...................passed
+Then I verify select month svg button is functional and I click it........passed
+When I click the chosen "December"........................................passed
+Then I see "December" becomes visible in select Box.......................passed
+Then I click year svg button..............................................passed
+When I click the "2024" in example........................................passed
+Then verify "2024" becomes visible in select Box..........................passed
 When I click the id filter................................................passed
 Then If fill with id nummer "125".........................................passed
 Then I see first row has data like below:.................................passed
 Then click edit button in first row of employee attendance page...........passed
 Then verify "Mehmet" "test_attendance" is seen as page title..............passed
-Then I verify select month svg button is functional and I click it........passed
-When I click the chosen "July"............................................passed
-Then I see "July" becomes visible in select Box...........................passed
-Then I click year svg button..............................................passed
-When I click the "2024" in example........................................passed
-Then verify "2024" becomes visible in select Box..........................passed
-Then I verify warning "The employee is not actively working in the sele...passed]]></system-out>
+Then verify if,"3" is clickable...........................................passed
+Then click "3"............................................................passed
+Then choose letter "A" means sick leave and click and save changes........passed
+Then verify sick leave day is seen "0" before any edit in attendance in...passed
+Then click "3"............................................................passed
+Then choose letter "K" means sick leave and click and save changes........passed
+Then verify sick_leave_day is seen "1"....................................passed]]></system-out>
   </testcase>
 </testsuite>

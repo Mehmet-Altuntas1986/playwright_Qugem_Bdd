@@ -155,12 +155,13 @@ Then('I click lastName filter and fill with {string}', async ({ page }, lastname
 
 Then('I verify employee attendance edit button is visible and clickable', async ({ page }) => {
     await expect(employeeAttendance.edit_Button_in_first_row).toBeVisible()
-    await expect(employeeAttendance.edit_Button_in_first_row).toBeEnabled({timeout:10000})
+    await expect(employeeAttendance.edit_Button_in_first_row).toBeEnabled({ timeout: 10000 })
 
 });
 
 Then('click edit button in first row of employee attendance page', async ({ page }) => {
     await employeeAttendance.edit_Button_in_first_row.click()
+    await page.waitForTimeout(2000)
 });
 
 Then('I verify the {string} are visible', async ({ page }, textTitle) => {
@@ -201,7 +202,7 @@ When('verify Lines per page select button is functional and visible', async ({ p
 Then('If click {string} in Lines Per Page', async ({ page }, number_chosen) => {
     employeeAttendance = new EmployeeAttendancePage(page)
 
-    await page.getByLabel('50').click({timeout:1000}); //first this appears always
+    await page.getByLabel('50').click({ timeout: 1000 }); //first this appears always
     await page.waitForTimeout(1000)
     let rows = await employeeAttendance.page_rows
 
@@ -233,7 +234,7 @@ Then('I see the number of rows in employee table is not more than the {string}',
 Then('verify next_page button is visible and clickable', async ({ page }) => {
     await employeeAttendance.nextpage_arrow.waitFor();  // Wait for the next page button to appear
     await expect(employeeAttendance.nextpage_arrow).toBeVisible();  // Ensure the button is visible
-    await expect(employeeAttendance.nextpage_arrow).toBeEnabled({timeout:10000});  // default 5000 second bekler
+    await expect(employeeAttendance.nextpage_arrow).toBeEnabled({ timeout: 10000 });  // default 5000 second bekler
 
 });
 
@@ -277,18 +278,58 @@ Then('I click employee_attendance previous page button , and verify number of ro
     expect(rowCount).toBeLessThanOrEqual(parseInt(number_chosen));
 });
 
-Then('verify if day is holiday ,{string} is not clickable and functional', async ({page}, dayNumberInMonth) => {
- const attendance_box=  page.locator(`//tbody/tr[1]/td[1]/div[${dayNumberInMonth}]/div[1]/div[1]`)
- await expect(attendance_box).toBeVisible()
- await expect(attendance_box).not.toBeEnabled({timeout:5000})
- console.log(`Day number ${dayNumberInMonth} is verified as a holiday and not functional.`);
+Then('verify if day is holiday ,{string} is not clickable and not functional', async ({ page }, dayNumberInMonth) => {
+    const attendance_box = page.locator(`//tbody/tr[1]/td[1]/div[${dayNumberInMonth}]/div[1]/div[1]`)
+    await expect(attendance_box).toBeVisible()
+    await expect(attendance_box).not.toBeEnabled({ timeout: 5000 })
+    console.log(`Day number ${dayNumberInMonth} is verified as a holiday and not functional.`);
 
 
+});
+
+Then('I verify warning {string}', async ({ page }, warning) => {
+
+    const text = await page.getByRole('heading', { name: 'The employee is not actively' }).textContent()
+    console.log("warning message text is:", text)
+    await expect(text).toBe(warning)
+});
+
+Then('verify if,{string} is clickable', async ({ page }, dayNumberInMonth) => {
+    const attendance_box = page.locator(`//tbody/tr[1]/td[1]/div[${dayNumberInMonth}]/div[1]/div[1]`)  //status box in day 
+    await expect(attendance_box).toBeVisible()
+    await expect(attendance_box).toBeEnabled({ timeout: 5000 })
+    console.log(`Day number ${dayNumberInMonth} is verified as functional.`);
+});
+
+Then('click {string}', async ({ page }, dayNumberInMonth) => {
+    const attendance_box = await page.locator(`//tbody/tr[1]/td[1]/div[${dayNumberInMonth}]/div[1]/div[1]`)  //status box in day 
+    await attendance_box.click()
+    await page.waitForTimeout(1000)
+
+});
+
+Then('verify sick leave day is seen {string} before any edit in attendance in month', async ({ page }, number_in_text) => {
+    const sick_leave_number_text = await page.locator("//span[normalize-space()='Sick leave']/../p").textContent()
+    await expect(sick_leave_number_text).toBe(number_in_text)
+});
+
+Then('choose letter {string} means sick leave and click and save changes', async ({ page }, letter ) => {
+    employeeAttendance=new EmployeeAttendancePage(page)
+    
+    await employeeAttendance.selectLetter_and_click_and_save(letter)
+});
+
+
+
+Then('choose letter {string} means sick_leave and click and save changes to take back change in test', async ({page}, letter) => {
+    employeeAttendance=new EmployeeAttendancePage(page)
+    
+    await employeeAttendance.selectLetter_and_click_and_save(letter)
+    await page.waitForTimeout(2000)
   });
 
-  Then('I verify warning {string}', async ({page}, warning) => {
-
-   const text=await page.getByRole('heading', { name: 'The employee is not actively' }).textContent()
-   console.log("warning message text is:",text)
-   await expect(text).toBe(warning)
-  });
+Then('verify sick_leave_day is seen {string}', async ({ page }, number_in_text) => {
+    await page.waitForSelector("//span[normalize-space()='Sick leave']/../p")
+    const sick_leave_number_text = await page.locator("//span[normalize-space()='Sick leave']/../p").textContent()
+    expect(sick_leave_number_text).toBe(number_in_text)
+});
